@@ -24,13 +24,15 @@ defmodule StarWeb.Router do
   end
 
   scope "/", StarWeb do
-
+		pipe_through :browser
     get "/", PageController, :index
-    live "/admin", HomeLive
+    get "/home", LoginController, :index
+    post "/login", LoginController, :login
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", StarWeb do
-  #   pipe_through :api
-  # end
+	scope "/admin", StarWeb do
+		pipe_through [:browser, :browser_pipeline, :ensure_auth]
+    live "/", HomeLive
+	end
+
 end
