@@ -4,7 +4,7 @@ defmodule StarWeb.Endpoint do
   socket "/live", Phoenix.LiveView.Socket
 
   socket "/socket", StarWeb.UserSocket,
-    websocket: true,
+    websocket: [timeout: 50_000],
     longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
