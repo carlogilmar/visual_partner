@@ -27,6 +27,10 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 config :phoenix, template_engines: [leex: Phoenix.LiveView.Engine]
 
+config :star, Star.Guardian,
+  issuer: "star",
+  secret_key: "vAlJF6VWR+iTwuYYHkgmatQyd/MvMIBAAMNk/VTt2RWxItJAppiZr4fVfa7AGw37"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
