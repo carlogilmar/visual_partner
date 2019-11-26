@@ -1,6 +1,6 @@
 defmodule Star.Guardian do
   @moduledoc false
-  use Guardian, otp_app: :scalathon
+  use Guardian, otp_app: :star
   alias Star.UserOperator
 
   def subject_for_token(user, _claims) do
