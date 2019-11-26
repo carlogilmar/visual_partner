@@ -2,7 +2,7 @@ defmodule StarWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", StarWeb.RoomChannel
+  channel "home:*", StarWeb.HomeChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
