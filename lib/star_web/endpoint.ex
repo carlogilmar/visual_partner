@@ -1,6 +1,8 @@
 defmodule StarWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :star
 
+  socket "/live", Phoenix.LiveView.Socket
+
   socket "/socket", StarWeb.UserSocket,
     websocket: true,
     longpoll: false

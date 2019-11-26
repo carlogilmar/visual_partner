@@ -52,7 +52,8 @@ config :star, StarWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/star_web/views/.*(ex)$},
-      ~r{lib/star_web/templates/.*(eex)$}
+      ~r{lib/star_web/templates/.*(eex)$},
+      ~r{lib/star_web/live/.*(ex)$}
     ]
   ]
 
