@@ -9,7 +9,7 @@ config :star, StarWeb.Endpoint,
 config :logger, level: :info
 
 # Configure your database
-config :hello, Star.Repo,
+config :star, Star.Repo,
   adapter: Ecto.Adapters.Postgres,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true,
