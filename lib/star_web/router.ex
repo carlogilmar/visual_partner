@@ -37,12 +37,14 @@ defmodule StarWeb.Router do
     post "/sign_up", SignupController, :create_user
     post "/login", SignupController, :login_user
     post "/suscribe", SignupController, :suscribe
+
   end
 
   ## Admin
   scope "/admin", StarWeb do
     pipe_through [:browser, :browser_pipeline, :ensure_auth]
-    live "/", HomeLive
+    get "/", AdminController, :index
+    live "/home", HomeLive
   end
 
   ## Users
