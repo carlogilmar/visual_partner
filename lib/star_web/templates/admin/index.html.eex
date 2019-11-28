@@ -9,7 +9,7 @@
 	<div class="card" style="width: 13rem;">
 		<div class="card-body text-center">
 			<span style="font-size: 85px;" class="gray_color"> <i class="fas fa-user-astronaut"></i> </span>
-			<a href="#" class="btn btn-sm btn-block btn-secondary"> <b>  USERS  &nbsp; <i class="fas fa-rocket"></i></b> </a>
+			<a href="<%= Routes.static_path(@conn, "/admin/users")%>" class="btn btn-sm btn-block btn-secondary"> <b>  USERS  &nbsp; <i class="fas fa-rocket"></i></b> </a>
 		</div>
 	</div>
 
