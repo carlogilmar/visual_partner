@@ -3,7 +3,18 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 .lead_latin {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 1.30rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.30rem;
 }
 
+.oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+.taj_color {
+  color: #cc3f1cb5;
+}
+
+.gray_color {
+  color: #929292b5;
+}

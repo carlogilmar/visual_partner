@@ -1,11 +1,35 @@
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
-<h1> Admin controller </h1>
+<br><br>
+
+<h1 class="taj_color oswald"> <i class="fas fa-palette"></i> <span> Management </span> </h1>
+
+<br><br>
+
+<div class="row">
+
+	<div class="card" style="width: 13rem;">
+		<div class="card-body text-center">
+			<span style="font-size: 85px;" class="gray_color"> <i class="fas fa-user-astronaut"></i> </span>
+			<a href="#" class="btn btn-sm btn-block btn-secondary"> <b>  USERS  &nbsp; <i class="fas fa-rocket"></i></b> </a>
+		</div>
+	</div>
+
+  <!-- space --!>
+  &nbsp;&nbsp;
+
+	<div class="card" style="width: 13rem;">
+		<div class="card-body text-center">
+			<span style="font-size: 85px;" class="gray_color"> <i class="fas fa-street-view"></i> </span>
+			<a href="#" class="btn btn-sm btn-block btn-secondary"> <b>  SUSCRIPTORS  &nbsp; <i class="fas fa-rocket"></i></b> </a>
+		</div>
+	</div>
+
+  <!-- space --!>
+  &nbsp;&nbsp;
+
+	<div class="card" style="width: 13rem;">
+		<div class="card-body text-center">
+			<span style="font-size: 85px;" class="gray_color"> <i class="fas fa-globe-americas"></i> </span>
+			<a href="#" class="btn btn-sm btn-block btn-secondary"> <b> ANALYTICS  &nbsp; <i class="fas fa-rocket"></i></b> </a>
+		</div>
+	</div>
+</div>
