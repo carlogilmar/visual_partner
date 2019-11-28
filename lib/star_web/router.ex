@@ -44,7 +44,7 @@ defmodule StarWeb.Router do
   scope "/admin", StarWeb do
     pipe_through [:browser, :browser_pipeline, :ensure_auth]
     get "/", AdminController, :index
-    live "/home", HomeLive
+    live "/users", UsersLive
   end
 
   ## Users

@@ -1,0 +1,74 @@
+<br><br>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand oswald" href="#"> <i class="fas fa-cog"></i> &nbsp; Users  &nbsp;<span class="badge badge-info"><%= @total %></span> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="navbar-text">
+   <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+    </span>
+  </div>
+</nav>
+
+<br><br>
+
+<div class="row">
+
+<table class="table table-sm text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Email</th>
+      <th scope="col">Name</th>
+      <th scope="col">Role</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for user <- @users do %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.email %></td>
+      <td><%= user.name %></td>
+      <td><span class="badge badge-info"><%= user.role %></span></td>
+      <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal<%= user.id  %>">
+          <i class="fas fa-trash"></i>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal<%= user.id  %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Eliminar usuario </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ¿Quieres eliminar a este usuario y su progreso?
+                <br><br>
+                <h1 class="oswald"> <%= user.email %> </h1>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" phx-click="delete" phx-value-user_id="<%= user.id %>" data-dismiss="modal"> Eliminar </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

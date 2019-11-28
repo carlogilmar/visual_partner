@@ -14,6 +14,11 @@ defmodule Star.UserOperator do
     |> Repo.insert()
   end
 
+  def get_all_by_role(role) do
+    query = from(user in User, where: user.role == ^role)
+    query |> Repo.all()
+  end
+
   def get_by_email(email) do
     query = from(user in User, where: user.email == ^email)
     query |> Repo.one()
