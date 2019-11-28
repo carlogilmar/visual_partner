@@ -8,8 +8,8 @@ defmodule StarWeb.LoginController do
   end
 
 	def login(conn, params) do
-    form_params = Map.has_key?(params, "_csrf_token")
-    validate_params.({form_params, conn, params})
+    session = Session.auth_user(params["username"], params["password"])
+    login_reply(session, conn)
   end
 
   def logout(conn, _) do
@@ -18,19 +18,8 @@ defmodule StarWeb.LoginController do
     |> redirect(to: "/")
   end
 
-  defp validate_params do
-    fn
-      {false, conn, _params} ->
-        render(conn, "index.html", error: "", error_register: "")
-
-      {true, conn, params} ->
-        session = Session.auth_user(params["username"], params["password"])
-        login_reply(session, conn)
-    end
-  end
-
   defp login_reply({:error, error}, conn) do
-    conn |> render("index.html", error: error, error_register: "")
+    conn |> render("index.html", error: error)
   end
 
   defp login_reply({:ok, user}, conn) do
@@ -45,12 +34,6 @@ defmodule StarWeb.LoginController do
       {"USER", _user_id, session, conn} ->
         Guardian.Plug.sign_in(conn, session) |> redirect(to: "/user")
     end
-  end
-
-  def logout(conn, _) do
-    conn
-    |> Guardian.Plug.sign_out()
-    |> redirect(to: "/")
   end
 
 end
