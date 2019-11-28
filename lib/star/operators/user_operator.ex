@@ -6,11 +6,11 @@ defmodule Star.UserOperator do
   alias Star.Repo
   alias Star.User
 
-  def create_user(email, password, role) do
+  def create_user(email, name, password, role) do
     hash = hash_password(password)
 
     %User{}
-    |> User.changeset(%{email: email, password: hash, role: role})
+    |> User.changeset(%{email: email, name: name, password: hash, role: role})
     |> Repo.insert()
   end
 

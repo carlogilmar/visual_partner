@@ -7,6 +7,7 @@ defmodule Star.User do
   schema "users" do
     field :role, :string
     field :email, :string
+    field :name, :string
     field :password, :string
     field :status, :string, default: "ACTIVE"
     timestamps()
@@ -15,7 +16,7 @@ defmodule Star.User do
   @doc false
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:role, :email, :password, :status])
+    |> cast(attrs, [:name, :role, :email, :password, :status])
     |> validate_required([])
   end
 end

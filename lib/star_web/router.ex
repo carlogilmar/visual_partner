@@ -30,7 +30,7 @@ defmodule StarWeb.Router do
     post "/login", LoginController, :login
 
     ### Create Users and Login
-    get "/signup", SignupController, :index
+    get "/welcome", SignupController, :index
     post "/sign_up", SignupController, :create_user
     post "/login", SignupController, :login_user
   end
