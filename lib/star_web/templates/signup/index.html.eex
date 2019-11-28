@@ -11,7 +11,7 @@
           <h4 class="card-title text-center mb-4 mt-1"> Login </h4>
           <h4 class="card-title text-center mb-4 mt-1 lead_latin">Iniciar Sesión</h4>
           <hr><br>
-          <%= form_for @conn, Routes.signup_path(@conn, :login_user), [method: :post], fn _f -> %>
+          <%= form_for @conn, Routes.login_path(@conn, :login), [method: :post], fn _f -> %>
             <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
             <div class="form-group">
               <div class="input-group">

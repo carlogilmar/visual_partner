@@ -42,6 +42,8 @@ defmodule StarWeb.LoginController do
     fn
       {"ADMIN", _user_id, session, conn} ->
         Guardian.Plug.sign_in(conn, session) |> redirect(to: "/admin")
+      {"USER", _user_id, session, conn} ->
+        Guardian.Plug.sign_in(conn, session) |> redirect(to: "/user")
     end
   end
 

@@ -12,8 +12,4 @@ defmodule StarWeb.SignupController do
     render(conn, "success.html", user: user)
   end
 
-  def login_user(conn, _params) do
-    render(conn, "index.html")
-  end
 end
-
