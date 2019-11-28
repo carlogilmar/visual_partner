@@ -8,9 +8,10 @@ defmodule Star.Repo.Migrations.AddUsers do
       add :role, :string
       add :email, :string
       add :password, :string
-			add :status, :string
+      add :status, :string
       timestamps()
     end
-		create unique_index(:users, [:email])
+
+    create unique_index(:users, [:email])
   end
 end

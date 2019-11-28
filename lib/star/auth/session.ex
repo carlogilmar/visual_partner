@@ -5,7 +5,7 @@ defmodule Star.Session do
   @wrong_password "Password inválida"
 
   def auth_user(email, password) do
-   email
+    email
     |> UserOperator.get_by_email()
     |> ensure_password(password)
   end

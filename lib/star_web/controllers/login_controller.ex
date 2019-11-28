@@ -7,7 +7,7 @@ defmodule StarWeb.LoginController do
     render(conn, "index.html")
   end
 
-	def login(conn, params) do
+  def login(conn, params) do
     session = Session.auth_user(params["username"], params["password"])
     login_reply(session, conn)
   end
@@ -31,9 +31,9 @@ defmodule StarWeb.LoginController do
     fn
       {"ADMIN", _user_id, session, conn} ->
         Guardian.Plug.sign_in(conn, session) |> redirect(to: "/admin")
+
       {"USER", _user_id, session, conn} ->
         Guardian.Plug.sign_in(conn, session) |> redirect(to: "/user")
     end
   end
-
 end

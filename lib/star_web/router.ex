@@ -24,10 +24,10 @@ defmodule StarWeb.Router do
   end
 
   scope "/", StarWeb do
-		pipe_through :browser
+    pipe_through :browser
     get "/", PageController, :index
 
-		### Login for admin
+    ### Login for admin
     get "/home", LoginController, :index
     post "/login", LoginController, :login
     get "/logout", LoginController, :logout
@@ -39,15 +39,14 @@ defmodule StarWeb.Router do
   end
 
   ## Admin
-	scope "/admin", StarWeb do
-		pipe_through [:browser, :browser_pipeline, :ensure_auth]
+  scope "/admin", StarWeb do
+    pipe_through [:browser, :browser_pipeline, :ensure_auth]
     live "/", HomeLive
-	end
+  end
 
-	## Users
-	scope "/user", StarWeb do
-		pipe_through [:browser, :browser_pipeline, :ensure_auth]
+  ## Users
+  scope "/user", StarWeb do
+    pipe_through [:browser, :browser_pipeline, :ensure_auth]
     get "/", UserController, :index
-	end
-
+  end
 end
