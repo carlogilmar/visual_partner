@@ -28,6 +28,11 @@ defmodule StarWeb.Router do
     get "/", PageController, :index
     get "/home", LoginController, :index
     post "/login", LoginController, :login
+
+    ### Create Users and Login
+    get "/signup", SignupController, :index
+    post "/sign_up", SignupController, :create_user
+    post "/login", SignupController, :login_user
   end
 
 	scope "/admin", StarWeb do
