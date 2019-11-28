@@ -28,6 +28,7 @@ defmodule StarWeb.Router do
     get "/", PageController, :index
     get "/home", LoginController, :index
     post "/login", LoginController, :login
+    get "/logout", LoginController, :logout
 
     ### Create Users and Login
     get "/welcome", SignupController, :index

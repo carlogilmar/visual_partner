@@ -31,7 +31,7 @@
             </div> <!-- form-group// -->
             <br>
             <div class="form-group">
-              <button type="submit" class="btn btn-success btn-block"> Login  </button>
+              <button type="submit" class="btn btn-success btn-block"> <strong> LOGIN </strong>  </button>
             </div> <!-- form-group// -->
           <% end %>
         </article>

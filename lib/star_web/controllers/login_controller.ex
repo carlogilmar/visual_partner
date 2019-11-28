@@ -12,6 +12,12 @@ defmodule StarWeb.LoginController do
     validate_params.({form_params, conn, params})
   end
 
+  def logout(conn, _) do
+    conn
+    |> Guardian.Plug.sign_out()
+    |> redirect(to: "/")
+  end
+
   defp validate_params do
     fn
       {false, conn, _params} ->
