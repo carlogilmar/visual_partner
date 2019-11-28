@@ -8,7 +8,8 @@
     <aside class="col-md-4">
       <div class="card">
         <article class="card-body">
-          <h4 class="card-title text-center mb-4 mt-1">Iniciar Sesión</h4>
+          <h4 class="card-title text-center mb-4 mt-1"> Login </h4>
+          <h4 class="card-title text-center mb-4 mt-1 lead_latin">Iniciar Sesión</h4>
           <hr><br>
           <%= form_for @conn, Routes.signup_path(@conn, :login_user), [method: :post], fn _f -> %>
             <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
@@ -17,7 +18,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
-                <input name="username" class="form-control" placeholder="Username" type="text">
+                <input name="username" class="form-control" required placeholder="Email" type="text">
               </div> <!-- input-group.// -->
             </div> <!-- form-group// -->
             <div class="form-group">
@@ -25,7 +26,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" name="password" placeholder="Password" type="password">
+                <input class="form-control" name="password" required placeholder="Password" type="password">
               </div> <!-- input-group.// -->
             </div> <!-- form-group// -->
             <br>
@@ -42,7 +43,8 @@
     <aside class="col-md-4">
       <div class="card">
         <article class="card-body">
-          <h4 class="card-title text-center mb-4 mt-1"> Registro </h4>
+          <h4 class="card-title text-center mb-4 mt-1"> Sign Up </h4>
+          <h4 class="card-title text-center mb-4 mt-1 lead_latin"> Registro </h4>
           <hr><br>
           <%= form_for @conn, Routes.signup_path(@conn, :create_user), [method: :post], fn _f -> %>
             <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
@@ -51,7 +53,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-user"></i> &nbsp; Nombre </span>
                 </div>
-                <input required name="name" class="form-control" placeholder="" type="text">
+                <input required name="name" class="form-control" placeholder=" Name " type="text">
               </div> <!-- input-group.// -->
             </div> <!-- form-group// -->
             <div class="form-group">
@@ -72,7 +74,7 @@
             </div> <!-- form-group// -->
             <div class="form-group">
               <br>
-              <button type="submit" class="btn btn-dark btn-block"> Registrar </button>
+              <button type="submit" class="btn btn-primary btn-block"> <small><strong> SIGN UP &nbsp;&nbsp;|&nbsp;&nbsp; REGISTRAR </strong> </small>  </button>
             </div> <!-- form-group// -->
           <% end %>
         </article>
