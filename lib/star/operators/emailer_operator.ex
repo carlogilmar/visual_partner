@@ -1,5 +1,6 @@
 defmodule Star.EmailerOperator do
   alias Star.Emailer
+	alias Star.EmailManager
   alias Star.Repo
 
   def add_emailer(content, title) do
@@ -28,5 +29,10 @@ defmodule Star.EmailerOperator do
   def get_all do
     Repo.all(Emailer)
   end
+
+	def send_preview(id, email) do
+		emailer = get_by_id(id)
+		_ = EmailManager.send_email(emailer, email)
+	end
 
 end

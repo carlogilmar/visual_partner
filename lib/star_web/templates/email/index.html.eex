@@ -34,6 +34,14 @@
 		</local-quill-editor>
 	</div>
 
+	<form v-on:submit.prevent="send_preview()">
+		<div class="input-group mb-2">
+			<input type="email" v-model="preview_email" required placeholder="Email para preview" class="form-control">
+			<button class="btn btn-secondary" type="submit">
+				<small class="osc_font"><i class="fas fa-envelope"></i> &nbsp; ENVIAR PREVIEW </small> </button>
+		</div>
+	</form>
+
   <notifications group="foo" />
 
 

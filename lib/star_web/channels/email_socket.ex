@@ -21,4 +21,12 @@ defmodule StarWeb.EmailChannel do
     {:reply, {:ok, %{status: "200"}}, socket}
   end
 
+  def handle_in(
+    "email:preview",
+		%{"id" => id, "email" => email},
+    socket
+  ) do
+    _ = EmailerOperator.send_preview(id, email)
+    {:reply, {:ok, %{status: "200"}}, socket}
+  end
 end

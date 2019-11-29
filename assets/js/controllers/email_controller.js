@@ -18,6 +18,7 @@ export const app = new Vue({
 				]
 			}
     },
+		preview_email: "",
     email: {
       title: "cargando..",
       content: "cargando..",
@@ -62,6 +63,19 @@ export const app = new Vue({
     },
     update_content: function(id, attr){
       this.update(this.email.content, id, attr);
-    }
+    },
+		send_preview: function(){
+      this.channel.push("email:preview", {id: this.email.id, email: this.preview_email})
+        .receive('ok', (res) => {
+					this.preview_email = "";
+          this.$notify({
+            group: 'foo',
+            title: 'Enviando preview...',
+          });
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+		}
   }
 });
