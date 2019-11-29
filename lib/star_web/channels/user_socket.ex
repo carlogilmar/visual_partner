@@ -3,6 +3,7 @@ defmodule StarWeb.UserSocket do
 
   ## Channels
   channel "home:*", StarWeb.HomeChannel
+  channel "analytics:*", StarWeb.AnalyticsChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
