@@ -46,6 +46,7 @@ defmodule StarWeb.Router do
     live "/users", UsersLive
     live "/suscriptors", SuscriptorsLive
     get "/analytics", AnalyticsController, :index
+    live "/emailer", EmailerLive
   end
 
   ## Users

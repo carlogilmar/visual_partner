@@ -1,0 +1,39 @@
+<br><br>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand oswald" href="#"> <i class="fas fa-envelope"></i> &nbsp; Emailer  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="navbar-text">
+   <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+    </span>
+  </div>
+</nav>
+
+<br><br>
+
+<div class="row">
+
+<table class="table table-sm text-center">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for emailer <- @emailers do %>
+    <tr>
+      <td><%= emailer.title %></td>
+      <td> edit </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
