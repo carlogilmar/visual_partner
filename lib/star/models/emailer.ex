@@ -4,6 +4,7 @@ defmodule Star.Emailer do
 
   @primary_key {:id, :id, autogenerate: true}
   schema "emailers" do
+    field :title, :string
     field :content, :string
     timestamps()
   end
@@ -11,7 +12,7 @@ defmodule Star.Emailer do
   @doc false
   def changeset(job, attrs) do
     job
-    |> cast(attrs, [:content])
+    |> cast(attrs, [:title, :content])
     |> validate_required([])
   end
 end

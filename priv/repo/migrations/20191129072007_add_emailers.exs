@@ -4,6 +4,7 @@ defmodule Star.Repo.Migrations.AddEmailers do
   def change do
     create table(:emailers, primary_key: false) do
       add :id, :serial, primary_key: true
+      add :title, :string
       add :content, :text
       timestamps()
     end
