@@ -2,6 +2,8 @@ import Vue from 'vue'
 import socket from "./../socket"
 import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.snow.css'
+import Notifications from 'vue-notification'
+Vue.use(Notifications)
 
 export const app = new Vue({
   el:"#app",
@@ -49,7 +51,10 @@ export const app = new Vue({
       this.channel.push("email:update", {id: id, attr: attr, value: value})
         .receive('ok', (res) => {
           console.log("DONE");
-          alert("Actualizado!");
+          this.$notify({
+            group: 'foo',
+            title: 'Guardando cambio...',
+          });
         })
         .receive("error", resp => {
           console.log("ERROR");
