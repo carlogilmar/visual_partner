@@ -6,6 +6,7 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
+    "apexcharts": "^3.10.1",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
@@ -13,7 +14,8 @@
     "phoenix_html": "file:../deps/phoenix_html",
     "phoenix_live_view": "file:../deps/phoenix_live_view",
     "popper.js": "^1.16.0",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-apexcharts": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
