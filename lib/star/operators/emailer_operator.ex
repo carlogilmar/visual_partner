@@ -2,9 +2,9 @@ defmodule Star.EmailerOperator do
   alias Star.Emailer
   alias Star.Repo
 
-  def add_emailer(content) do
+  def add_emailer(content, title) do
     %Emailer{}
-    |> Emailer.changeset(%{content: content})
+    |> Emailer.changeset(%{content: content, title: title})
     |> Repo.insert()
   end
 
@@ -12,11 +12,11 @@ defmodule Star.EmailerOperator do
     Repo.get(Emailer, id)
   end
 
-  def update(id, content) do
+  def update(id, content, title) do
     emailer = get_by_id(id)
 
     emailer
-    |> Emailer.changeset(%{content: content})
+    |> Emailer.changeset(%{content: content, title: title})
     |> Repo.update()
   end
 
