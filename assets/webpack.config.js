@@ -16,7 +16,8 @@ module.exports = (env, options) => ({
 	entry: {
 		app: ['./js/app.js'].concat(glob.sync('./vendor/**/*.js')),
 		starter_controller: ['./js/controllers/starter_controller.js'],
-		analytics_controller: ['./js/controllers/analytics_controller.js']
+		analytics_controller: ['./js/controllers/analytics_controller.js'],
+		email_controller: ['./js/controllers/email_controller.js']
 	},
 	output: {
 		filename: '[name].js',
