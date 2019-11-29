@@ -28,6 +28,12 @@ defmodule StarWeb.EmailerLive do
     {:noreply, socket}
   end
 
+  def handle_event("send_broadcast", %{"emailer_id" => email_id}, socket) do
+    email_id = String.to_integer(email_id)
+    ## TODO: Send broadcast
+    {:noreply, socket}
+  end
+
   defp update_socket(socket) do
     emailers = EmailerOperator.get_all()
 
