@@ -11,4 +11,14 @@ defmodule StarWeb.EmailChannel do
     {:ok, %{id: email.id, title: email.title, content: email.content}, socket}
   end
 
+  def handle_in(
+    "email:update",
+    %{"attr" => attr, "id" => id, "value" => value},
+    socket
+  ) do
+    attrs = Map.new([{String.to_atom(attr), value}])
+    {:ok, _model} = EmailerOperator.update(id, attrs)
+    {:reply, {:ok, %{status: "200"}}, socket}
+  end
+
 end

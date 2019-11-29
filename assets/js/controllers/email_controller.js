@@ -44,5 +44,19 @@ export const app = new Vue({
     }
   },
   methods: {
+    update: function(value, id, attr){
+      console.log(value);
+      this.channel.push("email:update", {id: id, attr: attr, value: value})
+        .receive('ok', (res) => {
+          console.log("DONE");
+          alert("Actualizado!");
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
+    update_content: function(id, attr){
+      this.update(this.email.content, id, attr);
+    }
   }
 });

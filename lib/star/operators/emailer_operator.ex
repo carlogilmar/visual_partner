@@ -12,11 +12,11 @@ defmodule Star.EmailerOperator do
     Repo.get(Emailer, id)
   end
 
-  def update(id, content, title) do
+  def update(id, attrs) do
     emailer = get_by_id(id)
 
     emailer
-    |> Emailer.changeset(%{content: content, title: title})
+    |> Emailer.changeset(attrs)
     |> Repo.update()
   end
 
