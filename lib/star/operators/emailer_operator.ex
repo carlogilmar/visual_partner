@@ -36,3 +36,19 @@ defmodule Star.EmailerOperator do
 	end
 
 end
+
+defmodule Star.EmailerBroadcastOperator do
+	alias Star.UserOperator
+	alias Star.EmailerOperator
+
+	def send_email(emailer_id) do
+		users = UserOperator.get_all_by_role("USER")
+		suscriptors = UserOperator.get_all_by_role("SUSCRIPTOR")
+		users_for_send = users ++ suscriptors
+		Enum.each(users_for_send,
+			fn user ->
+				_ = EmailerOperator.send_preview(emailer_id, user.email)
+		end)
+	end
+
+end
