@@ -17,17 +17,19 @@
 	</nav>
 	<br>
 
+  <input type="hidden" id="email" value="<%= @email %>">
+
 	<div class="input-group mb-2 mr-sm-2">
 		<div class="input-group-prepend">
 			<div class="input-group-text"> <i class="fas fa-envelope"></i>&nbsp; Template</div>
 		</div>
-		<input type="text" class="form-control" id="inlineFormInputGroupUsername2">
+		<input v-model="email.title" type="text" class="form-control" id="inlineFormInputGroupUsername2">
 	</div>
 	<br>
 
 	<div class="form-group">
 		<local-quill-editor
-			ref="quillEditorB" :options="editorOption">
+			v-model="email.content" ref="quillEditorB" :options="editorOption">
 		</local-quill-editor>
 	</div>
 

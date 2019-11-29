@@ -16,13 +16,20 @@ export const app = new Vue({
 				]
 			}
     },
+    email: {
+      title: "cargando..",
+      content: "cargando..",
+      id: 0
+    }
   },
   created: function() {
     console.log("Vue App here!");
-    this.channel = socket.channel("email:join", {});
+    let email = document.getElementById("email").value
+    this.channel = socket.channel("email:join", {email: email});
     this.channel.join()
       .receive("ok", resp => {
         console.log("Joined successfully, getting timezone data!");
+        this.email = resp;
       })
       .receive("error", resp => {
         console.log("Unable to join", resp);
