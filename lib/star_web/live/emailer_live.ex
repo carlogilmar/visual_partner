@@ -1,6 +1,7 @@
 defmodule StarWeb.EmailerLive do
   use Phoenix.LiveView
   alias Star.EmailerOperator
+	alias Star.EmailerBroadcastOperator
   alias StarWeb.EmailerView
 
   def render(assigns) do
@@ -30,7 +31,7 @@ defmodule StarWeb.EmailerLive do
 
   def handle_event("send_broadcast", %{"emailer_id" => email_id}, socket) do
     email_id = String.to_integer(email_id)
-    ## TODO: Send broadcast
+		_ = EmailerBroadcastOperator.send_email(email_id)
     {:noreply, socket}
   end
 
