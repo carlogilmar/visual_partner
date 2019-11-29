@@ -31,6 +31,18 @@ config :star, Star.Guardian,
   issuer: "star",
   secret_key: "vAlJF6VWR+iTwuYYHkgmatQyd/MvMIBAAMNk/VTt2RWxItJAppiZr4fVfa7AGw37"
 
+# In your config/config.exs file
+config :star, Star.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: "smtp.gmail.com",
+  port: 587,
+  username: "",
+  password: "",
+  tls: :if_available,
+  allowed_tls_versions: [:"tlsv1", :"tlsv1.1", :"tlsv1.2"],
+  ssl: false,
+  retries: 1
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

@@ -20,7 +20,7 @@ defmodule Star.MixProject do
   def application do
     [
       mod: {Star.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :bamboo, :bamboo_smtp]
     ]
   end
 
@@ -46,7 +46,9 @@ defmodule Star.MixProject do
       {:phoenix_live_view, "~> 0.3.1"},
       {:comeonin, "~> 5.1"},
       {:argon2_elixir, "~> 2.0"},
-      {:guardian, "~> 1.2"}
+      {:guardian, "~> 1.2"},
+      {:bamboo, "~> 1.3"},
+			{:bamboo_smtp, "~> 2.1.0"}
     ]
   end
 
