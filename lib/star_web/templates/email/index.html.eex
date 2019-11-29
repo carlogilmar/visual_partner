@@ -1,5 +1,37 @@
+<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/email_controller.css") %>"/>
+
 <div id="app">
-  <h1 class="mt-5"> Email Controller </h1>
+	<br><br>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand oswald" href="#"> <i class="fas fa-envelope-open-text"></i> &nbsp; Emailer &nbsp; </a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+			</ul>
+			<span class="navbar-text">
+				<a href="<%= Routes.static_path(@conn, "/admin/emailer")%>"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+			</span>
+		</div>
+	</nav>
+	<br>
+
+	<div class="input-group mb-2 mr-sm-2">
+		<div class="input-group-prepend">
+			<div class="input-group-text"> <i class="fas fa-envelope"></i>&nbsp; Template</div>
+		</div>
+		<input type="text" class="form-control" id="inlineFormInputGroupUsername2">
+	</div>
+	<br>
+
+	<div class="form-group">
+		<local-quill-editor
+			ref="quillEditorB" :options="editorOption">
+		</local-quill-editor>
+	</div>
+
+
 </div>
 
 <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/email_controller.js") %>"></script>
