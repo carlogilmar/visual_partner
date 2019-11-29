@@ -45,6 +45,7 @@ defmodule StarWeb.Router do
     pipe_through [:browser, :browser_pipeline, :ensure_auth]
     get "/", AdminController, :index
     live "/users", UsersLive
+    live "/suscriptors", SuscriptorsLive
   end
 
   ## Users
