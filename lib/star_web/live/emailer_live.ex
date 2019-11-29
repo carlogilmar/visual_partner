@@ -21,6 +21,13 @@ defmodule StarWeb.EmailerLive do
     {:noreply, live_redirect(socket, to: "/admin/email/#{email.id}")}
   end
 
+  def handle_event("delete", %{"emailer_id" => email_id}, socket) do
+    email_id = String.to_integer(email_id)
+    {:ok, _email_deleted} = EmailerOperator.delete(email_id)
+    socket = update_socket(socket)
+    {:noreply, socket}
+  end
+
   defp update_socket(socket) do
     emailers = EmailerOperator.get_all()
 
