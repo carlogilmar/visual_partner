@@ -16,6 +16,11 @@ defmodule StarWeb.EmailerLive do
     {:noreply, live_redirect(socket, to: uri_val)}
   end
 
+  def handle_event("new_email", _value, socket) do
+    {:ok, email} = EmailerOperator.add_emailer("Nuevo Template Generado", "Nuevo Template Generado")
+    {:noreply, live_redirect(socket, to: "/admin/email/#{email.id}")}
+  end
+
   defp update_socket(socket) do
     emailers = EmailerOperator.get_all()
 
