@@ -21,8 +21,7 @@
 <table class="table table-sm text-center">
   <thead>
     <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Content</th>
+      <th scope="col">Template</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -30,7 +29,9 @@
     <%= for emailer <- @emailers do %>
     <tr>
       <td><%= emailer.title %></td>
-      <td> edit </td>
+      <td>
+        <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin/email/<%= emailer.id %>" class="btn btn-sm btn-secondary"> <i class="fas fa-edit"></i> </a>
+    </td>
     </tr>
     <% end %>
   </tbody>
