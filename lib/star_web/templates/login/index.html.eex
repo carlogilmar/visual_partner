@@ -1,36 +1,5 @@
-<br><br>
-<div class="container">
-	<div class="row">
-		<aside class="col-md-4">
-			<div class="card">
-				<article class="card-body">
-					<h4 class="card-title text-center mb-4 mt-1">Iniciar Sesión</h4>
-					<hr><br>
-					<%= form_for @conn, Routes.login_path(@conn, :login), [method: :post], fn _f -> %>
-						<input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-user"></i> </span>
-								</div>
-								<input name="username" class="form-control" placeholder="Username" type="text">
-							</div> <!-- input-group.// -->
-						</div> <!-- form-group// -->
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-								</div>
-								<input class="form-control" name="password" placeholder="Password" type="password">
-							</div> <!-- input-group.// -->
-						</div> <!-- form-group// -->
-						<br>
-						<div class="form-group">
-							<button type="submit" class="btn btn-success btn-block"> Login  </button>
-						</div> <!-- form-group// -->
-					<% end %>
-				</article>
-			</div> <!-- card.// -->
-		</aside> <!-- col.// -->
-	</div>
+<div id="app">
+  <h1 class="mt-5"> A Star is Born </h1>
+  <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
+  <p>Back to <a href="../sticky-footer/">the default sticky footer</a> minus the navbar.</p>
 </div>
