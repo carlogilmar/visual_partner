@@ -7,11 +7,21 @@ defmodule Star.UserOperator do
   alias Star.User
 
   def create_user(email, name, password, role) do
-    hash = hash_password(password)
 
-    %User{}
-    |> User.changeset(%{email: email, name: name, password: hash, role: role})
-    |> Repo.insert()
+    email_in_db = get_by_email(email)
+
+    case email_in_db do
+      nil ->
+        hash = hash_password(password)
+
+        %User{}
+        |> User.changeset(%{email: email, name: name, password: hash, role: role})
+        |> Repo.insert()
+
+      user ->
+        {:error, user}
+    end
+
   end
 
   def get_all_by_role(role) do
