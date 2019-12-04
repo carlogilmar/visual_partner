@@ -9,16 +9,17 @@ defmodule StarWeb.SignupController do
   end
 
   def create_user(conn, params) do
-    {:ok, user} =
+    {_status, user} =
       UserOperator.create_user(params["email"], params["name"], params["password"], @user_role)
 
     render(conn, "success.html", user: user)
   end
 
   def suscribe(conn, params) do
-    {:ok, user} =
+    {_status, user} =
       UserOperator.create_user(params["email"], "suscriptor", "suscriptor", @suscriptor_role)
 
     render(conn, "suscriptor.html", user: user)
   end
+
 end
