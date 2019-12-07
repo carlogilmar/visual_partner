@@ -39,6 +39,7 @@ defmodule StarWeb.Router do
 
     ### Gallery
     live "/gallery", GalleryLive
+    live "/gpage", GpageLive
 
   end
 
