@@ -37,6 +37,9 @@ defmodule StarWeb.Router do
     post "/sign_up", SignupController, :create_user
     post "/suscribe", SignupController, :suscribe
 
+    ### Gallery
+    live "/gallery", GalleryLive
+
   end
 
   ## Admin
