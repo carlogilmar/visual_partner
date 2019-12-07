@@ -22,7 +22,7 @@ export const app = new Vue({
   methods: {
     get_session:function(){
       let that = this;
-      $.get("https://api.ipdata.co?api-key=test", function(response) {
+      $.get("https://api.ipdata.co?api-key=f42a2ff8a80915a225852d8b147e7980f56e10e7ea9e2a057ca2a608", function(response) {
         that.channel.push("home:session", response);
       });
     },
