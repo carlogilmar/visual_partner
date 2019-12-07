@@ -1,32 +1,228 @@
 <div id="app">
-  <h1 class="mt-5">View Connected {{socket}} </h1>
-  <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
-  <p>Back to <a href="../sticky-footer/">the default sticky footer</a> minus the navbar.</p>
 
-  <aside class="col-md-4">
-    <div class="card">
-      <article class="card-body">
-        <h4 class="card-title text-center mb-4 mt-1"> Suscribe </h4>
-        <h4 class="card-title text-center mb-4 mt-1 lead_latin"> ¡Suscríbete! </h4>
-        <hr><br>
-        <%= form_for @conn, Routes.signup_path(@conn, :suscribe), [method: :post], fn _f -> %>
-          <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
-          <div class="form-group">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-envelope"></i> &nbsp; </span>
-              </div>
-              <input required name="email" class="form-control" placeholder="Email" type="email">
-            </div> <!-- input-group.// -->
-          </div> <!-- form-group// -->
-          <div class="form-group">
-            <br>
-            <button type="submit" class="btn btn-success btn-block"> <small><strong> Go! </strong> </small>  </button>
-          </div> <!-- form-group// -->
-        <% end %>
-      </article>
-    </div> <!-- card.// -->
-  </aside> <!-- col.// -->
-</div>
+	<header style="background-color: #ffffff; padding: 100px 0 100px;" id="start">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner" role="listbox">
+				<!-- Slide One - Set the background image for this slide in the line below -->
+				<div class="carousel-item active">
+					<div class="text-center d-block d-sm-none">
+						<h3 class=""> Welcome </h3>
+						<p class="lead"><i>¡Bienvenido!</i></p>
+					</div>
+					<div class="container text-center">
+						<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_with_man_jx1eku.png" width="70%" />
+					</div>
+					<div class="d-block d-sm-none">
+						<div class="text-center d-block d-sm-none">
+							<br>
+							<p class="oswald oswald-font">
+							<b class="taj_color">Project by @carlogilmar</b>
+							<br>carlogilmar12@gmail.com
+							</p>
+							<br>
+							<p class="oswald oswald-font">
+							<b class="taj_color">Mexico City</b>
+							<br>July, 2019
+							</p>
+						</div>
+					</div>
+					<div class="d-none d-xl-block">
+						<br><br>
+						<div class="row text-center">
+							<div class="col-md-1">
+							</div>
+							<div class="col-md-2">
+								<p class="oswald oswald-font">
+								<b class="taj_color">Project by @carlogilmar</b>
+								<br>carlogilmar12@gmail.com
+								</p>
+							</div>
+							<div class="col-md-2">
+							</div>
+							<div class="col-md-2">
+								<h3 class="oswald taj_color"> W E L C O M E </h3>
+								<p class="lead"><i>¡Bienvenido!</i></p>
+							</div>
+							<div class="col-md-2">
+							</div>
+							<div class="col-md-2">
+								<p class="oswald oswald-font">
+								<b class="taj_color">Mexico City</b>
+								<br>July, 2019
+								</p>
+							</div>
+							<div class="col-md-1">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</header>
 
-<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/starter_controller.js") %>"></script>
+	<hr class="featurette-divider">
+
+	<main role="main">
+
+		<div class="container marketing">
+
+			<div class="row featurette">
+				<div class="col-md-7 text-center">
+					<h2 class="featurette-heading"><span class="oswald taj_color"> The Apprentice's Journey </span></h2>
+					<p class="lead">
+					Every person involved in technology is a recurrent <b class="lead_plus">apprentice</b>.
+					The apprentice isn't a person or an individual,
+					it's a set of patterns of behaviors,
+					habits and experiences about learn, the apprentice is an <b class="lead_plus">arquetype</b>.
+					What would happen if we put together the learning archetypes of many persons?
+					Maybe we'll find <b class="lead_plus">the apprentice's journey</b>.
+					</p>
+					<p class="lead_latin">
+					<i>
+						Cada persona involucrada en tecnología es un <strong class="lead_plus">aprendiz</strong> recurrente.
+						Un aprendiz no es una persona, es el <strong class="lead_plus">conjunto de comportamientos,
+							hábitos y experiencias sobre aprendizaje</strong>. Un aprendiz es más un <strong
+																																												 class="lead_plus">arquetipo</strong>.
+																																											 ¿Qué pasaría si reunimos los arquetipos de aprendizaje de varias personas?
+																																											 Quizás encontraremos <strong class="lead_plus">el camino del aprendiz</strong>.
+					</i>
+					</p>
+				</div>
+				<div class="col-md-5 text-center d-flex align-items-center justify-content-center">
+					<img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_i7wpnr.png" width="80%" alt="Methodology">
+				</div>
+			</div>
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-6 text-center">
+					<h2 class="featurette-heading"><span class="taj_color oswald"> The Interviewees </span></h2>
+					<p class="lead">
+					I'm looking for <b class="lead_plus">people</b> involved in technology,
+					in software development, in Open Source projects, in science, etc,
+					for have a <b class="lead_plus">conversation</b> about their professions and lifes.
+					</p>
+					<p class="lead_latin">
+					<i>
+						Busco personas involucradas en <b class="lead_plus">tecnología</b>, en desarrollo de software,
+						en proyectos Open Source, en ciencia, etc, para tener una <b class="lead_plus">conversación</b>
+						acerca de sus profesiones y vidas.
+					</i>
+					</p>
+				</div>
+				<div class="col-md-6 text-center d-flex align-items-center justify-content-center">
+					<img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_i7wpnr.png" width="80%" alt="Methodology">
+				</div>
+			</div>
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-5 text-center">
+					<h2 class="featurette-heading"><span class="taj_color oswald"> The Conversation </span></h2>
+					<p class="lead">
+					I'm looking for <b class="lead_plus">discover</b> how this people are learning new things,
+					how they are working in technology, how they are looking for try new technologies,
+					how they learned about their professions, what kind of books they read, or
+					what are their main referrences...
+					</p>
+					<p class="lead_latin">
+					<i>
+						Busco <b class="lead_plus">descubrir</b> cómo estas personas aprenden nuevas cosas,
+						cómo se relacionan con la tecnología, cómo buscan nuevas tecnologías que probar,
+						cómo aprendieron en su profesión, qué tipo de libros leyeron, o cuáles son
+						sus principales referencias... entre mucho más.
+					</i>
+					</p>
+				</div>
+				<div class="col-md-7 d-flex align-items-center justify-content-center">
+					<img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_i7wpnr.png" alt="Methodology">
+				</div>
+			</div>
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-4 text-center">
+					<h2 class="featurette-heading"><span class="taj_color"> The Learning Archetype </span></h2>
+					<p class="lead">
+					I want to find the behaviors,
+					habits and experiences of <b class="lead_plus">the apprentice</b> that represents the interviewee,
+					and thus model their <b class="lead_plus">learning archetype</b>.
+					</p>
+					<p class="lead_latin">
+					<i>
+						Quiero encontrar los comportamientos,
+						hábitos y experiencias del <b class="lead_plus">aprendiz</b> que representa el entrevistado,
+						y así modelar su <b class="lead_plus">arquetipo de aprendizaje</b>.
+					</i>
+					</p>
+				</div>
+				<div class="col-md-8 text-center d-flex align-items-center justify-content-center">
+					<br><img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_i7wpnr.png" width="80%" alt="Methodology">
+				</div>
+			</div>
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-6 text-center">
+					<h2 class="featurette-heading"><span class="taj_color"> The Learning System </span></h2>
+					<p class="lead">
+					What will we find if we gather many <b class="lead_plus">learning archetypes</b>?
+					Maybe with the right perspective we could find enough patterns
+					that help us to model <b class="lead_plus">the apprentice's journey</b> as a <b>learning system</b>.
+					</p>
+					<p class="lead_latin">
+					¿Qué encontraremos si reunimos muchos <b class="lead_plus">arquetipos de aprendizaje</b>?
+					Tal vez con la perspectiva correcta podríamos encontrar suficientes patrones
+					que nos ayuden a modelar <b class="lead_plus">el camino del aprendiz</b> como un sistema de aprendizaje.
+					</p>
+				</div>
+				<div class="col-md-6 text-center d-flex align-items-center justify-content-center">
+					<br><img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_i7wpnr.png" width="80%" alt="Methodology">
+				</div>
+			</div>
+			<hr class="featurette-divider">
+
+			<h3 class="text-center"><span class="taj_color oswald"> Suscribe for more information! </span></h3>
+			<div class="row featurette text-center">
+				<div class="col-md-5"></div>
+				<div class="col-md-2 text-center">
+					<%= form_for @conn, Routes.signup_path(@conn, :suscribe), [method: :post], fn _f -> %>
+						<input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
+						<div class="form-group mb-2">
+							<label for="staticEmail2" class="sr-only">Email</label>
+							<input required type="text" name="email" class="form-control form-control-sm">
+						</div> &nbsp;&nbsp;
+						<button type="submit" class="btn btn-primary mb-2 btn_taj"> Suscribe </button>
+					<% end %>
+				</div>
+			</div>
+			<hr class="featurette-divider">
+
+			<div class="row featurette text-center">
+				<div class="col-md-2"></div>
+				<div class="col-md-3">
+					<a href="http://carlogilmar.xyz/">
+						<img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604431/apprentices_journey/carlogilmar_logo_uyofzd.png" width="100%" alt="Author">
+					</a>
+				</div>
+				<div class="col-md-5">
+					<p class="lead footer-font">
+					Project created by:
+					<br><span class="pacific black-font">Carlo Gilmar</span>
+					<br><span class="oswald"><a href="http://carlogilmar.xyz/" class="black-font">carlogilmar.xyz</a></span>
+					<br> Carlo is a <b>software developer, graphic recorder, and GitHub Campus Expert</b> based on Mexico City.
+					He studied informatics engineering, and he’s studying sociology.
+					<br><br> <i> <small>Carlo es un desarrollador de software, facilitador gráfico y GitHub Campus Expert.
+							Vive en la Ciudad de México, estudió Ingeniería Informática y es estudiante de Sociología.</small></i>
+					</p>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+
+
+			<!-- /END THE FEATURETTES -->
+
+		</div><!-- /.container -->
+
+		</div>
+
+		<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/starter_controller.js") %>"></script>
