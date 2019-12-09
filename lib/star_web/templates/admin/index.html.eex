@@ -43,5 +43,17 @@
           <a href="<%= Routes.static_path(@conn, "/admin/emailer")%>" class="btn btn-sm btn-block btn-secondary"> <b> EMAILER &nbsp; <i class="fas fa-rocket"></i></b> </a>
           </div>
           </div>
-          </div>
-          </div>
+
+          <!-- space --!>
+            &nbsp;&nbsp;
+
+            <div class="card" style="width: 13rem;">
+            <div class="card-body text-center">
+            <span style="font-size: 85px;" class="gray_color"> <i class="fas fa-images"></i> </span>
+            <a href="<%= Routes.static_path(@conn, "/admin/gallery")%>" class="btn btn-sm btn-block btn-secondary"> <b> GALLERY  &nbsp; <i class="fas fa-rocket"></i></b> </a>
+            </div>
+            </div>
+
+  </div>
+</div>
+

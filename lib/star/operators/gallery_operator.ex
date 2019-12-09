@@ -2,7 +2,7 @@ defmodule Star.GalleryOperator do
   alias Star.Gallery
   alias Star.Repo
 
-  def create_gallery(title, cover, eng_desc, esp_desc) do
+  def create(title, cover, eng_desc, esp_desc) do
     %Gallery{}
     |> Gallery.changeset(%{title: title, cover: cover, eng_desc: eng_desc, esp_desc: esp_desc})
     |> Repo.insert()
@@ -12,11 +12,11 @@ defmodule Star.GalleryOperator do
     Repo.get(Gallery, id) |> Repo.preload([:image])
   end
 
-  def get_all_galleries do
+  def get_all do
     Repo.all(Gallery)
   end
 
-  def delete_gallery(id) do
+  def delete(id) do
     gallery = get_by_id(id)
     Repo.delete(gallery)
   end

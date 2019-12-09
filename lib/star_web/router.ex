@@ -39,7 +39,6 @@ defmodule StarWeb.Router do
 
     ### Gallery
     live "/gallery", GalleryLive
-    live "/gpage", GpageLive
 		get "/images", ImagesController, :index
 
   end
@@ -53,6 +52,7 @@ defmodule StarWeb.Router do
     get "/analytics", AnalyticsController, :index
     live "/emailer", EmailerLive
     get "/email/:id", EmailController, :index
+    live "/gallery", GpageLive
   end
 
   ## Users

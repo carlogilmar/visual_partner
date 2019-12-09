@@ -1,22 +1,42 @@
+<br><br>
 <div class="container">
-	<div class="row featurette">
-		<div class="col-md-5 text-center">
-			<h2 class="featurette-heading"><span class="oswald taj_color"> The Apprentice's Journey </span></h2>
-			<p class="lead">
-			Every person involved in technology is a recurrent <b class="lead_plus">apprentice</b>.
-			The apprentice isn't a person or an individual,
-			</p>
-			<p class="lead_latin">
-			<i>
-				Un aprendiz no es una persona, es el <strong class="lead_plus">conjunto de comportamientos,
-																																										 class="lead_plus">arquetipo</strong>.
-																																									 ¿Qué pasaría si reunimos los arquetipos de aprendizaje de varias personas?
-																																									 Quizás encontraremos <strong class="lead_plus">el camino del aprendiz</strong>.
-			</i>
-			</p>
-		</div>
-		<div class="col-md-7 text-center d-flex align-items-center justify-content-center">
-			<img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_i7wpnr.png" width="80%" alt="Methodology">
-		</div>
-	</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand oswald" href="#"> <i class="fas fa-images"></i> &nbsp; Gallery</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="navbar-text">
+   <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+    </span>
+  </div>
+</nav>
+
+<br><br>
+
+<div class="row">
+
+<table class="table table-sm text-center">
+  <thead>
+    <tr>
+      <th scope="col">Template</th>
+      <th scope="col">
+        <a href="#" phx-click="new_email" class="btn btn-sm btn-success"> <i class="fas fa-envelope"></i> &nbsp; Nuevo Template </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for gallery <- @galleries do %>
+    <tr>
+      <td><%= gallery.title %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
 </div>
