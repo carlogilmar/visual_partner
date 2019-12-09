@@ -6,7 +6,8 @@ defmodule Star.Gallery do
   schema "galleries" do
     field :title, :string
     field :cover, :string
-    field :description, :string
+    field :esp_desc, :string
+    field :eng_desc, :string
     field :status, :boolean, default: false
     timestamps()
     has_many :image, Star.Image, on_delete: :delete_all
@@ -14,7 +15,7 @@ defmodule Star.Gallery do
 
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:title, :description, :status])
+    |> cast(attrs, [:title, :cover, :esp_desc, :eng_desc, :status])
     |> validate_required([])
   end
 
