@@ -33,7 +33,8 @@
   <tbody>
     <%= for gallery <- @galleries do %>
     <tr>
-      <td><%= gallery.title %></td>
+      <td>
+        <%= gallery.title %></td>
       <td><small><%= gallery.inserted_at %></small></td>
       <td>
         <%= if gallery.status do %>
