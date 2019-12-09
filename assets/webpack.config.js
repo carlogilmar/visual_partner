@@ -18,7 +18,8 @@ module.exports = (env, options) => ({
 		starter_controller: ['./js/controllers/starter_controller.js'],
 		analytics_controller: ['./js/controllers/analytics_controller.js'],
 		email_controller: ['./js/controllers/email_controller.js'],
-		images_controller: ['./js/controllers/images_controller.js']
+		images_controller: ['./js/controllers/images_controller.js'],
+		gallery_controller: ['./js/controllers/gallery_controller.js']
 	},
 	output: {
 		filename: '[name].js',

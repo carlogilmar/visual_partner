@@ -53,6 +53,7 @@ defmodule StarWeb.Router do
     live "/emailer", EmailerLive
     get "/email/:id", EmailController, :index
     live "/gallery", GpageLive
+    get "/gallery/:id", BundleController, :index
   end
 
   ## Users
