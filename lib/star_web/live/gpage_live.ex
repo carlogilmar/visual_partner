@@ -17,12 +17,24 @@ defmodule StarWeb.GpageLive do
     {:noreply, live_redirect(socket, to: uri_val)}
   end
 
-  ##def handle_event("delete", %{"user_id" => user_id}, socket) do
-  ##  user_id = String.to_integer(user_id)
-  ##  {:ok, _user_deleted} = UserOperator.delete_user(user_id)
-  ##  socket = update_users(socket)
-  ##  {:noreply, socket}
-  ##end
+  def handle_event("new", _value, socket) do
+    {:ok, gallery} = GalleryOperator.create("Gallery", "Empty", "", "")
+    {:noreply, live_redirect(socket, to: "/admin/gallery/#{gallery.id}")}
+  end
+
+  def handle_event("active", %{"gallery" => gallery}, socket) do
+    gallery = String.to_integer(gallery)
+    _ = GalleryOperator.update_gallery(gallery, %{status: true})
+    socket = update(socket)
+    {:noreply, socket}
+  end
+
+  def handle_event("inactive", %{"gallery" => gallery}, socket) do
+    gallery = String.to_integer(gallery)
+    _ = GalleryOperator.update_gallery(gallery, %{status: false})
+    socket = update(socket)
+    {:noreply, socket}
+  end
 
   def update(socket) do
     galleries = GalleryOperator.get_all()

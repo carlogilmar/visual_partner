@@ -23,8 +23,9 @@
   <thead>
     <tr>
       <th scope="col">Template</th>
+      <th scope="col">Status</th>
       <th scope="col">
-        <a href="#" phx-click="new_email" class="btn btn-sm btn-success"> <i class="fas fa-envelope"></i> &nbsp; Nuevo Template </a>
+        <a href="#" phx-click="new" class="btn btn-sm btn-success"> <i class="fas fa-envelope"></i> &nbsp; New</a>
       </th>
     </tr>
   </thead>
@@ -32,6 +33,20 @@
     <%= for gallery <- @galleries do %>
     <tr>
       <td><%= gallery.title %></td>
+      <td>
+        <%= if gallery.status do %>
+          <span class="badge badge-success">ACTIVO</span>
+          &nbsp; &nbsp;
+          <a href="#" phx-click="inactive" phx-value-gallery="<%= gallery.id %>" class="btn btn-sm btn-dark"> <i class="fas fa-times-circle"></i> &nbsp; Inactive </a>
+        <% else %>
+          <span class="badge badge-secondary">INACTIVO</span>
+          &nbsp; &nbsp;
+          <a href="#" phx-click="active" phx-value-gallery="<%= gallery.id %>" class="btn btn-sm btn-success"> <i class="fas fa-check"></i> &nbsp; Active </a>
+        <% end %>
+      </td>
+      <td>
+        <a href="#" class="btn btn-sm btn-secondary" phx-click="redirect_url" phx-value-uri_val="/admin/gallery/<%= gallery.id %>"> <i class="fas fa-images"></i> Edit </a>
+      </td>
     </tr>
     <% end %>
   </tbody>

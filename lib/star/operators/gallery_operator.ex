@@ -1,4 +1,5 @@
 defmodule Star.GalleryOperator do
+  import Ecto.Query, only: [from: 2]
   alias Star.Gallery
   alias Star.Repo
 
@@ -13,7 +14,13 @@ defmodule Star.GalleryOperator do
   end
 
   def get_all do
-    Repo.all(Gallery)
+    query =
+      from(g in Gallery,
+        order_by: [desc: g.inserted_at]
+      )
+
+    query
+    |> Repo.all()
   end
 
   def delete(id) do
