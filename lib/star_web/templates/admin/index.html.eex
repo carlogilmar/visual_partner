@@ -6,6 +6,7 @@
   <div class="row">
     <div class="col-md-4 text-center">
       <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" width="100%" />
+        <a href="<%= Routes.static_path(@conn, "/logout")%>" class="btn btn-sm btn-secondary"> <b>  Logout &nbsp; <i class="fas fa-rocket"></i></b> </a>
     </div>
 
     <div class="col-md-4 text-center">
@@ -23,6 +24,7 @@
       <div class="card bg-light mb-3">
         <div class="card-header"> <i class="fas fa-globe-americas"></i> &nbsp; <strong> I N F O </strong></div>
         <div class="card-body">
+          <button class="btn btn-block btn-warning"> <b> CALENDAR </b> <span class="badge badge-secondary">To Do</span> </button>
         <a href="<%= Routes.static_path(@conn, "/admin/analytics")%>" class="btn btn-sm btn-block btn-secondary"> <b> ANALYTICS  &nbsp; <i class="fas fa-rocket"></i></b> </a>
         </div>
       </div>
@@ -34,6 +36,8 @@
       <div class="card bg-light mb-3">
         <div class="card-header"> <i class="fas fa-envelope-open-text"></i> &nbsp; <strong> C O M M U N I C A T I O N S </strong></div>
         <div class="card-body">
+          <button class="btn btn-block btn-warning"> <b> INTERVIEWEES </b> <span class="badge badge-secondary">To Do</span> </button>
+          <button class="btn btn-block btn-warning"> <b> INTERVIEWS </b> <span class="badge badge-secondary">To Do</span> </button>
           <a href="<%= Routes.static_path(@conn, "/admin/emailer")%>" class="btn btn-block btn-secondary"> <b> EMAILER &nbsp; <i class="fas fa-rocket"></i></b> </a>
         </div>
       </div>
@@ -44,6 +48,8 @@
         <div class="card-header"> <i class="fas fa-images"></i> &nbsp; <strong> S E C T I O N S </strong></div>
         <div class="card-body">
           <a href="<%= Routes.static_path(@conn, "/admin/gallery")%>" class="btn btn-block btn-secondary"> <b> GALLERY  &nbsp; <i class="fas fa-rocket"></i></b> </a>
+          <!-- TO IMPLEMENT -->
+          <button class="btn btn-block btn-warning"> <b>LEARNING ARCHETYPES</b> <span class="badge badge-secondary">To Do</span> </button>
         </div>
       </div>
     </div>

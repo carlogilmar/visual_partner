@@ -28,12 +28,6 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger oswald font_header" href="#about"> Learning System </a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger oswald font_header" href="/archetypes.html"> Learning Archetypes </a>
-						</li>
-						<li class="nav-item">
               <a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/gallery") %>"> Gallery </a>
 						</li>
 					</ul>
