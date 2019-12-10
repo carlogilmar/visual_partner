@@ -15,10 +15,10 @@
 	</nav>
 	<br>
 
-  <input type="hidden" id="gallery" value="<%= @gallery %>">
+	<input type="hidden" id="gallery" value="<%= @gallery %>">
 
-  <div class="row">
-    <div class="col-md-4">
+	<div class="row">
+		<div class="col-md-4">
 
 			<div class="card">
 				<img v-bind:src="gallery.cover"  class="card-img-top" alt="...">
@@ -44,10 +44,44 @@
 				</div>
 			</div>
 
-    </div>
-    <div class="col-md-8">
-    </div>
-  </div>
+		</div>
+
+		<div class="col-md-8">
+
+			<div v-for="image in images">
+			<div class="card">
+				<div class="row no-gutters">
+						<div class="col-md-4 text-center">
+							<br><br>
+							<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604439/apprentices_journey/visual_omet4s.png" width="100%">
+							<button class="btn btn-sm btn-danger" v-on:click="delete_image(image.id)"> E L I M I N A R</button>
+						</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<div class="form-group">
+								<label><strong>Cover URL</strong></label>
+								<input v-model="image.url" @blur="update_image($event.target.value, 'url', image.id)" type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<label><strong>English Description</strong></label>
+								<textarea v-model="image.eng_desc" @blur="update_image($event.target.value, 'eng_desc', image.id)" class="form-control" rows="1"></textarea>
+							</div>
+							<div class="form-group">
+								<label><strong>Espanish Description</strong></label>
+								<textarea v-model="image.esp_desc" @blur="update_image($event.target.value, 'eng_desc', image.id)" class="form-control" rows="1"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			</div>
+
+		</div>
+
+	</div>
+
+	<notifications group="foo" />
 
 </div>
 

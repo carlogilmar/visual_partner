@@ -1,6 +1,7 @@
 defmodule StarWeb.GalleryChannel do
   use Phoenix.Channel
   alias Star.GalleryOperator
+	alias Star.ImageOperator
 
   def join("gallery:join", %{"gallery" => gallery_id}, socket) do
     {:ok, get_gallery(gallery_id), socket}
@@ -14,6 +15,25 @@ defmodule StarWeb.GalleryChannel do
     attrs = Map.new([{String.to_atom(attr), value}])
     {:ok, _model} = GalleryOperator.update_gallery(id, attrs)
     {:reply, {:ok, %{status: "200"}}, socket}
+  end
+
+  def handle_in(
+    "gallery:update_img",
+    %{"attr" => attr, "id" => id, "value" => value},
+    socket
+  ) do
+    attrs = Map.new([{String.to_atom(attr), value}])
+    {:ok, _model} = ImageOperator.update(id, attrs)
+    {:reply, {:ok, %{status: "200"}}, socket}
+  end
+
+  def handle_in(
+    "gallery:delete_img",
+    %{"id" => id, "gallery" => gallery},
+    socket
+  ) do
+		_ = ImageOperator.delete(id)
+    {:reply, {:ok, get_gallery(gallery)}, socket}
   end
 
   defp get_gallery(gallery_id) do

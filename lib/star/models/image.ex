@@ -13,7 +13,7 @@ defmodule Star.Image do
 
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:gallery, :url, :esp_desc, :eng_desc])
+    |> cast(attrs, [:url, :esp_desc, :eng_desc])
     |> validate_required([])
   end
 

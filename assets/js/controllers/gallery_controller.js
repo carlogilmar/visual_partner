@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import socket from "./../socket"
+import Notifications from 'vue-notification'
+Vue.use(Notifications)
 
 export const app = new Vue({
   el:"#app",
@@ -23,10 +25,42 @@ export const app = new Vue({
       });
   },
   methods: {
+		delete_image: function(id){
+			let gallery = document.getElementById("gallery").value
+      this.channel.push("gallery:delete_img", {id: id, gallery: gallery})
+        .receive('ok', (res) => {
+          console.log("DONE");
+					this.images = res.images;
+          this.$notify({
+            group: 'foo',
+            title: 'Eliminando...',
+          });
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+		},
+		update_image: function(value, attr, id){
+      this.channel.push("gallery:update_img", {id: id, attr: attr, value: value})
+        .receive('ok', (res) => {
+          console.log("DONE");
+          this.$notify({
+            group: 'foo',
+            title: 'Guardando cambio...',
+          });
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+		},
     update: function(value, attr){
       this.channel.push("gallery:update", {id: this.gallery.id, attr: attr, value: value})
         .receive('ok', (res) => {
           console.log("DONE");
+          this.$notify({
+            group: 'foo',
+            title: 'Guardando cambio...',
+          });
         })
         .receive("error", resp => {
           console.log("ERROR");
