@@ -30,6 +30,9 @@
 						<li class="nav-item">
               <a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/gallery") %>"> Gallery </a>
 						</li>
+						<li class="nav-item">
+              <a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/sponsorship") %>"> Become a Sponsor </a>
+						</li>
 					</ul>
 				</div>
 			</div>

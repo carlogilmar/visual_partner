@@ -1,4 +1,5 @@
 defmodule Star.SponsorshipOperator do
+  import Ecto.Query, only: [from: 2]
   alias Star.Sponsorship
   alias Star.Repo
 
