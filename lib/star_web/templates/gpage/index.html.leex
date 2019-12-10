@@ -34,7 +34,8 @@
     <%= for gallery <- @galleries do %>
     <tr>
       <td>
-        <%= gallery.title %></td>
+        <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin/gallery/<%= gallery.id %>"> <%= gallery.title %> </a>
+      </td>
       <td><small><%= gallery.inserted_at %></small></td>
       <td>
         <%= if gallery.status do %>
@@ -48,7 +49,7 @@
         <% end %>
       </td>
       <td>
-        <a href="#" class="btn btn-sm btn-secondary" phx-click="redirect_url" phx-value-uri_val="/admin/gallery/<%= gallery.id %>"> <i class="fas fa-images"></i> Edit </a>
+        <a href="#" class="btn btn-sm btn-danger" phx-click="delete" phx-value-gallery="<%= gallery.id %>"> <i class="fas fa-trash"></i> Eliminar </a>
       </td>
     </tr>
     <% end %>
