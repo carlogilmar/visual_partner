@@ -9,7 +9,11 @@
 			<ul class="navbar-nav mr-auto">
 			</ul>
 			<span class="navbar-text">
-				<a href="<%= Routes.static_path(@conn, "/admin/gallery")%>"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+				<button class="btn btn-sm btn-success" v-on:click="new_image()"> New </button>
+			</span>
+			&nbsp;&nbsp;
+			<span class="navbar-text">
+				<a class="btn btn-sm btn-light" href="<%= Routes.static_path(@conn, "/admin/gallery")%>"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
 			</span>
 		</div>
 	</nav>
@@ -53,7 +57,7 @@
 				<div class="row no-gutters">
 						<div class="col-md-4 text-center">
 							<br><br>
-							<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604439/apprentices_journey/visual_omet4s.png" width="100%">
+							<img v-bind:src="image.url" width="100%">
 							<button class="btn btn-sm btn-danger" v-on:click="delete_image(image.id)"> E L I M I N A R</button>
 						</div>
 					<div class="col-md-8">

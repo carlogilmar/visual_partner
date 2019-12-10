@@ -36,6 +36,16 @@ defmodule StarWeb.GalleryChannel do
     {:reply, {:ok, get_gallery(gallery)}, socket}
   end
 
+  def handle_in(
+    "gallery:new_img",
+    %{"gallery" => gallery},
+    socket
+  ) do
+		url = "https://res.cloudinary.com/carlogilmar/image/upload/v1575604431/apprentices_journey/carlogilmar_logo_uyofzd.png"
+		_ = ImageOperator.create(gallery, url, "", "")
+    {:reply, {:ok, get_gallery(gallery)}, socket}
+  end
+
   defp get_gallery(gallery_id) do
     gallery_id
     |> String.to_integer()

@@ -25,6 +25,21 @@ export const app = new Vue({
       });
   },
   methods: {
+		new_image: function(){
+			let gallery = document.getElementById("gallery").value
+      this.channel.push("gallery:new_img", {gallery: gallery})
+        .receive('ok', (res) => {
+          console.log("DONE");
+					this.images = res.images;
+          this.$notify({
+            group: 'foo',
+            title: 'Creado...',
+          });
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+		},
 		delete_image: function(id){
 			let gallery = document.getElementById("gallery").value
       this.channel.push("gallery:delete_img", {id: id, gallery: gallery})
