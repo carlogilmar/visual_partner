@@ -39,7 +39,7 @@ defmodule StarWeb.Router do
 
     ### Gallery
     live "/gallery", GalleryLive
-		get "/images", ImagesController, :index
+		get "/gallery/:id", ImagesController, :index
 
   end
 
