@@ -1,22 +1,47 @@
-<div id="app">
-  <carousel :per-page="1">
-  <slide>
-  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604448/apprentices_journey/wip_dsixew.png" width="100%" />
-  Slide 1 C
-  </slide>
-  <slide>
-  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/cover_aahqr7.png" width="100%" />
-  Slide 2 Content
-  </slide>
-  <slide>
-  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604439/apprentices_journey/visual_omet4s.png" width="100%" />
-  Slide 3 Content
-  </slide>
-  <slide>
-  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604431/apprentices_journey/interview_nsfgac.png" width="100%" />
-  Slide 4 Content
-  </slide>
-  </carousel>
+<div id="app" class="container">
+
+  <input type="hidden" id="gallery" value="<%= @gallery %>">
+  <br><br>
+  <h1 class="taj_color oswald text-center"> <i class="fas fa-images" aria-hidden="true"></i> <span> {{gallery.title}} </span> </h1>
+  <br>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+      <carousel :per-page="1">
+
+      <slide v-for="image in images">
+      <div class="text-center">
+        <p class="lead"> {{image.eng_desc}} </p>
+        <p class="lead_latin">{{image.esp_desc}} </p>
+      </div>
+      <img v-bind:src="image.url" width="100%" />
+      </slide>
+
+      </carousel>
+
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette text-center">
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <a href="http://carlogilmar.xyz/">
+        <img class="featurette-image img-fluid mx-auto" v-bind:src="gallery.cover" width="100%" alt="Author">
+      </a>
+    </div>
+    <div class="col-md-5">
+      <p class="lead footer-font">
+      <br> {{gallery.eng_desc}}
+      <br><br> <i> <small> {{gallery.esp_desc}} </small></i>
+      </p>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
 </div>
 
 <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/images_controller.js") %>"></script>
