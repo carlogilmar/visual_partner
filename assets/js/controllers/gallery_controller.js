@@ -4,6 +4,8 @@ import socket from "./../socket"
 export const app = new Vue({
   el:"#app",
   data: {
+    gallery: {},
+    images: []
   },
   created: function() {
     console.log("Vue App here!");
@@ -13,11 +15,22 @@ export const app = new Vue({
       .receive("ok", resp => {
         console.log("Joined successfully");
         console.log(resp);
+        this.gallery = resp.gallery;
+        this.images = resp.images;
       })
       .receive("error", resp => {
         console.log("Unable to join", resp);
       });
   },
   methods: {
+    update: function(value, attr){
+      this.channel.push("gallery:update", {id: this.gallery.id, attr: attr, value: value})
+        .receive('ok', (res) => {
+          console.log("DONE");
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
   }
 });

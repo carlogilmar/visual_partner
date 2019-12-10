@@ -6,6 +6,16 @@ defmodule StarWeb.GalleryChannel do
     {:ok, get_gallery(gallery_id), socket}
   end
 
+  def handle_in(
+    "gallery:update",
+    %{"attr" => attr, "id" => id, "value" => value},
+    socket
+  ) do
+    attrs = Map.new([{String.to_atom(attr), value}])
+    {:ok, _model} = GalleryOperator.update_gallery(id, attrs)
+    {:reply, {:ok, %{status: "200"}}, socket}
+  end
+
   defp get_gallery(gallery_id) do
     gallery_id
     |> String.to_integer()
