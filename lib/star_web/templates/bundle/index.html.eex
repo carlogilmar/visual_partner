@@ -72,7 +72,7 @@
 							</div>
 							<div class="form-group">
 								<label><strong>Espanish Description</strong></label>
-								<textarea v-model="image.esp_desc" @blur="update_image($event.target.value, 'eng_desc', image.id)" class="form-control" rows="1"></textarea>
+								<textarea v-model="image.esp_desc" @blur="update_image($event.target.value, 'esp_desc', image.id)" class="form-control" rows="1"></textarea>
 							</div>
 						</div>
 					</div>

@@ -9,7 +9,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
 
-      <carousel :per-page="1">
+      <carousel :per-page="1" :autoplay="true">
 
       <slide v-for="image in images">
       <div class="text-center">
