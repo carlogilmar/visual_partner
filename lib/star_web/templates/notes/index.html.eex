@@ -51,7 +51,22 @@
 				</local-quill-editor>
 			</div>
 			<!-- Editor !-->
-			<button class="btn btn-danger btn-sm" v-on:click="delete_note(note_selected.id)">Delete</button>
+
+      <a class="btn btn-warning btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Delete
+      </a>
+
+      <a v-bind:href="'/note/'+ note_selected.id" class="btn btn-sm btn-info" target="_blank">
+        <b> Show &nbsp; <i class="fas fa-rocket"></i></b>
+      </a>
+
+      <br>
+      <br>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <button class="btn btn-danger btn-sm" v-on:click="delete_note(note_selected.id)">Delete</button>
+        </div>
+      </div>
     </div>
 
     <div class="col-md-8" v-else>
