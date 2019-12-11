@@ -17,6 +17,16 @@ defmodule StarWeb.NotesChannel do
     {:reply, {:ok, %{note: note}}, socket}
   end
 
+  def handle_in(
+    "notes:update",
+    %{"attr" => attr, "id" => id, "value" => value},
+    socket
+  ) do
+    attrs = Map.new([{String.to_atom(attr), value}])
+    {:ok, _model} = NoteOperator.update(id, attrs)
+    {:reply, {:ok, %{notes: get_notes()}}, socket}
+  end
+
   defp get_notes do
     notes = NoteOperator.get_all()
     for note <- notes do

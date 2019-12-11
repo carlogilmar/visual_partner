@@ -11,7 +11,7 @@ defmodule Star.Note do
 
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:body])
+    |> cast(attrs, [:title, :body])
     |> validate_required([])
   end
 
