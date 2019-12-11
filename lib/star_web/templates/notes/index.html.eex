@@ -55,7 +55,12 @@
     </div>
 
     <div class="col-md-8" v-else>
-			Selecciona una nota
+			<div class="jumbotron">
+				<h1 class="display-4">The Apprentice's Journey!</h1>
+				<p class="lead">This are important notes for this project</p>
+				<hr class="my-4">
+				<p>Notas importantes para el proyecto</p>
+			</div>
 		</div>
 
   </div>
