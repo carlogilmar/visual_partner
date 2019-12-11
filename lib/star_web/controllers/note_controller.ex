@@ -1,4 +1,4 @@
-defmodule StarWeb.NotesController do
+defmodule StarWeb.NoteController do
   use StarWeb, :controller
 
   def index(conn, params) do

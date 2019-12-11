@@ -44,6 +44,9 @@ defmodule StarWeb.Router do
     ### Sponsors
     live "/sponsorship", SponsorsLive
 
+    ### Notes
+    get "/note/:id", NoteController, :index
+
   end
 
   ## Admin
