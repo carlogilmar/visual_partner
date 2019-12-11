@@ -67,6 +67,24 @@ export const app = new Vue({
         .receive("error", resp => {
           console.log("ERROR");
         });
-    }
+    },
+    new_note: function(){
+      this.channel.push("notes:new", {})
+        .receive('ok', (res) => {
+          this.notes = res.notes;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
+    delete_note: function(id){
+      this.channel.push("notes:delete", {id: id})
+        .receive('ok', (res) => {
+          this.notes = res.notes;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
   }
 });

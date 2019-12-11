@@ -27,6 +27,24 @@ defmodule StarWeb.NotesChannel do
     {:reply, {:ok, %{notes: get_notes()}}, socket}
   end
 
+  def handle_in(
+    "notes:new",
+    %{},
+    socket
+  ) do
+    _ = NoteOperator.create("", "New Note")
+    {:reply, {:ok, %{notes: get_notes()}}, socket}
+  end
+
+  def handle_in(
+    "notes:delete",
+    %{"id" => id},
+    socket
+  ) do
+    _ = NoteOperator.delete(id)
+    {:reply, {:ok, %{notes: get_notes()}}, socket}
+  end
+
   defp get_notes do
     notes = NoteOperator.get_all()
     for note <- notes do

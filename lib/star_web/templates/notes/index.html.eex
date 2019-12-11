@@ -21,6 +21,9 @@
 
     <div class="col-md-4">
 
+			<button class="btn btn-success btn-sm btn-block" v-on:click="new_note()"> N E W</button>
+			<br<br>
+
       <div class="card" v-for="note in notes">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
@@ -48,6 +51,7 @@
 				</local-quill-editor>
 			</div>
 			<!-- Editor !-->
+			<button class="btn btn-danger btn-sm" v-on:click="delete_note(note_selected.id)">Delete</button>
     </div>
 
     <div class="col-md-8" v-else>
