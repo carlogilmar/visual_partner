@@ -4,6 +4,7 @@ defmodule StarWeb.SponsorsLive do
   alias StarWeb.SponsorsView
   alias Star.Sponsorship
   alias Star.SponsorshipOperator
+	alias Star.EmailerSenderOperator
 
   def render(assigns) do
     SponsorsView.render("index.html", assigns)
@@ -20,6 +21,7 @@ defmodule StarWeb.SponsorsLive do
 
   def handle_event("save", %{"user" => params}, socket) do
     _ = SponsorshipOperator.create(params["email"], params["description"])
+		_ = EmailerSenderOperator.send_sponsor_email(params["email"])
     {:noreply, live_redirect(socket, to: "/")}
   end
 

@@ -1,0 +1,45 @@
+<p>
+  <meta charset="utf-8">
+</p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;">&nbsp;</span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;">
+    <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_with_man_jx1eku.png" alt="" width="315" style="width: 339px; height: 140.981px;">
+    <br data-mce-bogus="1">
+  </span></p>
+<h2 style="text-align: center;">
+  <br>
+</h2>
+<h2 style="text-align: center;"><span style="font-family: Arial, Helvetica, sans-serif; font-size: 30px; color: rgb(226, 80, 65);">Sponsorship Request 🌟</span></h2>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;">
+    <br data-mce-bogus="1">
+  </span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><strong>Hey</strong>!&nbsp;</span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><em><span style="color: rgb(84, 172, 210);">¡Hola!</span></em></span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;">
+    <br data-mce-bogus="1">
+  </span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><strong>You've sent a request for know more about the Sponsorship for The Apprentice's Journey.&nbsp;</strong></span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><em><span style="color: rgb(84, 172, 210);">Acabas de enviar una solicitud de Sponsorship para El Camino del Aprendiz.</span></em></span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;">&nbsp;</span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><strong>While I'm processing your request for give you the details, let me explain something about The Apprentice's Journey:</strong></span></p>
+<ul>
+  <li style="text-align: left;"><span style="font-family: Arial,Helvetica,sans-serif;"><strong>You can donate from 3 to 15 USD by Buy Me a Coffee. You can contribute with more if you want.</strong></span></li>
+  <li style="text-align: left;"><span style="font-family: Arial,Helvetica,sans-serif;"><strong>This project is about generate multimedia content, we accept tech donations, like microphones or lights, by Amazon!</strong></span></li>
+</ul>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><strong>&nbsp;</strong></span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><em><span style="color: rgb(84, 172, 210);">Mientras procesamos tu solicitud para enviarte más detalles, te comentamos lo siguiente sobre El Camino del Aprendiz:</span></em></span></p>
+<ul>
+  <li style="text-align: left;"><span style="color: rgb(84, 172, 210);"><span style="font-family: Arial,Helvetica,sans-serif;"><em>Puedes donar desde 3 hasta 5 dólares en Buy Me a Coffee. Puedes contribuir con más si quieres.</em></span></span></li>
+  <li style="text-align: left;"><span style="color: rgb(84, 172, 210);"><span style="font-family: Arial,Helvetica,sans-serif;"><em>Este proyecto genera contenido multimedia, aceptamos donaciones de tecnología como micrófonos, que pueden ser donados por Amazon.</em></span></span></li>
+</ul>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><em><span style="color: rgb(84, 172, 210);">&nbsp;</span></em></span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><strong>We're building this project by our own effort, soon we'll develop more ways to support us.&nbsp;</strong></span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;"><em>Estamos construyendo este proyecto con nuestro propio esfuerzo, próximamente tendremos nuevas formas de apoyarnos.</em></span></p>
+<p style="text-align: center;"><span style="font-family: Arial,Helvetica,sans-serif;">
+    <br data-mce-bogus="1">
+  </span></p>
+<h3 style="text-align: center;"><span style="font-family: Arial, Helvetica, sans-serif; color: rgb(209, 72, 65);">Thanks! Carlo</span></h3>
+<h3 style="text-align: center;"><span style="font-family: Arial, Helvetica, sans-serif; color: rgb(209, 72, 65); font-size: 30px;">👋 🇲🇽</span></h3>
+<p>
+  <br data-mce-bogus="1" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+</p>

@@ -52,3 +52,20 @@ defmodule Star.EmailerBroadcastOperator do
 	end
 
 end
+
+defmodule Star.EmailerSenderOperator do
+	alias Star.EmailManager
+
+  def get_template(template_src) do
+    template = File.stream!(Path.join(:code.priv_dir(:star), template_src))
+    template.path
+    |> File.read()
+  end
+
+  def send_sponsor_email(email) do
+    {:ok, content} = get_template("emails/sponsor.txt")
+    title = " The Apprentice's Journey :: Sponsorship Request"
+		_ = EmailManager.send_email(%{title: title, content: content}, email)
+  end
+
+end
