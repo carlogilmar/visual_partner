@@ -5,6 +5,7 @@ defmodule Star.Note do
   @primary_key {:id, :id, autogenerate: true}
   schema "notes" do
     field :body, :string
+    field :title, :string
     timestamps()
   end
 

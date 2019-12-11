@@ -3,8 +3,9 @@ defmodule Star.NoteOperator do
   alias Star.Note
   alias Star.Repo
 
-  def create(body) do
+  def create(body, title) do
     %Note{
+      title: title,
       body: body}
     |> Repo.insert()
   end
