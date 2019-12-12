@@ -35,7 +35,7 @@
               <div class="modal-body">
                 ¿Quieres eliminarlo?
                 <br><br>
-                <h1 class="oswald"> <%= id.email %> </h1>
+                <h1 class="oswald"> <%= model.id %> </h1>
 
               </div>
               <div class="modal-footer">

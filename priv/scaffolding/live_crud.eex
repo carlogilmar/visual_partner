@@ -25,8 +25,8 @@ defmodule <%= app_name %>Web.CrudLive do
     {:noreply, socket}
   end
 
-  def handle_event("delete", %{"model_id" => model_id}, socket) do
-    user_id = String.to_integer(user_id)
+  def handle_event("delete", %{"id" => model_id}, socket) do
+    model_id = String.to_integer(model_id)
     {:ok, _model_deleted} = <%= model_name %>Operator.delete(model_id)
     socket = update_socket(socket)
     {:noreply, socket}
