@@ -1,9 +1,10 @@
 defmodule StarWeb.NoteChannel do
   use Phoenix.Channel
   alias Star.NoteOperator
+  alias Star.CommentNoteOperator
 
   def join("note:join", %{"note" => id}, socket) do
-    {:ok, %{note: get_note(id)}, socket}
+    {:ok, get_note(id), socket}
   end
 
   def handle_in(
@@ -11,14 +12,25 @@ defmodule StarWeb.NoteChannel do
     %{"id" => id, "username" => username, "comment" => comment},
     socket
   ) do
-    IO.puts "\n Que onda ======> \n"
-    {:reply, {:ok, %{note: get_note(id)}}, socket}
+    _ = CommentNoteOperator.create(id, username, comment)
+    {:reply, {:ok, get_note(id)}, socket}
   end
 
   def get_note(id) do
     id = String.to_integer(id)
     note = NoteOperator.get_by_id(id)
-    %{"title" => note.title, "body" => note.body}
+
+    comments =
+      for comment <- note.comment_note do
+        %{
+          "author" => comment.author,
+          "description" => comment.description
+        }
+      end
+
+    note = %{"title" => note.title, "body" => note.body}
+
+    %{note: note, comments: comments}
   end
 
 end

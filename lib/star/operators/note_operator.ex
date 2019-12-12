@@ -11,7 +11,7 @@ defmodule Star.NoteOperator do
   end
 
   def get_by_id(id) do
-    Repo.get(Note, id)
+    Note |> Repo.get(id) |> Repo.preload([:comment_note])
   end
 
   def get_all do
