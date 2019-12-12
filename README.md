@@ -7,13 +7,11 @@
 3. Remember purge the deployment `heroku repo:purge_cache -a starcg`
 4. Create a hobby db
 
-## To Do
+## Generate Live View Scaffolding
 
-- Live Views Setup
-- Deploy on Heroku
-- Add Bootstrap, and Vue
-- Add users model in db
-- Add simple login and auth
+1. Generate an empty live view
+2. Generate the migration, and fill your schema
+3. Run the follow command for scaffold your model `mix create_model comment_note`
 
-- Add users registry: for suscriptors and normal users
-- Add email mechanism
+
+
