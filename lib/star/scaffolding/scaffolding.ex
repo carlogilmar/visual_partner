@@ -13,7 +13,8 @@ defmodule Scaffolding do
 
 		files_to_generate = [
 			{"scaffolding/model.eex", "lib/#{app_name}/models/#{model_name}.ex"},
-			{"scaffolding/operator.eex", "lib/#{app_name}/operators/#{model_name}_operator.ex"}
+      {"scaffolding/operator.eex", "lib/#{app_name}/operators/#{model_name}_operator.ex"},
+      {"scaffolding/live_crud.eex", "lib/#{app_name}_web/live/crud_live.ex"}
 		]
 
 		Enum.each(files_to_generate, fn {file, path} ->
@@ -25,6 +26,11 @@ defmodule Scaffolding do
 
 			:ok = File.write(path, content)
 		end)
+
+    IO.puts("\n Construyendo archivo html scaffolding...")
+    template = File.stream!(Path.join(:code.priv_dir(:star), "scaffolding/html_crud.eex"))
+    {:ok, body} = template.path |> File.read()
+    :ok = File.write("lib/#{app_name}_web/templates/crud.html.leex", body)
 	end
 
   def capitalize_name(name) do

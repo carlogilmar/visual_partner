@@ -1,0 +1,42 @@
+## TODO: Change this
+defmodule <%= app_name %>Web.CrudLive do
+  use Phoenix.LiveView
+  alias <%= app_name %>.<%= model_name %>Operator
+    ## TODO: Change this
+  alias <%= app_name %>Web.CrudView
+
+  def render(assigns) do
+    ## TODO: Change this
+    CrudView.render("index.html", assigns)
+  end
+
+  def mount(_session, socket) do
+    socket = update_socket(socket)
+    {:ok, socket}
+  end
+
+  def handle_event("redirect_url", %{"uri_val" => uri_val}, socket) do
+    {:noreply, live_redirect(socket, to: uri_val)}
+  end
+
+  def handle_event("new", _value, socket) do
+    {:ok, email} = <%= model_name %>Operator.create()
+    socket = update_socket(socket)
+    {:noreply, socket}
+  end
+
+  def handle_event("delete", %{"model_id" => model_id}, socket) do
+    user_id = String.to_integer(user_id)
+    {:ok, _model_deleted} = <%= model_name %>Operator.delete(model_id)
+    socket = update_socket(socket)
+    {:noreply, socket}
+  end
+
+  defp update_socket(socket) do
+    models = <%= model_name %>Operator.get_all()
+
+    socket
+    |> assign(:models, models)
+  end
+
+end
