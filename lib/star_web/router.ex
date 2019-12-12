@@ -62,6 +62,7 @@ defmodule StarWeb.Router do
     get "/gallery/:id", BundleController, :index
     live "/sponsorship", SponsorshipLive
     get "/notes", NotesController, :index
+    live "/comments", CommentsLive
   end
 
   ## Users
