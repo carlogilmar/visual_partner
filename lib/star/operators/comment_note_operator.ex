@@ -1,4 +1,5 @@
 defmodule Star.CommentNoteOperator do
+  import Ecto.Query, only: [from: 2]
   alias Star.CommentNote
   alias Star.Repo
   alias Star.NoteOperator
@@ -19,7 +20,14 @@ defmodule Star.CommentNoteOperator do
   end
 
   def get_all do
-    Repo.all(CommentNote)
+    query =
+      from(g in CommentNote,
+        order_by: [desc: g.inserted_at]
+      )
+
+    query
+    |> Repo.all()
+    |> Repo.preload([:note])
   end
 
   def delete(id) do

@@ -38,6 +38,7 @@
         <div class="card-header"> <i class="fas fa-envelope-open-text"></i> &nbsp; <strong> C O M M U N I C A T I O N S </strong></div>
         <div class="card-body">
           <a href="<%= Routes.static_path(@conn, "/admin/notes")%>" class="btn btn-block btn-secondary"> <b> NOTES &nbsp; <i class="fas fa-rocket"></i></b> </a>
+          <a href="<%= Routes.static_path(@conn, "/admin/comments")%>" class="btn btn-block btn-secondary"> <b> COMMENTS &nbsp; <i class="fas fa-rocket"></i></b> </a>
           <button class="btn btn-block btn-warning"> <b> INTERVIEWEES </b> <span class="badge badge-secondary">To Do</span> </button>
           <button class="btn btn-block btn-warning"> <b> INTERVIEWS </b> <span class="badge badge-secondary">To Do</span> </button>
           <a href="<%= Routes.static_path(@conn, "/admin/emailer")%>" class="btn btn-block btn-secondary"> <b> EMAILER &nbsp; <i class="fas fa-rocket"></i></b> </a>
