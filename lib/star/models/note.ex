@@ -7,6 +7,7 @@ defmodule Star.Note do
     field :body, :string
     field :title, :string
     timestamps()
+    has_many :comment_note, Star.CommentNote, on_delete: :delete_all
   end
 
   def changeset(model, attrs) do
