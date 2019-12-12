@@ -34,16 +34,17 @@
 			<!-- form for comment -->
 
       <!-- Comment -->
-      <div class="media">
-        <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604429/apprentices_journey/archetype_dxjdfs.png" width="15%" class="align-self-start mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0 oswald">Advisor User</h5>
-          <p class="lead">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-      </div>
-      <br>
-      <!-- Comment -->
+			<div v-for="comment in comments">
+				<div class="media">
+					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604429/apprentices_journey/archetype_dxjdfs.png" width="15%" class="align-self-start mr-3" alt="...">
+					<div class="media-body">
+						<h5 class="mt-0 oswald">{{comment.author}}</h5>
+						<p class="lead">{{comment.description}}</p>
+					</div>
+				</div>
+				<br><br>
+			</div>
+			<!-- Comment -->
 
     </div>
     <div class="col-md-2">

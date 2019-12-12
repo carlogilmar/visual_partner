@@ -30,7 +30,9 @@ export const app = new Vue({
       let id = document.getElementById("note").value
       this.channel.push("note:new_comment", {id: id, username: this.username, comment: this.comment})
         .receive('ok', (res) => {
-          this.comments = res.comments;
+					this.comments = res.comments;
+					this.username= "";
+					this.comment= "";
         })
         .receive("error", resp => {
           console.log("ERROR");
