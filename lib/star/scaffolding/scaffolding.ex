@@ -4,7 +4,7 @@ defmodule Scaffolding do
 
 		app_name = "star"
 		app_capitalized = String.capitalize(app_name)
-		model_name_capitalized = String.capitalize(model_name)
+		model_name_capitalized = capitalize_name(model_name)
 
 		attrs = [
 			app_name: app_capitalized,
@@ -26,5 +26,11 @@ defmodule Scaffolding do
 			:ok = File.write(path, content)
 		end)
 	end
+
+  def capitalize_name(name) do
+    words = String.replace(name, "_", " ") |> String.split(" ")
+    words = for w <- words, do: String.capitalize(w)
+    words |> Enum.join("")
+  end
 
 end
