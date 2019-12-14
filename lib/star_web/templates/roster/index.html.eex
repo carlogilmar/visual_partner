@@ -1,41 +1,49 @@
 <br><br>
 <div id="app">
-<div class="container">
+	<div class="container">
 
-  <h1 class="taj_color oswald text-center"> <i class="fas fa-star" aria-hidden="true"></i> <span> Roster </span> </h1>
-  <br><br>
+		<h1 class="taj_color oswald text-center"> <i class="fas fa-star" aria-hidden="true"></i> <span> Roster </span> </h1>
+		<br><br>
 
-  <div class="row">
+		<div class="row">
 
-<carousel-3d>
-  <slide :index="0">
-		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
-  </slide>
-  <slide :index="1">
-		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
-  </slide>
-  <slide :index="2">
-		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
-  </slide>
-  <slide :index="3">
-		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
-  </slide>
-  <slide :index="4">
-		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
-  </slide>
-  <slide :index="5">
-		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
-  </slide>
-  <slide :index="6">
-		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
-  </slide>
-  <slide :index="7">
-		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
-  </slide>
-</carousel-3d>
+			<carousel-3d>
+				<slide :index="0">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+				</slide>
+				<slide :index="1">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+				</slide>
+				<slide :index="2">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+				</slide>
+				<slide :index="3">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+				</slide>
+				<slide :index="4">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+				</slide>
+				<slide :index="5">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+				</slide>
+				<slide :index="6">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+				</slide>
+				<slide :index="7">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+				</slide>
+			</carousel-3d>
+		</div>
 
-  </div>
+		<br><hr><br>
+		<!--use animate.css and font-awesome -->
+		<vue-star animate="animated bounceIn" color="#F05654">
+			<i slot="icon" class="fa fa-heart taj_color"></i>
+		</vue-star>
+		<br><br>
 
+
+	</div>
 </div>
 
 <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/roster_controller.js") %>"></script>
