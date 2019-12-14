@@ -8,6 +8,7 @@ defmodule StarWeb.UserSocket do
   channel "gallery:*", StarWeb.GalleryChannel
   channel "notes:*", StarWeb.NotesChannel
   channel "note:*", StarWeb.NoteChannel
+  channel "roster:*", StarWeb.RosterChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After

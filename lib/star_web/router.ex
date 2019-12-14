@@ -47,6 +47,9 @@ defmodule StarWeb.Router do
     ### Notes
     get "/note/:id", NoteController, :index
 
+    ### Roster
+    get "/roster", RosterController, :index
+
   end
 
   ## Admin
