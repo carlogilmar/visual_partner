@@ -24,7 +24,7 @@ defmodule Star.GitHubManager do
         date: commit["commit"]["author"]["date"],
         url: commit["html_url"],
         author: commit["author"]["login"],
-        author_profile: commit["author"]["url"]
+        author_profile: commit["author"]["html_url"]
       }
     end
   end

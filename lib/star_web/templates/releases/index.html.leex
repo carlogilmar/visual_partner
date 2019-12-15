@@ -16,11 +16,13 @@
           </tr>
         </thead>
         <tbody>
+          <%= for commit <- @commits do %>
           <tr>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
+            <td><a href="<%= commit.url %>" target="_blank"><%= commit.desc %></a></td>
+            <td><small><%= commit.date %></small></td>
+            <td><a href="<%= commit.author_profile %>" target="_blank"><small><%= commit.author %></small></a></td>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
