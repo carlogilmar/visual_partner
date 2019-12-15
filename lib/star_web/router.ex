@@ -50,6 +50,9 @@ defmodule StarWeb.Router do
     ### Roster
     get "/roster", RosterController, :index
 
+    ### Releases
+    live "/releases", ReleasesLive
+
   end
 
   ## Admin
