@@ -48,6 +48,8 @@ defmodule Star.MixProject do
       {:argon2_elixir, "~> 2.0"},
       {:guardian, "~> 1.2"},
       {:bamboo, "~> 1.3"},
+      {:poison, "~> 3.1"},
+      {:httpoison, "~> 1.2.0"},
       {:scaffolding, git: "git://github.com/carlogilmar/scaffolding.git", only: [:dev]}
     ]
   end
