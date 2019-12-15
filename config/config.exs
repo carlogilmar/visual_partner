@@ -16,7 +16,8 @@ config :star, StarWeb.Endpoint,
   secret_key_base: "5J3kREXc8ZtwosYjFg+iDhSmMgz6IIYzf/Bozg+06F3Nf1q/Z3MHgQzbhZ52C0PD",
   render_errors: [view: StarWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Star.PubSub, adapter: Phoenix.PubSub.PG2],
-  live_view: [signing_salt: "YMuY0SjtHY3Mtn+jkIvFscOYaTUPrdAm"]
+  live_view: [signing_salt: "YMuY0SjtHY3Mtn+jkIvFscOYaTUPrdAm"],
+  github_api_key: System.get_env("GITHUB_API_KEY")
 
 # Configures Elixir's Logger
 config :logger, :console,
