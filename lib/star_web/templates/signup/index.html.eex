@@ -1,16 +1,14 @@
-<br><br><br><br>
-
-<div class="container">
-	<div class="row">
-
-    <div class="col-md-1"></div>
-
-    <aside class="col-md-4">
-      <div class="card">
-        <article class="card-body">
+<br>
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+							<!-- Login --!>
           <h4 class="card-title text-center mb-4 mt-1"> Login </h4>
-          <h4 class="card-title text-center mb-4 mt-1 lead_latin">Iniciar Sesión</h4>
-          <hr><br>
           <%= form_for @conn, Routes.login_path(@conn, :login), [method: :post], fn _f -> %>
             <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
             <div class="form-group">
@@ -34,18 +32,12 @@
               <button type="submit" class="btn btn-success btn-block"> <strong> LOGIN </strong>  </button>
             </div> <!-- form-group// -->
           <% end %>
-        </article>
-      </div> <!-- card.// -->
-    </aside> <!-- col.// -->
+							<!-- Login --!>
 
-    <div class="col-md-2"></div>
+          <br><hr><br>
 
-    <aside class="col-md-4">
-      <div class="card">
-        <article class="card-body">
+							<!-- Registro --!>
           <h4 class="card-title text-center mb-4 mt-1"> Sign Up </h4>
-          <h4 class="card-title text-center mb-4 mt-1 lead_latin"> Registro </h4>
-          <hr><br>
           <%= form_for @conn, Routes.signup_path(@conn, :create_user), [method: :post], fn _f -> %>
             <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
             <div class="form-group">
@@ -77,8 +69,12 @@
               <button type="submit" class="btn btn-primary btn-block"> <small><strong> SIGN UP &nbsp;&nbsp;|&nbsp;&nbsp; REGISTRAR </strong> </small>  </button>
             </div> <!-- form-group// -->
           <% end %>
-        </article>
-      </div> <!-- card.// -->
-    </aside> <!-- col.// -->
-	</div>
+							<!-- Registro --!>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
