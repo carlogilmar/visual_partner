@@ -1,0 +1,9 @@
+<p>&nbsp;</p>
+<h2 style="text-align: center;"><span style="color: #999999;"><strong>Welcome to The Apprentice's Journey</strong></span></h2>
+<h2 style="text-align: center;"><span style="text-decoration: underline;"><em>Bienvenido al Camino del Aprendiz</em></span></h2>
+<p style="text-align: center;"><img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604448/apprentices_journey/wip_dsixew.png" alt="" width="327" height="232" /></p>
+<p style="text-align: center;">&nbsp;</p>
+<blockquote>
+<p style="text-align: center;">Para continuar con tu registro, por favor ingresa a la siguiente URL:</p>
+</blockquote>
+<p style="text-align: center;"><a href="https://starcg.herokuapp.com/">Activar Cuenta</a></p>
