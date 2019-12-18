@@ -1,8 +1,8 @@
 defmodule StarWeb.RegisterLive do
-
   use Phoenix.LiveView
   alias StarWeb.RegisterView
   alias Star.UserOperator
+	alias Star.EmailerSenderOperator
 
   def render(assigns) do
     RegisterView.render("index.html", assigns)
@@ -41,6 +41,7 @@ defmodule StarWeb.RegisterLive do
 				%{status: "ACTIVE",
 					name: params["name"],
 					password: params["password"]})
+		_ = EmailerSenderOperator.send_welcome_email(user.email)
 		user
 	end
 

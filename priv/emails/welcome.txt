@@ -1,0 +1,6 @@
+<h2 style="text-align: center;">Account Activated</h2>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575944626/apprentices_journey/cover2_ojm7ef.png" alt="" width="609" height="365" /></p>
+<p style="text-align: center;"><span style="color: #999999;"><strong>This account was activated, now you can login! Welcome!</strong></span></p>
+<p style="text-align: center;">Esta cuenta fue activada, ahora puedes ingresar. &iexcl;Bienvenido!</p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>

@@ -70,6 +70,12 @@ defmodule Star.EmailerSenderOperator do
 
   def send_signup_email(email) do
     {:ok, content} = get_template("emails/singup.txt")
+    title = " The Apprentice's Journey :: Complete your register"
+		_ = EmailManager.send_email(%{title: title, content: content}, email)
+  end
+
+  def send_welcome_email(email) do
+    {:ok, content} = get_template("emails/welcome.txt")
     title = " The Apprentice's Journey :: Welcome"
 		_ = EmailManager.send_email(%{title: title, content: content}, email)
   end
