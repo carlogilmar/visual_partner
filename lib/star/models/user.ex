@@ -17,7 +17,7 @@ defmodule Star.User do
   @doc false
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:name, :role, :email, :password, :status])
+    |> cast(attrs, [:identifier, :name, :role, :email, :password, :status])
     |> validate_required([])
   end
 end

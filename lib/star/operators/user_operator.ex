@@ -15,7 +15,7 @@ defmodule Star.UserOperator do
         hash = hash_password(password)
 
         %User{}
-        |> User.changeset(%{email: email, name: name, password: hash, role: role})
+        |> User.changeset(%{identifier: Ecto.UUID.generate, email: email, name: name, password: hash, role: role})
         |> Repo.insert()
 
       user ->
