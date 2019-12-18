@@ -6,4 +6,4 @@
 <blockquote>
 <p style="text-align: center;">Para continuar con tu registro, por favor ingresa a la siguiente URL:</p>
 </blockquote>
-<p style="text-align: center;"><a href="https://starcg.herokuapp.com/">Activar Cuenta</a></p>
+<p style="text-align: center;"><a href="<%= url %>">Activar Cuenta</a></p>

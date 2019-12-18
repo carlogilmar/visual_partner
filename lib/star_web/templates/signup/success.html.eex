@@ -4,8 +4,8 @@
   <h1 class="lead_latin"> ¡Bienvenido! </h1>
   <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1565636790/remotejobs/remote2_h8fvlb.png" width="45%"/>
   <br>
-  <span> Login with your email. </span><br>
-  <span class="lead_latin"> Inicia sesión con tu email. </span>
+  <span> Check your email for activate your account. </span><br>
+  <span class="lead_latin"> Revisa tu email para activar tu cuenta. </span>
   <br>
   <h4> <%= @user.email %> </h4>
   <br>

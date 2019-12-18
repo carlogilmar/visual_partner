@@ -30,7 +30,8 @@ defmodule Star.SignupManager do
   end
 
   def send_email_for_active(user) do
-    _ = EmailerSenderOperator.send_signup_email(user.email)
+    url = "http://localhost:4000/register/#{user.identifier}"
+    _ = EmailerSenderOperator.send_signup_email(user.email, url)
     user
   end
 end
