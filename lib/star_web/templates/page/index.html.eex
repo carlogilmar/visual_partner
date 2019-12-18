@@ -5,7 +5,7 @@
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
         <div class="carousel-item active">
-          <div class="text-center d-block d-sm-none">
+          <div class="text-center d-block d-sm-none d-sm-none">
             <h3 class=""> Welcome </h3>
             <p class="lead"><i>¡Bienvenido!</i></p>
           </div>
@@ -24,7 +24,7 @@
               </p>
             </div>
           </div>
-          <div class="d-none d-xl-block">
+          <div class="d-none d-md-block d-lg-block d-xl-block">
             <div class="container text-center">
               <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575944626/apprentices_journey/cover2_ojm7ef.png" width="70%" />
             </div>
