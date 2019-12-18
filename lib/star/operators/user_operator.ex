@@ -34,6 +34,11 @@ defmodule Star.UserOperator do
     query |> Repo.one()
   end
 
+  def get_by_identifier(identifier) do
+    query = from(user in User, where: user.identifier == ^identifier)
+    query |> Repo.one()
+  end
+
   def get_by_id(id), do: Repo.get(User, id)
 
   defp hash_password(password), do: Argon2.hash_pwd_salt(password)

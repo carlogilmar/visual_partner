@@ -1,7 +1,6 @@
 defmodule StarWeb.SignupController do
   use StarWeb, :controller
   alias Star.UserOperator
-  @user_role "USER"
   @suscriptor_role "SUSCRIPTOR"
 
   def index(conn, _params) do
