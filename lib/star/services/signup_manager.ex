@@ -31,6 +31,7 @@ defmodule Star.SignupManager do
 
 	def send_email_for_active(user) do
 		_ = EmailerSenderOperator.send_signup_email(user.email)
+		user
 	end
 
 end
