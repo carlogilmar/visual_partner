@@ -9,6 +9,7 @@ defmodule Star.User do
     field :email, :string
     field :name, :string
     field :password, :string
+    field :identifier,:string
     field :status, :string, default: "INACTIVE"
     timestamps()
   end
