@@ -6,11 +6,7 @@ defmodule Star.ImageOperator do
   def create(gallery_id, url, eng_desc, esp_desc) do
     gallery = GalleryOperator.get_by_id(gallery_id)
 
-    %Image{
-      gallery: gallery,
-      url: url,
-      eng_desc: eng_desc,
-      esp_desc: esp_desc}
+    %Image{gallery: gallery, url: url, eng_desc: eng_desc, esp_desc: esp_desc}
     |> Repo.insert()
   end
 
@@ -34,5 +30,4 @@ defmodule Star.ImageOperator do
     |> Image.changeset(attrs)
     |> Repo.update()
   end
-
 end

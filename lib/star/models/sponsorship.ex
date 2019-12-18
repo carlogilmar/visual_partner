@@ -15,5 +15,4 @@ defmodule Star.Sponsorship do
     |> cast(attrs, [:status])
     |> validate_required([])
   end
-
 end

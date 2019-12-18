@@ -1,5 +1,4 @@
 defmodule StarWeb.GpageLive do
-
   use Phoenix.LiveView
   alias StarWeb.GpageView
   alias Star.GalleryOperator
@@ -18,7 +17,14 @@ defmodule StarWeb.GpageLive do
   end
 
   def handle_event("new", _value, socket) do
-    {:ok, gallery} = GalleryOperator.create("Gallery", "https://res.cloudinary.com/carlogilmar/image/upload/v1575604448/apprentices_journey/wip_dsixew.png", "", "")
+    {:ok, gallery} =
+      GalleryOperator.create(
+        "Gallery",
+        "https://res.cloudinary.com/carlogilmar/image/upload/v1575604448/apprentices_journey/wip_dsixew.png",
+        "",
+        ""
+      )
+
     {:noreply, live_redirect(socket, to: "/admin/gallery/#{gallery.id}")}
   end
 
@@ -49,5 +55,4 @@ defmodule StarWeb.GpageLive do
     socket
     |> assign(:galleries, galleries)
   end
-
 end

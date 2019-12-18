@@ -8,45 +8,46 @@ defmodule StarWeb.NotesChannel do
   end
 
   def handle_in(
-    "notes:show",
-    %{"note" => note},
-    socket
-  ) do
-		note = NoteOperator.get_by_id(note)
-		note = %{id: note.id, title: note.title, body: note.body}
+        "notes:show",
+        %{"note" => note},
+        socket
+      ) do
+    note = NoteOperator.get_by_id(note)
+    note = %{id: note.id, title: note.title, body: note.body}
     {:reply, {:ok, %{note: note}}, socket}
   end
 
   def handle_in(
-    "notes:update",
-    %{"attr" => attr, "id" => id, "value" => value},
-    socket
-  ) do
+        "notes:update",
+        %{"attr" => attr, "id" => id, "value" => value},
+        socket
+      ) do
     attrs = Map.new([{String.to_atom(attr), value}])
     {:ok, _model} = NoteOperator.update(id, attrs)
     {:reply, {:ok, %{notes: get_notes()}}, socket}
   end
 
   def handle_in(
-    "notes:new",
-    %{},
-    socket
-  ) do
+        "notes:new",
+        %{},
+        socket
+      ) do
     _ = NoteOperator.create("", "New Note")
     {:reply, {:ok, %{notes: get_notes()}}, socket}
   end
 
   def handle_in(
-    "notes:delete",
-    %{"id" => id},
-    socket
-  ) do
+        "notes:delete",
+        %{"id" => id},
+        socket
+      ) do
     _ = NoteOperator.delete(id)
     {:reply, {:ok, %{notes: get_notes()}}, socket}
   end
 
   defp get_notes do
     notes = NoteOperator.get_all()
+
     for note <- notes do
       %{
         "id" => note.id,
@@ -54,5 +55,4 @@ defmodule StarWeb.NotesChannel do
       }
     end
   end
-
 end

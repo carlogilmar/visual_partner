@@ -7,7 +7,6 @@ defmodule Star.UserOperator do
   alias Star.User
 
   def create_user(email, name, password, role) do
-
     email_in_db = get_by_email(email)
 
     case email_in_db do
@@ -15,13 +14,18 @@ defmodule Star.UserOperator do
         hash = hash_password(password)
 
         %User{}
-        |> User.changeset(%{identifier: Ecto.UUID.generate, email: email, name: name, password: hash, role: role})
+        |> User.changeset(%{
+          identifier: Ecto.UUID.generate(),
+          email: email,
+          name: name,
+          password: hash,
+          role: role
+        })
         |> Repo.insert()
 
       user ->
         {:error, user}
     end
-
   end
 
   def get_all_by_role(role) do

@@ -1,48 +1,50 @@
 defmodule StarWeb.GalleryChannel do
   use Phoenix.Channel
   alias Star.GalleryOperator
-	alias Star.ImageOperator
+  alias Star.ImageOperator
 
   def join("gallery:join", %{"gallery" => gallery_id}, socket) do
     {:ok, get_gallery(gallery_id), socket}
   end
 
   def handle_in(
-    "gallery:update",
-    %{"attr" => attr, "id" => id, "value" => value},
-    socket
-  ) do
+        "gallery:update",
+        %{"attr" => attr, "id" => id, "value" => value},
+        socket
+      ) do
     attrs = Map.new([{String.to_atom(attr), value}])
     {:ok, _model} = GalleryOperator.update_gallery(id, attrs)
     {:reply, {:ok, %{status: "200"}}, socket}
   end
 
   def handle_in(
-    "gallery:update_img",
-    %{"attr" => attr, "id" => id, "value" => value},
-    socket
-  ) do
+        "gallery:update_img",
+        %{"attr" => attr, "id" => id, "value" => value},
+        socket
+      ) do
     attrs = Map.new([{String.to_atom(attr), value}])
     {:ok, _model} = ImageOperator.update(id, attrs)
     {:reply, {:ok, %{status: "200"}}, socket}
   end
 
   def handle_in(
-    "gallery:delete_img",
-    %{"id" => id, "gallery" => gallery},
-    socket
-  ) do
-		_ = ImageOperator.delete(id)
+        "gallery:delete_img",
+        %{"id" => id, "gallery" => gallery},
+        socket
+      ) do
+    _ = ImageOperator.delete(id)
     {:reply, {:ok, get_gallery(gallery)}, socket}
   end
 
   def handle_in(
-    "gallery:new_img",
-    %{"gallery" => gallery},
-    socket
-  ) do
-		url = "https://res.cloudinary.com/carlogilmar/image/upload/v1575604431/apprentices_journey/carlogilmar_logo_uyofzd.png"
-		_ = ImageOperator.create(gallery, url, "", "")
+        "gallery:new_img",
+        %{"gallery" => gallery},
+        socket
+      ) do
+    url =
+      "https://res.cloudinary.com/carlogilmar/image/upload/v1575604431/apprentices_journey/carlogilmar_logo_uyofzd.png"
+
+    _ = ImageOperator.create(gallery, url, "", "")
     {:reply, {:ok, get_gallery(gallery)}, socket}
   end
 
@@ -75,5 +77,4 @@ defmodule StarWeb.GalleryChannel do
 
     %{gallery: gallery_for_send, images: images}
   end
-
 end

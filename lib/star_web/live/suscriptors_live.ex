@@ -30,5 +30,4 @@ defmodule StarWeb.SuscriptorsLive do
     |> assign(:users, users)
     |> assign(:total, length(users))
   end
-
 end

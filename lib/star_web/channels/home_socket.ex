@@ -3,7 +3,7 @@ defmodule StarWeb.HomeChannel do
   A module in charge of the analytics channel.
   """
   use Phoenix.Channel
-	alias Star.ViewerOperator
+  alias Star.ViewerOperator
 
   def join("home:join", _msg, socket) do
     {:ok, %{}, socket}

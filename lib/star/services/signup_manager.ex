@@ -1,5 +1,5 @@
 defmodule Star.SignupManager do
-	alias  Star.EmailerSenderOperator
+  alias Star.EmailerSenderOperator
   alias Star.UserOperator
   @user_role "USER"
 
@@ -12,6 +12,7 @@ defmodule Star.SignupManager do
 
   def find_as_suscriptor(params) do
     user = UserOperator.get_by_email(params["email"])
+
     case user do
       nil -> {params, :to_create}
       _user -> {user, :to_update}
@@ -19,8 +20,7 @@ defmodule Star.SignupManager do
   end
 
   def create_or_update_to_user({params, :to_create}) do
-    {:ok, user} =
-      UserOperator.create_user(params["email"], "", "", @user_role)
+    {:ok, user} = UserOperator.create_user(params["email"], "", "", @user_role)
     user
   end
 
@@ -29,9 +29,8 @@ defmodule Star.SignupManager do
     user
   end
 
-	def send_email_for_active(user) do
-		_ = EmailerSenderOperator.send_signup_email(user.email)
-		user
-	end
-
+  def send_email_for_active(user) do
+    _ = EmailerSenderOperator.send_signup_email(user.email)
+    user
+  end
 end

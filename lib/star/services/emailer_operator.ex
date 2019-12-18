@@ -1,6 +1,6 @@
 defmodule Star.EmailerOperator do
   alias Star.Emailer
-	alias Star.EmailManager
+  alias Star.EmailManager
   alias Star.Repo
 
   def add_emailer(content, title) do
@@ -30,34 +30,36 @@ defmodule Star.EmailerOperator do
     Repo.all(Emailer)
   end
 
-	def send_preview(id, email) do
-		emailer = get_by_id(id)
-		_ = EmailManager.send_email(emailer, email)
-	end
-
+  def send_preview(id, email) do
+    emailer = get_by_id(id)
+    _ = EmailManager.send_email(emailer, email)
+  end
 end
 
 defmodule Star.EmailerBroadcastOperator do
-	alias Star.UserOperator
-	alias Star.EmailerOperator
+  alias Star.UserOperator
+  alias Star.EmailerOperator
 
-	def send_email(emailer_id) do
-		users = UserOperator.get_all_by_role("USER")
-		suscriptors = UserOperator.get_all_by_role("SUSCRIPTOR")
-		users_for_send = users ++ suscriptors
-		Enum.each(users_for_send,
-			fn user ->
-				_ = EmailerOperator.send_preview(emailer_id, user.email)
-		end)
-	end
+  def send_email(emailer_id) do
+    users = UserOperator.get_all_by_role("USER")
+    suscriptors = UserOperator.get_all_by_role("SUSCRIPTOR")
+    users_for_send = users ++ suscriptors
 
+    Enum.each(
+      users_for_send,
+      fn user ->
+        _ = EmailerOperator.send_preview(emailer_id, user.email)
+      end
+    )
+  end
 end
 
 defmodule Star.EmailerSenderOperator do
-	alias Star.EmailManager
+  alias Star.EmailManager
 
   def get_template(template_src) do
     template = File.stream!(Path.join(:code.priv_dir(:star), template_src))
+
     template.path
     |> File.read()
   end
@@ -65,19 +67,18 @@ defmodule Star.EmailerSenderOperator do
   def send_sponsor_email(email) do
     {:ok, content} = get_template("emails/sponsor.txt")
     title = " The Apprentice's Journey :: Sponsorship Request"
-		_ = EmailManager.send_email(%{title: title, content: content}, email)
+    _ = EmailManager.send_email(%{title: title, content: content}, email)
   end
 
   def send_signup_email(email) do
     {:ok, content} = get_template("emails/singup.txt")
     title = " The Apprentice's Journey :: Complete your register"
-		_ = EmailManager.send_email(%{title: title, content: content}, email)
+    _ = EmailManager.send_email(%{title: title, content: content}, email)
   end
 
   def send_welcome_email(email) do
     {:ok, content} = get_template("emails/welcome.txt")
     title = " The Apprentice's Journey :: Welcome"
-		_ = EmailManager.send_email(%{title: title, content: content}, email)
+    _ = EmailManager.send_email(%{title: title, content: content}, email)
   end
-
 end

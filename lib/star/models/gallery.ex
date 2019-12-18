@@ -18,5 +18,4 @@ defmodule Star.Gallery do
     |> cast(attrs, [:title, :cover, :esp_desc, :eng_desc, :status])
     |> validate_required([])
   end
-
 end

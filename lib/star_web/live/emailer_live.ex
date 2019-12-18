@@ -1,7 +1,7 @@
 defmodule StarWeb.EmailerLive do
   use Phoenix.LiveView
   alias Star.EmailerOperator
-	alias Star.EmailerBroadcastOperator
+  alias Star.EmailerBroadcastOperator
   alias StarWeb.EmailerView
 
   def render(assigns) do
@@ -18,7 +18,9 @@ defmodule StarWeb.EmailerLive do
   end
 
   def handle_event("new_email", _value, socket) do
-    {:ok, email} = EmailerOperator.add_emailer("Nuevo Template Generado", "Nuevo Template Generado")
+    {:ok, email} =
+      EmailerOperator.add_emailer("Nuevo Template Generado", "Nuevo Template Generado")
+
     {:noreply, live_redirect(socket, to: "/admin/email/#{email.id}")}
   end
 
@@ -31,7 +33,7 @@ defmodule StarWeb.EmailerLive do
 
   def handle_event("send_broadcast", %{"emailer_id" => email_id}, socket) do
     email_id = String.to_integer(email_id)
-		_ = EmailerBroadcastOperator.send_email(email_id)
+    _ = EmailerBroadcastOperator.send_email(email_id)
     {:noreply, socket}
   end
 
@@ -41,5 +43,4 @@ defmodule StarWeb.EmailerLive do
     socket
     |> assign(:emailers, emailers)
   end
-
 end

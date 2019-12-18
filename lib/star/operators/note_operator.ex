@@ -4,9 +4,7 @@ defmodule Star.NoteOperator do
   alias Star.Repo
 
   def create(body, title) do
-    %Note{
-      title: title,
-      body: body}
+    %Note{title: title, body: body}
     |> Repo.insert()
   end
 
@@ -36,5 +34,4 @@ defmodule Star.NoteOperator do
     |> Note.changeset(attrs)
     |> Repo.update()
   end
-
 end

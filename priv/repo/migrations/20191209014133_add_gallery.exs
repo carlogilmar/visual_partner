@@ -9,7 +9,7 @@ defmodule Star.Repo.Migrations.AddGallery do
       add :esp_desc, :string
       add :eng_desc, :string
       add :status, :boolean
-			timestamps()
+      timestamps()
     end
 
     create table(:images, primary_key: false) do
@@ -20,6 +20,5 @@ defmodule Star.Repo.Migrations.AddGallery do
       timestamps()
       add :gallery_id, references(:galleries, on_delete: :delete_all)
     end
-
   end
 end

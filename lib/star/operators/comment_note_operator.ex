@@ -42,5 +42,4 @@ defmodule Star.CommentNoteOperator do
     |> CommentNote.changeset(attrs)
     |> Repo.update()
   end
-
 end

@@ -16,5 +16,4 @@ defmodule Star.Image do
     |> cast(attrs, [:url, :esp_desc, :eng_desc])
     |> validate_required([])
   end
-
 end

@@ -7,7 +7,7 @@ defmodule Star.Repo.Migrations.AddSponsors do
       add :author, :string
       add :desc, :string
       add :status, :string
-			timestamps()
+      timestamps()
     end
   end
 end

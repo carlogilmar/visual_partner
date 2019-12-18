@@ -46,5 +46,4 @@ defmodule Star.GalleryOperator do
     query
     |> Repo.all()
   end
-
 end

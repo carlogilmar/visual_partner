@@ -14,5 +14,4 @@ defmodule Star.Repo.Migrations.AddViewer do
       timestamps()
     end
   end
-
 end

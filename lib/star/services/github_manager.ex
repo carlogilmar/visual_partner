@@ -4,8 +4,10 @@ defmodule Star.GitHubManager do
 
   def get_commits() do
     headers = [
-      {:"Authorization", @github_api},
-      {:"Content-Type", "application/vnd.github.mercy-preview+json"}]
+      {:Authorization, @github_api},
+      {:"Content-Type", "application/vnd.github.mercy-preview+json"}
+    ]
+
     {:ok, response} = HTTPoison.get(@repo_url, headers)
     decode_response.(response.body)
   end
@@ -29,4 +31,3 @@ defmodule Star.GitHubManager do
     end
   end
 end
-

@@ -1,5 +1,4 @@
 defmodule Star.RequestManager do
-
   def post(url, params, content_type) do
     case HTTPoison.post(url, Poison.encode!(params), content_type) do
       {:ok, response} ->

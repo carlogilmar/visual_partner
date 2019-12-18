@@ -1,5 +1,4 @@
 defmodule StarWeb.ReleasesLive do
-
   use Phoenix.LiveView
   alias StarWeb.ReleasesView
   alias Star.GitHubManager
@@ -12,5 +11,4 @@ defmodule StarWeb.ReleasesLive do
     socket = socket |> assign(:commits, GitHubManager.get_commits())
     {:ok, socket}
   end
-
 end

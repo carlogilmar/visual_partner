@@ -10,11 +10,13 @@ defmodule Star.AnalyticsUtil do
     analytics_info = ViewerOperator.get_viewers_info()
     total = ViewerOperator.get_total_viewers()
     analytics = generate_analytics()
+
     analytics_model =
       viewers
       |> fill_analytics(analytics)
       |> create_series_model()
       |> Enum.reverse()
+
     {analytics_model, analytics_info, total}
   end
 
@@ -39,6 +41,7 @@ defmodule Star.AnalyticsUtil do
     {day_5, counters_5} = analytics[5]
     {day_6, counters_6} = analytics[6]
     {day_7, counters_7} = analytics[7]
+
     [
       %{x: "#{day_1}", y: counters_1[hour]},
       %{x: "#{day_2}", y: counters_2[hour]},
@@ -51,10 +54,11 @@ defmodule Star.AnalyticsUtil do
   end
 
   defp fill_analytics([], analytics), do: analytics
-  defp fill_analytics([viewer|viewers], analytics) do
+
+  defp fill_analytics([viewer | viewers], analytics) do
     {weekday_name, counters} = analytics[viewer.weekday]
     current_counter = counters[viewer.inserted_at.hour]
-    weekday_counter = Map.put(counters, viewer.inserted_at.hour, (current_counter+1))
+    weekday_counter = Map.put(counters, viewer.inserted_at.hour, current_counter + 1)
     analytics_updated = Map.put(analytics, viewer.weekday, {weekday_name, weekday_counter})
     fill_analytics(viewers, analytics_updated)
   end
@@ -62,23 +66,32 @@ defmodule Star.AnalyticsUtil do
   defp generate_analytics do
     starter_counter = for hour <- 0..23, do: {hour, 0}
     starter_counter = Map.new(starter_counter)
+
     weekdays = [
-      {1, "Lunes"}, {2, "Martes"}, {3, "Miércoles"},
-      {4, "Jueves"}, {5, "Viernes"}, {6, "Sábado"}, {7, "Domingo"}]
-    counters = for {weekday, weekday_name} <- weekdays,
-      do: {weekday, {weekday_name, starter_counter}}
+      {1, "Lunes"},
+      {2, "Martes"},
+      {3, "Miércoles"},
+      {4, "Jueves"},
+      {5, "Viernes"},
+      {6, "Sábado"},
+      {7, "Domingo"}
+    ]
+
+    counters =
+      for {weekday, weekday_name} <- weekdays,
+          do: {weekday, {weekday_name, starter_counter}}
+
     Map.new(counters)
   end
 
   defp get_viewers(viewers) do
     for viewer <- viewers do
       weekday =
-        :calendar.day_of_the_week({
-          viewer.inserted_at.year,
-          viewer.inserted_at.month,
-          viewer.inserted_at.day})
+        :calendar.day_of_the_week(
+          {viewer.inserted_at.year, viewer.inserted_at.month, viewer.inserted_at.day}
+        )
+
       Map.put(viewer, :weekday, weekday)
     end
   end
-
 end

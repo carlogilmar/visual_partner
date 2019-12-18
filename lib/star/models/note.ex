@@ -15,5 +15,4 @@ defmodule Star.Note do
     |> cast(attrs, [:title, :body])
     |> validate_required([])
   end
-
 end

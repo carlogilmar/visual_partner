@@ -9,5 +9,4 @@ defmodule StarWeb.AnalyticsChannel do
     {analytics, info, counter} = AnalyticsUtil.get_analytics()
     {:ok, %{analytics: analytics, counter: counter, info: info}, socket}
   end
-
 end

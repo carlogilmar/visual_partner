@@ -11,5 +11,4 @@ defmodule Star.Email do
     |> subject(subject)
     |> html_body(body)
   end
-
 end

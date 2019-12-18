@@ -6,7 +6,7 @@ defmodule Star.Repo.Migrations.AddNotes do
       add :id, :serial, primary_key: true
       add :body, :text
       add :title, :string
-			timestamps()
+      timestamps()
     end
   end
 end

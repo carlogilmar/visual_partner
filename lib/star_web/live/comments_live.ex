@@ -17,7 +17,7 @@ defmodule StarWeb.CommentsLive do
   end
 
   def handle_event("new", _value, socket) do
-    {:ok, _model} = CommentNoteOperator.create(1,"algo","algo")
+    {:ok, _model} = CommentNoteOperator.create(1, "algo", "algo")
     socket = update_socket(socket)
     {:noreply, socket}
   end
@@ -35,5 +35,4 @@ defmodule StarWeb.CommentsLive do
     socket
     |> assign(:models, models)
   end
-
 end

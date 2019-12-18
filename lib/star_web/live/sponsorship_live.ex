@@ -1,5 +1,4 @@
 defmodule StarWeb.SponsorshipLive do
-
   use Phoenix.LiveView
   alias StarWeb.SponsorshipView
   alias Star.SponsorshipOperator
@@ -30,5 +29,4 @@ defmodule StarWeb.SponsorshipLive do
     socket
     |> assign(:sponsors, sponsors)
   end
-
 end

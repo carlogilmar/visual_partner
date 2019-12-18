@@ -4,10 +4,7 @@ defmodule Star.SponsorshipOperator do
   alias Star.Repo
 
   def create(author, desc) do
-    %Sponsorship{
-      author: author,
-      status: "TO_REVIEW",
-      desc: desc}
+    %Sponsorship{author: author, status: "TO_REVIEW", desc: desc}
     |> Repo.insert()
   end
 
@@ -29,5 +26,4 @@ defmodule Star.SponsorshipOperator do
     sponsorship = get_by_id(id)
     Repo.delete(sponsorship)
   end
-
 end

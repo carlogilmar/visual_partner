@@ -4,5 +4,4 @@ defmodule StarWeb.RosterChannel do
   def join("roster:join", _msg, socket) do
     {:ok, %{}, socket}
   end
-
 end
