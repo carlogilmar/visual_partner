@@ -34,7 +34,7 @@
               <a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/sponsorship") %>"> Become a Sponsor </a>
 						</li>
 						<li class="nav-item">
-              <a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/releases") %>"> Releases </a>
+              <a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/releases") %>"> Open Source Platform</a>
 						</li>
 					</ul>
 				</div>
