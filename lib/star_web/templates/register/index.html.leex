@@ -31,6 +31,7 @@
             <p class="lead">Your account <%= @user.email %> was successfully activated. Login in the welcome page. </p>
             <hr class="my-4">
             <p> La cuenta <%= @user.email %> fue creada exitosamente, ahora puedes ingresar.</p>
+            <a href="#" phx-click="redirect_url" phx-value-uri_val="/welcome" class="btn btn-block btn-info"> <i class="fas fa-sign-out-alt"></i> Start your Session </a>
           </div>
 				<% end %>
       </div>

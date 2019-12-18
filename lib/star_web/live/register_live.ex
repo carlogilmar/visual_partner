@@ -22,6 +22,10 @@ defmodule StarWeb.RegisterLive do
     activate.({params["password"] == params["password_confirm"], params, socket})
   end
 
+  def handle_event("redirect_url", %{"uri_val" => uri_val}, socket) do
+    {:noreply, live_redirect(socket, to: uri_val)}
+  end
+
   defp activate() do
     fn
       {false, _params, socket} ->
