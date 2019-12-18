@@ -36,6 +36,7 @@ defmodule StarWeb.Router do
     get "/welcome", SignupController, :index
     post "/sign_up", SignupController, :create_user
     post "/suscribe", SignupController, :suscribe
+    live "/register/:id", RegisterLive
 
     ### Gallery
     live "/gallery", GalleryLive
