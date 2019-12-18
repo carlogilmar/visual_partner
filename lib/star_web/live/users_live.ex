@@ -1,6 +1,7 @@
 defmodule StarWeb.UsersLive do
   use Phoenix.LiveView
   alias Star.UserOperator
+  alias Star.SignupManager
   alias StarWeb.UsersView
 
   def render(assigns) do
@@ -29,5 +30,11 @@ defmodule StarWeb.UsersLive do
     socket
     |> assign(:users, users)
     |> assign(:total, length(users))
+  end
+
+  def handle_event("save", %{"user" => %{"email" => email}}, socket) do
+    _ = SignupManager.invite_user(email)
+    socket = update_users(socket)
+    {:noreply, socket}
   end
 end

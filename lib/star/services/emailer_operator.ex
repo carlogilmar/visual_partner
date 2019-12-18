@@ -78,6 +78,14 @@ defmodule Star.EmailerSenderOperator do
     _ = EmailManager.send_email(%{title: title, content: content}, email)
   end
 
+  def send_invite_email(email, url) do
+    {:ok, content} = get_template("emails/invite.txt")
+    content = EEx.eval_string(content, [url: url])
+    title = "Join to The Apprentice's Journey :: Invite "
+
+    _ = EmailManager.send_email(%{title: title, content: content}, email)
+  end
+
   def send_welcome_email(email) do
     {:ok, content} = get_template("emails/welcome.txt")
     title = " The Apprentice's Journey :: Welcome"
