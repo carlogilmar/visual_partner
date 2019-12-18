@@ -42,4 +42,12 @@ defmodule Star.UserOperator do
     user = get_by_id(user_id)
     Repo.delete(user)
   end
+
+  def update(id, attrs) do
+    model = get_by_id(id)
+
+    model
+    |> User.changeset(attrs)
+    |> Repo.update()
+  end
 end
