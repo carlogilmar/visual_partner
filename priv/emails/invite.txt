@@ -1,0 +1,25 @@
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956540/apprentices_journey/project/IMG_0605_d0zz4a.png" alt="" width="561" height="284" /></p>
+<h3 style="text-align: center;"><span style="color: #ff99cc;">Early Access Preview</span></h3>
+<h1 style="text-align: center;">The Apprentice's Journey</h1>
+<p>Hi! I'd like to invite you to know my personal project <strong>The Apprentice's Journey,</strong> I've been working on this by the last months, I created all the content and every illustration by my own, <strong>with all my heart for share it</strong> ❤️.</p>
+<p><strong>The Apprentice's Journey</strong> is more than a webpage, this is the place for make the connections, for share ours apprentice's journeys, it's a place to recognize yourself as a part or the whole. <span style="color: #cc99ff;"><strong>This is the best project that I've made as professional.&nbsp;</strong></span></p>
+<p style="text-align: center;"><strong>It's a pleasure for me to introduce you&nbsp; to the Apprentice's Journey.&nbsp;</strong></p>
+<p>This is a <strong>release version</strong> of the platform, I made some interesting features and I want to share with you an<strong> early preview</strong>. <span style="color: #ff99cc;"><strong>You're important for me.</strong></span>&nbsp; 😊</p>
+<p><em>Comments and feedback are welcome!</em></p>
+<h1 style="text-align: center;"><span style="background-color: #993366; color: #ffffff;"><a style="background-color: #993366; color: #ffffff;" title="VER INVITACI&Oacute;N" href="<%= url %>">.:: INVITE HERE ::.</a></span></h1>
+<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<h1 style="text-align: center;">El Camino del Aprendiz</h1>
+<p>&iexcl;Hola! Estoy muy feliz de poder compartir contigo mi proyecto personal: <strong>"El Camino del Aprendiz"</strong>. He estado trabajando mucho en este proyecto durante los &uacute;ltimos meses, he creado todo el contenido, la plataforma y cada ilustraci&oacute;n por mi propia cuenta, <strong>con todo mi esfuerzo, cari&ntilde;o y amor para compartirlo</strong>. <span style="color: #cc99ff;"><strong>Los actos de amor caminan. ❤️</strong></span></p>
+<p>El camino del aprendiz es m&aacute;s que una plataforma, es un sitio para hacer conexiones, para compartir nuestros propios caminos de aprendizaje, mi sue&ntilde;o es que sea un sitio para reconocer nuestro lugar en este tiempo y en este momento. <span style="color: #ffcc00;"><strong>Este proyecto es por mucho lo mejor que he hecho profesionalmente. 😚</strong></span></p>
+<p style="text-align: center;">Es para mi un honor darte la bienvenida al <strong>Camino del Aprendiz.</strong></p>
+<p>Esta es una <strong>versi&oacute;n en construcci&oacute;n</strong>, he creado contenido interesante y esta es una invitaci&oacute;n para que conozcas este proyecto, a&uacute;n no es la versi&oacute;n final, es para m&iacute; importante poder mostr&aacute;rtela y poder contar contigo durante este camino.</p>
+<p><em>Cualquier comentario, dudas y&nbsp; retroalimentaci&oacute;n ser&aacute;n bienvenidos.</em></p>
+<p>&nbsp;</p>
+<p><strong>- Con cari&ntilde;o, mucho, Carlo Gilmar ❤️😊&nbsp;</strong></p>
+<p>&nbsp;</p>
+<h1 style="text-align: center;"><span style="background-color: #333399; color: #ffffff;"><a style="background-color: #333399; color: #ffffff;" title="VER INVITACI&Oacute;N" href="<%= url %>">.:: VER INVITACI&Oacute;N ::.</a></span></h1>
+<p>&nbsp;</p>
+<h1 style="text-align: center;"><span style="color: #993366;"><strong><a style="color: #993366;" href="https://starcg.herokuapp.com/">Visit the Development Platform</a></strong></span></h1>
+<p>&nbsp;</p>
