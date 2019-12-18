@@ -43,25 +43,9 @@
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-user"></i> &nbsp; Nombre </span>
-                </div>
-                <input required name="name" class="form-control" placeholder=" Name " type="text">
-              </div> <!-- input-group.// -->
-            </div> <!-- form-group// -->
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-envelope"></i> &nbsp; Email </span>
                 </div>
                 <input required name="email" class="form-control" placeholder="" type="email">
-              </div> <!-- input-group.// -->
-            </div> <!-- form-group// -->
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-lock"></i> &nbsp; Password </span>
-                </div>
-                <input required name="password" class="form-control" placeholder="" type="password">
               </div> <!-- input-group.// -->
             </div> <!-- form-group// -->
             <div class="form-group">
