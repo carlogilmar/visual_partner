@@ -1,6 +1,5 @@
 defmodule StarWeb.NotesChannel do
   use Phoenix.Channel
-  alias Star.AnalyticsUtil
   alias Star.NoteOperator
 
   def join("notes:join", _msg, socket) do

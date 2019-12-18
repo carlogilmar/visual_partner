@@ -19,7 +19,8 @@ config :star, StarWeb.Endpoint,
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
     ]
-  ]
+  ],
+  base_url: "http://localhost:4000"
 
 # ## SSL Support
 #
