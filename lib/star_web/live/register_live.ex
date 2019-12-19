@@ -41,10 +41,7 @@ defmodule StarWeb.RegisterLive do
 
   def activate_user(params, user) do
     {:ok, user} =
-      UserOperator.update(
-        user.id,
-        %{status: "ACTIVE", name: params["name"], password: params["password"]}
-      )
+      UserOperator.complete_register(user.id, params["name"], params["password"])
 
     _ = EmailerSenderOperator.send_welcome_email(user.email)
     user

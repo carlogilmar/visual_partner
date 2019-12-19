@@ -59,4 +59,15 @@ defmodule Star.UserOperator do
     |> User.changeset(attrs)
     |> Repo.update()
   end
+
+  def complete_register(id, name, password) do
+    hash = hash_password(password)
+
+    update(
+      id,
+      %{status: "ACTIVE",
+        name: name,
+        password: hash}
+    )
+  end
 end
