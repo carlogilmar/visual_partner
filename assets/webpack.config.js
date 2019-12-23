@@ -22,7 +22,8 @@ module.exports = (env, options) => ({
 		gallery_controller: ['./js/controllers/gallery_controller.js'],
 		notes_controller: ['./js/controllers/notes_controller.js'],
 		note_controller: ['./js/controllers/note_controller.js'],
-		roster_controller: ['./js/controllers/roster_controller.js']
+		roster_controller: ['./js/controllers/roster_controller.js'],
+    apprentice_controller: ['./js/controllers/apprentice_controller.js']
 	},
 	output: {
 		filename: '[name].js',
