@@ -41,7 +41,7 @@
 
 <%= for model <- @models do %>
   <div class="row featurette">
-    <div class="col-md-6 text-center">
+    <div class="col-md-4 text-center">
       <h3><span class="oswald taj_color"> <%= model.title %> </span></h3>
       <p class="lead">
 				<%= model.eng_desc %>
@@ -49,9 +49,24 @@
       <p class="lead_latin">
 				<%= model.esp_desc %>
       </p>
+    </div>
+    <div class="col-md-4 text-center d-flex align-items-center justify-content-center">
+      <img class="featurette-image img-fluid mx-auto" src="<%= model.url %>" width="50%" alt="Methodology">
+    </div>
+    <div class="col-md-4 text-center">
+			<%= if model.draft do %>
+			  <span class="badge badge-success oswald"> <h5>Published</h5> </span>
+				<br><br>
+        <a href="#" class="btn btn-sm btn-secondary" phx-click="draft" phx-value-model_id="<%= model.id %>"> <i class="fas fa-star"></i> Draft Model </a>
+			<% else %>
+			  <span class="badge badge-secondary oswald"> <h5>Only Draft</h5> </span>
+				<br><br>
+        <a href="#" class="btn btn-sm btn-success" phx-click="publish" phx-value-model_id="<%= model.id %>"> <i class="fas fa-star"></i> Publish Model </a>
+			<% end %>
+			<br><br>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">
-          <i class="fas fa-ban"></i> <%= model.title %>
+          <i class="fas fa-ban"></i> Eliminar
         </button>
 
         <!-- Modal -->
@@ -77,10 +92,7 @@
             </div>
           </div>
         </div>
-    </div>
-    <div class="col-md-6 text-center d-flex align-items-center justify-content-center">
-      <img class="featurette-image img-fluid mx-auto" src="<%= model.url %>" width="30%" alt="Methodology">
-    </div>
+		</div>
   </div>
   <hr class="featurette-divider">
 <% end %>

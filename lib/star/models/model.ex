@@ -15,7 +15,7 @@ defmodule Star.Model do
   @doc false
   def changeset(job, attrs) do
     job
-    |> cast(attrs, [])
+    |> cast(attrs, [:draft])
     |> validate_required([])
   end
 end

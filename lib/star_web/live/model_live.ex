@@ -16,12 +16,6 @@ defmodule StarWeb.ModelLive do
     {:noreply, live_redirect(socket, to: uri_val)}
   end
 
-  def handle_event("new", _value, socket) do
-    {:ok, model} = ModelOperator.create("url", "esp", "eng")
-    socket = update_socket(socket)
-    {:noreply, socket}
-  end
-
   def handle_event("delete", %{"id" => model_id}, socket) do
     model_id = String.to_integer(model_id)
     {:ok, _model_deleted} = ModelOperator.delete(model_id)
@@ -34,6 +28,20 @@ defmodule StarWeb.ModelLive do
     socket = update_socket(socket)
     {:noreply, socket}
   end
+
+	def handle_event("publish", %{"model_id" => model_id}, socket) do
+		model_id = String.to_integer(model_id)
+		_ = ModelOperator.update(model_id, %{draft: true})
+    socket = update_socket(socket)
+    {:noreply, socket}
+	end
+
+	def handle_event("draft", %{"model_id" => model_id}, socket) do
+		model_id = String.to_integer(model_id)
+		_ = ModelOperator.update(model_id, %{draft: false})
+    socket = update_socket(socket)
+    {:noreply, socket}
+	end
 
   defp update_socket(socket) do
     models = ModelOperator.get_all()
