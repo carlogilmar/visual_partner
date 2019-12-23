@@ -29,6 +29,12 @@ defmodule StarWeb.ModelLive do
     {:noreply, socket}
   end
 
+  def handle_event("save", %{"user" => params}, socket) do
+    {:ok, _model} = ModelOperator.create(params["title"], params["url"], params["esp_desc"], params["eng_desc"])
+    socket = update_socket(socket)
+    {:noreply, socket}
+  end
+
   defp update_socket(socket) do
     models = ModelOperator.get_all()
 

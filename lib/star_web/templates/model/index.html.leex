@@ -1,25 +1,57 @@
 <br><br>
 <div class="container">
 
-<div class="row">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand oswald" href="#"> <i class="fas fa-images"></i> &nbsp; Apprentice's Journey Model </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="navbar-text">
+   <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+    </span>
+  </div>
+</nav>
 
-<table class="table table-sm text-center">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">
-        <a href="#" phx-click="new" class="btn btn-sm btn-success"> <i class="fas fa-star"></i> &nbsp; New </a>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for model <- @models do %>
-    <tr>
-      <td><%= model.id %></td>
-      <td>
+<br><br>
+
+<form phx-submit="save">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" required name="user[title]" placeholder="Title">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" required name="user[url]" placeholder="Image Url">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" required name="user[esp_desc]" placeholder="Esp Description">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" required name="user[eng_desc]" placeholder="Eng Description">
+    </div>
+    <div class="col">
+			<button type="submit" class="btn btn-block btn-success"> <i class="fas fa-star"></i> &nbsp; New </button>
+    </div>
+  </div>
+</form>
+
+<br><br>
+
+<%= for model <- @models do %>
+  <div class="row featurette">
+    <div class="col-md-6 text-center">
+      <h3><span class="oswald taj_color"> <%= model.title %> </span></h3>
+      <p class="lead">
+				<%= model.eng_desc %>
+      </p>
+      <p class="lead_latin">
+				<%= model.esp_desc %>
+      </p>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">
-          <i class="fas fa-ban"></i>
+          <i class="fas fa-ban"></i> <%= model.title %>
         </button>
 
         <!-- Modal -->
@@ -27,7 +59,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Eliminar </h5>
+                <h5 class="modal-title" id="exampleModalLabel"> Delete </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -35,7 +67,7 @@
               <div class="modal-body">
                 ¿Quieres eliminarlo?
                 <br><br>
-                <h1 class="oswald"> <%= model.id %> </h1>
+      					<img src="<%= model.url %>" width="30%" alt="Methodology">
 
               </div>
               <div class="modal-footer">
@@ -45,14 +77,13 @@
             </div>
           </div>
         </div>
-
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-</div>
+    </div>
+    <div class="col-md-6 text-center d-flex align-items-center justify-content-center">
+      <img class="featurette-image img-fluid mx-auto" src="<%= model.url %>" width="30%" alt="Methodology">
+    </div>
+  </div>
+  <hr class="featurette-divider">
+<% end %>
 
 </div>
 

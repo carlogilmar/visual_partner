@@ -2,8 +2,9 @@ defmodule Star.ModelOperator do
   alias Star.Model
   alias Star.Repo
 
-  def create(url, esp_desc, eng_desc) do
+  def create(title, url, esp_desc, eng_desc) do
      %Model{
+       title: title,
        url: url,
        esp_desc: esp_desc,
        eng_desc: eng_desc
