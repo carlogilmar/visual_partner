@@ -53,6 +53,9 @@ defmodule StarWeb.Router do
 
     ### Releases
     live "/releases", ReleasesLive
+
+    ### Apprentice
+    get "/apprentice", ApprenticeController, :index
   end
 
   ## Admin
