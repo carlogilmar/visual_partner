@@ -8,6 +8,7 @@ defmodule Star.Repo.Migrations.AddModel do
       add :title, :string
       add :esp_desc, :text
       add :eng_desc, :text
+      add :draft, :boolean
       timestamps()
     end
   end

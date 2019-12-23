@@ -8,6 +8,7 @@ defmodule Star.Model do
     field :title, :string
     field :esp_desc, :string
     field :eng_desc, :string
+    field :draft, :boolean, default: false
     timestamps()
   end
 
