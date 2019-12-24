@@ -2,7 +2,7 @@ use Mix.Config
 
 config :star, StarWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "starcg.herokuapp.com", port: 80],
+  url: [host: "apprenticesjourney.herokuapp.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
   base_url: "https://apprenticesjourney.herokuapp.com/"
 
