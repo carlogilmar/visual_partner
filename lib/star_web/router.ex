@@ -56,6 +56,9 @@ defmodule StarWeb.Router do
 
     ### Apprentice
     get "/apprentice", ApprenticeController, :index
+
+    ### Visual Partner
+    get "/visual_partner", PartnerController, :index
   end
 
   ## Admin
