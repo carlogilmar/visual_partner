@@ -37,7 +37,7 @@
               <a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/releases") %>"> Open Source Platform</a>
 						</li>
 						<li class="nav-item">
-              <a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/releases") %>"> Visual Partnership</a>
+              <a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/visual_partner") %>"> Visual Partnership</a>
 						</li>
 					</ul>
 				</div>
@@ -54,19 +54,18 @@
 			<footer class="container text-center">
 				<div class="row text-center">
 					<div class="col-md-4">
-						<br><img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_with_man_jx1eku.png" width="50%" alt="Author">
+						<br><img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956540/apprentices_journey/project/IMG_0605_d0zz4a.png" width="50%" alt="Author">
 					</div>
 					<div class="col-md-4">
 						<p class="lead footer-min">
 						<br><span class="oswald"><b>The Apprentice's Journey</b></span>
-						<br>Contact: carlogilmar12@gmail.com
-						<br><strong>Todo el contenido e imágenes fueron creadas por @carlogilmar</strong>
-						<br><strong>All the content and images was created by @carlogilmar</strong>
+						<br><span class="oswald"><b>El camino del aprendiz</b></span>
+						<br>Contact: apprenticesjourney@gmail.com
 						</p>
 					</div>
 					<div class="col-md-4">
 						<p class="lead footer-min">
-						<br> June, 2019.
+						<br> Coming soon, 2020 👋!
 						</p>
 					</div>
 				</div>
