@@ -15,12 +15,11 @@
               <br>
               <p class="oswald oswald-font">
               <b class="taj_color">Project by @carlogilmar</b>
-              <br>carlogilmar12@gmail.com
               </p>
               <br>
               <p class="oswald oswald-font">
-              <b class="taj_color">Mexico City</b>
-              <br>July, 2019
+              <b class="taj_color"> 🇲🇽 Mexico City</b>
+              <br>Coming soon! 👋
               </p>
             </div>
           </div>
@@ -34,8 +33,7 @@
               </div>
               <div class="col-md-2">
                 <p class="oswald oswald-font">
-                <b class="taj_color">Project by @carlogilmar</b>
-                <br>carlogilmar12@gmail.com
+                <br>apprenticesjourney@gmail.com
                 </p>
               </div>
               <div class="col-md-2">
@@ -48,8 +46,7 @@
               </div>
               <div class="col-md-2">
                 <p class="oswald oswald-font">
-                <b class="taj_color">Mexico City</b>
-                <br>July, 2019
+                <br>Coming soon!
                 </p>
               </div>
               <div class="col-md-1">
@@ -60,12 +57,11 @@
       </div>
   </header>
 
-  <hr class="featurette-divider">
-
   <main role="main">
 
     <div class="container marketing">
 
+      <!--
       <div class="row featurette">
         <div class="col-md-7 text-center">
           <h2 class="featurette-heading"><span class="oswald taj_color"> The Apprentice's Journey </span></h2>
@@ -181,7 +177,7 @@
         </div>
       </div>
       <hr class="featurette-divider">
-
+--!>
       <h3 class="text-center"><span class="taj_color oswald"> Suscribe for more information! </span></h3>
       <div class="row featurette text-center">
         <div class="col-md-5"></div>
