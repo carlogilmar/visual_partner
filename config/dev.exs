@@ -72,6 +72,6 @@ config :phoenix, :plug_init_mode, :runtime
 config :star, Star.Repo,
   username: "postgres",
   password: "postgres",
-  database: "star_dev",
+  database: "visual_partner_dev",
   hostname: "localhost",
   pool_size: 10
