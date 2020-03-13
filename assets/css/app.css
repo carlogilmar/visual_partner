@@ -43,12 +43,26 @@
   font-size: 1.80rem;
 }
 
+.signika{
+  font-family: 'Patrick Hand', cursive;
+}
+
+.colorA{
+  color: #124055;
+  font-size: 7.80rem;
+}
+
+.colorB{
+  color: #ef6146;
+  font-size: 3.80rem;
+}
+
 .nav_color{
   background-color: #ffffff;
 }
 
 .taj_color{
-  color: #cc3f1cb5;
+  color: #a2a2a2;
 }
 
 .btn_taj{
@@ -238,7 +252,7 @@ a:hover{
 }
 
 .bg-image {
-  background-image: url('https://res.cloudinary.com/carlogilmar/image/upload/v1576563881/apprentices_journey/Imagen_5_jlie8b.jpg');
+  background-image: url('https://res.cloudinary.com/carlogilmar/image/upload/v1584080620/visual_partner/chaos_vucyjk.png');
   background-size: cover;
   background-position: center;
 }

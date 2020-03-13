@@ -12,6 +12,7 @@
 		<script src="https://kit.fontawesome.com/0f4591b7a3.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i&amp;display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lobster|Oswald:400,600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
 	</head>
 	<body>
 
@@ -46,7 +47,6 @@
 
 		<main>
 
-			<br><br>
 			<%= render @view_module, @view_template, assigns %>
 
 			<!-- FOOTER -->
