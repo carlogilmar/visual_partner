@@ -2,9 +2,9 @@ use Mix.Config
 
 config :star, StarWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "apprenticesjourney.herokuapp.com", port: 80],
+  url: [host: "visualpartnership.herokuapp.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
-  base_url: "https://apprenticesjourney.herokuapp.com/"
+  base_url: "https://visualpartnership.herokuapp.com/"
 
 # Do not print debug messages in production
 config :logger, level: :info
