@@ -1,6 +1,6 @@
 defmodule Star.GitHubManager do
   @github_api Application.get_env(:star, StarWeb.Endpoint)[:github_api_key]
-  @repo_url "https://api.github.com/repos/carlogilmar/star/commits"
+  @repo_url "https://api.github.com/repos/carlogilmar/visual_partner/commits"
 
   def get_commits() do
     headers = [
