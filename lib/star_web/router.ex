@@ -49,7 +49,7 @@ defmodule StarWeb.Router do
     get "/note/:id", NoteController, :index
 
     ### Roster
-    get "/roster", RosterController, :index
+    get "/visual_roster", RosterController, :index
 
     ### Releases
     live "/releases", ReleasesLive
