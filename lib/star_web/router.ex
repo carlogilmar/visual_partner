@@ -39,7 +39,7 @@ defmodule StarWeb.Router do
     live "/register/:id", RegisterLive
 
     ### Gallery
-    live "/gallery", GalleryLive
+    live "/visual/:type", GalleryLive
     get "/gallery/:id", ImagesController, :index
 
     ### Sponsors

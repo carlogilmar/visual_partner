@@ -8,10 +8,15 @@ defmodule StarWeb.GalleryLive do
   end
 
   def mount(_session, socket) do
-    galleries = GalleryOperator.find_by_status(true)
+    {:ok, socket}
+  end
+
+  def handle_params(%{"type" => type}, _url, socket) do
+    type = String.upcase(type)
+    galleries = GalleryOperator.find_by_status(true, type)
     socket = socket |> assign(:galleries, galleries)
 
-    {:ok, socket}
+    {:noreply, socket}
   end
 
   def handle_event("redirect_url", %{"uri_val" => uri_val}, socket) do

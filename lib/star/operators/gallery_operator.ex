@@ -36,10 +36,10 @@ defmodule Star.GalleryOperator do
     |> Repo.update()
   end
 
-  def find_by_status(status) do
+  def find_by_status(status, type) do
     query =
       from(g in Gallery,
-        where: g.status == ^status,
+        where: g.status == ^status and g.type == ^type,
         order_by: [desc: g.inserted_at]
       )
 

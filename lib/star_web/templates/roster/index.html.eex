@@ -11,65 +11,39 @@
 
 			<carousel-3d>
 				<slide :index="0">
-        <a href="<%= Application.get_env(:star, :base_url) %>/gallery">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/event">
 				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
         </a>
 				</slide>
 
 				<slide :index="1">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/community">
 				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820595/apprentices_journey/apprentices/IMG_5131_dal2dv.png" />
+        </a>
 				</slide>
 
 				<slide :index="2">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/meetings">
 				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820595/apprentices_journey/apprentices/IMG_5120_auqigv.png" />
+        </a>
 				</slide>
 
 				<slide :index="3">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/resources">
 				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5130_xoydcy.png" />
+        </a>
 				</slide>
 
 				<slide :index="4">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/partnership">
 				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5132_mi5czi.png" />
+        </a>
 				</slide>
 
 				<slide :index="5">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/funny">
 				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5128_veoenf.png" />
-				</slide>
-
-				<slide :index="6">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5129_gnhxxs.png" />
-				</slide>
-
-				<slide :index="7">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5123_hsgoxp.png" />
-				</slide>
-
-				<slide :index="8">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5124_pyvjy0.png" />
-				</slide>
-
-				<slide :index="9">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820593/apprentices_journey/apprentices/IMG_5127_mlpf76.png" />
-				</slide>
-
-				<slide :index="10">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820593/apprentices_journey/apprentices/IMG_5126_mxizyc.png" />
-				</slide>
-
-				<slide :index="11">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820593/apprentices_journey/apprentices/IMG_5122_gdryq4.png" />
-				</slide>
-
-				<slide :index="12">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820593/apprentices_journey/apprentices/IMG_5121_spuqye.png" />
-				</slide>
-
-				<slide :index="13">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820593/apprentices_journey/apprentices/IMG_5115_vtz9dy.png" />
-				</slide>
-
-				<slide :index="14">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820593/apprentices_journey/apprentices/IMG_5118_ouilrm.png" />
+        </a>
 				</slide>
 
 			</carousel-3d>
