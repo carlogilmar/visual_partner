@@ -1,7 +1,7 @@
 <div id="app" class="container">
 	<br><br>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand oswald" href="#"> <i class="fas fa-images"></i> &nbsp; {{gallery.title}} &nbsp; <span class="badge badge-secondary">{{gallery.status}}</span> </a>
+    <a class="navbar-brand oswald" href="#"> <i class="fas fa-images"></i> &nbsp; {{gallery.title}} &nbsp; <span class="badge badge-secondary">{{gallery.status}}</span> <span class="badge badge-success">{{gallery.type}}</span> </a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -31,6 +31,17 @@
 					<div class="form-group">
 						<label><strong>Title</strong></label>
 						<input @blur="update($event.target.value, 'title')" type="text" class="form-control" v-model="gallery.title">
+					</div>
+					<div class="form-group">
+						<label><strong>Type</strong></label>
+            <select @blur="update($event.target.value, 'type')" v-model="gallery.type"class="form-control" id="exampleFormControlSelect1">
+              <option>EVENT</option>
+              <option>COMMUNITY</option>
+              <option>MEETINGS</option>
+              <option>RESOURCES</option>
+              <option>PARTNERSHIP</option>
+              <option>FUNNY</option>
+            </select>
 					</div>
 					<div class="form-group">
 						<label><strong>Image Cover</strong></label>

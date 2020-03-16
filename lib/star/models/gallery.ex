@@ -9,13 +9,16 @@ defmodule Star.Gallery do
     field :esp_desc, :string
     field :eng_desc, :string
     field :status, :boolean, default: false
+    field :type, :string, default: "EVENT"
     timestamps()
     has_many :image, Star.Image, on_delete: :delete_all
   end
 
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:title, :cover, :esp_desc, :eng_desc, :status])
+    |> cast(attrs, [:title, :cover, :esp_desc, :eng_desc, :status, :type])
     |> validate_required([])
+    |> validate_inclusion(:type, ["EVENT", "COMMUNITY", "MEETINGS", "RESOURCES", "PARTNERSHIP", "FUNNY"])
+
   end
 end

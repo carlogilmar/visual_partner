@@ -59,6 +59,7 @@ defmodule StarWeb.GalleryChannel do
     gallery_for_send = %{
       "id" => gallery.id,
       "cover" => gallery.cover,
+      "type" => gallery.type,
       "eng_desc" => gallery.eng_desc,
       "esp_desc" => gallery.esp_desc,
       "status" => gallery.status,
