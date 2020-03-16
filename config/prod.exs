@@ -6,6 +6,8 @@ config :star, StarWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
   base_url: "https://visualpartnership.herokuapp.com/"
 
+config :star, base_url: "https://visualpartnership.herokuapp.com"
+
 # Do not print debug messages in production
 config :logger, level: :info
 

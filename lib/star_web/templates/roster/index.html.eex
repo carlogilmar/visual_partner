@@ -5,11 +5,15 @@
 		<h1 class="taj_color oswald text-center"> <i class="fas fa-star" aria-hidden="true"></i> <span> Roster </span> </h1>
 		<br><br>
 
+    <input id="base_url" name="base_url" type="hidden" value="<%= Application.get_env(:star, :base_url) %>">
+
 		<div class="row">
 
 			<carousel-3d>
 				<slide :index="0">
+        <a href="<%= Application.get_env(:star, :base_url) %>/gallery">
 				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+        </a>
 				</slide>
 
 				<slide :index="1">
@@ -70,14 +74,6 @@
 
 			</carousel-3d>
 		</div>
-
-		<br><hr><br>
-		<!--use animate.css and font-awesome -->
-		<vue-star animate="animated bounceIn" color="#F05654">
-			<i slot="icon" class="fa fa-heart taj_color"></i>
-		</vue-star>
-		<br><br>
-
 
 	</div>
 </div>

@@ -10,6 +10,8 @@ use Mix.Config
 config :star,
   ecto_repos: [Star.Repo]
 
+config :star, base_url: "http://localhost:4000"
+
 # Configures the endpoint
 config :star, StarWeb.Endpoint,
   url: [host: "localhost"],
