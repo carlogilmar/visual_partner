@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="The apprentice's journey website.">
 		<meta name="author" content="carlogilmar">
-		<link rel="icon" href="https://res.cloudinary.com/carlogilmar/image/upload/v1575604446/apprentices_journey/title_i7wpnr.png">
-		<title>The Apprentice's Journey :: El camino del aprendiz </title>
+		<link rel="icon" href="https://res.cloudinary.com/carlogilmar/image/upload/v1584079345/visual_partner/stickman_msm78r.png">
+		<title> Visual Partnership :: @visual_partner </title>
 		<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
 		<script src="https://kit.fontawesome.com/0f4591b7a3.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i&amp;display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
 		<nav class="navbar navbar-expand-lg fixed-top nav_color" id="mainNav">
 			<div class="container">
 				<a class="navbar-brand js-scroll-trigger oswald font_header" href="/">
-					The Apprentice's Journey
+					Visual Partnership
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
 																																						aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,13 +54,13 @@
 			<footer class="container text-center">
 				<div class="row text-center">
 					<div class="col-md-4">
-						<br><img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956540/apprentices_journey/project/IMG_0605_d0zz4a.png" width="50%" alt="Author">
+						<img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1577496225/visual_partner/Untitled_Artwork_5_dbiqin.png" width="50%" alt="Author">
 					</div>
 					<div class="col-md-4">
 						<p class="lead footer-min">
-						<br><span class="oswald"><b>The Apprentice's Journey</b></span>
-						<br><span class="oswald"><b>El camino del aprendiz</b></span>
-						<br>Contact: apprenticesjourney@gmail.com
+						<br><span class="oswald"><b>Visual Partnership</b></span>
+						<br><span class="oswald"><b>@visual_partner</b></span>
+						<br>Contact: carlogilmar12@gmail.com
 						</p>
 					</div>
 					<div class="col-md-4">
