@@ -7,7 +7,7 @@ defmodule Star.Email do
   def build(email, subject, body) do
     new_email()
     |> to(email)
-    |> from("apprenticesjourney@gmail.com")
+    |> from("visualpartnership@gmail.com")
     |> subject(subject)
     |> html_body(body)
   end
