@@ -59,6 +59,9 @@ defmodule StarWeb.Router do
 
     ### Visual Partner
     get "/visual_partner", PartnerController, :index
+
+    ### Blog
+    live "/blog", BlogLive
   end
 
   ## Admin
