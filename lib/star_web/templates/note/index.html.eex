@@ -16,9 +16,15 @@
 					<h3 class="oswald text-center"> Comment Section </h3>
 					<form v-on:submit.prevent="create_comment()">
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label"><b>Username</b></label>
+							<label class="col-sm-2 col-form-label"><b>Email</b></label>
 							<div class="col-sm-10">
-								<input required v-model="username" type="text" class="form-control" placeholder="Write your name or email 🙂 ">
+								<input required v-model="email" type="email" class="form-control" placeholder="Write your email 📩 ">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label"><b>Name</b></label>
+							<div class="col-sm-10">
+								<input required v-model="username" type="text" class="form-control" placeholder="Write your name🙂 ">
 							</div>
 						</div>
 						<div class="form-group">
@@ -36,9 +42,10 @@
       <!-- Comment -->
 			<div v-for="comment in comments">
 				<div class="media">
-					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604429/apprentices_journey/archetype_dxjdfs.png" width="15%" class="align-self-start mr-3" alt="...">
+					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584079345/visual_partner/stickman_msm78r.png" width="15%" class="align-self-start mr-3" alt="...">
 					<div class="media-body">
-						<h5 class="mt-0 oswald">{{comment.author}}</h5>
+						<h3 class="mt-0 oswald">{{comment.author}}</h3>
+						<h5 class="mt-0">{{comment.email}}</h5>
 						<p class="lead">{{comment.description}}</p>
 					</div>
 				</div>

@@ -7,6 +7,7 @@ export const app = new Vue({
     note: {},
     username: "",
     comment: "",
+    email: "",
     comments: []
   },
   created: function() {
@@ -28,11 +29,12 @@ export const app = new Vue({
     create_comment:function(){
       console.log("Que onda!");
       let id = document.getElementById("note").value
-      this.channel.push("note:new_comment", {id: id, username: this.username, comment: this.comment})
+      this.channel.push("note:new_comment", {id: id, username: this.username, email: this.email, comment: this.comment})
         .receive('ok', (res) => {
 					this.comments = res.comments;
 					this.username= "";
 					this.comment= "";
+          this.email = "";
         })
         .receive("error", resp => {
           console.log("ERROR");

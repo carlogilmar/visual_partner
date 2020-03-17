@@ -9,10 +9,10 @@ defmodule StarWeb.NoteChannel do
 
   def handle_in(
         "note:new_comment",
-        %{"id" => id, "username" => username, "comment" => comment},
+        %{"id" => id, "username" => username, "email" => email, "comment" => comment},
         socket
       ) do
-    _ = CommentNoteOperator.create(id, username, comment)
+    _ = CommentNoteOperator.create(id, username, comment, email)
     {:reply, {:ok, get_note(id)}, socket}
   end
 
@@ -24,6 +24,7 @@ defmodule StarWeb.NoteChannel do
       for comment <- note.comment_note do
         %{
           "author" => comment.author,
+          "email" => comment.email,
           "description" => comment.description
         }
       end

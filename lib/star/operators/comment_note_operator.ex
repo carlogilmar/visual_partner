@@ -4,12 +4,13 @@ defmodule Star.CommentNoteOperator do
   alias Star.Repo
   alias Star.NoteOperator
 
-  def create(note_id, author, description) do
+  def create(note_id, author, description, email) do
     note = NoteOperator.get_by_id(note_id)
 
     %CommentNote{
       note: note,
       author: author,
+      email: email,
       description: description
     }
     |> Repo.insert()

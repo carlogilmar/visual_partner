@@ -5,6 +5,7 @@ defmodule Star.CommentNote do
   @primary_key {:id, :id, autogenerate: true}
   schema "comment_notes" do
     field :author, :string
+    field :email, :string
     field :description, :string
     timestamps()
     belongs_to :note, Star.Note

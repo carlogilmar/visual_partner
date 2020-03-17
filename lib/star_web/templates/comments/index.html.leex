@@ -32,7 +32,7 @@
   <tbody>
     <%= for model <- @models do %>
     <tr>
-      <td><%= model.author %></td>
+      <td><%= model.email %></td>
       <td><%= model.inserted_at %></td>
       <td><%= model.note.title %></td>
       <td>
@@ -54,7 +54,8 @@
               <div class="modal-body">
                 <br>
                 <p class="lead"> <%= model.description %></p>
-                <h4 class="oswald"> <%= model.author %> </h4>
+                <h3 class="oswald"> <%= model.author %> </h3>
+                <h5 class="lead"> <%= model.email %> </h5>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
