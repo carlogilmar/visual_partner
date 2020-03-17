@@ -22,6 +22,17 @@ defmodule Star.NoteOperator do
     |> Repo.all()
   end
 
+  def get_all_published do
+    query =
+      from(n in Note,
+        where: n.status == true,
+        order_by: [desc: n.inserted_at]
+      )
+
+    query
+    |> Repo.all()
+  end
+
   def delete(id) do
     note = get_by_id(id)
     Repo.delete(note)
