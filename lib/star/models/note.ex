@@ -6,13 +6,14 @@ defmodule Star.Note do
   schema "notes" do
     field :body, :string
     field :title, :string
+    field :status, :boolean, default: false
     timestamps()
     has_many :comment_note, Star.CommentNote, on_delete: :delete_all
   end
 
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:title, :body])
+    |> cast(attrs, [:title, :body, :status])
     |> validate_required([])
   end
 end

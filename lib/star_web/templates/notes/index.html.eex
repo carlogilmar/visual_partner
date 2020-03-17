@@ -27,7 +27,10 @@
       <div class="card" v-for="note in notes">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <a class="oswald font_header" v-on:click="show_note(note.id)" href="#"> <i class="fas fa-rocket"></i> &nbsp;&nbsp; {{note.title}} </a>
+            <a class="oswald font_header" v-on:click="show_note(note.id)" href="#"> <i class="fas fa-rocket"></i> &nbsp;&nbsp; {{note.title}}
+              <span class="badge badge-success" v-if="note.status"> <small>PUBLISHED</small> </span>
+              <span class="badge badge-secondary" v-else> <small>DRAFT</small> </span>
+            </a>
           </li>
         </ul>
       </div>
@@ -52,6 +55,13 @@
 			</div>
 			<!-- Editor !-->
 
+              <button v-if="note_selected.status" class="btn btn-info btn-sm" v-on:click="to_draft(note_selected.id)">
+                To Draft
+              </button>
+              <button v-else class="btn btn-success btn-sm" v-on:click="to_publish(note_selected.id)">
+                Publish
+              </button>
+
       <a class="btn btn-warning btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
         Delete
       </a>
@@ -67,14 +77,15 @@
           <button class="btn btn-danger btn-sm" v-on:click="delete_note(note_selected.id)">Delete</button>
         </div>
       </div>
+
+
     </div>
 
     <div class="col-md-8" v-else>
 			<div class="jumbotron">
-				<h1 class="display-4">The Apprentice's Journey!</h1>
-				<p class="lead">This are important notes for this project</p>
+				<h1 class="display-4">Visual Partnership Blog</h1>
+				<p class="lead">This are important post's for this project</p>
 				<hr class="my-4">
-				<p>Notas importantes para el proyecto</p>
 			</div>
 		</div>
 
