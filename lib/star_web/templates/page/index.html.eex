@@ -40,8 +40,53 @@
             <button type="submit" class="btn btn-primary mb-2 btn_taj"> Suscribe ✔️ </button>
           <% end %>
         </div>
-
       </div>
+
+    <hr class="featurette-divider"><br>
+		<h1 class="taj_color oswald text-center"> <i class="fas fa-star" aria-hidden="true"></i> <span> Artwork </span> </h1>
+    <input id="base_url" name="base_url" type="hidden" value="<%= Application.get_env(:star, :base_url) %>">
+
+		<div class="row">
+
+			<carousel-3d>
+				<slide :index="0">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/event">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+        </a>
+				</slide>
+
+				<slide :index="1">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/community">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820595/apprentices_journey/apprentices/IMG_5131_dal2dv.png" />
+        </a>
+				</slide>
+
+				<slide :index="2">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/meetings">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820595/apprentices_journey/apprentices/IMG_5120_auqigv.png" />
+        </a>
+				</slide>
+
+				<slide :index="3">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/resources">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5130_xoydcy.png" />
+        </a>
+				</slide>
+
+				<slide :index="4">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/partnership">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5132_mi5czi.png" />
+        </a>
+				</slide>
+
+				<slide :index="5">
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/funny">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5128_veoenf.png" />
+        </a>
+				</slide>
+
+			</carousel-3d>
+		</div>
 
       <hr class="featurette-divider"><br>
       <div class="row featurette text-center">
