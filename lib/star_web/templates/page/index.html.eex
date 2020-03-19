@@ -43,8 +43,12 @@
 
       </div>
 
-      <hr class="featurette-divider">
+      <hr class="featurette-divider"><br>
+      <div class="row featurette text-center">
+        <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584597935/visual_partner/IMG_5335_xmlwzx.png" width="100%"/>
+      </div>
 
+      <hr class="featurette-divider">
       <div class="row featurette text-center">
         <div class="col-md-2"></div>
         <div class="col-md-3">
