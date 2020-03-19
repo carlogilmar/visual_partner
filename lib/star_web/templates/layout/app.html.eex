@@ -18,14 +18,9 @@
 
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-sm fixed-top nav_color justify-content-center">
-			<a class="navbar-brand js-scroll-trigger oswald font_header" href="/">
+			<h2><a class="navbar-brand js-scroll-trigger oswald font_header" href="/">
 				Visual Partnership
-			</a>
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link js-scroll-trigger oswald font_header" href="<%= Routes.static_path(@conn, "/visual_roster") %>"> Artwork </a>
-				</li>
-			</ul>
+			</a></h2>
 		</nav>
 
 		<main>
