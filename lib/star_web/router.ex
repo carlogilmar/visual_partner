@@ -79,6 +79,7 @@ defmodule StarWeb.Router do
     get "/notes", NotesController, :index
     live "/comments", CommentsLive
     live "/model", ModelLive
+    live "/event", EventLive
   end
 
   ## Users

@@ -47,7 +47,7 @@
       <div class="card bg-light mb-3">
         <div class="card-header"> <i class="fas fa-images"></i> &nbsp; <strong> S E C T I O N S </strong></div>
         <div class="card-body">
-          <a href="<%= Routes.static_path(@conn, "/admin/model")%>" class="btn btn-block btn-secondary"> <b> MODEL &nbsp; <i class="fas fa-rocket"></i></b> </a>
+          <a href="<%= Routes.static_path(@conn, "/admin/event")%>" class="btn btn-block btn-secondary"> <b> EVENTS &nbsp; <i class="fas fa-rocket"></i></b> </a>
           <a href="<%= Routes.static_path(@conn, "/admin/gallery")%>" class="btn btn-block btn-secondary"> <b> GALLERY  &nbsp; <i class="fas fa-rocket"></i></b> </a>
         </div>
       </div>

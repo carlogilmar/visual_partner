@@ -1,0 +1,148 @@
+<br><br>
+<div class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand oswald" href="#"> <i class="fas fa-images"></i> &nbsp; Upcoming Events </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="navbar-text">
+   <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+    </span>
+  </div>
+</nav>
+
+<br><br>
+
+<form phx-submit="save">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" required name="user[title]" placeholder="Title">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" required name="user[city]" placeholder="City">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" required name="user[url]" placeholder="Url del Evento">
+    </div>
+  </div>
+<br>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" required name="user[description]" placeholder="Descripción">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" required name="user[date]" placeholder="Fecha">
+    </div>
+    <div class="col">
+			<button type="submit" class="btn btn-block btn-success"> <i class="fas fa-star"></i> &nbsp; New </button>
+    </div>
+  </div>
+</form>
+
+<br><br>
+
+<div class="row">
+
+<table class="table table-sm text-center">
+  <thead>
+    <tr>
+      <th scope="col">Evento</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for model <- @models do %>
+    <tr>
+      <td>
+        <%= model.title %>
+        <%= if model.status do %>
+          <span class="badge badge-success">Upcoming</span>
+        <% else %>
+          <span class="badge badge-secondary">DONE</span>
+        <% end %>
+      </td>
+      <td><%= model.city %></td>
+      <td><%= model.date_desc %></td>
+      <td>
+
+        <a href="<%= model.url %>" target="_blank">Event 🚀</a>
+        <a href="<%= model.gallery_url %>" target="_blank">Gallery 🎆</a>
+
+        <%= if model.status do %>
+          <button type="button" class="btn btn-secondary btn-sm" phx-click="done_event" phx-value-id="<%= model.id %>" data-dismiss="modal"> Close </button>
+        <% else %>
+          <button type="button" class="btn btn-success btn-sm" phx-click="open_event" phx-value-id="<%= model.id %>" data-dismiss="modal"> Open </button>
+        <% end %>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">
+          ➕
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal<%= model.id  %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Opciones </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <br><br>
+                <h1 class="oswald"> <%= model.title %> </h1>
+
+                <!--  --!>
+                <br>
+                <form phx-submit="update_event_url">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <input type="url" value="<%= model.url %>" class="form-control" required name="user[url]" placeholder="Event Url">
+                      <input type="hidden" value="<%= model.id %>" name="user[id]">
+                    </div>
+                    <div class="col">
+                			<button type="submit" class="btn btn-block btn-success">✔️ </button>
+                    </div>
+                  </div>
+                </form>
+                <!--  --!>
+                <br>
+                <form phx-submit="update_gallery_url">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <input type="url" value="<%= model.gallery_url %>" class="form-control" required name="user[url]" placeholder="Gallery Url">
+                      <input type="hidden" value="<%= model.id %>" name="user[id]">
+                    </div>
+                    <div class="col">
+                			<button type="submit" class="btn btn-block btn-success">✔️ </button>
+                    </div>
+                  </div>
+                </form>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" phx-click="delete" phx-value-id="<%= model.id %>" data-dismiss="modal"> Eliminar </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+</div>
