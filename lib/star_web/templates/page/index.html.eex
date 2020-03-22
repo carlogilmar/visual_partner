@@ -90,38 +90,38 @@
 
 			<carousel-3d>
 				<slide :index="0">
-        <a href="<%= Application.get_env(:star, :base_url) %>/visual/event">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1575956484/apprentices_journey/project/IMG_0604_uwznqg.png" />
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/partnership">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584851797/visual_partner/Events/IMG_5386_zogaa7.png" />
         </a>
 				</slide>
 
 				<slide :index="1">
-        <a href="<%= Application.get_env(:star, :base_url) %>/visual/community">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820595/apprentices_journey/apprentices/IMG_5131_dal2dv.png" />
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/event">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584847348/visual_partner/Events/Ilustracio%CC%81n_sin_ti%CC%81tulo_6_mufh6e.png" />
         </a>
 				</slide>
 
 				<slide :index="2">
         <a href="<%= Application.get_env(:star, :base_url) %>/visual/meetings">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820595/apprentices_journey/apprentices/IMG_5120_auqigv.png" />
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584851811/visual_partner/Events/IMG_5385_c2dnzj.png" />
         </a>
 				</slide>
 
 				<slide :index="3">
         <a href="<%= Application.get_env(:star, :base_url) %>/visual/resources">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5130_xoydcy.png" />
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584851770/visual_partner/Events/IMG_5382_c7xj1b.png" />
         </a>
 				</slide>
 
 				<slide :index="4">
-        <a href="<%= Application.get_env(:star, :base_url) %>/visual/partnership">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5132_mi5czi.png" />
+        <a href="<%= Application.get_env(:star, :base_url) %>/visual/community">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584851797/visual_partner/Events/IMG_5378_drbtnr.png" />
         </a>
 				</slide>
 
 				<slide :index="5">
         <a href="<%= Application.get_env(:star, :base_url) %>/visual/funny">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1576820594/apprentices_journey/apprentices/IMG_5128_veoenf.png" />
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584851793/visual_partner/Events/IMG_5381_tnu7e2.png" />
         </a>
 				</slide>
 
