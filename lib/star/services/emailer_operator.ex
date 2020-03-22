@@ -91,4 +91,10 @@ defmodule Star.EmailerSenderOperator do
     title = " The Apprentice's Journey :: Welcome"
     _ = EmailManager.send_email(%{title: title, content: content}, email)
   end
+
+  def send_suscribe_email(email) do
+    {:ok, content} = get_template("emails/suscribe.txt")
+    title = " Visual Partnership :: Thanks for suscribe! "
+    _ = EmailManager.send_email(%{title: title, content: content}, email)
+  end
 end

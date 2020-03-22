@@ -1,6 +1,7 @@
 defmodule StarWeb.SignupController do
   use StarWeb, :controller
   alias Star.UserOperator
+  alias Star.EmailerSenderOperator
   @suscriptor_role "SUSCRIPTOR"
 
   def index(conn, _params) do
@@ -13,7 +14,11 @@ defmodule StarWeb.SignupController do
   end
 
   def suscribe(conn, params) do
-    {_status, user} = UserOperator.create_user(params["email"], "", "", @suscriptor_role)
+    {status, user} = UserOperator.create_user(params["email"], "", "", @suscriptor_role)
+
+    case status do
+      :ok -> EmailerSenderOperator.send_suscribe_email(user.email)
+    end
 
     render(conn, "suscriptor.html", user: user)
   end
