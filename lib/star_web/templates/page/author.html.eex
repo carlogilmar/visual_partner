@@ -1,0 +1,23 @@
+<!-- author -->
+<hr class="featurette-divider">
+<div class="row featurette text-center">
+  <div class="col-md-2"></div>
+  <div class="col-md-3">
+    <a href="http://carlogilmar.xyz/">
+      <img class="featurette-image img-fluid mx-auto" src="http://carlogilmar.xyz/index_files/carlogilmar.png" width="100%" alt="Author">
+    </a>
+  </div>
+  <div class="col-md-5">
+    <p class="lead footer-font">
+    Project created by:
+    <br><span class="pacific black-font">Carlo Gilmar</span>
+    <br><span class="oswald"><a href="http://carlogilmar.xyz/" class="black-font">carlogilmar.xyz</a></span>
+    <br> Carlo is a <b>software developer, graphic recorder, and GitHub Campus Expert</b> based on Mexico City.
+    He studied informatics engineering, and he’s studying sociology.
+    <br><br> <i> <small>Carlo es un desarrollador de software, facilitador gráfico y GitHub Campus Expert.
+        Vive en la Ciudad de México, estudió Ingeniería Informática y es estudiante de Sociología.</small></i>
+    </p>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<!-- author -->

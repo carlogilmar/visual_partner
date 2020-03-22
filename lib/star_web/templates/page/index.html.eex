@@ -1,148 +1,54 @@
 <div id="app">
 
-<div class="container">
-	<br><br>
-	<div class="row featurette text-center">
-		<div class="col-md-6 text-center d-flex align-items-center justify-content-center">
-      <img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1584852266/visual_partner/Events/IMG_5364_efyxbh.png" width="150%" alt="Author">
-		</div>
-		<div class="col-md-6">
-			<p class="lead">
-			<br><br><br>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vitae leo consequat sollicitudin. Nam tempus imperdiet condimentum. Mauris vitae mollis neque, sit amet sagittis metus.
-      <br><br>
-      <i> <small>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vitae leo consequat sollicitudin. Nam tempus imperdiet condimentum. Mauris vitae mollis neque, sit amet sagittis metus.
-		  </small></i>
-			</p>
+	<%= render "cover.html", conn: @conn %>
+
+		<div class="container marketing">
+
+			<!-- suscribe -->
+			<hr class="featurette-divider">
+			<div class="row text-center">
+				<br>
+				<h2 class="text-center"><span class="taj_color oswald"> Suscribe for more information! </span></h2>
+				<h3 class="text-center"><span class="oswald"> ¡Conviértete en suscriptor!</span></h3>
+				<%= form_for @conn, Routes.signup_path(@conn, :suscribe), [method: :post], fn _f -> %>
+					<input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
+					<br><br>
+					<div class="form-group row">
+						<label class="col-sm-4 col-form-label">Email</label>
+						<div class="col-sm-8">
+							<input type="email" class="form-control" required name="email" placeholder="Your email here 📩 👇"/>
+						</div>
+					</div>
+					<br><br>
+					<button type="submit" type="submit" class="btn btn-block btn-primary mb-2 btn_taj"> <b>Suscribe! 🙂</b> </button>
+				<% end %>
+				<br>
+			</div>
+			<!-- suscribe -->
+
+			<!-- artwork -->
+			<%= render "artwork.html", conn: @conn %>
+
+			<!-- artwork description-->
+			<%= render "artwork_desc.html", conn: @conn %>
+
+			<!-- comments about my work -->
+			<%= render "work.html", conn: @conn %>
+
+			<hr class="featurette-divider"><br>
+			<div class="row text-center d-flex align-items-center justify-content-center">
+				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584597935/visual_partner/IMG_5335_xmlwzx.png" width="100%"/>
+			</div>
+
+			<!-- links -->
+			<%= render "links.html", conn: @conn %>
+
+			<!-- comments about my work -->
+			<%= render "author.html", conn: @conn %>
 
 		</div>
-	</div>
-</div>
+		<!-- /END THE FEATURETTES -->
 
-  <main role="main">
+</div> <!-- app -->
 
-    <div class="container marketing">
-
-  <!-- Contact, support and suscribe! -->
-	<div class="row featurette text-center">
-
-    <!-- contact --!>
-		<div class="col-md-6 card">
-      <div class="text-center">
-        <br>
-        <h1 class="oswald"> Contact me!</h1>
-        <p class="card-text">
-          <b>Do you want to contribute more? Send me a message!</b>
-		    	<br>
-		    	<i>Si quieres contribuir con más envíame un mensaje.</i>
-		    </p>
-        <form phx-submit="save">
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Email</label>
-            <div class="col-sm-8">
-            <input type="email" class="form-control" required name="user[email]" />
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Message</label>
-            <div class="col-sm-8">
-            <input type="text" class="form-control" required name="user[description]">
-            </div>
-          </div>
-          <button type="submit" class="btn btn-block btn-secondary"> <b>SUBMIT REQUEST</b> </button>
-        </form>
-      </div>
-      <br>
-    </div>
-    <!-- contact --!>
-
-    <!-- Suscribe --!>
-		<div class="col-md-6 card">
-      <div class="text-center">
-        <br>
-        <h2 class="text-center"><span class="taj_color oswald"> Suscribe for more information! </span></h2>
-        <h3 class="text-center"><span class="oswald"> ¡Conviértete en suscriptor!</span></h3>
-          <%= form_for @conn, Routes.signup_path(@conn, :suscribe), [method: :post], fn _f -> %>
-          <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
-          <br><br>
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Email</label>
-            <div class="col-sm-8">
-            <input type="email" class="form-control" required name="email" placeholder="Your email here 📩 👇"/>
-            </div>
-          </div>
-          <br><br>
-          <button type="submit" type="submit" class="btn btn-block btn-primary mb-2 btn_taj"> <b>Suscribe! 🙂</b> </button>
-          <% end %>
-        <br>
-      </div>
-		</div>
-
-	</div>
-
-    <!-- artwork -->
-		<%= render "artwork.html", conn: @conn %>
-
-    <!-- artwork description-->
-		<%= render "artwork_desc.html", conn: @conn %>
-
-    <!-- comments about my work -->
-		<%= render "work.html", conn: @conn %>
-
-      <hr class="featurette-divider"><br>
-      <div class="row text-center d-flex align-items-center justify-content-center">
-        <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584597935/visual_partner/IMG_5335_xmlwzx.png" width="100%"/>
-      </div>
-
-      <hr class="featurette-divider">
-      <div class="row featurette text-center">
-        <div class="col">
-          <h1><a class="oswald font_header" href="/blog">
-            Blog
-          </a></h1>
-        </div>
-        <div class="col">
-          <h1><a class="oswald font_header" href="/sponsorship">
-            Become a Sponsor
-          </a></h1>
-        </div>
-        <div class="col">
-          <h1><a class="oswald font_header" href="/releases">
-            Open Platform
-          </a></h1>
-        </div>
-      </div>
-    <!-- artwork -->
-
-
-      <hr class="featurette-divider">
-      <div class="row featurette text-center">
-        <div class="col-md-2"></div>
-        <div class="col-md-3">
-          <a href="http://carlogilmar.xyz/">
-            <img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1575604431/apprentices_journey/carlogilmar_logo_uyofzd.png" width="100%" alt="Author">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <p class="lead footer-font">
-                    Project created by:
-                    <br><span class="pacific black-font">Carlo Gilmar</span>
-                    <br><span class="oswald"><a href="http://carlogilmar.xyz/" class="black-font">carlogilmar.xyz</a></span>
-                    <br> Carlo is a <b>software developer, graphic recorder, and GitHub Campus Expert</b> based on Mexico City.
-                    He studied informatics engineering, and he’s studying sociology.
-                    <br><br> <i> <small>Carlo es un desarrollador de software, facilitador gráfico y GitHub Campus Expert.
-                    Vive en la Ciudad de México, estudió Ingeniería Informática y es estudiante de Sociología.</small></i>
-          </p>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-
-
-      <!-- /END THE FEATURETTES -->
-
-    </div><!-- /.container -->
-
-    </div>
-
-    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/starter_controller.js") %>"></script>
+<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/starter_controller.js") %>"></script>

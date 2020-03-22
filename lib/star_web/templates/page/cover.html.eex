@@ -1,0 +1,21 @@
+<!-- COVER -->
+<div class="container">
+  <br><br>
+  <div class="row featurette text-center">
+    <div class="col-md-6 text-center d-flex align-items-center justify-content-center">
+      <img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1584852266/visual_partner/Events/IMG_5364_efyxbh.png" width="150%" alt="Author">
+    </div>
+    <div class="col-md-6">
+      <p class="lead">
+      <br><br><br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vitae leo consequat sollicitudin. Nam tempus imperdiet condimentum. Mauris vitae mollis neque, sit amet sagittis metus.
+      <br><br>
+      <i> <small>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vitae leo consequat sollicitudin. Nam tempus imperdiet condimentum. Mauris vitae mollis neque, sit amet sagittis metus.
+        </small></i>
+      </p>
+
+    </div>
+  </div>
+</div>
+<!-- COVER -->
