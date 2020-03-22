@@ -13,6 +13,10 @@
       <i> <small>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vitae leo consequat sollicitudin. Nam tempus imperdiet condimentum. Mauris vitae mollis neque, sit amet sagittis metus.
         </small></i>
+        <br>
+			<a href="<%= Application.get_env(:star, :base_url) %>/contact" class="pacifico font_header">
+				<i class="fas fa-envelope-open-text my-float"></i> Contacto 👉
+			</a>
       </p>
 
     </div>
