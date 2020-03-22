@@ -35,8 +35,13 @@ defmodule Star.EventOperator do
         order_by: [desc: n.inserted_at]
       )
 
-    query
-    |> Repo.all()
+    events = query |> Repo.all()
+
+    case length(events) do
+      e when e in 0..3 -> events
+      _ -> Enum.take(events, 3)
+    end
+
   end
 
   def delete(id) do

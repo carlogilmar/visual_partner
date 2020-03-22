@@ -33,6 +33,9 @@
     </div>
 			<!-- suscribe -->
 
+			<!-- links -->
+			<%= render "lists.html", conn: @conn, events: @events %>
+
 			<!-- Float Button -->
 			<a href="<%= Application.get_env(:star, :base_url) %>/contact" class="float">
 				<i class="fas fa-envelope-open-text my-float"></i>
