@@ -76,8 +76,13 @@
 
 .font_header {
   font-size: 2rem;
-  color: #3761a9;
+  color: #41526e;
 }
+
+.vp_color{
+  color: #41526e;
+}
+
 
 a:hover{
   color: #cc3f1cb5;

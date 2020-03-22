@@ -2,10 +2,28 @@
 
 <div class="container">
 
-  <h1 class="taj_color oswald text-center"> <i class="fas fa-images" aria-hidden="true"></i> <span> Gallery </span> </h1>
-  <br><br>
+  <div class="text-center">
+    <span class="lead pacifico taj_color"><b>🖍 Artwork Album</b></span>
+    <h1 class="vp_color oswald text-center">
+      <span> <%= @type %> </span>
+    </h1>
+    <br><br>
+  </div>
+
+    <%= if @galleries == [] do %>
+
+    <!-- loader --!>
+    <div class="text-center">
+      <h2 class="vp_color oswald"> Nada por mostrar de momento, ¡vuelva pronto! </h2>
+      <h2 class="lead_latin"> There aren't graphic recordings yet... </h2>
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584905438/visual_partner/icons/Ilustracio%CC%81n_sin_ti%CC%81tulo_ubqihw.gif" width="35%"/>
+      <h4 class="pacific"> Los actos de amor caminan </h4>
+    </div>
+    <!-- loader --!>
+    <% end %>
 
   <div class="row">
+
 
     <%= for gallery <- @galleries do %>
     <!-- Card -->
