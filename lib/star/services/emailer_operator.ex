@@ -72,7 +72,7 @@ defmodule Star.EmailerSenderOperator do
 
   def send_signup_email(email, url) do
     {:ok, content} = get_template("emails/singup.txt")
-    content = EEx.eval_string(content, [url: url])
+    content = EEx.eval_string(content, url: url)
     title = " The Apprentice's Journey :: Complete your register"
 
     _ = EmailManager.send_email(%{title: title, content: content}, email)
@@ -80,7 +80,7 @@ defmodule Star.EmailerSenderOperator do
 
   def send_invite_email(email, url) do
     {:ok, content} = get_template("emails/invite.txt")
-    content = EEx.eval_string(content, [url: url])
+    content = EEx.eval_string(content, url: url)
     title = "Join to The Apprentice's Journey :: Invite "
 
     _ = EmailManager.send_email(%{title: title, content: content}, email)

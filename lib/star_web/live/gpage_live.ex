@@ -8,7 +8,7 @@ defmodule StarWeb.GpageLive do
   end
 
   def mount(_session, socket) do
-    IO.inspect socket
+    IO.inspect(socket)
     socket = update(socket)
     {:ok, socket}
   end

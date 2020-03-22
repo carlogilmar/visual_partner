@@ -40,8 +40,7 @@ defmodule StarWeb.RegisterLive do
   end
 
   def activate_user(params, user) do
-    {:ok, user} =
-      UserOperator.complete_register(user.id, params["name"], params["password"])
+    {:ok, user} = UserOperator.complete_register(user.id, params["name"], params["password"])
 
     _ = EmailerSenderOperator.send_welcome_email(user.email)
     user

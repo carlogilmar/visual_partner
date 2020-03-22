@@ -1,5 +1,4 @@
 defmodule StarWeb.BlogLive do
-
   use Phoenix.LiveView
   alias StarWeb.BlogView
   alias Star.NoteOperator
@@ -23,5 +22,4 @@ defmodule StarWeb.BlogLive do
     socket
     |> assign(:notes, notes)
   end
-
 end

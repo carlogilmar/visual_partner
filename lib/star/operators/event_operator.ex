@@ -4,13 +4,13 @@ defmodule Star.EventOperator do
   alias Star.Repo
 
   def create(title, city, url, description, date_desc) do
-     %Event{
-       title: title,
-       city: city,
-       url: url,
-       description: description,
-       date_desc: date_desc
-      }
+    %Event{
+      title: title,
+      city: city,
+      url: url,
+      description: description,
+      date_desc: date_desc
+    }
     |> Repo.insert()
   end
 
@@ -51,5 +51,4 @@ defmodule Star.EventOperator do
     |> Event.changeset(attrs)
     |> Repo.update()
   end
-
 end

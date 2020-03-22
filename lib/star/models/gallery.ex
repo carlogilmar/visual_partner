@@ -18,7 +18,13 @@ defmodule Star.Gallery do
     model
     |> cast(attrs, [:title, :cover, :esp_desc, :eng_desc, :status, :type])
     |> validate_required([])
-    |> validate_inclusion(:type, ["EVENT", "COMMUNITY", "MEETINGS", "RESOURCES", "PARTNERSHIP", "FUNNY"])
-
+    |> validate_inclusion(:type, [
+      "EVENT",
+      "COMMUNITY",
+      "MEETINGS",
+      "RESOURCES",
+      "PARTNERSHIP",
+      "FUNNY"
+    ])
   end
 end

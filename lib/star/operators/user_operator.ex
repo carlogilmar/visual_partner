@@ -65,9 +65,7 @@ defmodule Star.UserOperator do
 
     update(
       id,
-      %{status: "ACTIVE",
-        name: name,
-        password: hash}
+      %{status: "ACTIVE", name: name, password: hash}
     )
   end
 end

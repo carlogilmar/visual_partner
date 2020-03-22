@@ -1,5 +1,4 @@
 defmodule StarWeb.ContactLive do
-
   use Phoenix.LiveView
   alias StarWeb.ContactView
   alias Star.Sponsorship
@@ -26,5 +25,4 @@ defmodule StarWeb.ContactLive do
     _ = EmailerSenderOperator.send_sponsor_email(params["email"])
     {:noreply, live_redirect(socket, to: "/")}
   end
-
 end

@@ -5,6 +5,5 @@ defmodule Star.Repo.Migrations.AddCommentNoteEmail do
     alter table(:comment_notes) do
       add :email, :string
     end
-
   end
 end

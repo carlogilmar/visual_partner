@@ -33,6 +33,7 @@ defmodule StarWeb.GalleryLive do
       "meetings" => "Meetings",
       "resources" => "Learning"
     }
+
     case types[type] do
       nil -> "@visual_partner"
       artwork -> artwork

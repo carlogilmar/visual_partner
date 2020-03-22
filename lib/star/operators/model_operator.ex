@@ -3,12 +3,12 @@ defmodule Star.ModelOperator do
   alias Star.Repo
 
   def create(title, url, esp_desc, eng_desc) do
-     %Model{
-       title: title,
-       url: url,
-       esp_desc: esp_desc,
-       eng_desc: eng_desc
-      }
+    %Model{
+      title: title,
+      url: url,
+      esp_desc: esp_desc,
+      eng_desc: eng_desc
+    }
     |> Repo.insert()
   end
 
@@ -32,5 +32,4 @@ defmodule Star.ModelOperator do
     |> Model.changeset(attrs)
     |> Repo.update()
   end
-
 end

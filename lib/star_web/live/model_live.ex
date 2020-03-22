@@ -24,24 +24,26 @@ defmodule StarWeb.ModelLive do
   end
 
   def handle_event("save", %{"user" => params}, socket) do
-    {:ok, _model} = ModelOperator.create(params["title"], params["url"], params["esp_desc"], params["eng_desc"])
+    {:ok, _model} =
+      ModelOperator.create(params["title"], params["url"], params["esp_desc"], params["eng_desc"])
+
     socket = update_socket(socket)
     {:noreply, socket}
   end
 
-	def handle_event("publish", %{"model_id" => model_id}, socket) do
-		model_id = String.to_integer(model_id)
-		_ = ModelOperator.update(model_id, %{draft: true})
+  def handle_event("publish", %{"model_id" => model_id}, socket) do
+    model_id = String.to_integer(model_id)
+    _ = ModelOperator.update(model_id, %{draft: true})
     socket = update_socket(socket)
     {:noreply, socket}
-	end
+  end
 
-	def handle_event("draft", %{"model_id" => model_id}, socket) do
-		model_id = String.to_integer(model_id)
-		_ = ModelOperator.update(model_id, %{draft: false})
+  def handle_event("draft", %{"model_id" => model_id}, socket) do
+    model_id = String.to_integer(model_id)
+    _ = ModelOperator.update(model_id, %{draft: false})
     socket = update_socket(socket)
     {:noreply, socket}
-	end
+  end
 
   defp update_socket(socket) do
     models = ModelOperator.get_all()
@@ -49,5 +51,4 @@ defmodule StarWeb.ModelLive do
     socket
     |> assign(:models, models)
   end
-
 end

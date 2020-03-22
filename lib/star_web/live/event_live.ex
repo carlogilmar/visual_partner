@@ -17,7 +17,15 @@ defmodule StarWeb.EventLive do
   end
 
   def handle_event("save", %{"user" => params}, socket) do
-    {:ok, _model} = EventOperator.create(params["title"], params["city"], params["url"], params["description"], params["date"])
+    {:ok, _model} =
+      EventOperator.create(
+        params["title"],
+        params["city"],
+        params["url"],
+        params["description"],
+        params["date"]
+      )
+
     socket = update_socket(socket)
     {:noreply, socket}
   end
@@ -63,5 +71,4 @@ defmodule StarWeb.EventLive do
     socket
     |> assign(:models, models)
   end
-
 end
