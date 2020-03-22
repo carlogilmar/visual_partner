@@ -45,11 +45,14 @@
 			<!-- comments about my work -->
 			<%= render "work.html", conn: @conn %>
 
+			<!-- style -->
+			<%= render "gallery.html", conn: @conn %>
+      <!--
 			<hr class="featurette-divider"><br>
 			<div class="row text-center d-flex align-items-center justify-content-center">
 				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584597935/visual_partner/IMG_5335_xmlwzx.png" width="100%"/>
-			</div>
-
+        </div>
+        --!>
 
 			<!-- comments about my work -->
 			<%= render "author.html", conn: @conn %>

@@ -4,7 +4,7 @@
 <div class="text-center">
   <h1 class="taj_color pacifico text-center"> <span> About my work! </span> </h1>
   <span class="lead"> Here you are some comments about my artwork and participations in <b>CMDX, Berlín and San Francisco!</b> </span><br>
-  <span class="lead_latin"> Aquí podrás leer algunos comentarios de mi trabajo y de mi participación en algunos eventos en <b>CDMX, Berlín, y San Francisco</b> </span>
+  <span class="lead_latin"> Aquí podrás leer algunos comentarios de mi trabajo y de mi participación en algunos eventos <b>CDMX, Berlín, y San Francisco</b> </span>
 </div>
 
 <div class="row">
@@ -33,6 +33,9 @@
     </slide>
     <slide :index="7">
       <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1577499151/visual_partner/IMG_4235_qlsfac.jpg" />
+    </slide>
+    <slide :index="8">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867512/visual_partner/IMG_5243_c22qor.jpg" />
     </slide>
 
   </carousel-3d>

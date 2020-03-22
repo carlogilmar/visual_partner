@@ -1,0 +1,40 @@
+<!-- artwork -->
+<hr class="featurette-divider"><br>
+
+<div class="text-center">
+  <h1 class="taj_color pacifico text-center"> <span> Visual Partnership Style </span> </h1>
+</div>
+
+<div class="row">
+
+  <carousel-3d>
+    <slide :index="0">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867900/visual_partner/gallery/IMG_5409_hxp4nq.png" />
+    </slide>
+    <slide :index="1">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867896/visual_partner/gallery/IMG_5395_lkxsjt.png" />
+    </slide>
+    <slide :index="2">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867906/visual_partner/gallery/IMG_5411_cpw5vx.png" />
+    </slide>
+    <slide :index="3">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867903/visual_partner/gallery/IMG_5412_ls9x9l.png" />
+    </slide>
+    <slide :index="4">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867902/visual_partner/gallery/IMG_5405_hb3ljm.png" />
+    </slide>
+    <slide :index="5">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867902/visual_partner/gallery/IMG_5406_qbdnii.png" />
+    </slide>
+    <slide :index="6">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867900/visual_partner/gallery/IMG_5407_q6rnba.png" />
+    </slide>
+    <slide :index="7">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867899/visual_partner/gallery/IMG_5410_kizwug.png" />
+    </slide>
+    <slide :index="8">
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867896/visual_partner/gallery/IMG_5408_uqj25s.png" />
+    </slide>
+  </carousel-3d>
+</div>
+<!-- artwork -->
