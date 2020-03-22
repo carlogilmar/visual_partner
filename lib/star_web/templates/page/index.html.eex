@@ -1,30 +1,40 @@
 <div id="app">
 
-	<%= render "cover.html", conn: @conn %>
+  <%= render "cover.html", conn: @conn %>
 
-		<div class="container marketing">
+  <div class="container marketing">
 
+    <!-- suscribe -->
+    <hr class="featurette-divider">
+    <div class="row">
+      <div class="text-center col-md-6">
+        <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584866261/visual_partner/icons/IMG_5369_afwcsa.png" width="60%" />
+      </div>
+      <div class="text-center col-md-6">
+        <br>
+        <h3 class="pacifico font_header">
+          Newsletter
+        </h3>
+        <h2 class="text-center"><span class="taj_color oswald"> Suscribe for more information! </span></h2>
+        <h3 class="text-center"><span class="oswald"> ¡Conviértete en suscriptor!</span></h3>
+
+        <%= form_for @conn, Routes.signup_path(@conn, :suscribe), [method: :post], fn _f -> %>
+          <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
+          <div class="form-group row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <input type="email" class="form-control" required name="email" placeholder="Your email here 📩 👇"/>
+              <br>
+              <button type="submit" type="submit" class="btn btn-block btn-primary mb-2 btn_taj"> <b>Suscribe! 🙂</b> </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
 			<!-- suscribe -->
-			<hr class="featurette-divider">
-			<div class="row text-center">
-				<br>
-				<h2 class="text-center"><span class="taj_color oswald"> Suscribe for more information! </span></h2>
-				<h3 class="text-center"><span class="oswald"> ¡Conviértete en suscriptor!</span></h3>
-				<%= form_for @conn, Routes.signup_path(@conn, :suscribe), [method: :post], fn _f -> %>
-					<input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
-					<br><br>
-					<div class="form-group row">
-						<label class="col-sm-4 col-form-label">Email</label>
-						<div class="col-sm-8">
-							<input type="email" class="form-control" required name="email" placeholder="Your email here 📩 👇"/>
-						</div>
-					</div>
-					<br><br>
-					<button type="submit" type="submit" class="btn btn-block btn-primary mb-2 btn_taj"> <b>Suscribe! 🙂</b> </button>
-				<% end %>
-				<br>
-			</div>
-			<!-- suscribe -->
+
+			<!-- links -->
+			<%= render "links.html", conn: @conn %>
 
 			<!-- artwork -->
 			<%= render "artwork.html", conn: @conn %>
@@ -40,8 +50,6 @@
 				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584597935/visual_partner/IMG_5335_xmlwzx.png" width="100%"/>
 			</div>
 
-			<!-- links -->
-			<%= render "links.html", conn: @conn %>
 
 			<!-- comments about my work -->
 			<%= render "author.html", conn: @conn %>

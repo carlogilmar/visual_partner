@@ -1,20 +1,23 @@
 <!-- links -->
 <hr class="featurette-divider">
 <div class="row featurette text-center">
-  <div class="col-md-4">
-    <h1><a class="oswald font_header" href="/blog">
+  <div class="col-md-4 text-center">
+    <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584865797/visual_partner/icons/IMG_5390_m1ofsl.png" width="35%"/>
+    <h3><a class="pacifico font_header" href="/blog">
         Blog
-      </a></h1>
+      </a></h3>
   </div>
   <div class="col-md-4">
-    <h1><a class="oswald font_header" href="/sponsorship">
+    <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584865797/visual_partner/icons/IMG_5391_f9qc1g.png" width="35%"/>
+    <h3><a class="pacifico font_header" href="/sponsorship">
         Become a Sponsor
-      </a></h1>
+      </a></h3>
   </div>
   <div class="col-md-4">
-    <h1><a class="oswald font_header" href="/releases">
+    <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584865797/visual_partner/icons/IMG_5392_mkevzy.png" width="35%"/>
+    <h3><a class="pacifico font_header" href="/releases">
         Open Platform
-      </a></h1>
+      </a></h3>
   </div>
 </div>
 <!-- links -->

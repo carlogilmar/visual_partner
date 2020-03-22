@@ -1,7 +1,11 @@
 <!-- artwork -->
 <hr class="featurette-divider"><br>
-<h1 class="taj_color oswald text-center"> <i class="fas fa-star" aria-hidden="true"></i> <span> Artwork </span> </h1>
-<input id="base_url" name="base_url" type="hidden" value="<%= Application.get_env(:star, :base_url) %>">
+
+<div class="text-center">
+  <h1 class="taj_color pacifico text-center"> <span> Artwork </span> </h1>
+  <span class="lead"> Would you like to know more about my style? <b>Click an image!</b> </span><br>
+  <span class="lead_latin"> ¿Quieres ver mi estilo? <b>¡Da click en alguna imagen!</b> </span>
+</div>
 
 <div class="row">
 
