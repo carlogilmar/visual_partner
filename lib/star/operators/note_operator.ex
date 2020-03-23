@@ -33,6 +33,22 @@ defmodule Star.NoteOperator do
     |> Repo.all()
   end
 
+  def get_lastest_posts do
+    query =
+      from(n in Note,
+        where: n.status == true,
+        order_by: [desc: n.inserted_at]
+      )
+
+    notes = query |> Repo.all()
+
+    case length(notes) do
+      e when e in 0..3 -> notes
+      _ -> Enum.take(notes, 3)
+    end
+
+  end
+
   def delete(id) do
     note = get_by_id(id)
     Repo.delete(note)

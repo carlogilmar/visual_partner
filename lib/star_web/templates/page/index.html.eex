@@ -34,7 +34,7 @@
 			<!-- suscribe -->
 
 			<!-- links -->
-			<%= render "lists.html", conn: @conn, events: @events %>
+			<%= render "lists.html", conn: @conn, events: @events, posts: @posts %>
 
 			<!-- Float Button -->
 			<a href="<%= Application.get_env(:star, :base_url) %>/contact" class="float">
