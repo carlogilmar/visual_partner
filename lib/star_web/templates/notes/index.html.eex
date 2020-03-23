@@ -47,6 +47,13 @@
 				<input v-model="note_selected.title" type="text" class="form-control" @blur="update($event.target.value, note_selected.id, 'title')">
 			</div>
 			<br>
+			<div class="input-group mb-2 mr-sm-2">
+				<div class="input-group-prepend">
+					<div class="input-group-text"> <i class="fas fa-calendar"></i>&nbsp; Fecha </div>
+				</div>
+				<input v-model="note_selected.date_desc" type="text" class="form-control" @blur="update($event.target.value, note_selected.id, 'date_desc')">
+			</div>
+			<br>
 			<div class="form-group">
 				<local-quill-editor
 					@blur="update_body(note_selected.id, 'body')"

@@ -12,7 +12,7 @@ defmodule StarWeb.NotesChannel do
         socket
       ) do
     note = NoteOperator.get_by_id(note)
-    note = %{id: note.id, title: note.title, body: note.body, status: note.status}
+    note = %{id: note.id, title: note.title, date_desc: note.date_desc, body: note.body, status: note.status}
     {:reply, {:ok, %{note: note}}, socket}
   end
 
@@ -51,7 +51,8 @@ defmodule StarWeb.NotesChannel do
       %{
         "id" => note.id,
         "title" => note.title,
-        "status" => note.status
+        "status" => note.status,
+        "date_desc" => note.date_desc
       }
     end
   end

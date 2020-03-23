@@ -16,12 +16,6 @@ defmodule StarWeb.CommentsLive do
     {:noreply, live_redirect(socket, to: uri_val)}
   end
 
-  def handle_event("new", _value, socket) do
-    {:ok, _model} = CommentNoteOperator.create(1, "algo", "algo")
-    socket = update_socket(socket)
-    {:noreply, socket}
-  end
-
   def handle_event("delete", %{"id" => model_id}, socket) do
     model_id = String.to_integer(model_id)
     {:ok, _model_deleted} = CommentNoteOperator.delete(model_id)

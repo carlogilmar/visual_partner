@@ -50,10 +50,9 @@ img {
       <!-- Comment -->
 			<div v-for="comment in comments">
 				<div class="media">
-					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584079345/visual_partner/stickman_msm78r.png" width="15%" class="align-self-start mr-3" alt="...">
+					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584079345/visual_partner/stickman_msm78r.png" class="align-self-start mr-3 img_comment" alt="...">
 					<div class="media-body">
 						<h3 class="mt-0 oswald">{{comment.author}}</h3>
-						<h5 class="mt-0">{{comment.email}}</h5>
 						<p class="lead">{{comment.description}}</p>
 					</div>
 				</div>
