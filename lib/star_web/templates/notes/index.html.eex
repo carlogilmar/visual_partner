@@ -27,7 +27,7 @@
       <div class="card" v-for="note in notes">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <a class="oswald font_header" v-on:click="show_note(note.id)" href="#"> <i class="fas fa-rocket"></i> &nbsp;&nbsp; {{note.title}}
+            <a class="oswald" v-on:click="show_note(note.id)" href="#"> <i class="fas fa-rocket"></i> &nbsp;&nbsp; {{note.title}}
               <span class="badge badge-success" v-if="note.status"> <small>PUBLISHED</small> </span>
               <span class="badge badge-secondary" v-else> <small>DRAFT</small> </span>
             </a>

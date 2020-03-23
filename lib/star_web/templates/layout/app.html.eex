@@ -20,7 +20,7 @@
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-sm fixed-top nav_color justify-content-center">
 			<a class="navbar-brand text-center" href="/">
-          <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584863922/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_3_fun73w.png" width="30%" />
+          <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584863922/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_3_fun73w.png" class="img_header" />
 			</a>
 		</nav>
 

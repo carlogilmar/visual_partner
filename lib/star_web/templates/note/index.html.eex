@@ -1,10 +1,18 @@
+<style>
+img {
+  width: 100%;
+}
+</style>
+
 <div id="app" class="container">
-  <input type="hidden" id="note" value="<%= @note %>">
+
+  <br><br><br><input type="hidden" id="note" value="<%= @note %>">
+
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-1">
     </div>
-    <div class="col-md-8">
-      <h1 class="oswald taj_color text-center"> {{note.title}} </h1>
+    <div class="col-md-10">
+      <h1 class="oswald vp_color text-center"> {{note.title}} </h1>
       <hr>
       <div v-html="note.body"> </div>
       <hr>

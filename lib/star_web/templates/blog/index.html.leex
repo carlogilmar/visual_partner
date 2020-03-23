@@ -1,16 +1,21 @@
 <br><br>
 
 <div class="container">
-  <div class="row text-center">
-    <h2> Blog </h2>
+  <div class="">
+    <h2 class="vp_color pacifico"> Blog </h2>
     <br>
-    <ul>
+
+<div class="list-group">
     <%= for note <- @notes do %>
-    <li>
-      <a href="#" phx-click="redirect_url" phx-value-uri_val="/note/<%= note.id %>"> <%= note.title %> </a>
-    </li>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" phx-click="redirect_url" phx-value-uri_val="/note/<%= note.id %>">
+    	<div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= note.title %></h5>
+      <small>3-Marzo-2010</small>
+    </div>
+    <small>By Visual Partner</small>
+  </a>
     <% end%>
-    </ul>
+</div>
   </div>
 </div>
 
