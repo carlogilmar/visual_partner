@@ -2,38 +2,38 @@
 <hr class="featurette-divider"><br>
 
 <div class="text-center">
-  <h1 class="taj_color pacifico text-center"> <span> Visual Partnership Style </span> </h1>
+  <h1 class="redvp pacifico text-center"> <span> Visual Partnership Style </span> </h1>
 </div>
 
 <div class="row">
 
   <carousel-3d>
     <slide :index="0">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867900/visual_partner/gallery/IMG_5409_hxp4nq.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124847/visual_partner/Events/Participations/IMG_5434_mawabn.png" />
     </slide>
     <slide :index="1">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867896/visual_partner/gallery/IMG_5395_lkxsjt.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124852/visual_partner/Events/Participations/IMG_5441_bnnkjk.png" />
     </slide>
     <slide :index="2">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867906/visual_partner/gallery/IMG_5411_cpw5vx.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124847/visual_partner/Events/Participations/IMG_5442_f211dk.png" />
     </slide>
     <slide :index="3">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867903/visual_partner/gallery/IMG_5412_ls9x9l.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124844/visual_partner/Events/Participations/IMG_5438_pqxpau.png" />
     </slide>
     <slide :index="4">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867902/visual_partner/gallery/IMG_5405_hb3ljm.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124844/visual_partner/Events/Participations/IMG_5436_cd8wa8.png" />
     </slide>
     <slide :index="5">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867902/visual_partner/gallery/IMG_5406_qbdnii.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124836/visual_partner/Events/Participations/IMG_5437_berbfg.png" />
     </slide>
     <slide :index="6">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867900/visual_partner/gallery/IMG_5407_q6rnba.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124831/visual_partner/Events/Participations/IMG_5440_pba6jc.png" />
     </slide>
     <slide :index="7">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867899/visual_partner/gallery/IMG_5410_kizwug.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124828/visual_partner/Events/Participations/IMG_5439_yx4wwc.png" />
     </slide>
     <slide :index="8">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584867896/visual_partner/gallery/IMG_5408_uqj25s.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124825/visual_partner/Events/Participations/IMG_5435_hdaois.png" />
     </slide>
   </carousel-3d>
 </div>
