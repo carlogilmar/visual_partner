@@ -2,6 +2,18 @@
 @import "../../deps/phoenix_live_view/assets/css/live_view.css";
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
+.bluevp{
+  color: #41526e;
+}
+
+.orangevp{
+  color: #f48338;
+}
+
+.redvp{
+  color: #EB605E;
+}
+
 .img_header {
   width: 30%;
 }
@@ -78,8 +90,8 @@
 }
 
 .btn_taj{
-  background-color: #cc3f1cb5;
-  border-color: #cc3f1cb5;
+  background-color: #EB605E;
+  border-color: #EB605E;
 }
 
 .font_header {
@@ -378,14 +390,36 @@ a:hover{
 	height:60px;
 	bottom:40px;
 	right:40px;
-	background-color:#ee6b29;
+	background-color:#f48338;
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
 	font-size: 27px;
+  z-index: 1
 }
 
 .my-float{
 	margin-top:17px;
+}
+
+/* Cover image */
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('https://res.cloudinary.com/carlogilmar/image/upload/v1585121704/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_10_l828p8.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.responsive {
+  max-width: 40%;
+  height: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .responsive {
+    max-width: 100%;
+  }
 }

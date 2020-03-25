@@ -1,21 +1,19 @@
 <!-- author -->
 <hr class="featurette-divider">
-<div class="row featurette text-center">
+<div class="row">
   <div class="col-md-2"></div>
-  <div class="col-md-3">
+  <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
     <a href="http://carlogilmar.xyz/">
-      <img class="featurette-image img-fluid mx-auto" src="http://carlogilmar.xyz/index_files/carlogilmar.png" width="100%" alt="Author">
+      <img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1585114335/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_6_cf6wdq.png" width="70%">
     </a>
   </div>
-  <div class="col-md-5">
+  <div class="col-md-4">
     <p class="lead footer-font">
     Project created by:
-    <br><span class="pacific black-font">Carlo Gilmar</span>
-    <br><span class="oswald"><a href="http://carlogilmar.xyz/" class="black-font">carlogilmar.xyz</a></span>
-    <br> Carlo is a <b>software developer, graphic recorder, and GitHub Campus Expert</b> based on Mexico City.
-    He studied informatics engineering, and he’s studying sociology.
-    <br><br> <i> <small>Carlo es un desarrollador de software, facilitador gráfico y GitHub Campus Expert.
-        Vive en la Ciudad de México, estudió Ingeniería Informática y es estudiante de Sociología.</small></i>
+    <br><span class="pacific bluevp" style="font-size: 25px !important;">Carlo Gilmar</span>
+    <br><span class="oswald"><a href="http://carlogilmar.xyz/" class="redvp" style="font-size: 20px !important;">carlogilmar.xyz</a></span>
+    <br><br> Carlo is a <b>software developer, graphic recorder, and GitHub Campus Expert</b> based on Mexico City.
+    <br><br> <i> <small>Carlo es un <b>desarrollador de software</b>, facilitador gráfico y GitHub Campus Expert.</small></i>
     </p>
   </div>
   <div class="col-md-2"></div>
