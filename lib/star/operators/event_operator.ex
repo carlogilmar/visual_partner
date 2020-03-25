@@ -41,7 +41,6 @@ defmodule Star.EventOperator do
       e when e in 0..3 -> events
       _ -> Enum.take(events, 3)
     end
-
   end
 
   def delete(id) do

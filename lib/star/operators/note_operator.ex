@@ -46,7 +46,6 @@ defmodule Star.NoteOperator do
       e when e in 0..3 -> notes
       _ -> Enum.take(notes, 3)
     end
-
   end
 
   def delete(id) do
