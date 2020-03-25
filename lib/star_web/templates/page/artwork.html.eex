@@ -1,7 +1,7 @@
 <!-- artwork -->
 <hr class="featurette-divider"><br>
 
-<div class="text-center">
+<div class="text-center" id="artwork" name="artwork">
   <h1 class="taj_color pacifico text-center"> <span> Artwork </span> </h1>
   <span class="lead"> Would you like to know more about my style? <b>Click an image!</b> </span><br>
   <span class="lead_latin"> ¿Quieres ver mi estilo? <b>¡Da click en alguna imagen!</b> </span>

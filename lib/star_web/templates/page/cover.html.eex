@@ -5,48 +5,50 @@
   <nav class="navbar justify-content-center">
   	<ul class="nav justify-content-center">
   		<li class="nav-item">
-  			<a class="nav-link active" href="#">Active</a>
+			<a href="<%= Application.get_env(:star, :base_url) %>/contact" class="nav-link oswald orangevp">
+CONTACTO 📩
+</a>
   		</li>
   		<li class="nav-item">
-  			<a class="nav-link" href="#">Link</a>
+  			<a class="nav-link oswald redvp" href="#artwork"> ARTWORK 🖍 </a>
   		</li>
   		<li class="nav-item">
-  			<a class="nav-link" href="#">Link</a>
+  			<a class="nav-link oswald redvp" href="#style"> STYLE 🚀 </a>
   		</li>
   	</ul>
   </nav>
-  <!-- Navbar for products --!>
+	<!-- Navbar for products --!>
 
-  <div class="container">
-    <div class="row h-100 align-items-center text-center d-flex align-items-center justify-content-center">
-				<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584852266/visual_partner/Events/IMG_5364_efyxbh.png" class="responsive"/>
-    </div>
-  </div>
+	 <div class="container">
+	 <div class="row h-100 align-items-center text-center d-flex align-items-center justify-content-center">
+	 <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584852266/visual_partner/Events/IMG_5364_efyxbh.png" class="responsive"/>
+	 </div>
+	 </div>
 
-</header>
+	 </header>
 
-<!-- COVER -->
-<div class="container">
-  <br><br>
-  <div class="row featurette text-center">
-    <div class="col-md-6 text-center d-flex align-items-center justify-content-center">
-      <img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1584852266/visual_partner/Events/IMG_5364_efyxbh.png" width="150%" alt="Author">
-    </div>
-    <div class="col-md-6">
-      <p class="lead">
-      <br><br><br>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vitae leo consequat sollicitudin. Nam tempus imperdiet condimentum. Mauris vitae mollis neque, sit amet sagittis metus.
-      <br><br>
-      <i> <small>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vitae leo consequat sollicitudin. Nam tempus imperdiet condimentum. Mauris vitae mollis neque, sit amet sagittis metus.
-        </small></i>
-        <br>
-			<a href="<%= Application.get_env(:star, :base_url) %>/contact" class="pacifico font_header">
-				<i class="fas fa-envelope-open-text my-float"></i> Contacto 👉
-			</a>
-      </p>
+	 <!-- COVER -->
+	 <div class="container">
+		 <br><br>
+		 <div class="row featurette text-center">
+			 <div class="col-md-6 text-center d-flex align-items-center justify-content-center">
+				 <img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1584852266/visual_partner/Events/IMG_5364_efyxbh.png" width="150%" alt="Author">
+			 </div>
+			 <div class="col-md-6">
+				 <p class="lead">
+				 <br><br><br>
+				 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vitae leo consequat sollicitudin. Nam tempus imperdiet condimentum. Mauris vitae mollis neque, sit amet sagittis metus.
+				 <br><br>
+				 <i> <small>
+						 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet nibh vitae leo consequat sollicitudin. Nam tempus imperdiet condimentum. Mauris vitae mollis neque, sit amet sagittis metus.
+					 </small></i>
+					 <br>
+					 <a href="<%= Application.get_env(:star, :base_url) %>/contact" class="pacifico font_header">
+						 <i class="fas fa-envelope-open-text my-float"></i> Contacto 👉
+					 </a>
+				 </p>
 
-    </div>
-  </div>
-</div>
-<!-- COVER -->
+			 </div>
+		 </div>
+	 </div>
+	 <!-- COVER -->

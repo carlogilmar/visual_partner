@@ -17,16 +17,26 @@
 	</head>
 	<body>
 
-		<!-- Navigation -->
-		<nav class="navbar navbar-expand-sm fixed-top nav_color justify-content-center">
-			<a class="navbar-brand text-center" href="/">
-          <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584863922/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_3_fun73w.png" class="img_header" />
-			</a>
-		</nav>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-sm fixed-top nav_color justify-content-center">
+		<a class="navbar-brand text-center pacifico bluevp" href="/">
+			&nbsp; <i class="fas fa-paint-brush"></i>
+			&nbsp; Visual Partnership
+		</a>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+			</ul>
+			<span class="navbar-text">
+				<a class="navbar-brand text-center oswald redvp" href="/">
+					<i class="fas fa-home"></i>
+				</a>
+			</span>
+		</div>
+	</nav>
 
 		<main>
 
-      <br><br><br><br>
+      <br><br>
 			<%= render @view_module, @view_template, assigns %>
 
 			<!-- FOOTER -->

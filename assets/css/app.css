@@ -82,7 +82,10 @@
 }
 
 .nav_color{
-  background-color: #ffffff;
+	background-color: #ffffff;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+	border-bottom-color: #dfdfdf;
 }
 
 .taj_color{
