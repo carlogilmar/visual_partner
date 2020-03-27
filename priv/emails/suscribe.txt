@@ -1,1 +1,172 @@
-<h1> Gracias por suscribirte al Visual Partnership </h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<script src="chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/page/prompt.js"></script>
+<script src="chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/page/runScript.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <title></title>
+    <!--[if (mso 16)]>    <style type="text/css">    a {text-decoration: none;}    </style>    <![endif]-->
+    <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+    <!--[if !mso]><!-- -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
+    <!--<![endif]-->
+</head>
+
+<body>
+    <div class="es-wrapper-color">
+        <!--[if gte mso 9]>
+			<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+				<v:fill type="tile" color="#f6f6f6"></v:fill>
+			</v:background>
+		<![endif]-->
+        <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td class="esd-email-paddings st-br" valign="top">
+                        <table cellpadding="0" cellspacing="0" class="es-content esd-footer-popover" align="center">
+                            <tbody>
+                                <tr>
+                                    <td class="esd-stripe" align="center" bgcolor="transparent" style="background-color: transparent;">
+                                        <table bgcolor="transparent" class="es-content-body" align="center" cellpadding="0" cellspacing="0" width="600" style="background-color: transparent;">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="esd-structure es-p30t es-p15b es-p30r es-p30l" align="left" style="border-radius: 10px 10px 0px 0px; background-color: #ffffff; background-position: left bottom;" bgcolor="#ffffff">
+                                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td width="540" class="esd-container-frame" align="center" valign="top">
+                                                                        <table cellpadding="0" cellspacing="0" width="100%" style="background-position: left bottom;">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td align="center" class="esd-block-image" style="font-size: 0px;"><a target="_blank" href="https://stripo.email"><img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584852266/visual_partner/Events/IMG_5364_efyxbh.png" alt style="display: block; width: 126px; height: 117px;" width="126"></a></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td align="center" class="esd-block-text">
+                                                                                        <h1 style="color: #000080;">Welcome to Visual Partnership</h1>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td align="center" class="esd-block-text es-p20t">
+                                                                                        <p>Bienvenido a Visual Partnership 🚀</p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="esd-structure es-p5t es-p5b es-p30r es-p30l" align="left" style="border-radius: 0px 0px 10px 10px; background-position: left top; background-color: #ffffff;">
+                                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td width="540" class="esd-container-frame" align="center" valign="top">
+                                                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td align="left" class="esd-block-text">
+                                                                                        <ul>Muchas gracias por formar parte de esta comunidad, a partir de ahora te compartiremos parte del trabajo visual que estaremos realizando a través de este proyecto.&nbsp;<br><br>Carlo.&nbsp;<br></ul><br>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="esd-structure es-p30t es-p30b es-p30r es-p30l" align="left">
+                                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td width="540" class="esd-container-frame" align="center" valign="top">
+                                                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td align="center" class="esd-block-text" esd-links-color="#0b5394">
+                                                                                        <h3 style="line-height: 150%; font-family: lato, 'helvetica neue', helvetica, arial, sans-serif;"><strong><a target="_blank" style="line-height: 150%; font-family: lato, &quot;helvetica neue&quot;, helvetica, arial, sans-serif; color: #0b5394;" href="https://twitter.com/visual_partner">@visual_partner</a></strong></h3>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td align="center" class="esd-block-banner" style="position: relative;" esdev-config="h2"><a target="_blank"><img class="adapt-img esdev-stretch-width esdev-banner-rendered" src alt title width="100%"></a></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="esd-structure es-p15t es-p15b es-p20r es-p20l" style="background-color: #ffffff;" bgcolor="#ffffff" align="left" esd-custom-block-id="56078">
+                                                        <!--[if mso]><table width="560" cellpadding="0" cellspacing="0"><tr><td width="180" valign="top"><![endif]-->
+                                                        <table class="es-left" cellspacing="0" cellpadding="0" align="left">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="es-m-p0r es-m-p20b esd-container-frame" width="180" valign="top" align="center">
+                                                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="esd-block-image es-m-txt-c" align="left" style="font-size: 0px;"><a target="_blank" href="https://res.cloudinary.com/carlogilmar/image/upload/v1577496225/visual_partner/Untitled_Artwork_5_dbiqin.png"><img src="https://res.cloudinary.com/carlogilmar/image/upload/v1577496225/visual_partner/Untitled_Artwork_5_dbiqin.png" alt style="display: block;" width="80"></a></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <!--[if mso]></td><td width="20"></td><td width="360" valign="top"><![endif]-->
+                                                        <table cellspacing="0" cellpadding="0" align="right">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="esd-container-frame" width="360" align="left">
+                                                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="esd-block-social es-p10t es-m-txt-c" align="right" style="font-size: 0px;">
+                                                                                        <table class="es-table-not-adapt es-social" cellspacing="0" cellpadding="0">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td class="es-p10r" valign="top" align="center"><a target="_blank" href="https://twitter.com/visual_partner"><img title="Twitter" src="https://tlr.stripocdn.email/content/assets/img/social-icons/circle-black/twitter-circle-black.png" alt="Tw" width="32"></a></td>
+                                                                                                    <td valign="top" align="center"><a target="_blank" href="https://instagram.com/visual_partner"><img title="Instagram" src="https://tlr.stripocdn.email/content/assets/img/social-icons/circle-black/instagram-circle-black.png" alt="Inst" width="32"></a></td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <!--[if mso]></td></tr></table><![endif]-->
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="banner-toolbar"></div>
+</body>
+
+</html>
