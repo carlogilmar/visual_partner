@@ -18,6 +18,7 @@ defmodule StarWeb.SignupController do
 
     case status do
       :ok -> EmailerSenderOperator.send_suscribe_email(user.email)
+      _ -> :nothing_to_do
     end
 
     render(conn, "suscriptor.html", user: user)
