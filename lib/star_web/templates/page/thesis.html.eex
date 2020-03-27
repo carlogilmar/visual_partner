@@ -1,0 +1,25 @@
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-4 text-center">
+    <br><br><br><br><br><br><br>
+    <h3 class="redvp pacifico text-center"> <span> We work with this...</span> </h3>
+    <h4 class="bluevp oswald text-center"> <span> Trabajamos a partir de esto...</span> </h4>
+  </div>
+  <div class="col-md-8 text-center d-flex align-items-center justify-content-center">
+    <img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1585288801/visual_partner/IMG_5452_iofb18.png" width="90%"/>
+  </div>
+</div>
+
+<div class="row featurette">
+  <div class="col-md-4 text-center">
+    <br><br><br><br><br><br><br>
+    <h3 class="redvp pacifico text-center"> <span> to evolve into this...</span> </h3>
+    <h4 class="bluevp oswald text-center"> <span> para evolucionar en esto...</span> </h4>
+  </div>
+  <div class="col-md-8 text-center d-flex align-items-center justify-content-center">
+    <img class="featurette-image img-fluid mx-auto" src="https://res.cloudinary.com/carlogilmar/image/upload/v1585288802/visual_partner/IMG_5453_zaaav4.png" width="100%"/>
+  </div>
+</div>
+

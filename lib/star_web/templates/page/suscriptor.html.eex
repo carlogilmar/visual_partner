@@ -10,7 +10,7 @@
       📩 Newsletter
     </h3>
     <h2 class="text-center"><span class="taj_color oswald"> Suscribe for more information! </span></h2>
-    <h3 class="text-center"><span class="oswald blueevp"> ¡Conviértete en suscriptor!</span></h3>
+    <h3 class="text-center"><span class="oswald bluevp"> ¡Conviértete en suscriptor!</span></h3>
 
     <%= form_for @conn, Routes.signup_path(@conn, :suscribe), [method: :post], fn _f -> %>
       <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />

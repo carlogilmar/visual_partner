@@ -4,11 +4,15 @@
 
   <div class="container marketing">
 
+			<!-- thesis -->
+			<%= render "thesis.html", conn: @conn %>
+
 			<!-- upcoming and blog -->
 			<%= render "lists.html", conn: @conn, events: @events, posts: @posts %>
 
 			<!-- links -->
 			<%= render "links.html", conn: @conn %>
+
 
 			<!-- artwork -->
 			<%= render "artwork.html", conn: @conn %>
