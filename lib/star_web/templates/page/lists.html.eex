@@ -1,15 +1,15 @@
 <hr class="featurette-divider">
 
 <div class="row">
-  <div class="text-center col-md-6">
+  <div class="text-center col-md-4">
     <h3 class="redvp pacifico text-center"> <span> Upcoming Events</span> </h3>
     <%= if @events != [] do %>
       <div class="card">
         <ul class="list-group list-group-flush">
           <%= for e <- @events do %>
-            <li class="list-group-item">
+            <li class="list-group-item bluevp">
               <b><%= e.title %></b>
-              &nbsp; | &nbsp;  <small><%= e.city %></small>
+              <br> 📅 <small><%= e.city %></small>
               &nbsp; | &nbsp; <small><%= e.date_desc %></small>
             </li>
           <% end %>
@@ -19,15 +19,33 @@
       <h5 class="oswald text-center taj_color"> <span> Nothing until now.</span> </h5>
     <% end %>
   </div>
-  <div class="text-center col-md-6">
+  <div class="text-center col-md-4">
     <h3 class="redvp pacifico text-center"> <span> Lastest Blog Posts</span> </h3>
     <%= if @posts != [] do %>
       <div class="card">
         <ul class="list-group list-group-flush">
           <%= for post <- @posts do %>
             <li class="list-group-item">
-              <a class="oswald" href="<%= Application.get_env(:star, :base_url) %>/note/<%= post.id %>">
-                <%= post.title %> 🚀 <small>L E E R</small> 👉
+              <a class="oswald bluevp" href="<%= Application.get_env(:star, :base_url) %>/note/<%= post.id %>">
+                <%= post.title %> <small>L E E R</small> 👉
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <h5 class="oswald text-center taj_color"> <span> Nothing until now.</span> </h5>
+    <% end %>
+  </div>
+  <div class="text-center col-md-4">
+    <h3 class="redvp pacifico text-center"> <span> Lastest Artworks</span> </h3>
+    <%= if @galleries != [] do %>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <%= for gallery <- @galleries do %>
+            <li class="list-group-item">
+              <a class="oswald bluevp" href="<%= Application.get_env(:star, :base_url) %>/gallery/<%= gallery.id %>">
+                <%= gallery.title %> 🚀
               </a>
             </li>
           <% end %>

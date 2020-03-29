@@ -8,7 +8,7 @@
 			<%= render "thesis.html", conn: @conn %>
 
 			<!-- upcoming and blog -->
-			<%= render "lists.html", conn: @conn, events: @events, posts: @posts %>
+			<%= render "lists.html", conn: @conn, events: @events, posts: @posts, galleries: @galleries %>
 
 			<!-- links -->
 			<%= render "links.html", conn: @conn %>

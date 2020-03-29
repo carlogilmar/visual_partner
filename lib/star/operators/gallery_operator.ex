@@ -46,4 +46,19 @@ defmodule Star.GalleryOperator do
     query
     |> Repo.all()
   end
+
+  def get_lastest do
+    query =
+      from(n in Gallery,
+        where: n.status == true,
+        order_by: [desc: n.inserted_at]
+      )
+
+    galleries = query |> Repo.all()
+
+    case length(galleries) do
+      e when e in 0..3 -> galleries
+      _ -> Enum.take(galleries, 3)
+    end
+  end
 end
