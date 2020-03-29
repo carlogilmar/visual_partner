@@ -1,4 +1,5 @@
 defmodule Star.TalkOperator do
+  import Ecto.Query, only: [from: 2]
   alias Star.Talk
   alias Star.Repo
 
@@ -17,6 +18,16 @@ defmodule Star.TalkOperator do
 
   def get_all do
     Repo.all(Talk)
+  end
+
+  def get_publish do
+    query =
+      from(n in Talk,
+        where: n.draft == true,
+        order_by: [desc: n.inserted_at]
+      )
+
+    query |> Repo.all()
   end
 
   def delete(id) do

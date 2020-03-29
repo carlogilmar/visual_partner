@@ -1,25 +1,79 @@
 <br><br>
 <div class="container">
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand oswald" href="#"> <i class="fas fa-images"></i> &nbsp; Talks </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="navbar-text">
+   <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+    </span>
+  </div>
+</nav>
+
+<br><br>
+
+<form phx-submit="new">
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" required name="talk[title]" placeholder="Title">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" required name="talk[url]" placeholder="Link to the talk">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" required name="talk[cover]" placeholder="Cover Image Url">
+    </div>
+    <div class="col">
+			<button type="submit" class="btn btn-block btn-success"> <i class="fas fa-star"></i> &nbsp; New </button>
+    </div>
+  </div>
+</form>
+
+<br><br>
+
 <div class="row">
 
 <table class="table table-sm text-center">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Click Counter</th>
+      <th scope="col">Date Created</th>
       <th scope="col">
-        <a href="#" phx-click="new" class="btn btn-sm btn-success"> <i class="fas fa-star"></i> &nbsp; New </a>
       </th>
     </tr>
   </thead>
   <tbody>
     <%= for model <- @models do %>
     <tr>
-      <td><%= model.id %></td>
       <td>
+        <a href="<%= model.url %>" target="_blank"><%= model.title%></a> &nbsp;
+        <%= if model.draft do %>
+          <span class="badge badge-success"> Published </span>
+        <%= else %>
+          <span class="badge badge-secondary"> Draft </span>
+        <% end %>
+      </td>
+      <td> <span class="badge badge-info"> <%= model.clicks %> </span></td>
+      <td>
+        <%= model.inserted_at %>
+      </td>
+      <td>
+
+        <%= if model.draft do %>
+          <button type="button" class="btn btn-secondary btn-sm" phx-click="to_draft" phx-value-id="<%= model.id %>" data-dismiss="modal"> Draft </button>
+        <% else %>
+          <button type="button" class="btn btn-success btn-sm" phx-click="to_publish" phx-value-id="<%= model.id %>" data-dismiss="modal"> Publish </button>
+        <% end %>
+
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">
-          <i class="fas fa-ban"></i>
+          <i class="fas fa-edit"></i>
         </button>
 
         <!-- Modal -->

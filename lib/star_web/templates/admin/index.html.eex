@@ -49,6 +49,7 @@
         <div class="card-body">
           <a href="<%= Routes.static_path(@conn, "/admin/event")%>" class="btn btn-block btn-secondary"> <b> EVENTS &nbsp; <i class="fas fa-rocket"></i></b> </a>
           <a href="<%= Routes.static_path(@conn, "/admin/gallery")%>" class="btn btn-block btn-secondary"> <b> GALLERY  &nbsp; <i class="fas fa-rocket"></i></b> </a>
+          <a href="<%= Routes.static_path(@conn, "/admin/talks")%>" class="btn btn-block btn-secondary"> <b> TALKS  &nbsp; <i class="fas fa-rocket"></i></b> </a>
         </div>
       </div>
     </div>
