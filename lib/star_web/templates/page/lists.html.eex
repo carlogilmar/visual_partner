@@ -38,7 +38,7 @@
     <% end %>
   </div>
   <div class="text-center col-md-4">
-    <h3 class="redvp pacifico text-center"> <span> Lastest Artworks</span> </h3>
+    <h3 class="redvp pacifico text-center"> <span> New Artworks</span> </h3>
     <%= if @galleries != [] do %>
       <div class="card">
         <ul class="list-group list-group-flush">
