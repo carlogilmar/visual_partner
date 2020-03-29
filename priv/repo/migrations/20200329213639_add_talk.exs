@@ -9,6 +9,7 @@ defmodule Star.Repo.Migrations.AddTalk do
       add :cover, :string
       add :clicks, :integer
       add :draft, :boolean
+      timestamps()
     end
   end
 end

@@ -83,6 +83,7 @@ defmodule StarWeb.Router do
     live "/comments", CommentsLive
     live "/model", ModelLive
     live "/event", EventLive
+    live "/talks", TalksLive
   end
 
   ## Users
