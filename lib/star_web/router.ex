@@ -65,6 +65,9 @@ defmodule StarWeb.Router do
 
     ### Blog
     live "/blog", BlogLive
+
+    ### Talks
+    live "/talks", ResourcesLive
   end
 
   ## Admin

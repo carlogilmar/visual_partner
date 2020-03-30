@@ -4,7 +4,6 @@ defmodule StarWeb.TalksLive do
   alias StarWeb.TalksView
 
   def render(assigns) do
-    ## TODO: Change this
     TalksView.render("index.html", assigns)
   end
 

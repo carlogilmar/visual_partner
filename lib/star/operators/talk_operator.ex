@@ -20,7 +20,7 @@ defmodule Star.TalkOperator do
     Repo.all(Talk)
   end
 
-  def get_publish do
+  def get_published do
     query =
       from(n in Talk,
         where: n.draft == true,
