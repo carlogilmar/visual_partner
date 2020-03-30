@@ -34,6 +34,27 @@
 		</div>
 	</nav>
 
+<!-- Navbar for products --!>
+  <br>
+  <br>
+  <br>
+  <nav class="navbar justify-content-center navcolor">
+  	<ul class="nav justify-content-center">
+  		<li class="nav-item">
+			<a href="<%= Application.get_env(:star, :base_url) %>/contact" class="nav-link oswald redvp">
+CONTACTO 📩
+</a>
+  		</li>
+  		<li class="nav-item">
+  			<a class="nav-link oswald redvp" href="#artwork"> ARTWORK 🖍 </a>
+  		</li>
+  		<li class="nav-item">
+  			<a class="nav-link oswald redvp" href="#style"> STYLE 🚀 </a>
+  		</li>
+  	</ul>
+  </nav>
+	<!-- Navbar for products --!>
+
 		<main>
 
       <br><br>
