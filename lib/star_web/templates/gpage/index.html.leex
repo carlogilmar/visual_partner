@@ -34,7 +34,7 @@
     <%= for gallery <- @galleries do %>
     <tr>
       <td>
-        <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin/gallery/<%= gallery.id %>"> <%= gallery.title %> </a> &nbsp; <span class="badge badge-secondary"><small><b><%= gallery.type %></b></small></span>
+        <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin/gallery/<%= gallery.id %>"> <%= gallery.title %> </a> &nbsp; <span class="badge badge-secondary"><small><b><%= gallery.type %></b></small></span> &nbsp; <span class="badge badge-secondary"><small><b><%= gallery.counter %></b></small></span>
       </td>
       <td><small><%= gallery.inserted_at %></small></td>
       <td>

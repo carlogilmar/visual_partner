@@ -20,8 +20,11 @@ defmodule StarWeb.GalleryLive do
     {:noreply, socket}
   end
 
-  def handle_event("redirect_url", %{"uri_val" => uri_val}, socket) do
-    {:noreply, live_redirect(socket, to: uri_val)}
+  def handle_event("redirect_url", %{"uri_val" => id}, socket) do
+    id = String.to_integer(id)
+    gallery = GalleryOperator.get_by_id(id)
+    GalleryOperator.update_gallery(id, %{counter: gallery.counter + 1})
+    {:noreply, live_redirect(socket, to: "/gallery/#{id}")}
   end
 
   defp get_artwork_type(type) do
