@@ -1,0 +1,54 @@
+<header>
+  <div class="container text-center">
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+      <div class="col-lg-4">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://res.cloudinary.com/carlogilmar/image/upload/v1584852266/visual_partner/Events/IMG_5364_efyxbh.png" class="responsive" width="100%"/>
+      </div>
+      <!-- /.col-lg-8 -->
+      <div class="col-lg-8">
+        <carousel-3d>
+          <slide :index="0">
+          <a href="<%= Application.get_env(:star, :base_url) %>/visual/partnership">
+            <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123774/visual_partner/Events/IMG_5433_bfizax.png" />
+          </a>
+          </slide>
+
+          <slide :index="1">
+          <a href="<%= Application.get_env(:star, :base_url) %>/visual/event">
+            <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123772/visual_partner/Events/IMG_5428_vsesi3.png" />
+          </a>
+          </slide>
+
+          <slide :index="2">
+          <a href="<%= Application.get_env(:star, :base_url) %>/visual/meetings">
+            <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123766/visual_partner/Events/IMG_5432_fedcah.png" />
+          </a>
+          </slide>
+
+          <slide :index="3">
+          <a href="<%= Application.get_env(:star, :base_url) %>/visual/resources">
+            <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123765/visual_partner/Events/IMG_5431_ts42ma.png" />
+          </a>
+          </slide>
+
+          <slide :index="4">
+          <a href="<%= Application.get_env(:star, :base_url) %>/visual/community">
+            <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123777/visual_partner/Events/IMG_5429_oi596h.png" />
+          </a>
+          </slide>
+
+          <slide :index="5">
+          <a href="<%= Application.get_env(:star, :base_url) %>/visual/funny">
+            <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123773/visual_partner/Events/IMG_5430_cw4lrn.png" />
+          </a>
+          </slide>
+
+        </carousel-3d>
+      </div>
+      <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+  </div>
+
+</header>

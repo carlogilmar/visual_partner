@@ -1,5 +1,7 @@
 <div id="app">
 
+  <%= render "mobile_cover.html", conn: @conn %>
+
   <%= render "cover.html", conn: @conn %>
 
   <div class="container marketing">

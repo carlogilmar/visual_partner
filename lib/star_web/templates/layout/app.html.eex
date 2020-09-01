@@ -34,7 +34,7 @@
 		</div>
 	</nav>
 
-<!-- Navbar for products --!>
+<!--
   <br>
   <br>
   <br>
@@ -54,10 +54,10 @@ CONTACTO 📩
   	</ul>
   </nav>
 	<!-- Navbar for products --!>
-
+--!>
+		<br><br>
 		<main>
 
-      <br><br>
 			<%= render @view_module, @view_template, assigns %>
 
 			<!-- FOOTER -->
