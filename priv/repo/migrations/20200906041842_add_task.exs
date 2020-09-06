@@ -8,6 +8,7 @@ defmodule Star.Repo.Migrations.AddTask do
       add :description, :string
       add :status, :string
       add :pinned, :boolean
+      add :deadline, :string
       timestamps()
     end
   end
