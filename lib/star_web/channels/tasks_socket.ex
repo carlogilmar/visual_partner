@@ -4,8 +4,17 @@ defmodule StarWeb.TasksChannel do
 
 	def join("tasks:join", _msg, socket) do
 		tasks = get_tasks()
-		{:ok, %{tasks: tasks}, socket}
+    tasks_by_status = get_tasks_by_status(tasks)
+		{:ok, %{tasks: tasks, todo: tasks_by_status["TO DO"], doing: tasks_by_status["DOING"], done: tasks_by_status["DONE"]}, socket}
 	end
+
+  def get_tasks_by_status(tasks) do
+    Enum.reduce(tasks,
+      %{"TO DO" => [], "DOING" => [], "DONE" => []},
+      fn task, acc ->
+        %{acc| "#{task.status}" => acc[task.status] ++ [task] }
+      end)
+  end
 
 	def get_tasks do
 		tasks = TaskOperator.get_monthly_tasks()

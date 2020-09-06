@@ -1,12 +1,19 @@
-import Vue from 'vue'
-import socket from "./../socket"
+import Vue from 'vue';
+import socket from "./../socket";
 import VCalendar from 'v-calendar';
+import draggable from 'vuedraggable';
 Vue.use(VCalendar)
 
 export const app = new Vue({
 	el:"#app",
+  components: {
+    draggable,
+  },
 	data: {
 		attributes: [],
+    todo: [],
+    doing: [],
+    done: []
 	},
 	created: function() {
 		console.log("Vue App here! Tasks Controller");
@@ -14,9 +21,12 @@ export const app = new Vue({
 		this.channel.join()
 			.receive("ok", resp => {
 				console.log("Joined successfully");
-				console.log(resp);
+        console.log(resp);
 				this.tasks = resp.tasks;
 				this.generate_calendar();
+        this.todo = resp.todo;
+        this.doing = resp.doing;
+        this.done = resp.done;
 			})
 			.receive("error", resp => {
 				console.log("Unable to join", resp);
@@ -37,5 +47,20 @@ export const app = new Vue({
 			}
 			this.attributes = dates;
 		},
+    todo_log: function(evt) {
+      if(evt.added){
+      console.log(evt.added.element);
+      }
+    },
+    doing_log: function(evt) {
+      if(evt.added){
+      console.log(evt.added.element);
+      }
+    },
+    done_log: function(evt) {
+      if(evt.added){
+      console.log(evt.added.element);
+      }
+    }
 	}
 });
