@@ -35,40 +35,55 @@
 
   <div class="row">
     <div class="col-4">
-      <h3 class="text-center"> To Do </h3>
+      <h3 class="text-center"> 🚀 To Do </h3>
       <draggable class="list-group" :list="todo" group="people" @change="todo_log">
         <div
           class="list-group-item"
           v-for="element in todo"
           :key="element.id"
         >
+          <h5 class="card-title">
           {{ element.title }}
+          </h5>
+          <footer class="blockquote-footer">
+          {{ element.description}}
+          </footer>
         </div>
       </draggable>
     </div>
 
     <div class="col-4">
-      <h3 class="text-center"> In Progress </h3>
+      <h3 class="text-center"> 🔥 In Progress </h3>
       <draggable class="list-group" :list="doing" group="people" @change="doing_log">
         <div
           class="list-group-item"
           v-for="element in doing"
           :key="element.id"
         >
+          <h5 class="card-title">
           {{ element.title }}
+          </h5>
+          <footer class="blockquote-footer">
+          {{ element.description}}
+          </footer>
         </div>
       </draggable>
     </div>
 
     <div class="col-4">
-      <h3 class="text-center"> Done </h3>
+      <h3 class="text-center"> ✅ Done </h3>
       <draggable class="list-group" :list="done" group="people" @change="done_log">
         <div
           class="list-group-item"
           v-for="element in done"
           :key="element.id"
         >
+          <h5 class="card-title">
           {{ element.title }}
+          </h5>
+          <footer class="blockquote-footer">
+          {{ element.description}}
+          </footer>
         </div>
       </draggable>
     </div>
