@@ -69,7 +69,7 @@ defmodule StarWeb.TasksChannel do
         socket
       ) do
 
-    TaskOperator.create(title, description)
+    TaskOperator.create(title, description, date)
 		tasks = get_tasks()
     tasks_by_status = get_tasks_by_status(tasks)
     Endpoint.broadcast("tasks", "update_dashboard", %{})

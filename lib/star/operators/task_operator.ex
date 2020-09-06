@@ -3,10 +3,11 @@ defmodule Star.TaskOperator do
   alias Star.Task
   alias Star.Repo
 
-  def create(title, description) do
+  def create(title, description, date) do
      %Task{
        title: title,
-       description: description
+       description: description,
+       deadline: date
       }
     |> Repo.insert()
   end
