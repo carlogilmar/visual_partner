@@ -22,7 +22,35 @@
       <v-calendar is-expanded :attributes="attributes" />
     </div>
     <div class="col-md-8">
-			<h2> Poner aquí form para llenar cosas </h2>
+
+			<form v-on:submit.prevent="onSubmit">
+      <!-- Title !-->
+      <div class="input-group mb-2 mr-sm-2">
+      	<div class="input-group-prepend">
+      		<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Title </div>
+      	</div>
+      	<input v-model="task.title" required type="text" class="form-control">
+      </div>
+      <!-- Description !-->
+      <div class="input-group mb-2 mr-sm-2">
+      	<div class="input-group-prepend">
+      		<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Description </div>
+      	</div>
+      	<textarea v-model="task.description" required type="text" class="form-control"> </textarea>
+      </div>
+      <!-- date !-->
+      <div class="input-group mb-2 mr-sm-2">
+      	<div class="input-group-prepend">
+      		<div class="input-group-text"> <i class="fas fa-calendar"></i>&nbsp; Date </div>
+      	</div>
+        <v-date-picker
+          v-model="task.date">
+        </v-date-picker>
+      	&nbsp;&nbsp;&nbsp;&nbsp;
+      	<button class="btn btn-sm btn-success" type="submit"><b>🚀 A G R E G A R</b></button>
+      </div>
+			</form>
+
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -112,6 +140,11 @@
           <footer class="blockquote-footer">
           {{ element.description}}
           </footer>
+
+					<button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
+				  🖌 E D I T
+					</button>
+
           <div v-if="element.pinned">
             <div class="text-center" style="background-color: #cde6ff;">
               <b> 📍 P I N N E D </b>
@@ -139,6 +172,11 @@
           <footer class="blockquote-footer">
           {{ element.description}}
           </footer>
+
+					<button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
+				  🖌 E D I T
+					</button>
+
           <div v-if="element.pinned">
             <div class="text-center" style="background-color: #cde6ff;">
               <b> 📍 P I N N E D </b>

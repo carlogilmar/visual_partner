@@ -14,6 +14,7 @@ export const app = new Vue({
     todo: [],
     doing: [],
     done: [],
+    task: { title: "", description: "...", date: new Date()},
 		element: {}
 	},
 	created: function() {
@@ -105,6 +106,24 @@ export const app = new Vue({
         .receive("error", resp => {
           console.log("ERROR");
         });
-		}
+		},
+    onSubmit: function(){
+      this.channel.push("tasks:new", this.task)
+        .receive('ok', (resp) => {
+          console.log("DONE");
+          this.tasks = resp.tasks;
+          this.generate_calendar();
+          this.todo = resp.todo;
+          this.doing = resp.doing;
+          this.done = resp.done;
+          // Cleaning Object
+          this.task.title = "";
+          this.task.description = "...";
+          this.date = new Date();
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    }
 	}
 });
