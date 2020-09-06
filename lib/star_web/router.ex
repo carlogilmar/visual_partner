@@ -90,6 +90,7 @@ defmodule StarWeb.Router do
     live "/model", ModelLive
     live "/event", EventLive
     live "/talks", TalksLive
+    get "/tasks", TasksController, :index
   end
 
   ## Users
