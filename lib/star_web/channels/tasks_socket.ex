@@ -28,6 +28,21 @@ defmodule StarWeb.TasksChannel do
     socket}
   end
 
+  def handle_in(
+        "tasks:pinned",
+        %{"id" => id, "value" => value},
+        socket
+      ) do
+
+    TaskOperator.update(id, %{pinned: value})
+		tasks = get_tasks()
+    tasks_by_status = get_tasks_by_status(tasks)
+
+		{:reply,
+    {:ok, %{tasks: tasks, todo: tasks_by_status["TO DO"], doing: tasks_by_status["DOING"], done: tasks_by_status["DONE"]}},
+    socket}
+  end
+
   def get_tasks_by_status(tasks) do
     Enum.reduce(tasks,
       %{"TO DO" => [], "DOING" => [], "DONE" => []},
@@ -47,6 +62,7 @@ defmodule StarWeb.TasksChannel do
 				id: task.id,
 				title: task.title,
 				status: task.status,
+        pinned: task.pinned,
 				description: task.description,
 				year: task.inserted_at.year,
 				month: task.inserted_at.month,

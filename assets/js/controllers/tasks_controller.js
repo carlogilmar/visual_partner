@@ -72,6 +72,26 @@ export const app = new Vue({
         .receive("error", resp => {
           console.log("ERROR");
         });
+    },
+    unpin: function(id){
+      console.log("unpinn");
+      this.set_pinned(id, false);
+    },
+    pin: function(id){
+      console.log("pinn");
+      this.set_pinned(id, true);
+    },
+    set_pinned: function(id, value){
+      this.channel.push("tasks:pinned", {id: id, value: value})
+        .receive('ok', (resp) => {
+          console.log("pinned");
+          this.todo = resp.todo;
+          this.doing = resp.doing;
+          this.done = resp.done;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
     }
 	}
 });

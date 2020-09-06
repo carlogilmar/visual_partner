@@ -48,6 +48,15 @@
           <footer class="blockquote-footer">
           {{ element.description}}
           </footer>
+          <div v-if="element.pinned">
+            <div class="text-center" style="background-color: #cde6ff;">
+              <b> 📍 P I N N E D </b>
+            </div>
+            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
+          </div>
+          <div v-else>
+            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
+          </div>
         </div>
       </draggable>
     </div>
@@ -66,6 +75,15 @@
           <footer class="blockquote-footer">
           {{ element.description}}
           </footer>
+          <div v-if="element.pinned">
+            <div class="text-center" style="background-color: #cde6ff;">
+              <b> 📍 P I N N E D </b>
+            </div>
+            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
+          </div>
+          <div v-else>
+            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
+          </div>
         </div>
       </draggable>
     </div>
@@ -84,6 +102,15 @@
           <footer class="blockquote-footer">
           {{ element.description}}
           </footer>
+          <div v-if="element.pinned">
+            <div class="text-center" style="background-color: #cde6ff;">
+              <b> 📍 P I N N E D </b>
+            </div>
+            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
+          </div>
+          <div v-else>
+            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
+          </div>
         </div>
       </draggable>
     </div>
