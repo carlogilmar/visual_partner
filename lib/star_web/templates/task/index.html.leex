@@ -19,47 +19,47 @@
 
 <div class="row">
 
-<table class="table table-sm text-center">
-  <thead>
-    <tr>
-      <th scope="col" width="33%">
-      <span class="badge badge-secondary">TO DO</span>
-      </th>
-      <th scope="col" width="33%">
-      <span class="badge badge-info">DOING</span>
-      </th>
-      <th scope="col" width="33%">
-      <span class="badge badge-success">DONE</span>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="col-md-4 text-center">
+
+  <span class="badge badge-secondary"><h6>TO DO</h6></span><br><br>
+  <div class="list-group">
     <%= for model <- @models do %>
       <%= if model.status == "TO DO" do %>
-      <tr>
-        <td> 🚀 <%= model.title %></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <% end %>
-      <%= if model.status == "DOING" do %>
-      <tr>
-        <td></td>
-        <td>🔥 <%= model.title %></td>
-        <td></td>
-      </tr>
-      <% end %>
-      <%= if model.status == "DONE" do %>
-      <tr>
-        <td></td>
-        <td></td>
-        <td>⭐️ <%= model.title %></td>
-      </tr>
+        <a href="#" class="list-group-item list-group-item-action">
+        🚀 <%= model.title %>
+        </a>
       <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
+
+<div class="col-md-4 text-center">
+
+  <span class="badge badge-info"><h6>DOING</h6></span><br><br>
+  <div class="list-group">
+    <%= for model <- @models do %>
+      <%= if model.status == "DOING" do %>
+        <a href="#" class="list-group-item list-group-item-action">
+        🔥 <%= model.title %>
+        </a>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="col-md-4 text-center">
+
+  <span class="badge badge-success"><h6>DONE</h6></span><br><br>
+  <div class="list-group">
+    <%= for model <- @models do %>
+      <%= if model.status == "DONE" do %>
+        <a href="#" class="list-group-item list-group-item-action">
+       ✅ <%= model.title %>
+        </a>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 </div>
