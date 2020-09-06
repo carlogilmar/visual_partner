@@ -124,6 +124,21 @@ export const app = new Vue({
         .receive("error", resp => {
           console.log("ERROR");
         });
+    },
+    delete_task: function(task_id){
+      this.channel.push("tasks:delete", task_id)
+        .receive('ok', (resp) => {
+          console.log("DONE");
+          this.tasks = resp.tasks;
+          this.generate_calendar();
+          this.todo = resp.todo;
+          this.doing = resp.doing;
+          this.done = resp.done;
+          $('#exampleModal').modal('hide');
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
     }
 	}
 });

@@ -81,9 +81,18 @@
 
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Delete
+              </a>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"> Ok </button>
             </div>
+
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <button type="button" class="btn btn-danger btn-sm btn-block" v-on:click="delete_task(element.id)"> Yes, Delete it! </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

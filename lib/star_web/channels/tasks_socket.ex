@@ -79,6 +79,22 @@ defmodule StarWeb.TasksChannel do
     socket}
   end
 
+  def handle_in(
+        "tasks:delete",
+        task_id,
+        socket
+      ) do
+
+    TaskOperator.delete(task_id)
+		tasks = get_tasks()
+    tasks_by_status = get_tasks_by_status(tasks)
+    Endpoint.broadcast("tasks", "update_dashboard", %{})
+
+		{:reply,
+		{:ok, %{tasks: tasks, todo: tasks_by_status["TO DO"], doing: tasks_by_status["DOING"], done: tasks_by_status["DONE"]}},
+    socket}
+  end
+
   def get_tasks_by_status(tasks) do
     Enum.reduce(tasks,
       %{"TO DO" => [], "DOING" => [], "DONE" => []},
