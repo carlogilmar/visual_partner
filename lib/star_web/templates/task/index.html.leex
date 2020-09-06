@@ -1,0 +1,65 @@
+<br><br>
+<div class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand oswald" href="#"> <i class="fas fa-trophy"></i> &nbsp; Monthly  Achievements </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="navbar-text">
+      <b><%= @current_month %></b>
+    </span>
+  </div>
+</nav>
+
+<br><br>
+
+<div class="row">
+
+<table class="table table-sm text-center">
+  <thead>
+    <tr>
+      <th scope="col" width="33%">
+      <span class="badge badge-secondary">TO DO</span>
+      </th>
+      <th scope="col" width="33%">
+      <span class="badge badge-info">DOING</span>
+      </th>
+      <th scope="col" width="33%">
+      <span class="badge badge-success">DONE</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for model <- @models do %>
+      <%= if model.status == "TO DO" do %>
+      <tr>
+        <td> 🚀 <%= model.title %></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% end %>
+      <%= if model.status == "DOING" do %>
+      <tr>
+        <td></td>
+        <td>🔥 <%= model.title %></td>
+        <td></td>
+      </tr>
+      <% end %>
+      <%= if model.status == "DONE" do %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>⭐️ <%= model.title %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+</div>

@@ -68,6 +68,9 @@ defmodule StarWeb.Router do
 
     ### Talks
     live "/talks", ResourcesLive
+
+    ### Como Vas
+    live "/personal", TaskLive
   end
 
   ## Admin
