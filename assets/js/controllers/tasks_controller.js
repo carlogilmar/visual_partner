@@ -43,7 +43,7 @@ export const app = new Vue({
 					highlight: {backgroundColor: '#000000'},
 					contentStyle: {color: '#00000'},
 					popover: { label: date.title},
-					dates: [new Date(date.year, (date.month-1), date.day)],
+					dates: [new Date(date.deadline)],
 				}
 				dates.push(date_for_show)
 			}
@@ -119,7 +119,7 @@ export const app = new Vue({
           // Cleaning Object
           this.task.title = "";
           this.task.description = "...";
-          this.date = new Date();
+          this.task.date = new Date();
         })
         .receive("error", resp => {
           console.log("ERROR");

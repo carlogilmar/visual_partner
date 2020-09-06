@@ -100,6 +100,7 @@ defmodule StarWeb.TasksChannel do
 				status: task.status,
         pinned: task.pinned,
 				description: task.description,
+        deadline: task.deadline,
 				year: task.inserted_at.year,
 				month: task.inserted_at.month,
 				day: task.inserted_at.day
