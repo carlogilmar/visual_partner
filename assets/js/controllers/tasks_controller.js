@@ -49,18 +49,29 @@ export const app = new Vue({
 		},
     todo_log: function(evt) {
       if(evt.added){
-      console.log(evt.added.element);
+        this.move_task(evt.added.element.id, "TO DO")
       }
     },
     doing_log: function(evt) {
       if(evt.added){
-      console.log(evt.added.element);
+        this.move_task(evt.added.element.id, "DOING")
       }
     },
     done_log: function(evt) {
       if(evt.added){
-      console.log(evt.added.element);
+        this.move_task(evt.added.element.id, "DONE")
       }
+    },
+    move_task: function(id, value){
+      this.channel.push("tasks:move_task", {id: id, value: value})
+        .receive('ok', (resp) => {
+          this.todo = resp.todo;
+          this.doing = resp.doing;
+          this.done = resp.done;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
     }
 	}
 });

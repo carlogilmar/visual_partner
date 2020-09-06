@@ -8,6 +8,26 @@ defmodule StarWeb.TasksChannel do
 		{:ok, %{tasks: tasks, todo: tasks_by_status["TO DO"], doing: tasks_by_status["DOING"], done: tasks_by_status["DONE"]}, socket}
 	end
 
+  def handle_in(
+        "tasks:move_task",
+        %{"id" => id, "value" => value},
+        socket
+      ) do
+
+    case value do
+      "TO DO" -> TaskOperator.update(id, :to_do)
+      "DOING" -> TaskOperator.update(id, :doing)
+      "DONE" -> TaskOperator.update(id, :done)
+    end
+
+		tasks = get_tasks()
+    tasks_by_status = get_tasks_by_status(tasks)
+
+		{:reply,
+    {:ok, %{tasks: tasks, todo: tasks_by_status["TO DO"], doing: tasks_by_status["DOING"], done: tasks_by_status["DONE"]}},
+    socket}
+  end
+
   def get_tasks_by_status(tasks) do
     Enum.reduce(tasks,
       %{"TO DO" => [], "DOING" => [], "DONE" => []},
