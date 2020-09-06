@@ -1,6 +1,7 @@
 defmodule StarWeb.TasksChannel do
 	use Phoenix.Channel
 	alias Star.TaskOperator
+  alias StarWeb.Endpoint
 
 	def join("tasks:join", _msg, socket) do
 		tasks = get_tasks()
@@ -20,6 +21,8 @@ defmodule StarWeb.TasksChannel do
       "DONE" -> TaskOperator.update(id, :done)
     end
 
+    Endpoint.broadcast("tasks", "update_dashboard", %{})
+
 		tasks = get_tasks()
     tasks_by_status = get_tasks_by_status(tasks)
 
@@ -35,6 +38,8 @@ defmodule StarWeb.TasksChannel do
       ) do
 
     TaskOperator.update(id, %{pinned: value})
+    Endpoint.broadcast("tasks", "update_dashboard", %{})
+
 		tasks = get_tasks()
     tasks_by_status = get_tasks_by_status(tasks)
 
