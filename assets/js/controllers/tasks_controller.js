@@ -13,7 +13,8 @@ export const app = new Vue({
 		attributes: [],
     todo: [],
     doing: [],
-    done: []
+    done: [],
+		element: {}
 	},
 	created: function() {
 		console.log("Vue App here! Tasks Controller");
@@ -92,6 +93,18 @@ export const app = new Vue({
         .receive("error", resp => {
           console.log("ERROR");
         });
-    }
+    },
+		show_modal: function(element){
+			this.element = element;
+		},
+		update:function(value, id, attr){
+      this.channel.push("tasks:update", {id: id, value: value, attr: attr})
+        .receive('ok', (resp) => {
+          console.log("DONE");
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+		}
 	}
 });

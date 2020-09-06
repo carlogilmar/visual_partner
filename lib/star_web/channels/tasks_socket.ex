@@ -48,6 +48,21 @@ defmodule StarWeb.TasksChannel do
     socket}
   end
 
+  def handle_in(
+        "tasks:update",
+        %{"id" => id, "value" => value, "attr" => attr},
+        socket
+      ) do
+
+    attrs = Map.new([{String.to_atom(attr), value}])
+    TaskOperator.update(id, attrs)
+    Endpoint.broadcast("tasks", "update_dashboard", %{})
+
+		{:reply,
+    {:ok, %{}},
+    socket}
+  end
+
   def get_tasks_by_status(tasks) do
     Enum.reduce(tasks,
       %{"TO DO" => [], "DOING" => [], "DONE" => []},
