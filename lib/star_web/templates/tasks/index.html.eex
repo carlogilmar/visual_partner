@@ -11,6 +11,11 @@
 			<ul class="navbar-nav mr-auto">
 			</ul>
 			<span class="navbar-text">
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#newModal">
+				🚀 New Task
+				</button>
+				&nbsp; &nbsp;
 				<a href="<%= Routes.static_path(@conn, "/admin")%>"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
 			</span>
 		</div>
@@ -18,93 +23,110 @@
 	<br>
 
   <div class="row" v-cloak>
+
     <div class="col-md-4">
       <v-calendar is-expanded :attributes="attributes" />
     </div>
-    <div class="col-md-8">
-
-			<form v-on:submit.prevent="onSubmit">
-      <!-- Title !-->
-      <div class="input-group mb-2 mr-sm-2">
-      	<div class="input-group-prepend">
-      		<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Title </div>
-      	</div>
-      	<input v-model="task.title" required type="text" class="form-control">
-      </div>
-      <!-- Description !-->
-      <div class="input-group mb-2 mr-sm-2">
-      	<div class="input-group-prepend">
-      		<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Description </div>
-      	</div>
-      	<textarea v-model="task.description" required type="text" class="form-control"> </textarea>
-      </div>
-      <!-- date !-->
-      <div class="input-group mb-2 mr-sm-2">
-      	<div class="input-group-prepend">
-      		<div class="input-group-text"> <i class="fas fa-calendar"></i>&nbsp; Date </div>
-      	</div>
-        <v-date-picker
-          v-model="task.date">
-        </v-date-picker>
-      	&nbsp;&nbsp;&nbsp;&nbsp;
-      	<button class="btn btn-sm btn-success" type="submit"><b>🚀 A G R E G A R</b></button>
-      </div>
-			</form>
-
-      <hr><hr> <h1> Graficas aqui </h1>
+    <div class="col-md-4">
       <apexchart :options="chartOptions" :series="series"></apexchart>
-
-      <hr><hr> <h1> Graficas aqui </h1>
+    </div>
+    <div class="col-md-4 text-center">
+			<h3> Montly Status </h3>
       <apexchart :options="chartOptions2" :series="series2"></apexchart>
-
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"> {{element.title}} <span class="badge badge-secondary">{{element.status}}</span> </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-
-			        <!-- Title !-->
-			        <div class="input-group mb-2 mr-sm-2">
-			        	<div class="input-group-prepend">
-			        		<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Title </div>
-			        	</div>
-			        	<input v-model="element.title" type="text" class="form-control" @blur="update($event.target.value, element.id, 'title')">
-			        </div>
-			        <!-- Description !-->
-			        <div class="input-group mb-2 mr-sm-2">
-			        	<div class="input-group-prepend">
-			        		<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Description </div>
-			        	</div>
-			        	<textarea v-model="element.description" type="text" class="form-control" @blur="update($event.target.value, element.id, 'description')"> </textarea>
-			        </div>
-
-            </div>
-            <div class="modal-footer">
-              <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Delete
-              </a>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal"> Ok </button>
-            </div>
-
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                <button type="button" class="btn btn-danger btn-sm btn-block" v-on:click="delete_task(element.id)"> Yes, Delete it! </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
     </div>
   </div> <!-- row -->
+
+	<!-- Modal for new task -->
+	<div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<form v-on:submit.prevent="onSubmit">
+						<!-- Title !-->
+						<div class="input-group mb-2 mr-sm-2">
+							<div class="input-group-prepend">
+								<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Title </div>
+							</div>
+							<input v-model="task.title" required type="text" class="form-control">
+						</div>
+						<!-- Description !-->
+						<div class="input-group mb-2 mr-sm-2">
+							<div class="input-group-prepend">
+								<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Description </div>
+							</div>
+							<textarea v-model="task.description" required type="text" class="form-control"> </textarea>
+						</div>
+						<!-- date !-->
+						<div class="input-group mb-2 mr-sm-2">
+							<div class="input-group-prepend">
+								<div class="input-group-text"> <i class="fas fa-calendar"></i>&nbsp; Date </div>
+							</div>
+							<v-date-picker
+								v-model="task.date">
+							</v-date-picker>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<button class="btn btn-sm btn-success" type="submit"><b>🚀 A G R E G A R</b></button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal for new task -->
+
+	<!-- Modal For Update -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"> {{element.title}} <span class="badge badge-secondary">{{element.status}}</span> </h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<!-- Title !-->
+					<div class="input-group mb-2 mr-sm-2">
+						<div class="input-group-prepend">
+							<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Title </div>
+						</div>
+						<input v-model="element.title" type="text" class="form-control" @blur="update($event.target.value, element.id, 'title')">
+					</div>
+					<!-- Description !-->
+					<div class="input-group mb-2 mr-sm-2">
+						<div class="input-group-prepend">
+							<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Description </div>
+						</div>
+						<textarea v-model="element.description" type="text" class="form-control" @blur="update($event.target.value, element.id, 'description')"> </textarea>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+						Delete
+					</a>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal"> Ok </button>
+				</div>
+
+				<div class="collapse" id="collapseExample">
+					<div class="card card-body">
+						<button type="button" class="btn btn-danger btn-sm btn-block" v-on:click="delete_task(element.id)"> Yes, Delete it! </button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Modal For Update -->
 
   <br>
 

@@ -22,13 +22,13 @@ export const app = new Vue({
 		// Barra circular
 		chartOptions: {
 			chart: {
-				height: 150,
+				width: 500,
 				type: 'radialBar',
 			},
 			plotOptions: {
 				radialBar: {
 					hollow: {
-						size: '40%', // Ancho de circulo
+						size: '20%', // Ancho de circulo
 					}
 				},
 			},
@@ -37,22 +37,37 @@ export const app = new Vue({
 		series: [35],
 		chartOptions2: {
 			chart: {
-				type: 'pie',
+				height: 350,
+				type: 'bar'
 			},
-			labels: ['To Do', 'Doing', 'Done'],
-			responsive: [{
-				breakpoint: 480,
-				options: {
-					chart: {
-						width: 200
-					},
-					legend: {
-						position: 'bottom'
+			plotOptions: {
+				bar: {
+					columnWidth: '45%',
+					distributed: true
+				}
+			},
+			dataLabels: {
+				enabled: false
+			},
+			legend: {
+				show: false
+			},
+			xaxis: {
+				categories: [
+					'To Do',
+					'Doing',
+					'Done'
+				],
+				labels: {
+					style: {
+						fontSize: '12px'
 					}
 				}
-			}]
+			}
 		},
-		series2: [5, 3, 8],
+		series2: [{
+			data: [5, 3, 7]
+		}],
 	},
 	created: function() {
 		console.log("Vue App here! Tasks Controller");
@@ -148,6 +163,7 @@ export const app = new Vue({
 			this.channel.push("tasks:new", this.task)
 				.receive('ok', (resp) => {
 					console.log("DONE");
+					$('#newModal').modal('hide');
 					this.tasks = resp.tasks;
 					this.generate_calendar();
 					this.todo = resp.todo;
