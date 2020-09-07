@@ -10,7 +10,7 @@ defmodule Star.DeliverableOperator do
   end
 
   def get_by_id(id) do
-    Repo.get(Deliverable, id)
+    Repo.get(Deliverable, id) |> Repo.preload([:illustration])
   end
 
   def get_all do
