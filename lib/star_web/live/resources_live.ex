@@ -18,5 +18,4 @@ defmodule StarWeb.ResourcesLive do
     {:ok, _model} = TalkOperator.update(talk.id, %{clicks: talk.clicks + 1})
     {:noreply, socket}
   end
-
 end

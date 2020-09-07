@@ -49,5 +49,4 @@ defmodule StarWeb.TalksLive do
     socket
     |> assign(:models, models)
   end
-
 end

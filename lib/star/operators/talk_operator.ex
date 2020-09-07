@@ -8,7 +8,7 @@ defmodule Star.TalkOperator do
       title: title,
       url: url,
       cover: cover
-      }
+    }
     |> Repo.insert()
   end
 
@@ -42,5 +42,4 @@ defmodule Star.TalkOperator do
     |> Talk.changeset(attrs)
     |> Repo.update()
   end
-
 end

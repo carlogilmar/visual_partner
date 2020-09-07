@@ -4,11 +4,11 @@ defmodule Star.TaskOperator do
   alias Star.Repo
 
   def create(title, description, date) do
-     %Task{
-       title: title,
-       description: description,
-       deadline: date
-      }
+    %Task{
+      title: title,
+      description: description,
+      deadline: date
+    }
     |> Repo.insert()
   end
 
@@ -40,8 +40,10 @@ defmodule Star.TaskOperator do
       from(n in Task,
         order_by: [desc: n.inserted_at],
         where:
-        n.inserted_at <= ^max_date and
-        n.inserted_at >= ^min_date)
+          n.inserted_at <= ^max_date and
+            n.inserted_at >= ^min_date
+      )
+
     Repo.all(query)
   end
 
@@ -62,7 +64,6 @@ defmodule Star.TaskOperator do
     {min_date, max_date}
   end
 
-
   def delete(id) do
     model = get_by_id(id)
     Repo.delete(model)
@@ -79,5 +80,4 @@ defmodule Star.TaskOperator do
     |> Task.changeset(attrs)
     |> Repo.update()
   end
-
 end

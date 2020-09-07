@@ -27,9 +27,9 @@ defmodule StarWeb.TaskLive do
     models = TaskOperator.get_monthly_tasks()
     today = DateTime.utc_now()
     current_month = "#{today.year} / #{today.month} "
+
     socket
     |> assign(:models, models)
     |> assign(:current_month, current_month)
   end
-
 end
