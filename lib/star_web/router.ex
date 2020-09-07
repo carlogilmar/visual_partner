@@ -76,7 +76,7 @@ defmodule StarWeb.Router do
   ## Admin
   scope "/admin", StarWeb do
     pipe_through [:browser, :browser_pipeline, :ensure_auth]
-    get "/", AdminController, :index
+    get "/", TasksController, :index
     live "/users", UsersLive
     live "/suscriptors", SuscriptorsLive
     get "/analytics", AnalyticsController, :index
@@ -90,7 +90,6 @@ defmodule StarWeb.Router do
     live "/model", ModelLive
     live "/event", EventLive
     live "/talks", TalksLive
-    get "/tasks", TasksController, :index
   end
 
   ## Users
