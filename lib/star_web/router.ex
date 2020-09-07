@@ -92,6 +92,7 @@ defmodule StarWeb.Router do
     live "/talks", TalksLive
     live "/review", ReviewLive
     live "/deliverable", DeliverableLive
+    get "/management", ManagementController, :index
   end
 
   ## Users
