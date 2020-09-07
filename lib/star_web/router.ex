@@ -90,6 +90,7 @@ defmodule StarWeb.Router do
     live "/model", ModelLive
     live "/event", EventLive
     live "/talks", TalksLive
+    live "/review", ReviewLive
   end
 
   ## Users
