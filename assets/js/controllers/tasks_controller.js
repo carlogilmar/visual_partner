@@ -34,7 +34,7 @@ export const app = new Vue({
 			},
 			labels: ['Done Tasks'],
 		},
-		series: [35],
+		series:[0],
 		chartOptions2: {
 			chart: {
 				height: 350,
@@ -42,12 +42,12 @@ export const app = new Vue({
 			},
 			plotOptions: {
 				bar: {
-					columnWidth: '45%',
+					columnWidth: '100%',
 					distributed: true
 				}
 			},
 			dataLabels: {
-				enabled: false
+				enabled: true
 			},
 			legend: {
 				show: false
@@ -81,6 +81,7 @@ export const app = new Vue({
 				this.todo = resp.todo;
 				this.doing = resp.doing;
 				this.done = resp.done;
+				this.update_charts(resp.tasks, resp.todo, resp.doing, resp.done);
 			})
 			.receive("error", resp => {
 				console.log("Unable to join", resp);
@@ -119,9 +120,12 @@ export const app = new Vue({
 		move_task: function(id, value){
 			this.channel.push("tasks:move_task", {id: id, value: value})
 				.receive('ok', (resp) => {
+					this.tasks = resp.tasks;
 					this.todo = resp.todo;
 					this.doing = resp.doing;
 					this.done = resp.done;
+					//updating charts
+					this.update_charts(resp.tasks, resp.todo, resp.doing, resp.done);
 				})
 				.receive("error", resp => {
 					console.log("ERROR");
@@ -169,6 +173,8 @@ export const app = new Vue({
 					this.todo = resp.todo;
 					this.doing = resp.doing;
 					this.done = resp.done;
+					//updating charts
+					this.update_charts(resp.tasks, resp.todo, resp.doing, resp.done);
 					// Cleaning Object
 					this.task.title = "";
 					this.task.description = "...";
@@ -187,11 +193,20 @@ export const app = new Vue({
 					this.todo = resp.todo;
 					this.doing = resp.doing;
 					this.done = resp.done;
+					//updating charts
+					this.update_charts(resp.tasks, resp.todo, resp.doing, resp.done);
 					$('#exampleModal').modal('hide');
 				})
 				.receive("error", resp => {
 					console.log("ERROR");
 				});
-		}
+		},
+		update_charts: function(tasks, todo, doing, done){
+			let total_percent = (done.length * 100) / tasks.length;
+			this.series = [Math.trunc(total_percent)]; // percent task done
+			this.series2 = [{
+				data: [todo.length, doing.length, done.length]
+			}]
+		},
 	}
 });
