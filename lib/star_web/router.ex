@@ -91,6 +91,7 @@ defmodule StarWeb.Router do
     live "/event", EventLive
     live "/talks", TalksLive
     live "/review", ReviewLive
+    live "/deliverable", DeliverableLive
   end
 
   ## Users
