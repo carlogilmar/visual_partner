@@ -5,14 +5,14 @@ defmodule Star.Illustration do
   @primary_key {:id, :id, autogenerate: true}
   schema "illustrations" do
     field :url, :string
-    field :status, :string
+    field :status, :string, default: "TO DO"
     timestamps()
     belongs_to :deliverable, Star.Deliverable
   end
 
   @doc false
-  def changeset(job, attrs) do
-    job
+  def changeset(model, attrs) do
+    model
     |> cast(attrs, [:url, :status])
     |> validate_required([])
   end
