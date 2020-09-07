@@ -1,235 +1,295 @@
 <br><br>
+<div id="app">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
 
-<div class="container" id="app">
+        <!-- Nav --!>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand oswald" href="#"> ⭐️ &nbsp; Management &nbsp; </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand oswald" href="#"> <i class="fas fa-calendar"></i> &nbsp; Montly Calendar &nbsp; </a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav mr-auto">
-			</ul>
-			<span class="navbar-text">
-				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#newModal">
-				🚀 New Task
-				</button>
-				&nbsp; &nbsp;
-				<a href="<%= Routes.static_path(@conn, "/admin")%>"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
-			</span>
-		</div>
-	</nav>
-	<br>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav mr-auto">
+                 <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     👥 User Management
+                   </a>
+                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/users")%>">😊 Users</a>
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/suscriptors")%>">🤓 Suscriptors</a>
+                   </div>
+                 </li>
+                 <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="contentDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     🖌 Content
+                   </a>
+                   <div class="dropdown-menu" aria-labelledby="contentDropdown">
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/notes")%>">🖍 Notes</a>
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/comments")%>">💬 Comments</a>
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/emailer")%>">📧 Emailer</a>
+                   </div>
+                 </li>
+                 <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="analyticsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     😳 Analytics
+                   </a>
+                   <div class="dropdown-menu" aria-labelledby="analyticsDropdown">
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/analytics")%>">😲 Analytics</a>
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/sponsorship")%>">😎 Sponsors</a>
+                   </div>
+                 </li>
+                 <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="analyticsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     🎆 Sections
+                   </a>
+                   <div class="dropdown-menu" aria-labelledby="analyticsDropdown">
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/event")%>">🌠 Events</a>
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/gallery")%>">i🌇 Gallery</a>
+                     <a class="dropdown-item" href="<%= Routes.static_path(@conn, "/admin/talks")%>">🎙 Talks</a>
+                   </div>
+                 </li>
+               </ul>
+            </div>
 
-  <div class="row" v-cloak>
-
-    <div class="col-md-4">
-      <v-calendar is-expanded :attributes="attributes" />
-    </div>
-    <div class="col-md-4">
-      <apexchart :options="chartOptions" :series="series"></apexchart>
-    </div>
-    <div class="col-md-4 text-center">
-			<h3> Montly Status </h3>
-      <apexchart :options="chartOptions2" :series="series2"></apexchart>
-    </div>
-  </div> <!-- row -->
-
-	<!-- Modal for new task -->
-	<div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">New Task</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-
-					<form v-on:submit.prevent="onSubmit">
-						<!-- Title !-->
-						<div class="input-group mb-2 mr-sm-2">
-							<div class="input-group-prepend">
-								<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Title </div>
-							</div>
-							<input v-model="task.title" required type="text" class="form-control">
-						</div>
-						<!-- Description !-->
-						<div class="input-group mb-2 mr-sm-2">
-							<div class="input-group-prepend">
-								<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Description </div>
-							</div>
-							<textarea v-model="task.description" required type="text" class="form-control"> </textarea>
-						</div>
-						<!-- date !-->
-						<div class="input-group mb-2 mr-sm-2">
-							<div class="input-group-prepend">
-								<div class="input-group-text"> <i class="fas fa-calendar"></i>&nbsp; Date </div>
-							</div>
-							<v-date-picker
-								v-model="task.date">
-							</v-date-picker>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="btn btn-sm btn-success" type="submit"><b>🚀 A G R E G A R</b></button>
-						</div>
-					</form>
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modal for new task -->
-
-	<!-- Modal For Update -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel"> {{element.title}} <span class="badge badge-secondary">{{element.status}}</span> </h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-
-					<!-- Title !-->
-					<div class="input-group mb-2 mr-sm-2">
-						<div class="input-group-prepend">
-							<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Title </div>
-						</div>
-						<input v-model="element.title" type="text" class="form-control" @blur="update($event.target.value, element.id, 'title')">
-					</div>
-					<!-- Description !-->
-					<div class="input-group mb-2 mr-sm-2">
-						<div class="input-group-prepend">
-							<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Description </div>
-						</div>
-						<textarea v-model="element.description" type="text" class="form-control" @blur="update($event.target.value, element.id, 'description')"> </textarea>
-					</div>
-
-				</div>
-				<div class="modal-footer">
-					<a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-						Delete
-					</a>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal"> Ok </button>
-				</div>
-
-				<div class="collapse" id="collapseExample">
-					<div class="card card-body">
-						<button type="button" class="btn btn-danger btn-sm btn-block" v-on:click="delete_task(element.id)"> Yes, Delete it! </button>
-					</div>
-				</div>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+              </ul>
+              <span class="navbar-text">
+								<a href="<%= Routes.static_path(@conn, "/logout")%>">  👋 <b class="oswald">Logout</b> </a>
+              </span>
+            </div>
+          </nav>
+        <!-- Nav --!>
 
 			</div>
 		</div>
+
+		<br>
+
+		<div class="row">
+
+			<div class="col-12" v-cloak>
+
+		    <!-- Calendar and charts -->
+        <div class="row">
+					<div class="col-md-4">
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#newModal">
+							🚀 <b> New Task </b>
+						</button>
+						<br>
+            <v-calendar is-expanded :attributes="attributes" />
+          </div>
+          <div class="col-md-4">
+            <apexchart :options="chartOptions" :series="series"></apexchart>
+          </div>
+          <div class="col-md-4 text-center">
+            <h3> Montly Status </h3>
+            <apexchart :options="chartOptions2" :series="series2"></apexchart>
+          </div>
+        </div> <!-- row -->
+		    <! -- Calendar and charts -->
+
+    <!-- Modal for new task -->
+    <div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <form v-on:submit.prevent="onSubmit">
+              <!-- Title !-->
+              <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Title </div>
+                </div>
+                <input v-model="task.title" required type="text" class="form-control">
+              </div>
+              <!-- Description !-->
+              <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Description </div>
+                </div>
+                <textarea v-model="task.description" required type="text" class="form-control"> </textarea>
+              </div>
+              <!-- date !-->
+              <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"> <i class="fas fa-calendar"></i>&nbsp; Date </div>
+                </div>
+                <v-date-picker
+                  v-model="task.date">
+                </v-date-picker>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-sm btn-success" type="submit"><b>🚀 A G R E G A R</b></button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal for new task -->
+
+    <!-- Modal For Update -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> {{element.title}} <span class="badge badge-secondary">{{element.status}}</span> </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <!-- Title !-->
+            <div class="input-group mb-2 mr-sm-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Title </div>
+              </div>
+              <input v-model="element.title" type="text" class="form-control" @blur="update($event.target.value, element.id, 'title')">
+            </div>
+            <!-- Description !-->
+            <div class="input-group mb-2 mr-sm-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Description </div>
+              </div>
+              <textarea v-model="element.description" type="text" class="form-control" @blur="update($event.target.value, element.id, 'description')"> </textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Delete
+            </a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"> Ok </button>
+          </div>
+
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <button type="button" class="btn btn-danger btn-sm btn-block" v-on:click="delete_task(element.id)"> Yes, Delete it! </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Modal For Update -->
+
+		    <!-- Todo list -->
+        <div class="row">
+          <div class="col-4">
+            <h3 class="text-center"> 🚀 To Do </h3>
+            <draggable class="list-group" :list="todo" group="people" @change="todo_log">
+            <div
+              class="list-group-item"
+              v-for="element in todo"
+              :key="element.id"
+              >
+              <h5 class="card-title">
+                {{ element.title }}
+              </h5>
+              <footer class="blockquote-footer">
+                {{ element.description}}
+              </footer>
+
+              <button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
+                🖌 E D I T
+              </button>
+
+              <div v-if="element.pinned">
+                <div class="text-center" style="background-color: #cde6ff;">
+                  <b> 📍 P I N N E D </b>
+                </div>
+                <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
+              </div>
+              <div v-else>
+                <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
+              </div>
+            </div>
+            </draggable>
+          </div>
+
+          <div class="col-4">
+            <h3 class="text-center"> 🔥 In Progress </h3>
+            <draggable class="list-group" :list="doing" group="people" @change="doing_log">
+            <div
+              class="list-group-item"
+              v-for="element in doing"
+              :key="element.id"
+              >
+              <h5 class="card-title">
+                {{ element.title }}
+              </h5>
+              <footer class="blockquote-footer">
+                {{ element.description}}
+              </footer>
+
+              <button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
+                🖌 E D I T
+              </button>
+
+              <div v-if="element.pinned">
+                <div class="text-center" style="background-color: #cde6ff;">
+                  <b> 📍 P I N N E D </b>
+                </div>
+                <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
+              </div>
+              <div v-else>
+                <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
+              </div>
+            </div>
+            </draggable>
+          </div>
+
+          <div class="col-4">
+            <h3 class="text-center"> ✅ Done </h3>
+            <draggable class="list-group" :list="done" group="people" @change="done_log">
+            <div
+              class="list-group-item"
+              v-for="element in done"
+              :key="element.id"
+              >
+              <h5 class="card-title">
+                {{ element.title }}
+              </h5>
+              <footer class="blockquote-footer">
+                {{ element.description}}
+              </footer>
+
+              <button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
+                🖌 E D I T
+              </button>
+
+              <div v-if="element.pinned">
+                <div class="text-center" style="background-color: #cde6ff;">
+                  <b> 📍 P I N N E D </b>
+                </div>
+                <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
+              </div>
+              <div v-else>
+                <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
+              </div>
+            </div>
+            </draggable>
+          </div>
+
+        </div>
+		    <!-- Todo list -->
+
+			</div>
+		</div>
 	</div>
-	<!-- Modal For Update -->
-
-  <br>
-
-  <div class="row">
-    <div class="col-4">
-      <h3 class="text-center"> 🚀 To Do </h3>
-      <draggable class="list-group" :list="todo" group="people" @change="todo_log">
-        <div
-          class="list-group-item"
-          v-for="element in todo"
-          :key="element.id"
-        >
-          <h5 class="card-title">
-          {{ element.title }}
-          </h5>
-          <footer class="blockquote-footer">
-          {{ element.description}}
-          </footer>
-
-					<button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
-				  🖌 E D I T
-					</button>
-
-          <div v-if="element.pinned">
-            <div class="text-center" style="background-color: #cde6ff;">
-              <b> 📍 P I N N E D </b>
-            </div>
-            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
-          </div>
-          <div v-else>
-            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
-          </div>
-        </div>
-      </draggable>
-    </div>
-
-    <div class="col-4">
-      <h3 class="text-center"> 🔥 In Progress </h3>
-      <draggable class="list-group" :list="doing" group="people" @change="doing_log">
-        <div
-          class="list-group-item"
-          v-for="element in doing"
-          :key="element.id"
-        >
-          <h5 class="card-title">
-          {{ element.title }}
-          </h5>
-          <footer class="blockquote-footer">
-          {{ element.description}}
-          </footer>
-
-					<button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
-				  🖌 E D I T
-					</button>
-
-          <div v-if="element.pinned">
-            <div class="text-center" style="background-color: #cde6ff;">
-              <b> 📍 P I N N E D </b>
-            </div>
-            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
-          </div>
-          <div v-else>
-            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
-          </div>
-        </div>
-      </draggable>
-    </div>
-
-    <div class="col-4">
-      <h3 class="text-center"> ✅ Done </h3>
-      <draggable class="list-group" :list="done" group="people" @change="done_log">
-        <div
-          class="list-group-item"
-          v-for="element in done"
-          :key="element.id"
-        >
-          <h5 class="card-title">
-          {{ element.title }}
-          </h5>
-          <footer class="blockquote-footer">
-          {{ element.description}}
-          </footer>
-
-					<button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
-				  🖌 E D I T
-					</button>
-
-          <div v-if="element.pinned">
-            <div class="text-center" style="background-color: #cde6ff;">
-              <b> 📍 P I N N E D </b>
-            </div>
-            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
-          </div>
-          <div v-else>
-            <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
-          </div>
-        </div>
-      </draggable>
-    </div>
-
-  </div>
-
-</div><!-- end --!>
+</div>
 
 <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/tasks_controller.js") %>"></script>
 
