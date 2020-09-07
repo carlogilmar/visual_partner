@@ -17,7 +17,7 @@ defmodule StarWeb.DeliverableLive do
   end
 
   def handle_event("new", _value, socket) do
-    {:ok, email} = DeliverableOperator.create()
+    {:ok, _model} = DeliverableOperator.create("Nueva Chambita")
     socket = update_socket(socket)
     {:noreply, socket}
   end
