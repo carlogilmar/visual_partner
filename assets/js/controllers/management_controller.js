@@ -5,9 +5,10 @@ export const app = new Vue({
   el:"#app",
   data: {
     deliverables: [],
-		illustrations: [],
+		illustrations: [{id: 1, title: "hola", url: ""}],
     deliverable_selected: null,
 		new_illustration: null,
+		illustration_selected: {}
   },
   created: function() {
     this.channel = socket.channel("deliverable:join", {});
@@ -73,11 +74,23 @@ export const app = new Vue({
         .receive('ok', (res) => {
           console.log("200 Success");
 					this.illustrations = res.illustrations;
-					$('#exampleModal').modal('hide');
+					$('#newModal').modal('hide');
         })
         .receive("error", resp => {
           console.log("ERROR");
         });
 		},
+		edit_illustration: function(illustration){
+			this.illustration_selected = illustration;
+		},
+		update_illustration: function(value, id, attr){
+      this.channel.push("deliverable:update_illustration", {id: id, attr: attr, value: value})
+        .receive('ok', (resp) => {
+					this.illustrations= resp.illustrations;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+		}
   }
 });

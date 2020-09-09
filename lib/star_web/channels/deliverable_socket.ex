@@ -35,6 +35,13 @@ defmodule StarWeb.DeliverableChannel do
     {:reply, {:ok, %{illustrations: illustrations}}, socket}
 	end
 
+  def handle_in("deliverable:update_illustration", %{"attr" => attr, "id" => id, "value" => value}, socket) do
+    attrs = Map.new([{String.to_atom(attr), value}])
+    {:ok, model} = IllustrationOperator.update(id, attrs)
+		{_deliverable, illustrations} = get_deliverable(model.deliverable_id)
+    {:reply, {:ok, %{illustrations: illustrations}}, socket}
+  end
+
 	defp get_deliverables do
 		deliverables = DeliverableOperator.get_all()
 		for deliverable <- deliverables do

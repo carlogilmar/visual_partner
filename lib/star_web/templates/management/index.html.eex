@@ -116,35 +116,40 @@
 						<tr>
 							<th scope="col" colspan="2"> 🌇 Illustrations </th>
 							<th scope="col">
-								<button class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal">
+								<button class="btn btn-sm btn-success" data-toggle="modal" data-target="#newModal">
 									New
 								</button>
 							</th>
 						</tr>
 					</thead>
 					<tr v-for="illustration in illustrations">
-						<td width="40%">{{illustration.title}}</td>
+
+						<td width="40%">
+							{{illustration.title}}
+						</td>
 						<td width="40%">
 							<span class="badge badge-secondary">
 								{{illustration.status}}
 							</span>
 						</td>
 						<td width="20%">
-							<button class="btn btn-sm btn-secondary">🖍</button>
+								<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#illustrationModal" v-on:click="edit_illustration(illustration)">
+									🖍 Edit
+								</button>
 							<button class="btn btn-sm btn-danger">🚮</button>
 						</td>
+
 					</tr>
 				</tbody>
 			</table>
 			<!-- illustrations section -->
 
-
-			<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<!-- Modal New-->
+			<div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">New Ilustration</h5>
+							<h5 class="modal-title" id="exampleModalLabel">New Illustration</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -168,6 +173,30 @@
 			</div>
 			<!-- modals section -->
 
+			<!-- Modal Edit-->
+			<div class="modal fade" id="illustrationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel"> 🖍 {{illustration_selected.title}}</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text"> 🎆 Título </div>
+								</div>
+								<input v-model="illustration_selected.title" @blur="update_illustration($event.target.value, illustration_selected.id, 'title')" type="text" class="form-control"/>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- modals section -->
 
 			<!-- delete section -->
 			<a class="btn btn-secondary btn-sm" v-if="deliverable_selected.draft" v-on:click="draft_to_private(deliverable_selected.id)">
