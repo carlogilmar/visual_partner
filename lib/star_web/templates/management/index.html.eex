@@ -191,6 +191,24 @@
 								</div>
 								<input v-model="illustration_selected.title" @blur="update_illustration($event.target.value, illustration_selected.id, 'title')" type="text" class="form-control"/>
 							</div>
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text"> 🌠 Image Url </div>
+								</div>
+								<input v-model="illustration_selected.url" @blur="update_illustration($event.target.value, illustration_selected.id, 'url')" type="text" class="form-control"/>
+							</div>
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text"> 🚀 Status </div>
+									<select class="custom-select mr-sm-2" v-model="illustration_selected.status" @blur="update_illustration($event.target.value, illustration_selected.id, 'status')">
+										<option value="TO_START"> 🤓 Por Empezar</option>
+										<option value="IN_PROGRESS"> 🔥 En Progreso</option>
+										<option value="IN_REVIEW"> 🧐 En Revisión</option>
+										<option value="DONE"> 😎 Listo para Entregar</option>
+									</select>
+								</div>
+							</div>
+
 
 						</div>
 					</div>
