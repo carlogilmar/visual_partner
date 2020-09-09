@@ -62,7 +62,7 @@
 							<div class="input-group-prepend">
 								<div class="input-group-text">🤑 Price</div>
 							</div>
-							<input type="number" class="form-control">
+							<input type="number" class="form-control" v-model="deliverable_selected.price" @blur="update($event.target.value, deliverable_selected.id, 'price')">
 						</div>
 					</div>
 					<div class="col-sm-4 my-1">
@@ -70,16 +70,15 @@
 							<div class="input-group-prepend">
 								<div class="input-group-text"> ⏰ Hours</div>
 							</div>
-							<input type="text" class="form-control">
+							<input type="number" class="form-control" v-model="deliverable_selected.hours" @blur="update($event.target.value, deliverable_selected.id, 'hours')">
 						</div>
 					</div>
 					<div class="col-sm-4 my-1">
-						<select class="custom-select mr-sm-2">
-							<option selected>{{deliverable_selected.status}}</option>
-							<option value="TO_START">TO START</option>
-							<option value="IN_PROGRESS">IN PROGRESS</option>
-							<option value="IN_REVIEW">IN REVIEW</option>
-							<option value="DONE">DONE</option>
+						<select class="custom-select mr-sm-2" v-model="deliverable_selected.status" @blur="update($event.target.value, deliverable_selected.id, 'status')">
+							<option value="TO_START"> 🤓 Por Empezar</option>
+							<option value="IN_PROGRESS"> 🔥 En Progreso</option>
+							<option value="IN_REVIEW"> 🧐 En Revisión</option>
+							<option value="DONE"> 😎 Listo para Entregar</option>
 						</select>
 					</div>
 				</div>
