@@ -40,5 +40,15 @@ export const app = new Vue({
           console.log("ERROR");
         });
     },
+    delete_deliverable: function(id){
+      this.channel.push("deliverable:delete", {id: id})
+        .receive('ok', (resp) => {
+					this.deliverables = resp.deliverables;
+					this.deliverable_selected = null;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
   }
 });

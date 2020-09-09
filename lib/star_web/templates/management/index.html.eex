@@ -43,7 +43,19 @@
 				<input v-model="deliverable_selected.title" type="text" class="form-control" @blur="update($event.target.value, deliverable_selected.id, 'title')" />
 			</div>
 			<br>
-    </div>
+
+			<!-- delete section -->
+      <a class="btn btn-warning btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Delete
+      </a> <br><br>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <button class="btn btn-danger btn-sm" v-on:click="delete_deliverable(deliverable_selected.id)">Delete</button>
+        </div>
+      </div>
+			<!-- delete section -->
+
+    </div><!-- Deliverable selected -->
 
     <div class="col-md-8" v-else>
 			<div class="jumbotron">

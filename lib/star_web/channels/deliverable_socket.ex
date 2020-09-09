@@ -25,6 +25,11 @@ defmodule StarWeb.DeliverableChannel do
 		{:reply, {:ok, %{deliverable: deliverable}}, socket}
 	end
 
+	def handle_in("deliverable:delete", %{"id" => id}, socket) do
+	  DeliverableOperator.delete(id)
+    {:reply, {:ok, %{deliverables: get_deliverables()}}, socket}
+	end
+
   def handle_in("deliverable:update", %{"attr" => attr, "id" => id, "value" => value}, socket) do
     attrs = Map.new([{String.to_atom(attr), value}])
     {:ok, _model} = DeliverableOperator.update(id, attrs)
