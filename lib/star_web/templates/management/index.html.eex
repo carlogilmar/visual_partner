@@ -128,8 +128,17 @@
 							{{illustration.title}}
 						</td>
 						<td width="40%">
-							<span class="badge badge-secondary">
-								{{illustration.status}}
+							<span class="badge badge-warning" v-if="illustration.status == 'TO_START'">
+								🤓 Por Empezar
+							</span>
+							<span class="badge badge-dark" v-if="illustration.status == 'IN_PROGRESS'">
+								🔥 En Progreso
+							</span>
+							<span class="badge badge-info" v-if="illustration.status == 'IN_REVIEW'">
+								🧐 En Revisión
+							</span>
+							<span class="badge badge-success" v-if="illustration.status == 'DONE'">
+								😎 Listo para Entregar
 							</span>
 						</td>
 						<td width="20%">
