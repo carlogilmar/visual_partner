@@ -31,6 +31,15 @@ export const app = new Vue({
           console.log("ERROR");
         });
     },
+    new_deliverable: function(){
+      this.channel.push("deliverable:new", {})
+        .receive('ok', (resp) => {
+					this.deliverables = resp.deliverables;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
     update: function(value, id, attr){
       this.channel.push("deliverable:update", {id: id, attr: attr, value: value})
         .receive('ok', (resp) => {

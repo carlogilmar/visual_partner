@@ -7,6 +7,11 @@ defmodule StarWeb.DeliverableChannel do
 		{:ok, %{deliverables: deliverables}, socket}
 	end
 
+	def handle_in("deliverable:new", %{}, socket) do
+	  DeliverableOperator.create("New Deliverable")
+    {:reply, {:ok, %{deliverables: get_deliverables()}}, socket}
+	end
+
 	def handle_in("deliverable:show", %{"id" => id}, socket) do
 		deliverable = DeliverableOperator.get_by_id(id)
 

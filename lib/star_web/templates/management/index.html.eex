@@ -20,7 +20,7 @@
 
     <div class="col-md-4">
 
-			<button class="btn btn-success btn-sm btn-block" v-on:click="new_note()"> N E W</button>
+			<button class="btn btn-success btn-sm btn-block" v-on:click="new_deliverable()"> N E W</button>
 			<br<br>
 
       <div class="card" v-for="deliverable in deliverables">
