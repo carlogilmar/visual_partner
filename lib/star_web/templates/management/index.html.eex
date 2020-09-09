@@ -38,9 +38,15 @@
 
 		<div class="col-md-8" v-if="deliverable_selected">
 
+			<div class="card" style="background-color: black;" v-if="!deliverable_selected.draft">
+				<div class="card-body text-center oswald" style="color: white">
+					<strong> This deliverable 🎁 it's set as private. </strong>
+				</div>
+			</div><br>
+
 			<div class="input-group mb-2 mr-sm-2">
 				<div class="input-group-prepend">
-					<div class="input-group-text"> Título &nbsp; &nbsp; <span class="badge badge-secondary"> {{deliverable_selected.status}} </span> </div>
+					<div class="input-group-text"> 🎆 Título &nbsp; &nbsp; <span class="badge badge-secondary"> {{deliverable_selected.status}} </span> </div>
 				</div>
 				<input v-model="deliverable_selected.title" type="text" class="form-control" @blur="update($event.target.value, deliverable_selected.id, 'title')" />
 			</div>
@@ -48,7 +54,7 @@
 
 			<div class="input-group mb-2 mr-sm-2">
 				<div class="input-group-prepend">
-					<div class="input-group-text"> Gallery Images Url</div>
+					<div class="input-group-text"> 👨🏻‍💻 Gallery Images Url</div>
 				</div>
 				<input v-model="deliverable_selected.url" type="url" class="form-control" @blur="update($event.target.value, deliverable_selected.id, 'url')" />
 			</div>
