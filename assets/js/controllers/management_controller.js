@@ -73,6 +73,7 @@ export const app = new Vue({
       this.channel.push("deliverable:new_illustration", {id: id, title: title})
         .receive('ok', (res) => {
           console.log("200 Success");
+					this.new_illustration = "";
 					this.illustrations = res.illustrations;
 					$('#newModal').modal('hide');
         })
