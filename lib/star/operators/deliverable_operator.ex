@@ -1,4 +1,5 @@
 defmodule Star.DeliverableOperator do
+  import Ecto.Query, only: [from: 2]
   alias Star.Deliverable
   alias Star.Repo
 
@@ -14,7 +15,8 @@ defmodule Star.DeliverableOperator do
   end
 
   def get_all do
-    Repo.all(Deliverable)
+    query = from(n in Deliverable, order_by: [desc: n.inserted_at])
+    Repo.all(query)
   end
 
   def delete(id) do
