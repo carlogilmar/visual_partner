@@ -3,9 +3,10 @@ defmodule Star.IllustrationOperator do
   alias Star.Illustration
   alias Star.Repo
 
-  def create(deliverable_id) do
+  def create(deliverable_id, title) do
     deliverable = DeliverableOperator.get_by_id(deliverable_id)
      %Illustration{
+			 title: title,
        deliverable: deliverable
       }
     |> Repo.insert()

@@ -5,16 +5,16 @@ export const app = new Vue({
   el:"#app",
   data: {
     deliverables: [],
-    deliverable_selected: null
+		illustrations: [],
+    deliverable_selected: null,
+		new_illustration: null,
   },
   created: function() {
     this.channel = socket.channel("deliverable:join", {});
     this.channel.join()
       .receive("ok", resp => {
         console.log("Vue App Management View");
-        console.log(resp.deliverables);
         this.deliverables = resp.deliverables;
-				console.log(this.deliverables);
       })
       .receive("error", resp => {
         console.log("Unable to join", resp);
@@ -26,6 +26,7 @@ export const app = new Vue({
         .receive('ok', (res) => {
           console.log("200 Success");
           this.deliverable_selected = res.deliverable;
+					this.illustrations = res.illustrations;
         })
         .receive("error", resp => {
           console.log("ERROR");
@@ -66,6 +67,17 @@ export const app = new Vue({
 		draft_to_public: function(id){
 			this.update(true, id, "draft");
 			this.deliverable_selected = null;
+		},
+		add_illustration: function(id, title){
+      this.channel.push("deliverable:new_illustration", {id: id, title: title})
+        .receive('ok', (res) => {
+          console.log("200 Success");
+					this.illustrations = res.illustrations;
+					$('#exampleModal').modal('hide');
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
 		},
   }
 });
