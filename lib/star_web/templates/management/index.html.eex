@@ -145,7 +145,7 @@
 								<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#illustrationModal" v-on:click="edit_illustration(illustration)">
 									🖍 Edit
 								</button>
-							<button class="btn btn-sm btn-danger">🚮</button>
+							<button class="btn btn-sm btn-danger" v-on:click="delete_illustration(illustration.id)">🚮</button>
 						</td>
 
 					</tr>

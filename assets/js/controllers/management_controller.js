@@ -91,6 +91,15 @@ export const app = new Vue({
         .receive("error", resp => {
           console.log("ERROR");
         });
+		},
+		delete_illustration: function(id){
+      this.channel.push("deliverable:delete_illustration", {id: id})
+        .receive('ok', (resp) => {
+					this.illustrations= resp.illustrations;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
 		}
   }
 });

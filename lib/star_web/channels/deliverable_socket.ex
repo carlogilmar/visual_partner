@@ -42,6 +42,12 @@ defmodule StarWeb.DeliverableChannel do
     {:reply, {:ok, %{illustrations: illustrations}}, socket}
   end
 
+  def handle_in("deliverable:delete_illustration", %{"id" => id}, socket) do
+    {:ok, model}= IllustrationOperator.delete(id)
+		{_deliverable, illustrations} = get_deliverable(model.deliverable_id)
+    {:reply, {:ok, %{illustrations: illustrations}}, socket}
+  end
+
 	defp get_deliverables do
 		deliverables = DeliverableOperator.get_all()
 		for deliverable <- deliverables do
