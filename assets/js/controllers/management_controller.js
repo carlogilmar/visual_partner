@@ -6,7 +6,14 @@ export const app = new Vue({
   data: {
   },
   created: function() {
-    console.log("Vue App Management View");
+    this.channel = socket.channel("deliverable:join", {});
+    this.channel.join()
+      .receive("ok", resp => {
+        console.log("Vue App Management View");
+      })
+      .receive("error", resp => {
+        console.log("Unable to join", resp);
+      });
   },
   methods: {
   }
