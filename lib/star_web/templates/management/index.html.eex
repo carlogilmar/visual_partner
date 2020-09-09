@@ -49,6 +49,9 @@
 					<div class="input-group-text"> 🎆 Título &nbsp; &nbsp; <span class="badge badge-secondary"> {{deliverable_selected.status}} </span> </div>
 				</div>
 				<input v-model="deliverable_selected.title" type="text" class="form-control" @blur="update($event.target.value, deliverable_selected.id, 'title')" />
+				<div class="input-group-prepend">
+				  <a class="btn btn-light" target="_blank" v-bind:href="'/deliverable/'+ deliverable_selected.id"> 😎 Preview </a>
+				</div>
 			</div>
 			<br>
 
@@ -195,7 +198,8 @@
 						</div>
 
 						<div class="modal-body">
-							<div class="input-group mb-2 mr-sm-2">
+							<div class="input-group mb-2 mr-sm-2 text-center">
+								<h2 class="oswald lead" v-if="!illustration_selected.url">* Imagen por añadir </h2>
 								<img v-bind:src="illustration_selected.url" width="100%"/>
 							</div>
 

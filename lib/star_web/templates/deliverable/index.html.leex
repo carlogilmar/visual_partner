@@ -56,8 +56,13 @@
     <div class="card-columns">
 
 			<%= for illustration <- @deliverable.illustration do %>
-      <div class="card">
-        <img class="card-img-top" src="<%= illustration.url %>" alt="Card image cap">
+      <div class="card text-center">
+				<%= if illustration.url == "" do %>
+					<br>
+					<h2 class="oswald"> 🔥 Ilustración por Agregar</h2>
+				<% else %>
+					<img class="card-img-top" src="<%= illustration.url %>" alt="Card image cap">
+				<% end %>
         <div class="card-body text-center">
           <h5 class="card-title"> <%= illustration.title %> </h5>
           <p class="card-text"><small class="text-muted">Preview</small></p>

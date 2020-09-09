@@ -5,7 +5,7 @@ defmodule Star.Illustration do
   @primary_key {:id, :id, autogenerate: true}
   schema "illustrations" do
 		field :title, :string, default: "..."
-    field :url, :string, default: "..."
+    field :url, :string, default: ""
     field :status, :string, default: "TO_START"
     timestamps()
     belongs_to :deliverable, Star.Deliverable
