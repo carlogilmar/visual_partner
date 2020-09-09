@@ -52,7 +52,7 @@ defmodule StarWeb.DeliverableChannel do
 
 		illustrations =
 			for illustration <- deliverable.illustration do
-				%{title: "Sin titulo", status: illustration.status, url: illustration.url, id: illustration.id}
+				%{title: illustration.title, status: illustration.status, url: illustration.url, id: illustration.id}
 			end
 
 		deliverable = %{
