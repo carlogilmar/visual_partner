@@ -17,6 +17,7 @@ defmodule Star.Repo.Migrations.AddDeliverable do
 
     create table(:illustrations, primary_key: false) do
       add :id, :serial, primary_key: true
+      add :title, :string
       add :url, :string
       add :status, :string
       add :deliverable_id, references(:deliverables, on_delete: :delete_all)
