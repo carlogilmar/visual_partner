@@ -47,7 +47,8 @@ defmodule StarWeb.DeliverableChannel do
 			%{
 				"id" => deliverable.id,
 				"title" => deliverable.title,
-				"status" => deliverable.status
+				"status" => deliverable.status,
+				"draft" => deliverable.draft
 			}
 		end
 	end

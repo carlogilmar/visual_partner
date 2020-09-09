@@ -16,48 +16,115 @@
 	</nav>
 	<br>
 
-  <div class="row" v-cloak>
+	<div class="row" v-cloak>
 
-    <div class="col-md-4">
+		<div class="col-md-4">
 
 			<button class="btn btn-success btn-sm btn-block" v-on:click="new_deliverable()"> N E W</button>
 			<br<br>
 
-      <div class="card" v-for="deliverable in deliverables">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <a class="oswald" v-on:click="show_deliverable(deliverable.id)" href="#"> 🎁 &nbsp; {{deliverable.title}}
-              <span class="badge badge-secondary"> <small>{{deliverable.status}}</small> </span>
-            </a>
-          </li>
-        </ul>
-      </div>
+			<div class="card" v-for="deliverable in deliverables">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">
+						<a class="oswald" v-on:click="show_deliverable(deliverable.id)" href="#"> 🎁 &nbsp; {{deliverable.title}}
+							<span class="badge badge-success" v-if="deliverable.draft"> <small> Público</small> </span>
+							<span class="badge badge-secondary" v-else> <small> Privado </small> </span>
+						</a>
+					</li>
+				</ul>
+			</div>
 
-    </div>
+		</div>
 
-    <div class="col-md-8" v-if="deliverable_selected">
+		<div class="col-md-8" v-if="deliverable_selected">
+
 			<div class="input-group mb-2 mr-sm-2">
 				<div class="input-group-prepend">
-					<div class="input-group-text"> Título </div>
+					<div class="input-group-text"> Título &nbsp; &nbsp; <span class="badge badge-secondary"> {{deliverable_selected.status}} </span> </div>
 				</div>
 				<input v-model="deliverable_selected.title" type="text" class="form-control" @blur="update($event.target.value, deliverable_selected.id, 'title')" />
 			</div>
 			<br>
 
+			<div class="input-group mb-2 mr-sm-2">
+				<div class="input-group-prepend">
+					<div class="input-group-text"> Gallery Images Url</div>
+				</div>
+				<input v-model="deliverable_selected.url" type="url" class="form-control" @blur="update($event.target.value, deliverable_selected.id, 'url')" />
+			</div>
+			<br>
+
+			<div class="input-group mb-2 mr-sm-2">
+
+				<div class="form-row align-items-center">
+					<div class="col-sm-4 my-1">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="input-group-text">🤑 Price</div>
+							</div>
+							<input type="number" class="form-control">
+						</div>
+					</div>
+					<div class="col-sm-4 my-1">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="input-group-text"> ⏰ Hours</div>
+							</div>
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="col-sm-4 my-1">
+						<select class="custom-select mr-sm-2">
+							<option selected>{{deliverable_selected.status}}</option>
+							<option value="TO_START">TO START</option>
+							<option value="IN_PROGRESS">IN PROGRESS</option>
+							<option value="IN_REVIEW">IN REVIEW</option>
+							<option value="DONE">DONE</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<div class="input-group mb-2 mr-sm-2">
+				<div class="input-group-prepend">
+					<div class="input-group-text"> 🖍 Description </div>
+				</div>
+				<textarea v-model="deliverable_selected.description" class="form-control" @blur="update($event.target.value, deliverable_selected.id, 'description')" ></textarea>
+
+			</div>
+			<br>
+
+			<div class="input-group mb-2 mr-sm-2">
+				<div class="input-group-prepend">
+					<div class="input-group-text"> 🖌 Comments </div>
+				</div>
+				<textarea v-model="deliverable_selected.comments" class="form-control" @blur="update($event.target.value, deliverable_selected.id, 'comments')" ></textarea>
+
+			</div>
+			<br>
+
 			<!-- delete section -->
-      <a class="btn btn-warning btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-        Delete
-      </a> <br><br>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          <button class="btn btn-danger btn-sm" v-on:click="delete_deliverable(deliverable_selected.id)">Delete</button>
-        </div>
-      </div>
+			<a class="btn btn-secondary btn-sm" v-if="deliverable_selected.draft" v-on:click="draft_to_private(deliverable_selected.id)">
+				Volver Privado
+			</a>
+			<a class="btn btn-success btn-sm" v-else v-on:click="draft_to_public(deliverable_selected.id)">
+				Volver Público
+			</a>
+
+			<a class="btn btn-warning btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+				Delete
+			</a> <br><br>
+			<div class="collapse" id="collapseExample">
+				<div class="card card-body">
+					<button class="btn btn-danger btn-sm" v-on:click="delete_deliverable(deliverable_selected.id)">Delete</button>
+				</div>
+			</div>
 			<!-- delete section -->
 
-    </div><!-- Deliverable selected -->
+		</div><!-- Deliverable selected -->
 
-    <div class="col-md-8" v-else>
+		<div class="col-md-8" v-else>
 			<div class="jumbotron">
 				<h1 class="display-4">Visual Partnership</h1>
 				<p class="lead">This are important post's for this project</p>
@@ -65,7 +132,7 @@
 			</div>
 		</div>
 
-  </div>
+	</div>
 
 </div>
 

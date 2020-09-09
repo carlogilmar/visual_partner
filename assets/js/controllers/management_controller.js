@@ -59,5 +59,13 @@ export const app = new Vue({
           console.log("ERROR");
         });
     },
+		draft_to_private: function(id){
+			this.update(false, id, "draft");
+			this.deliverable_selected = null;
+		},
+		draft_to_public: function(id){
+			this.update(true, id, "draft");
+			this.deliverable_selected = null;
+		},
   }
 });
