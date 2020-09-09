@@ -1,57 +1,83 @@
-<br><br>
-<div class="container">
+<br><br><br>
 
-<div class="row">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 text-center">
+      <h1 class="oswald" style="font-size: 3.5rem;"> 🎁 <%= @deliverable.title %>  </h1>
+    </div>
+		<div class="col-md-6 text-center">
+      <%= if @deliverable.draft do %>
+      ⏰ Horas Invertidas: <%=  @deliverable.hours %><br>
+      👨🏻‍💻 Status:
+        <%= if @deliverable.status == "TO_START" do %>
+        <span class="badge badge-secondary"> 😁 Por Empezar</span>
+        <% end %>
+        <%= if @deliverable.status == "IN_PROGRESS" do %>
+        <span class="badge badge-info"> 🔥 Trabajando</span>
+        <% end %>
+        <%= if @deliverable.status == "IN_REVIEW" do %>
+        <span class="badge badge-light">🤓 Listo para Revisión</span>
+        <% end %>
+        <%= if @deliverable.status == "DONE" do %>
+        <span class="badge badge-success"> 🎁 Concluido</span>
+        <% end %>
+      <br>
+      <a href="<%=  @deliverable.url %>" target="_blank"> 🎆 Link a Drive </a><br>
+      <small> <%= raw(@deliverable.comments) %> </small>
+      <% else %>
+      <b class="oswald">🖍 Visual Partnership </b><br>
+      Esta información es para dar seguimiento exclusivamente.<br>
+        <%= if @deliverable.status == "TO_START" do %>
+        <span class="badge badge-secondary"> 😁 Por Empezar</span>
+        <% end %>
+        <%= if @deliverable.status == "IN_PROGRESS" do %>
+        <span class="badge badge-info"> 🔥 Trabajando</span>
+        <% end %>
+        <%= if @deliverable.status == "IN_REVIEW" do %>
+        <span class="badge badge-light">🤓 Listo para Revisión</span>
+        <% end %>
+        <%= if @deliverable.status == "DONE" do %>
+        <span class="badge badge-success"> 🎁 Concluido</span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <%= if @deliverable.draft do %>
+	<div class="row" style="background-color: black;">
+		<div class="card-body text-center oswald" style="color: white">
+			<strong> ⭐️ Esta información es exclusivamente para dar seguimiento. </strong>
+		</div>
+  </div>
+	<br><br>
+	<div class="row">
+		<div class="col">
 
-<table class="table table-sm text-center">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">
-        <a href="#" phx-click="new" class="btn btn-sm btn-success"> <i class="fas fa-star"></i> &nbsp; New </a>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for model <- @models do %>
-    <tr>
-      <td><%= model.id %></td>
-      <td>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">
-          <i class="fas fa-ban"></i>
-        </button>
+    <div class="card-columns">
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal<%= model.id  %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Eliminar </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ¿Quieres eliminarlo?
-                <br><br>
-                <h1 class="oswald"> <%= model.id %> </h1>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" phx-click="delete" phx-value-id="<%= model.id %>" data-dismiss="modal"> Eliminar </button>
-              </div>
-            </div>
-          </div>
+			<%= for illustration <- @deliverable.illustration do %>
+      <div class="card">
+        <img class="card-img-top" src="<%= illustration.url %>" alt="Card image cap">
+        <div class="card-body text-center">
+          <h5 class="card-title"> <%= illustration.title %> </h5>
+          <p class="card-text"><small class="text-muted">Preview</small></p>
         </div>
+      </div>
+			<% end  %>
 
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
 
-</div>
-
+		</div>
+  </div>
+  <%= else %>
+	<div class="row">
+		<div class="col text-center">
+      <br><br>
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584863922/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_3_fun73w.png" width="50%" />
+      <p class="lead">
+        Gracias por confíar en <b> Visual Partnership </b>
+      </p>
+    </div>
+  </div>
+  <% end %>
 </div>

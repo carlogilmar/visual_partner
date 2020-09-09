@@ -71,6 +71,9 @@ defmodule StarWeb.Router do
 
     ### Como Vas
     live "/personal", TaskLive
+
+    ## Show Deliverable
+    live "/deliverable/:id", DeliverableLive
   end
 
   ## Admin
@@ -91,7 +94,6 @@ defmodule StarWeb.Router do
     live "/event", EventLive
     live "/talks", TalksLive
     live "/review", ReviewLive
-    live "/deliverable", DeliverableLive
     get "/management", ManagementController, :index
   end
 

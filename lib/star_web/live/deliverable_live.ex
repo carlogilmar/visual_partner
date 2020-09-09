@@ -29,6 +29,13 @@ defmodule StarWeb.DeliverableLive do
     {:noreply, socket}
   end
 
+  def handle_params(%{"id" => id}, _url, socket) do
+    deliverable_id = String.to_integer(id)
+    deliverable = DeliverableOperator.get_by_id(deliverable_id)
+    socket = socket |> assign(:deliverable, deliverable)
+    {:noreply, socket}
+  end
+
   defp update_socket(socket) do
     models = DeliverableOperator.get_all()
 
