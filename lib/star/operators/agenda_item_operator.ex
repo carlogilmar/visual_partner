@@ -1,4 +1,5 @@
 defmodule Star.AgendaItemOperator do
+  alias Star.CourseSessionOperator
   alias Star.AgendaItem
   alias Star.Repo
 
