@@ -17,6 +17,7 @@ defmodule Star.Course do
     field :payment, :string
     field :hours, :integer
     timestamps()
+    has_many :course_session, Star.CourseSession, on_delete: :delete_all
   end
 
   @doc false
