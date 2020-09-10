@@ -9,6 +9,7 @@ defmodule Star.CourseSession do
     field :type, :string
     belongs_to :course, Star.Course
     has_many :agenda_item, Star.AgendaItem, on_delete: :delete_all
+    has_many :promo_illustration, Star.PromoIllustration, on_delete: :delete_all
     timestamps()
   end
 
