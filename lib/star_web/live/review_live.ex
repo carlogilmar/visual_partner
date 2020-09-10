@@ -29,5 +29,4 @@ defmodule StarWeb.ReviewLive do
     socket
     |> assign(:models, models)
   end
-
 end

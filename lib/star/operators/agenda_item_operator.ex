@@ -5,10 +5,11 @@ defmodule Star.AgendaItemOperator do
 
   def create(course_session_id, title) do
     course_session = CourseSessionOperator.get_by_id(course_session_id)
-     %AgendaItem{
-       title: title,
-       course_session: course_session
-      }
+
+    %AgendaItem{
+      title: title,
+      course_session: course_session
+    }
     |> Repo.insert()
   end
 
@@ -32,5 +33,4 @@ defmodule Star.AgendaItemOperator do
     |> AgendaItem.changeset(attrs)
     |> Repo.update()
   end
-
 end

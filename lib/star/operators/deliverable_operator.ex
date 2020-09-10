@@ -4,9 +4,9 @@ defmodule Star.DeliverableOperator do
   alias Star.Repo
 
   def create(title) do
-     %Deliverable{
-       title: title
-      }
+    %Deliverable{
+      title: title
+    }
     |> Repo.insert()
   end
 
@@ -31,5 +31,4 @@ defmodule Star.DeliverableOperator do
     |> Deliverable.changeset(attrs)
     |> Repo.update()
   end
-
 end

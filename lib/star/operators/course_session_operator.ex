@@ -5,9 +5,10 @@ defmodule Star.CourseSessionOperator do
 
   def create(course_id) do
     course = CourseOperator.get_by_id(course_id)
-     %CourseSession{
-       course: course
-      }
+
+    %CourseSession{
+      course: course
+    }
     |> Repo.insert()
   end
 
@@ -31,5 +32,4 @@ defmodule Star.CourseSessionOperator do
     |> CourseSession.changeset(attrs)
     |> Repo.update()
   end
-
 end

@@ -5,10 +5,11 @@ defmodule Star.IllustrationOperator do
 
   def create(deliverable_id, title) do
     deliverable = DeliverableOperator.get_by_id(deliverable_id)
-     %Illustration{
-			 title: title,
-       deliverable: deliverable
-      }
+
+    %Illustration{
+      title: title,
+      deliverable: deliverable
+    }
     |> Repo.insert()
   end
 
@@ -32,5 +33,4 @@ defmodule Star.IllustrationOperator do
     |> Illustration.changeset(attrs)
     |> Repo.update()
   end
-
 end

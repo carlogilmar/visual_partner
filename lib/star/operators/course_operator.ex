@@ -3,9 +3,9 @@ defmodule Star.CourseOperator do
   alias Star.Repo
 
   def create(title) do
-     %Course{
+    %Course{
       title: title
-      }
+    }
     |> Repo.insert()
   end
 
@@ -29,5 +29,4 @@ defmodule Star.CourseOperator do
     |> Course.changeset(attrs)
     |> Repo.update()
   end
-
 end

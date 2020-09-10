@@ -1,27 +1,27 @@
 defmodule StarWeb.DeliverableChannel do
-	use Phoenix.Channel
-	alias Star.DeliverableOperator
-	alias Star.IllustrationOperator
+  use Phoenix.Channel
+  alias Star.DeliverableOperator
+  alias Star.IllustrationOperator
 
-	def join("deliverable:join", %{}, socket) do
-		deliverables = get_deliverables()
-		{:ok, %{deliverables: deliverables}, socket}
-	end
+  def join("deliverable:join", %{}, socket) do
+    deliverables = get_deliverables()
+    {:ok, %{deliverables: deliverables}, socket}
+  end
 
-	def handle_in("deliverable:new", %{}, socket) do
-	  DeliverableOperator.create("New Deliverable")
+  def handle_in("deliverable:new", %{}, socket) do
+    DeliverableOperator.create("New Deliverable")
     {:reply, {:ok, %{deliverables: get_deliverables()}}, socket}
-	end
+  end
 
-	def handle_in("deliverable:show", %{"id" => id}, socket) do
-		{deliverable, illustrations} = get_deliverable(id)
-		{:reply, {:ok, %{deliverable: deliverable, illustrations: illustrations}}, socket}
-	end
+  def handle_in("deliverable:show", %{"id" => id}, socket) do
+    {deliverable, illustrations} = get_deliverable(id)
+    {:reply, {:ok, %{deliverable: deliverable, illustrations: illustrations}}, socket}
+  end
 
-	def handle_in("deliverable:delete", %{"id" => id}, socket) do
-	  DeliverableOperator.delete(id)
+  def handle_in("deliverable:delete", %{"id" => id}, socket) do
+    DeliverableOperator.delete(id)
     {:reply, {:ok, %{deliverables: get_deliverables()}}, socket}
-	end
+  end
 
   def handle_in("deliverable:update", %{"attr" => attr, "id" => id, "value" => value}, socket) do
     attrs = Map.new([{String.to_atom(attr), value}])
@@ -29,57 +29,67 @@ defmodule StarWeb.DeliverableChannel do
     {:reply, {:ok, %{deliverables: get_deliverables()}}, socket}
   end
 
-	def handle_in("deliverable:new_illustration", %{"id" => id, "title" => title}, socket) do
-		IllustrationOperator.create(id, title)
-		{_deliverable, illustrations} = get_deliverable(id)
+  def handle_in("deliverable:new_illustration", %{"id" => id, "title" => title}, socket) do
+    IllustrationOperator.create(id, title)
+    {_deliverable, illustrations} = get_deliverable(id)
     {:reply, {:ok, %{illustrations: illustrations}}, socket}
-	end
+  end
 
-  def handle_in("deliverable:update_illustration", %{"attr" => attr, "id" => id, "value" => value}, socket) do
+  def handle_in(
+        "deliverable:update_illustration",
+        %{"attr" => attr, "id" => id, "value" => value},
+        socket
+      ) do
     attrs = Map.new([{String.to_atom(attr), value}])
     {:ok, model} = IllustrationOperator.update(id, attrs)
-		{_deliverable, illustrations} = get_deliverable(model.deliverable_id)
+    {_deliverable, illustrations} = get_deliverable(model.deliverable_id)
     {:reply, {:ok, %{illustrations: illustrations}}, socket}
   end
 
   def handle_in("deliverable:delete_illustration", %{"id" => id}, socket) do
-    {:ok, model}= IllustrationOperator.delete(id)
-		{_deliverable, illustrations} = get_deliverable(model.deliverable_id)
+    {:ok, model} = IllustrationOperator.delete(id)
+    {_deliverable, illustrations} = get_deliverable(model.deliverable_id)
     {:reply, {:ok, %{illustrations: illustrations}}, socket}
   end
 
-	defp get_deliverables do
-		deliverables = DeliverableOperator.get_all()
-		for deliverable <- deliverables do
-			%{
-				"id" => deliverable.id,
-				"title" => deliverable.title,
-				"status" => deliverable.status,
-				"draft" => deliverable.draft
-			}
-		end
-	end
+  defp get_deliverables do
+    deliverables = DeliverableOperator.get_all()
 
-	defp get_deliverable(id) do
-		deliverable = DeliverableOperator.get_by_id(id)
+    for deliverable <- deliverables do
+      %{
+        "id" => deliverable.id,
+        "title" => deliverable.title,
+        "status" => deliverable.status,
+        "draft" => deliverable.draft
+      }
+    end
+  end
 
-		illustrations =
-			for illustration <- deliverable.illustration do
-				%{title: illustration.title, status: illustration.status, url: illustration.url, id: illustration.id}
-			end
+  defp get_deliverable(id) do
+    deliverable = DeliverableOperator.get_by_id(id)
 
-		deliverable = %{
-			comments: deliverable.comments,
-			description: deliverable.description,
-			draft: deliverable.draft,
-			hours: deliverable.hours,
-			id: deliverable.id,
-			price: deliverable.price,
-			status: deliverable.status,
-			title: deliverable.title,
-			url: deliverable.url
-		}
-		{deliverable, illustrations}
-	end
+    illustrations =
+      for illustration <- deliverable.illustration do
+        %{
+          title: illustration.title,
+          status: illustration.status,
+          url: illustration.url,
+          id: illustration.id
+        }
+      end
 
+    deliverable = %{
+      comments: deliverable.comments,
+      description: deliverable.description,
+      draft: deliverable.draft,
+      hours: deliverable.hours,
+      id: deliverable.id,
+      price: deliverable.price,
+      status: deliverable.status,
+      title: deliverable.title,
+      url: deliverable.url
+    }
+
+    {deliverable, illustrations}
+  end
 end

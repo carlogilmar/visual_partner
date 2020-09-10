@@ -11,7 +11,7 @@ defmodule Star.EnrollmentOperator do
     %Enrollment{
       user: user,
       course_session: course_session
-     }
+    }
     |> Repo.insert()
   end
 
@@ -35,5 +35,4 @@ defmodule Star.EnrollmentOperator do
     |> Enrollment.changeset(attrs)
     |> Repo.update()
   end
-
 end

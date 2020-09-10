@@ -42,5 +42,4 @@ defmodule StarWeb.DeliverableLive do
     socket
     |> assign(:models, models)
   end
-
 end

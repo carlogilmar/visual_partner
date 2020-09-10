@@ -23,7 +23,20 @@ defmodule Star.Course do
   @doc false
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:title, :slides_url, :workbook_url, :visual_guide_url, :description, :language, :duration, :requirements, :goals, :references, :payment, :hours])
+    |> cast(attrs, [
+      :title,
+      :slides_url,
+      :workbook_url,
+      :visual_guide_url,
+      :description,
+      :language,
+      :duration,
+      :requirements,
+      :goals,
+      :references,
+      :payment,
+      :hours
+    ])
     |> validate_required([])
   end
 end

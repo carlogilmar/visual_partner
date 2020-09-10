@@ -23,6 +23,5 @@ defmodule Star.Repo.Migrations.AddDeliverable do
       add :deliverable_id, references(:deliverables, on_delete: :delete_all)
       timestamps()
     end
-
   end
 end
