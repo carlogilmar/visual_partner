@@ -1,0 +1,19 @@
+defmodule Star.Enrollment do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  @primary_key {:id, :id, autogenerate: true}
+  schema "enrollments" do
+    field :status, :string, default: "ENROLL"
+    belongs_to :course_session, Star.CourseSession
+    belongs_to :user, Star.User
+    timestamps()
+  end
+
+  @doc false
+  def changeset(model, attrs) do
+    model
+    |> cast(attrs, [:status])
+    |> validate_required([])
+  end
+end

@@ -10,6 +10,7 @@ defmodule Star.CourseSession do
     belongs_to :course, Star.Course
     has_many :agenda_item, Star.AgendaItem, on_delete: :delete_all
     has_many :promo_illustration, Star.PromoIllustration, on_delete: :delete_all
+    has_many :enrollment, Star.Enrollment, on_delete: :delete_all
     timestamps()
   end
 
