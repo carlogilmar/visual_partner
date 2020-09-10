@@ -8,13 +8,14 @@ defmodule Star.CourseSession do
     field :session_date, :naive_datetime
     field :type, :string
     belongs_to :course, Star.Course
+    has_many :agenda_item, Star.AgendaItem, on_delete: :delete_all
     timestamps()
   end
 
   @doc false
-  def changeset(job, attrs) do
-    job
-    |> cast(attrs, [])
+  def changeset(model, attrs) do
+    model
+    |> cast(attrs, [:feedback, :session_date, :type])
     |> validate_required([])
   end
 end
