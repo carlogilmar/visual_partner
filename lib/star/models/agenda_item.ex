@@ -5,8 +5,8 @@ defmodule Star.AgendaItem do
   @primary_key {:id, :id, autogenerate: true}
   schema "agenda_items" do
     field :title, :string
-    field :status, :boolean
-    belongs_to :agenda_item, Star.AgendaItem
+    field :status, :boolean, default: false
+    belongs_to :course_session, Star.CourseSession
     timestamps()
   end
 
