@@ -1,0 +1,12 @@
+
+<br><br>
+<div id="app" class="container">
+
+	<div class="row text-center">
+		<h1> hola a todos </h1>
+		<lightbox :items="images"></lightbox>
+	</div>
+
+</div>
+
+<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/deliverable_controller.js") %>"></script>
