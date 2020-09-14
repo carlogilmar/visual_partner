@@ -23,6 +23,7 @@
         <% end %>
       <br>
       <a href="<%=  @deliverable.url %>" target="_blank"> 🎆 Link a Drive </a><br>
+      <a href="/deliverables/<%=  @deliverable.id%>" target="_blank"> 🌠 Galería Pública </a><br>
       <small> <%= raw(@deliverable.comments) %> </small>
       <% else %>
       <b class="oswald">🖍 Visual Partnership </b><br>

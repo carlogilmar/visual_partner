@@ -6,7 +6,7 @@ defmodule StarWeb.DeliverablesChannel do
 		deliverable_id = String.to_integer(deliverable_id)
 		deliverable = DeliverableOperator.get_by_id(deliverable_id)
 		illustrations = get_illustrations(deliverable)
-    {:ok, %{deliverable: deliverable.title, illustrations: illustrations}, socket}
+    {:ok, %{deliverable: deliverable.title, illustrations: illustrations, draft: deliverable.draft}, socket}
   end
 
 	defp get_illustrations(deliverable) do

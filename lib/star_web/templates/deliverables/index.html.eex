@@ -3,23 +3,33 @@
   <input type="hidden" id="deliverable" value="<%= @gallery %>">
   <br><br>
 
+  <!-- cloak  -->
 	<div v-cloak>
-    <h1 class="oswald text-center" style="font-size: 3.5rem;"> 🎁 {{deliverable}} </h1><br>
+    <div v-if="draft">
+      <h1 class="oswald text-center" style="font-size: 3.5rem;"> 🎁 {{deliverable}} </h1><br>
 
-	  <div class="row" style="background-color: black;">
-	  	<div class="card-body text-center oswald" style="color: white">
-	  		<strong> Colaboraciones Visual Partnership 🚀</strong>
-	  	</div>
+	    <div class="row" style="background-color: black;">
+	    	<div class="card-body text-center oswald" style="color: white">
+	    		<strong> Colaboraciones Visual Partnership 🚀</strong>
+	    	</div>
+      </div>
+	    <br><br>
+      <div class="row">
+          <carousel :per-page="1" :autoplay="true">
+          <slide v-for="image in images">
+            <img v-bind:src="image.url" width="100%" />
+          </slide>
+          </carousel>
+      </div>
     </div>
-	  <br><br>
-    <div class="row">
-        <carousel :per-page="1" :autoplay="true">
-        <slide v-for="image in images">
-          <img v-bind:src="image.url" width="100%" />
-        </slide>
-        </carousel>
+	  <div class="row" v-else>
+	  	<div class="col text-center">
+        <br><br>
+        <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584863922/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_3_fun73w.png" width="50%" />
+      </div>
     </div>
   </div>
+  <!-- cloak  -->
 
 </div>
 

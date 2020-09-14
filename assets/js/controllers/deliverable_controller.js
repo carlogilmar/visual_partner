@@ -6,6 +6,7 @@ Vue.use(VueCarousel);
 export const app = new Vue({
   el:"#app",
   data: {
+    draft: false,
     images: [],
 		deliverable: ""
   },
@@ -18,6 +19,7 @@ export const app = new Vue({
         console.log("Joined successfully");
 				this.images = resp.illustrations;
 				this.deliverable = resp.deliverable;
+        this.draft = resp.draft;
       })
       .receive("error", resp => {
         console.log("Unable to join", resp);
