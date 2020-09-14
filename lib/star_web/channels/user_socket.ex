@@ -11,6 +11,7 @@ defmodule StarWeb.UserSocket do
   channel "roster:*", StarWeb.RosterChannel
   channel "tasks:*", StarWeb.TasksChannel
   channel "deliverable:*", StarWeb.DeliverableChannel
+  channel "deliverables:*", StarWeb.DeliverablesChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After

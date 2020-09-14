@@ -1,11 +1,25 @@
+<div id="app" class="container-fluid">
 
-<br><br>
-<div id="app" class="container">
+  <input type="hidden" id="deliverable" value="<%= @gallery %>">
+  <br><br>
 
-	<div class="row text-center">
-		<h1> hola a todos </h1>
-		<lightbox :items="images"></lightbox>
-	</div>
+	<div v-cloak>
+    <h1 class="oswald text-center" style="font-size: 3.5rem;"> 🎁 {{deliverable}} </h1><br>
+
+	  <div class="row" style="background-color: black;">
+	  	<div class="card-body text-center oswald" style="color: white">
+	  		<strong> Colaboraciones Visual Partnership 🚀</strong>
+	  	</div>
+    </div>
+	  <br><br>
+    <div class="row">
+        <carousel :per-page="1" :autoplay="true">
+        <slide v-for="image in images">
+          <img v-bind:src="image.url" width="100%" />
+        </slide>
+        </carousel>
+    </div>
+  </div>
 
 </div>
 
