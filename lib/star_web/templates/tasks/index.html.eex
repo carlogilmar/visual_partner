@@ -85,11 +85,19 @@
 						<br>
             <v-calendar is-expanded :attributes="attributes" />
           </div>
-          <div class="col-md-4">
-            <apexchart :options="chartOptions" :series="series"></apexchart>
+          <div class="col-md-4 text-center">
+            <span class="lead">
+              <h3> 🚀 To Do for Today</h3>
+            </span>
+            <span class="badge badge-info" style="font-size: 1.06rem;">
+              {{current_date}}
+            </span>
+            <span class="lead oswald" v-for="element in today_tasks">
+              <br> 📌 {{element.title}}
+            </span>
           </div>
           <div class="col-md-4 text-center">
-            <h3> Montly Status </h3>
+            <h3> Monthly Status </h3>
             <apexchart :options="chartOptions2" :series="series2"></apexchart>
           </div>
         </div> <!-- row -->

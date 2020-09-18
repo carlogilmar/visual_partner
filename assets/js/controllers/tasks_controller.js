@@ -13,6 +13,8 @@ export const app = new Vue({
 		draggable,
 	},
 	data: {
+    current_date: "Current Date",
+	  today_tasks: [],
 		attributes: [],
 		todo: [],
 		doing: [],
@@ -75,32 +77,58 @@ export const app = new Vue({
 		this.channel.join()
 			.receive("ok", resp => {
 				console.log("Joined successfully");
-				console.log(resp);
 				this.tasks = resp.tasks;
 				this.generate_calendar();
 				this.todo = resp.todo;
 				this.doing = resp.doing;
 				this.done = resp.done;
 				this.update_charts(resp.tasks, resp.todo, resp.doing, resp.done);
+        this.get_current_date();
 			})
 			.receive("error", resp => {
 				console.log("Unable to join", resp);
 			});
 	},
 	methods:{
+    get_current_date: function(){
+      let date = new Date();
+      this.current_date = date.toDateString();
+    },
 		generate_calendar: function(){
 			let dates = [];
+			let today_tasks = [];
+      let dot_colors = {
+        "TO DO": 'red',
+        "DOING": 'blue',
+        "DONE": 'green'
+      }
+
 			for(let index=0; index < (this.tasks.length); index++){
 				let date = this.tasks[index];
 				let date_for_show = {
-					highlight: {backgroundColor: '#000000'},
-					contentStyle: {color: '#00000'},
+          dot: dot_colors[date.status],
 					popover: { label: date.title},
 					dates: [new Date(date.deadline)],
-				}
-				dates.push(date_for_show)
+				};
+				dates.push(date_for_show);
+
+        if(new Date(date.deadline).toDateString() === new Date().toDateString()){
+          today_tasks.push(date)
+        }
 			}
+
+      // Today
+      let today = {
+        key: 'today',
+        highlight: true,
+        dates: new Date()
+      };
+      dates.push(today);
+
+      // build attributes
 			this.attributes = dates;
+      // today tasks
+      this.today_tasks = today_tasks;
 		},
 		todo_log: function(evt) {
 			if(evt.added){
@@ -132,17 +160,14 @@ export const app = new Vue({
 				});
 		},
 		unpin: function(id){
-			console.log("unpinn");
 			this.set_pinned(id, false);
 		},
 		pin: function(id){
-			console.log("pinn");
 			this.set_pinned(id, true);
 		},
 		set_pinned: function(id, value){
 			this.channel.push("tasks:pinned", {id: id, value: value})
 				.receive('ok', (resp) => {
-					console.log("pinned");
 					this.todo = resp.todo;
 					this.doing = resp.doing;
 					this.done = resp.done;
