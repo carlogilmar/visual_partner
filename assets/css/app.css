@@ -433,3 +433,13 @@ a:hover{
 
 .unpinned {
 }
+
+[v-cloak] + #loader::before {
+  content: "loading…";
+  display: block;
+  text-align: center;
+  width: 300px;
+  height: 600px;
+  margin: 0 auto;
+  font-size: 60px;
+}
