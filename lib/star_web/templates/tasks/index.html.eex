@@ -204,6 +204,7 @@
               class="list-group-item"
               v-for="element in todo"
               :key="element.id"
+              :class="element.pinned ? 'pinned' : 'unpinned'"
               >
               <h5 class="card-title">
                 {{ element.title }}
@@ -212,13 +213,15 @@
                 {{ element.description}}
               </footer>
 
+              <small> {{new Date(element.deadline).toDateString()}} </small>
+
               <button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
                 🖌 E D I T
               </button>
 
               <div v-if="element.pinned">
-                <div class="text-center" style="background-color: #cde6ff;">
-                  <b> 📍 P I N N E D </b>
+                <div class="text-center" style="background-color: #000000;">
+                  <b style="color: #FFFFFF"> 📍 P I N N E D </b>
                 </div>
                 <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
               </div>
@@ -236,21 +239,23 @@
               class="list-group-item"
               v-for="element in doing"
               :key="element.id"
+              :class="element.pinned ? 'pinned' : 'unpinned'"
               >
               <h5 class="card-title">
-                {{ element.title }}
+                {{ element.title }} &nbsp; &nbsp;<span class="badge badge-light"> 🔥 WIP </span>
               </h5>
               <footer class="blockquote-footer">
                 {{ element.description}}
               </footer>
+              <small> {{new Date(element.deadline).toDateString()}} </small>
 
               <button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
                 🖌 E D I T
               </button>
 
               <div v-if="element.pinned">
-                <div class="text-center" style="background-color: #cde6ff;">
-                  <b> 📍 P I N N E D </b>
+                <div class="text-center" style="background-color: #000000;">
+                  <b style="color: #FFFFFF"> 📍 P I N N E D </b>
                 </div>
                 <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
               </div>
@@ -270,25 +275,9 @@
               :key="element.id"
               >
               <h5 class="card-title">
-                {{ element.title }}
+                {{ element.title }} &nbsp; &nbsp;<span class="badge badge-light"> ✅ Done </span>
               </h5>
-              <footer class="blockquote-footer">
-                {{ element.description}}
-              </footer>
-
-              <button type="button" class="btn btn-light btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" v-on:click="show_modal(element)">
-                🖌 E D I T
-              </button>
-
-              <div v-if="element.pinned">
-                <div class="text-center" style="background-color: #cde6ff;">
-                  <b> 📍 P I N N E D </b>
-                </div>
-                <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="unpin(element.id)"> Remove Pin </button>
-              </div>
-              <div v-else>
-                <button type="button" class="btn btn-link btn-sm btn-block" v-on:click="pin(element.id)"> Pin 📌</button>
-              </div>
+              <small> {{new Date(element.deadline).toDateString()}} </small>
             </div>
             </draggable>
           </div>
