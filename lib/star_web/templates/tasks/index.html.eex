@@ -287,15 +287,6 @@
 
       </div>
 
-      <!-- Loader -->
-      <div class="col-12 text-center" id="loader">
-        <h2 class="vp_color oswald"> Nada por mostrar de momento, ¡vuelva pronto! </h2>
-        <h2 class="lead_latin"> There aren't graphic recordings yet... </h2>
-        <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1584905438/visual_partner/icons/Ilustracio%CC%81n_sin_ti%CC%81tulo_ubqihw.gif" width="35%"/>
-        <h4 class="pacific"> Los actos de amor caminan </h4>
-      </div>
-      <!-- Loader -->
-
 		</div>
 	</div>
 </div>
