@@ -26,7 +26,8 @@ module.exports = (env, options) => ({
     apprentice_controller: ['./js/controllers/apprentice_controller.js'],
     tasks_controller: ['./js/controllers/tasks_controller.js'],
     management_controller: ['./js/controllers/management_controller.js'],
-    deliverable_controller: ['./js/controllers/deliverable_controller.js']
+    deliverable_controller: ['./js/controllers/deliverable_controller.js'],
+    course_creation_controller: ['./js/controllers/course_creation_controller.js']
 	},
 	output: {
 		filename: '[name].js',
