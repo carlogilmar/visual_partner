@@ -1,9 +1,36 @@
 import Vue from 'vue'
 import socket from "./../socket"
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.snow.css'
 
 export const app = new Vue({
   el:"#app",
+  components: {
+    LocalQuillEditor: VueQuillEditor.quillEditor
+  },
+  computed: {
+    editorB() {
+      return this.$refs.quillEditorB.quill
+    }
+  },
   data: {
+    editorOption: {
+      theme: 'snow',
+      modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block'],
+          [{ 'header': 1 }, { 'header': 2 }],
+          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+          [{ 'size': ['small', false, 'large', 'huge'] }],
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+          [{ 'font': [] }],
+          [{ 'color': [] }, { 'background': [] }],
+          [{ 'align': [] }],
+          ['link', 'image', 'video']
+        ],
+      }
+    },
     course: {}
   },
   created: function() {
@@ -28,6 +55,6 @@ export const app = new Vue({
         .receive("error", resp => {
           console.log("ERROR");
         });
-    },
+    }
   }
 });

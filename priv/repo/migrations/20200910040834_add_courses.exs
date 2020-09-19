@@ -9,14 +9,14 @@ defmodule Star.Repo.Migrations.AddCourses do
       add :slides_url, :string
       add :workbook_url, :string
       add :visual_guide_url, :string
-      add :description, :string
       add :language, :string
       add :duration, :string
-      add :requirements, :string
-      add :goals, :string
-      add :references, :string
-      add :payment, :string
       add :hours, :integer
+      add :description, :text
+      add :requirements, :text
+      add :goals, :text
+      add :references, :text
+      add :payment, :text
       timestamps()
     end
 

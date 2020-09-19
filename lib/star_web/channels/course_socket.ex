@@ -30,7 +30,6 @@ defmodule StarWeb.CourseChannel do
       cover_url: course.cover_url,
       duration: course.duration,
       hours: course.hours,
-
       payment: course.payment,
       references: course.references,
       requirements: course.requirements,

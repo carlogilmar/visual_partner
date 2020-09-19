@@ -1,4 +1,5 @@
 <div id="app">
+<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/email_controller.css") %>"/>
 
   <input type="hidden" id="course" value="<%= @course%>">
 
@@ -73,8 +74,48 @@
     </div>
     <input v-model="course.duration" type="text" class="form-control" @blur="update($event.target.value, course.id, 'duration')">
   </div>
-  <br>
+  <hr>
   <!-- inputs --!>
+
+	<div class="form-group">
+    <h2 class="oswald"> 📒 Description </h2>
+		<local-quill-editor
+			@blur="update(course.description, course.id, 'description')"
+			v-model="course.description" ref="quillEditorB" :options="editorOption">
+		</local-quill-editor>
+	</div>
+
+	<div class="form-group">
+    <h2 class="oswald"> 🚀 Achievements</h2>
+		<local-quill-editor
+			@blur="update(course.goals, course.id, 'goals')"
+			v-model="course.goals" ref="quillEditorB" :options="editorOption">
+		</local-quill-editor>
+	</div>
+
+	<div class="form-group">
+    <h2 class="oswald"> 💸 Payment </h2>
+		<local-quill-editor
+			@blur="update(course.payment, course.id, 'payment')"
+			v-model="course.payment" ref="quillEditorB" :options="editorOption">
+		</local-quill-editor>
+	</div>
+
+	<div class="form-group">
+    <h2 class="oswald"> 💡 References </h2>
+		<local-quill-editor
+			@blur="update(course.references, course.id, 'references')"
+			v-model="course.references" ref="quillEditorB" :options="editorOption">
+		</local-quill-editor>
+	</div>
+
+	<div class="form-group">
+    <h2 class="oswald"> 🛠 Requirements</h2>
+		<local-quill-editor
+			@blur="update(course.requirements, course.id, 'requirements')"
+			v-model="course.requirements" ref="quillEditorB" :options="editorOption">
+		</local-quill-editor>
+	</div>
 
 </main>
 
