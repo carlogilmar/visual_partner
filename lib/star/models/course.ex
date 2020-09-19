@@ -5,6 +5,7 @@ defmodule Star.Course do
   @primary_key {:id, :id, autogenerate: true}
   schema "courses" do
     field :title, :string
+    field :cover_url, :string
     field :slides_url, :string
     field :workbook_url, :string
     field :visual_guide_url, :string

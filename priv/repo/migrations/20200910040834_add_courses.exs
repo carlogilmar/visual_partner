@@ -5,6 +5,7 @@ defmodule Star.Repo.Migrations.AddCourses do
     create table(:courses, primary_key: false) do
       add :id, :serial, primary_key: true
       add :title, :string
+      add :cover_url, :string
       add :slides_url, :string
       add :workbook_url, :string
       add :visual_guide_url, :string
