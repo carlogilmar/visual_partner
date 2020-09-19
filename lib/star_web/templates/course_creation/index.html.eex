@@ -1,4 +1,3 @@
-<br><br>
 <div id="app">
 
   <input type="hidden" id="course" value="<%= @course%>">
@@ -7,9 +6,12 @@
 <header class="bg-dark py-5 mb-5">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
-      <div class="col-lg-12">
-        <h1 class="display-4 text-white mt-5 mb-2"> 📚 Training</h1>
+      <div class="col-lg-6">
+        <h3 class="display-4 text-white mt-5 mb-2"> 📚 {{course.title}} </h3>
         <p class="lead mb-5 text-white-50"> Cursos y talleres organizados por Visual Partnership</p>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img v-bind:src="course.cover_url" width="50%"/>
       </div>
     </div>
   </div>
@@ -18,11 +20,64 @@
 <main role="main" class="container">
 
   <div class="my-3 p-3 bg-white rounded box-shadow">
-    <h5 class="border-bottom border-gray pb-2 mb-0 oswald">Cursos y Talleres</h5>
+    <h5 class="border-bottom border-gray pb-2 mb-0 oswald">Edición de Cursos</h5>
   </div>
+
+  <!-- inputs --!>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"> ⭐️ Course </div>
+    </div>
+    <input v-model="course.title" type="text" class="form-control" @blur="update($event.target.value, course.id, 'title')">
+    &nbsp; &nbsp;
+    <div class="input-group-prepend">
+      <div class="input-group-text"> 🇲🇽 Lang </div>
+    </div>
+    <input v-model="course.language" type="text" class="form-control" @blur="update($event.target.value, course.id, 'language')">
+  </div>
+  <!-- inputs --!>
+
+  <!-- inputs --!>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"> 📚 Slides Url </div>
+    </div>
+    <input v-model="course.slides_url" type="text" class="form-control" @blur="update($event.target.value, course.id, 'slides_url')">
+    &nbsp; &nbsp;
+    <div class="input-group-prepend">
+      <div class="input-group-text">  🌠 Visual Guide Url </div>
+    </div>
+    <input v-model="course.visual_guide_url" type="text" class="form-control" @blur="update($event.target.value, course.id, 'visual_guide_url')">
+    &nbsp; &nbsp;
+    <div class="input-group-prepend">
+      <div class="input-group-text">  📕 Workbook Url </div>
+    </div>
+    <input v-model="course.workbook_url" type="text" class="form-control" @blur="update($event.target.value, course.id, 'workbook_url')">
+  </div>
+  <!-- inputs --!>
+
+  <!-- inputs --!>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"> 🌇 Cover Url </div>
+    </div>
+    <input v-model="course.cover_url" type="text" class="form-control" @blur="update($event.target.value, course.id, 'cover_url')">
+    &nbsp; &nbsp;
+    <div class="input-group-prepend">
+      <div class="input-group-text">  ⏰ Hours of Work </div>
+    </div>
+    <input v-model="course.hours" type="number" class="form-control" @blur="update($event.target.value, course.id, 'hours')">
+    &nbsp; &nbsp;
+    <div class="input-group-prepend">
+      <div class="input-group-text">  ⏳ Duration </div>
+    </div>
+    <input v-model="course.duration" type="text" class="form-control" @blur="update($event.target.value, course.id, 'duration')">
+  </div>
+  <br>
+  <!-- inputs --!>
+
 </main>
-</div>
 
 </div>
 
-  <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/course_creation_controller.js") %>"></script>
+<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/course_creation_controller.js") %>"></script>

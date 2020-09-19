@@ -41,7 +41,7 @@
 						  <%= model.title %>
 						</a>
 					</strong>
-          <a href="#" class="btn btn-sm btn-secondary"> 🖍 Editar</a>
+          <a href="#" phx-click="redirect_url" phx-value-uri_val="/admin/course_creation/<%= model.id%>" class="btn btn-sm btn-secondary"> 🖍 Editar</a>
         </div>
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">

@@ -26,6 +26,7 @@ defmodule Star.Course do
     model
     |> cast(attrs, [
       :title,
+      :cover_url,
       :slides_url,
       :workbook_url,
       :visual_guide_url,
