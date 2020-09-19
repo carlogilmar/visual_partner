@@ -3,6 +3,7 @@ img {
   width: 100%;
 }
 </style>
+<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/email_controller.css") %>"/>
 
 <div id="app" class="container">
 
@@ -14,7 +15,9 @@ img {
     <div class="col-md-10">
       <h1 class="oswald vp_color text-center"> {{note.title}} </h1>
       <hr>
-      <div v-html="note.body"> </div>
+      <div class="output ql-snow">
+        <div class="ql-editor" v-html="note.body"></div>
+      </div>
       <hr>
 
 			<!-- form for comment -->

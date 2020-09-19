@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import socket from "./../socket"
+import 'quill/dist/quill.snow.css'
 
 export const app = new Vue({
   el:"#app",
