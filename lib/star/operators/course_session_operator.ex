@@ -13,7 +13,7 @@ defmodule Star.CourseSessionOperator do
   end
 
   def get_by_id(id) do
-    Repo.get(CourseSession, id) |> Repo.preload([:agenda_item])
+    Repo.get(CourseSession, id) |> Repo.preload([:agenda_item, :promo_illustration])
   end
 
   def get_all do

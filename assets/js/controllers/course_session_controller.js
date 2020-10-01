@@ -28,7 +28,8 @@ export const app = new Vue({
     title: "",
     sessions: [],
     session_selected: {feedback: "Sin llenar", session_date: new Date(), items: []},
-    agenda_task: null
+    agenda_task: null,
+    promo_url: null
   },
   components: {
     LocalQuillEditor: VueQuillEditor.quillEditor
@@ -69,11 +70,9 @@ export const app = new Vue({
         });
     },
     show_session: function(id){
-      console.log("Nueva sesión");
       this.channel.push("session:show", {session: id})
         .receive('ok', (resp) => {
           console.log("DONE");
-          console.log(resp);
           this.parse_session(resp.session);
         })
         .receive("error", resp => {
@@ -105,7 +104,6 @@ export const app = new Vue({
       this.channel.push("session:add_task", {id: this.session_selected.id, description: this.agenda_task})
         .receive('ok', (resp) => {
           console.log("DONE");
-          console.log(resp);
           this.agenda_task = null;
           this.session_selected.items = resp.items;
         })
@@ -139,6 +137,27 @@ export const app = new Vue({
           console.log("DONE");
           this.sessions = resp.sessions;
           this.session_selected = {feedback: "Sin llenar", session_date: new Date(), items: []};
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
+    add_promo: function(){
+      this.channel.push("session:add_promo", {id: this.session_selected.id, url: this.promo_url})
+        .receive('ok', (resp) => {
+          console.log("DONE");
+          this.promo_url= null;
+          this.session_selected.promos = resp.promos;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
+    delete_promo: function(promo_id){
+      this.channel.push("session:delete_promo", {session: this.session_selected.id, id: promo_id})
+        .receive('ok', (resp) => {
+          console.log("DONE");
+          this.session_selected.promos = resp.promos;
         })
         .receive("error", resp => {
           console.log("ERROR");

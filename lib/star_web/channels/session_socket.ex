@@ -3,6 +3,7 @@ defmodule StarWeb.SessionChannel do
 	alias Star.AgendaItemOperator
 	alias Star.CourseOperator
 	alias Star.CourseSessionOperator
+  alias Star.PromoIllustrationOperator
 
 	def join("session:join", %{"course" => id}, socket) do
 		course_id = String.to_integer(id)
@@ -89,6 +90,32 @@ defmodule StarWeb.SessionChannel do
 		{:reply, {:ok, %{items: items}}, socket}
 	end
 
+	def handle_in(
+		"session:add_promo",
+		%{"id" => session_id, "url" => url},
+		socket
+	) do
+    PromoIllustrationOperator.create(session_id, url)
+		session =
+			session_id
+			|> CourseSessionOperator.get_by_id()
+			|> get_session()
+		{:reply, {:ok, %{promos: session.promos}}, socket}
+	end
+
+	def handle_in(
+		"session:delete_promo",
+		%{"session" => session_id, "id" => promo_id},
+		socket
+	) do
+    PromoIllustrationOperator.delete(promo_id)
+		session =
+			session_id
+			|> CourseSessionOperator.get_by_id()
+			|> get_session()
+		{:reply, {:ok, %{promos: session.promos}}, socket}
+	end
+
   defp get_items(session) do
     Enum.into(session.agenda_item, [], fn item ->
       %{
@@ -99,13 +126,23 @@ defmodule StarWeb.SessionChannel do
     end)
   end
 
+  defp get_promos(session) do
+    Enum.into(session.promo_illustration, [], fn item ->
+      %{
+        id: item.id,
+        url: item.url
+      }
+    end)
+  end
+
 	defp get_session(session) do
 		%{
 			id: session.id,
 			type: session.type,
 			session_date: session.session_date,
 			feedback: session.feedback,
-      items: get_items(session)
+      items: get_items(session),
+      promos: get_promos(session)
 		}
 	end
 

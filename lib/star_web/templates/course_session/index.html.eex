@@ -122,19 +122,51 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="card">
+					<div class="card-header text-center" id="headingThree">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed oswald" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+								🌇 Promocionales
+							</button>
+						</h5>
+					</div>
+					<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+					<div class="card-body">
+						<form v-on:submit.prevent="add_promo()">
+						<div class="input-group mb-3">
+						<input required type="text" v-model="promo_url" class="form-control" placeholder="Agregar url de promocional 📌">
+						<div class="input-group-append">
+						<button type="submit" class="btn btn-outline-secondary" type="button">Agregar</button>
+						</div>
+						</div>
+						</form>
+
+            <div class="card mb-3" v-for="promo in this.session_selected.promos">
+              <img class="card-img-top" v-bind:src="promo.url"  alt="Card image cap">
+              <div class="card-body text-center">
+							<button class="btn btn-link" v-on:click="delete_promo(promo.id)"> Delete </button>
+
+              </div>
+            </div>
+
+					</div>
+					</div>
+				</div>
+
 			</div>
 
-<br><hr>
-<p>
-  <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-		Delete Course Session
-  </a>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body text-center">
-	<button class="btn btn-danger" v-on:click="delete_session(session_selected.id)"> Delete </button>
-  </div>
-</div>
+      <br><hr>
+      <p>
+        <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      		Delete Course Session
+        </a>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body text-center">
+      	<button class="btn btn-danger" v-on:click="delete_session(session_selected.id)"> Delete </button>
+        </div>
+      </div>
 
 		</div>
 

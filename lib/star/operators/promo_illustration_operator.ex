@@ -3,11 +3,11 @@ defmodule Star.PromoIllustrationOperator do
   alias Star.PromoIllustration
   alias Star.Repo
 
-  def create(course_session_id, title) do
+  def create(course_session_id, url) do
     course_session = CourseSessionOperator.get_by_id(course_session_id)
 
     %PromoIllustration{
-      title: title,
+      url: url,
       course_session: course_session
     }
     |> Repo.insert()
