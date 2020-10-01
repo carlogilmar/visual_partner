@@ -24,6 +24,18 @@ defmodule StarWeb.SessionChannel do
 	end
 
 	def handle_in(
+		"session:delete",
+		%{"id" => id, "course" => course_id},
+		socket
+	) do
+		CourseSessionOperator.delete(id)
+		course_id = String.to_integer(course_id)
+		course = CourseOperator.get_by_id(course_id)
+		sessions = get_course_sessions(course)
+		{:reply, {:ok, %{sessions: sessions}}, socket}
+	end
+
+	def handle_in(
 		"session:show",
 		%{"session" => session_id},
 		socket
@@ -64,6 +76,17 @@ defmodule StarWeb.SessionChannel do
 		attrs = Map.new([{String.to_atom(attr), value}])
 		{:ok, _model} = AgendaItemOperator.update(id, attrs)
 		{:reply, {:ok, %{}}, socket}
+	end
+
+	def handle_in(
+		"session:delete_item",
+		%{"id" => id, "session_id" => session_id},
+		socket
+	) do
+		AgendaItemOperator.delete(id)
+    session = CourseSessionOperator.get_by_id(session_id)
+    items = get_items(session)
+		{:reply, {:ok, %{items: items}}, socket}
 	end
 
   defp get_items(session) do

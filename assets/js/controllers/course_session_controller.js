@@ -121,6 +121,28 @@ export const app = new Vue({
         .receive("error", resp => {
           console.log("ERROR");
         });
-    }
+    },
+    delete_item: function(item_id){
+      this.channel.push("session:delete_item", {id: item_id, session_id: this.session_selected.id})
+        .receive('ok', (resp) => {
+          console.log("DONE");
+          this.session_selected.items = resp.items;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
+    delete_session: function(session_id){
+      let course = document.getElementById("course").value;
+      this.channel.push("session:delete", {id: session_id, course: course})
+        .receive('ok', (resp) => {
+          console.log("DONE");
+          this.sessions = resp.sessions;
+          this.session_selected = {feedback: "Sin llenar", session_date: new Date(), items: []};
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    },
   }
 });

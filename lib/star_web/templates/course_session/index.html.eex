@@ -95,6 +95,9 @@
               <input type="text"
 							@blur="update_item($event.target.value, item.id, 'title')"
 							class="form-control" v-model="item.title" >
+              <div class="input-group-prepend">
+							  <button class="btn btn-warning" v-on:click="delete_item(item.id)"> Delete </button>
+              </div>
             </div>
 
 
@@ -120,6 +123,18 @@
 					</div>
 				</div>
 			</div>
+
+<br><hr>
+<p>
+  <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+		Delete Course Session
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body text-center">
+	<button class="btn btn-danger" v-on:click="delete_session(session_selected.id)"> Delete </button>
+  </div>
+</div>
 
 		</div>
 
