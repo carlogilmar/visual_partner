@@ -35,5 +35,4 @@ defmodule StarWeb.CourseLive do
     socket
     |> assign(:models, models)
   end
-
 end

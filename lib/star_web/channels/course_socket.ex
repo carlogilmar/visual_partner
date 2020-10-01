@@ -34,8 +34,7 @@ defmodule StarWeb.CourseChannel do
       references: course.references,
       requirements: course.requirements,
       goals: course.goals,
-      description: course.description,
+      description: course.description
     }
   end
-
 end
