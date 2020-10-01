@@ -35,6 +35,7 @@ export const app = new Vue({
     },
     show_session: function(){
       console.log("Nueva sesión");
+      this.session_selected = 1;
     },
   }
 });

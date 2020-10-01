@@ -1,10 +1,10 @@
 <br><br>
 <div class="container-fluid" id="app">
 
-  <input type="hidden" id="course" value="<%= @course%>">
+	<input type="hidden" id="course" value="<%= @course%>">
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand oswald" href="#"> <i class="fas fa-edit"></i> &nbsp; Sesiones de <span class="badge badge-secondary">{{title}}</span> &nbsp; </a>
+		<a class="navbar-brand oswald" href="#"> <i class="fas fa-edit"></i> &nbsp; Sesiones de <span class="badge badge-secondary">{{title}}</span> &nbsp; </a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -18,54 +18,85 @@
 	</nav>
 	<br>
 
-  <div class="row" v-cloak>
+	<div class="row" v-cloak>
 
-    <div class="col-md-3">
+		<div class="col-md-3">
 
 			<button class="btn btn-success btn-sm btn-block" v-on:click="new_session()"> N E W</button>
 			<br<br>
 
-      <div class="card" v-for="session in sessions">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item text-center">
-            <a class="oswald" v-on:click="show_session(session.id)" href="#"> 💖 {{session.session_date}}
-              <span v-if="session.session_date" > {{session.session_date}} </span>
-              <span v-else> Por Definir </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-
-    </div>
-
-    <div class="col-md-9" v-if="session_selected">
-			<!-- Editor !-->
-			<div class="input-group mb-2 mr-sm-2">
-				<div class="input-group-prepend">
-					<div class="input-group-text"> <i class="fas fa-edit"></i>&nbsp; Note </div>
-				</div>
-				<input v-model="note_selected.title" type="text" class="form-control" @blur="update($event.target.value, note_selected.id, 'title')">
-			</div>
-			<br>
-			<div class="input-group mb-2 mr-sm-2">
-				<div class="input-group-prepend">
-					<div class="input-group-text"> <i class="fas fa-calendar"></i>&nbsp; Fecha </div>
-				</div>
-				<input v-model="note_selected.date_desc" type="text" class="form-control" @blur="update($event.target.value, note_selected.id, 'date_desc')">
+			<div class="card" v-for="session in sessions">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item text-center">
+						<a class="oswald" v-on:click="show_session(session.id)" href="#"> 💖 {{session.session_date}}
+							<span v-if="session.session_date" > {{session.session_date}} </span>
+							<span v-else> Por Definir </span>
+						</a>
+					</li>
+				</ul>
 			</div>
 
-    </div>
 
-    <div class="col-md-8" v-else>
+		</div>
+
+		<div class="col-md-9" v-if="session_selected">
+
+			<div id="accordion">
+				<div class="card">
+					<div class="card-header text-center" id="headingOne">
+						<h5 class="mb-0">
+							<button class="btn btn-link oswald" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								⏰ Información de la Sesión
+							</button>
+						</h5>
+					</div>
+
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+						<div class="card-body">
+							Llenar fecha y tipo
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header text-center" id="headingTwo">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed oswald" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+								📌 Agenda de la Sesión
+							</button>
+						</h5>
+					</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+						<div class="card-body">
+							Añadir aquí agenda
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header text-center" id="headingThree">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed oswald" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								🚀 Feedback del Instructor
+							</button>
+						</h5>
+					</div>
+					<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+						<div class="card-body">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-md-8" v-else>
 			<div class="jumbotron">
-        <h1 class="display-4">{{title}}</h1>
+				<h1 class="display-4">{{title}}</h1>
 				<p class="lead">Sesiones por impartir</p>
 				<hr class="my-4">
 			</div>
 		</div>
 
-  </div>
+	</div>
 
 </div>
 
