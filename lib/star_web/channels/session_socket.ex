@@ -7,7 +7,7 @@ defmodule StarWeb.SessionChannel do
     course_id = String.to_integer(id)
     course = CourseOperator.get_by_id(course_id)
     sessions = get_course_sessions(course)
-    {:ok, %{sessions: sessions}, socket}
+    {:ok, %{sessions: sessions, title: course.title}, socket}
   end
 
   def handle_in(
