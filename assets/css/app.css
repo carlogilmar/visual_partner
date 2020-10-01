@@ -503,3 +503,10 @@ a:hover{
   font-weight: normal;
 }
 
+.layer7 p {
+  position: absolute;
+  bottom: 85px;
+  right: 30px;
+  margin-top: 70px;
+}
+

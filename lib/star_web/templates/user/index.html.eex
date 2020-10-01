@@ -22,7 +22,7 @@
 
   <div class="row" v-cloak>
 
-    <div class="col-md-3">
+    <div class="col-md-4">
 
     <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0158_bpdbni.png" width="100%"/>
       <div class="card">
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-8">
 			<div class="row">
 
 
@@ -53,6 +53,7 @@
           	<div class="layer7 layer7--blue">
           		<div class="text">
           			<h2 class="oswald"> <%= session.course.title %> </h2>
+          			<p> <%= get_date(session.session_date) %> </p>
           		</div>
           	</div>
           </div>
