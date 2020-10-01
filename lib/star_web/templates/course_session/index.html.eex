@@ -1,5 +1,6 @@
 <br><br>
 <div class="container-fluid" id="app">
+<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/email_controller.css") %>"/>
 
 	<input type="hidden" id="course" value="<%= @course%>">
 
@@ -37,7 +38,7 @@
 
 		</div>
 
-		<div class="col-md-9" v-if="session_selected">
+		<div class="col-md-9" v-if="session_selected.id">
 
 			<h1 class="oswald text-center">Sesion de curso | {{session_selected.type}} </h1>
 			<hr>
@@ -91,7 +92,11 @@
 						</h5>
 					</div>
 					<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-						<div class="card-body">
+					<div class="card-body">
+					<local-quill-editor
+						v-model="session_selected.feedback" ref="quillEditorB" :options="editorOption"
+						@blur="update(session_selected.feedback, session_selected.id, 'feedback')">
+						</local-quill-editor>
 						</div>
 					</div>
 				</div>

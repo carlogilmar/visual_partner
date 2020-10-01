@@ -48,7 +48,8 @@ defmodule StarWeb.SessionChannel do
 		%{
 			id: session.id,
 			type: session.type,
-			session_date: session.session_date
+			session_date: session.session_date,
+			feedback: session.feedback
 		}
 	end
 

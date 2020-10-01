@@ -4,7 +4,7 @@ defmodule Star.CourseSession do
 
   @primary_key {:id, :id, autogenerate: true}
   schema "course_sessions" do
-    field :feedback, :string
+    field :feedback, :string, default: "Feedback"
     field :session_date, :naive_datetime
     field :type, :string
     belongs_to :course, Star.Course

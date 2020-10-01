@@ -1,14 +1,41 @@
 import Vue from 'vue'
 import socket from "./../socket"
 import VCalendar from 'v-calendar';
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.snow.css'
 Vue.use(VCalendar)
 
 export const app = new Vue({
   el:"#app",
   data: {
+    editorOption: {
+      theme: 'snow',
+      modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block'],
+          [{ 'header': 1 }, { 'header': 2 }],
+          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+          [{ 'size': ['small', false, 'large', 'huge'] }],
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+          [{ 'font': [] }],
+          [{ 'color': [] }, { 'background': [] }],
+          [{ 'align': [] }],
+          ['link', 'image', 'video']
+        ],
+      }
+    },
     title: "",
     sessions: [],
-    session_selected: null
+    session_selected: { feedback: "Sin llenar", session_date: new Date()}
+  },
+  components: {
+    LocalQuillEditor: VueQuillEditor.quillEditor
+  },
+  computed: {
+    editorB() {
+      return this.$refs.quillEditorB.quill
+    }
   },
   created: function() {
     let course = document.getElementById("course").value;
@@ -61,19 +88,18 @@ export const app = new Vue({
 			}
 			this.session_selected = session;
 		},
-    algo: function(){
-    console.log("me ves?");
-    console.log(this.session_selected)
-    this.update(this.session_selected.session_date, this.session_selected.id, 'session_date' )
-    },
-    update: function(value, id, attr){
-      this.channel.push("session:update", {value: value, id: id, attr: attr})
-        .receive('ok', (resp) => {
-          console.log("DONE");
-        })
-        .receive("error", resp => {
-          console.log("ERROR");
-        });
-    },
+		update: function(value, id, attr){
+			if(value && attr && id){
+				this.channel.push("session:update", {value: value, id: id, attr: attr})
+					.receive('ok', (resp) => {
+						console.log("DONE");
+					})
+					.receive("error", resp => {
+						console.log("ERROR");
+					});
+			}else{
+				console.log("unexpected error");
+			}
+		}
 	}
 });
