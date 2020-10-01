@@ -31,6 +31,7 @@
 					<li class="list-group-item text-center">
 						<a class="oswald" v-on:click="show_session(session.id)" href="#"> 💖 {{session.session_date}}
 						</a>
+						<span v-if="session.status == 'OPEN' " class="badge badge-success"><small>{{session.status}}</small><span>
 					</li>
 				</ul>
 			</div>
@@ -40,7 +41,7 @@
 
 		<div class="col-md-9" v-if="session_selected.id">
 
-			<h1 class="oswald text-center">Sesion de curso | {{session_selected.type}} </h1>
+			<h1 class="oswald text-center">Sesion de curso  {{session_selected.type}} <span class="badge badge-secondary">{{session_selected.status}}</span></h1>
 			<hr>
 
 			<div id="accordion">
@@ -64,7 +65,21 @@
                   <div class="input-group-text"> ⭐️ Type </div>
                 </div>
                 <input type="text" v-model="session_selected.type" class="form-control" @blur="update($event.target.value, session_selected.id, 'type')">
+                &nbsp; &nbsp;
+
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">🔮 Status</label>
+                </div>
+                <select class="custom-select" v-model="session_selected.status" @blur="update($event.target.value, session_selected.id, 'status')">
+                  <option value="DRAFT">Draft</option>
+                  <option value="OPEN">Open</option>
+                  <option value="CLOSE">Close</option>
+                </select>
               </div>
+					    <local-quill-editor
+						  v-model="session_selected.description" ref="quillEditorB" :options="editorOption"
+						  @blur="update(session_selected.description, session_selected.id, 'description')">
+						  </local-quill-editor>
               <!-- inputs --!>
 						</div>
 					</div>

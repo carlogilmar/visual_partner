@@ -4,9 +4,11 @@ defmodule Star.CourseSession do
 
   @primary_key {:id, :id, autogenerate: true}
   schema "course_sessions" do
-    field :feedback, :string, default: "Feedback"
+    field :feedback, :string, default: ""
     field :session_date, :naive_datetime
     field :type, :string
+    field :status, :string, default: "DRAFT"
+    field :description, :string
     belongs_to :course, Star.Course
     has_many :agenda_item, Star.AgendaItem, on_delete: :delete_all
     has_many :promo_illustration, Star.PromoIllustration, on_delete: :delete_all
@@ -17,7 +19,7 @@ defmodule Star.CourseSession do
   @doc false
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:feedback, :session_date, :type])
+    |> cast(attrs, [:feedback, :session_date, :type, :status, :description])
     |> validate_required([])
   end
 end

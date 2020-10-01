@@ -23,8 +23,10 @@ defmodule Star.Repo.Migrations.AddCourses do
     create table(:course_sessions, primary_key: false) do
       add :id, :serial, primary_key: true
       add :feedback, :string
+      add :status, :string
       add :session_date, :naive_datetime
       add :type, :string
+      add :description, :text
       add :course_id, references(:courses, on_delete: :delete_all)
       timestamps()
     end

@@ -73,6 +73,7 @@ export const app = new Vue({
       this.channel.push("session:show", {session: id})
         .receive('ok', (resp) => {
           console.log("DONE");
+          console.log(resp)
           this.parse_session(resp.session);
         })
         .receive("error", resp => {

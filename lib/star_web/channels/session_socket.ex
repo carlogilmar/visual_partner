@@ -146,6 +146,8 @@ defmodule StarWeb.SessionChannel do
       type: session.type,
       session_date: session.session_date,
       feedback: session.feedback,
+      description: session.description,
+      status: session.status,
       items: get_items(session),
       promos: get_promos(session)
     }
@@ -156,6 +158,7 @@ defmodule StarWeb.SessionChannel do
       %{
         id: session.id,
         type: session.type,
+        status: session.status,
         session_date: parse_date(session.session_date)
       }
     end)
