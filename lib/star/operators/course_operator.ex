@@ -10,7 +10,7 @@ defmodule Star.CourseOperator do
   end
 
   def get_by_id(id) do
-    Repo.get(Course, id)
+    Repo.get(Course, id) |> Repo.preload([:course_session])
   end
 
   def get_all do

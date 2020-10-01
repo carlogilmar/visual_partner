@@ -4,6 +4,8 @@ import socket from "./../socket"
 export const app = new Vue({
   el:"#app",
   data: {
+    sessions: [],
+    session_selected: null
   },
   created: function() {
     let course = document.getElementById("course").value;
@@ -11,12 +13,18 @@ export const app = new Vue({
     this.channel.join()
       .receive("ok", resp => {
         console.log("Joined successfully");
-        console.log(resp);
+        this.sessions = resp.sessions;
       })
       .receive("error", resp => {
         console.log("Unable to join", resp);
       });
   },
   methods: {
+    new_session: function(){
+      console.log("Nueva sesión");
+    },
+    show_session: function(){
+      console.log("Nueva sesión");
+    },
   }
 });
