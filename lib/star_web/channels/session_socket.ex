@@ -1,5 +1,6 @@
 defmodule StarWeb.SessionChannel do
 	use Phoenix.Channel
+	alias Star.AgendaItemOperator
 	alias Star.CourseOperator
 	alias Star.CourseSessionOperator
 
@@ -44,12 +45,44 @@ defmodule StarWeb.SessionChannel do
 		{:reply, {:ok, %{}}, socket}
 	end
 
+	def handle_in(
+		"session:add_task",
+		%{"id" => session_id, "description" => description},
+		socket
+	) do
+    AgendaItemOperator.create(session_id, description)
+    session = CourseSessionOperator.get_by_id(session_id)
+    items = get_items(session)
+		{:reply, {:ok, %{items: items}}, socket}
+	end
+
+	def handle_in(
+		"session:update_item",
+		%{"attr" => attr, "id" => id, "value" => value},
+		socket
+	) do
+		attrs = Map.new([{String.to_atom(attr), value}])
+		{:ok, _model} = AgendaItemOperator.update(id, attrs)
+		{:reply, {:ok, %{}}, socket}
+	end
+
+  defp get_items(session) do
+    Enum.into(session.agenda_item, [], fn item ->
+      %{
+        id: item.id,
+        title: item.title,
+        status: item.status
+      }
+    end)
+  end
+
 	defp get_session(session) do
 		%{
 			id: session.id,
 			type: session.type,
 			session_date: session.session_date,
-			feedback: session.feedback
+			feedback: session.feedback,
+      items: get_items(session)
 		}
 	end
 
