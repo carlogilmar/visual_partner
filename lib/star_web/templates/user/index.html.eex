@@ -43,20 +43,23 @@
     <div class="col-md-9">
 			<div class="row">
 
+
+			  <%= for session <- @courses do %>
         <!-- card --!>
         <div class="col-12 col-md-6">
           <div class="card_course">
-          	<div class="layer2 layer2--blue"></div>
+          	<div class="layer2" style="background-image: url(<%= session.course.cover_url %>)"></div>
           	<div class="layer5 layer5--blue"></div>
           	<div class="layer7 layer7--blue">
           		<div class="text">
-          			<h2 class="oswald"> Introducción al Visual Thinking</h2>
+          			<h2 class="oswald"> <%= session.course.title %> </h2>
           		</div>
           	</div>
           </div>
 			    <h4 class="oswald text-center"> Inscribir </h4>
         </div>
         <!-- card --!>
+				<% end %>
 
 			</div>
 		</div>
