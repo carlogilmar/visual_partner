@@ -1,12 +1,25 @@
 defmodule StarWeb.SessionChannel do
   use Phoenix.Channel
   alias Star.CourseOperator
+  alias Star.CourseSessionOperator
 
   def join("session:join", %{"course" => id}, socket) do
     course_id = String.to_integer(id)
     course = CourseOperator.get_by_id(course_id)
     sessions = get_course_sessions(course)
     {:ok, %{sessions: sessions}, socket}
+  end
+
+  def handle_in(
+        "session:new",
+        %{"course" => course_id},
+        socket
+      ) do
+    course_id = String.to_integer(course_id)
+    CourseSessionOperator.create(course_id)
+    course = CourseOperator.get_by_id(course_id)
+    sessions = get_course_sessions(course)
+    {:reply, {:ok, %{sessions: sessions}}, socket}
   end
 
   def handle_in(

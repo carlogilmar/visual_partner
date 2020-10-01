@@ -21,7 +21,15 @@ export const app = new Vue({
   },
   methods: {
     new_session: function(){
-      console.log("Nueva sesión");
+      let course = document.getElementById("course").value;
+      this.channel.push("session:new", {course: course})
+        .receive('ok', (resp) => {
+          console.log("DONE");
+          this.sessions = resp.sessions;
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
     },
     show_session: function(){
       console.log("Nueva sesión");
