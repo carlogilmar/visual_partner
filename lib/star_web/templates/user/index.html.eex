@@ -1,16 +1,69 @@
 <br><br>
-<div id="app" class="container">
-  <div class="row">
-    <h2> Usuario </h2>
-    <ul>
-      <li> Email: <span><%= @user.email %></span> </li>
-      <li> Name: <span><%= @user.name %></span> </li>
-    </ul>
-    <h2> Cursos Disponibles</h2>
-    <ul>
-      <%= for session <- @courses do %>
-        <li> <%= session.course.title %>  </li>
-      <% end %>
-    </ul>
+<div class="container" id="app">
+  <!-- User iD --!>
+	<input type="hidden" id="user" value="<%= @user.identifier%>">
+
+  <!-- Nav Bar--!>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand oswald" href="#"> 👋 Bienvenido <%= @user.name %> </a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+			</ul>
+			<span class="navbar-text">
+				<a href="<%= Routes.static_path(@conn, "/logout")%>"> <i class="fas fa-sign-out-alt"></i> Salir</a>
+			</span>
+		</div>
+	</nav>
+  <!-- Nav Bar--!>
+	<br>
+
+  <div class="row" v-cloak>
+
+    <div class="col-md-3">
+
+    <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0158_bpdbni.png" width="100%"/>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Mi Perfil
+          </li>
+          <li class="list-group-item">
+            Cursos Completados
+          </li>
+          <li class="list-group-item">
+            Mis Próximos Cursos
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+			<div class="row">
+
+        <!-- card --!>
+        <div class="col-12 col-md-6">
+          <div class="card_course">
+          	<div class="layer2 layer2--blue"></div>
+          	<div class="layer5 layer5--blue"></div>
+          	<div class="layer7 layer7--blue">
+          		<div class="text">
+          			<h2 class="oswald"> Introducción al Visual Thinking</h2>
+          		</div>
+          	</div>
+          </div>
+			    <h4 class="oswald text-center"> Inscribir </h4>
+        </div>
+        <!-- card --!>
+
+			</div>
+		</div>
   </div>
+
+
 </div>
+
+<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/user_controller.js") %>"></script>
+
