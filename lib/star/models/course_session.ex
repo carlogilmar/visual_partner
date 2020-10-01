@@ -6,7 +6,7 @@ defmodule Star.CourseSession do
   schema "course_sessions" do
     field :feedback, :string, default: ""
     field :session_date, :naive_datetime
-    field :type, :string
+    field :type, :string, default: "PUBLIC"
     field :status, :string, default: "DRAFT"
     field :description, :string
     belongs_to :course, Star.Course

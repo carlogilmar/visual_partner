@@ -41,7 +41,7 @@
 
 		<div class="col-md-9" v-if="session_selected.id">
 
-			<h1 class="oswald text-center">Sesion de curso  {{session_selected.type}} <span class="badge badge-secondary">{{session_selected.status}}</span></h1>
+			<h1 class="oswald text-center">Sesión de curso <span class="badge badge-secondary">{{session_selected.status}}</span></h1>
 			<hr>
 
 			<div id="accordion">
@@ -64,7 +64,11 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"> ⭐️ Type </div>
                 </div>
-                <input type="text" v-model="session_selected.type" class="form-control" @blur="update($event.target.value, session_selected.id, 'type')">
+                <select class="custom-select" v-model="session_selected.type" @blur="update($event.target.value, session_selected.id, 'type')">
+                  <option value="PUBLIC">Público</option>
+                  <option value="PAID">De Pago</option>
+                  <option value="PRIVATE">Privado</option>
+                </select>
                 &nbsp; &nbsp;
 
                 <div class="input-group-prepend">

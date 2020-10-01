@@ -47,6 +47,7 @@
 			  <%= for session <- @courses do %>
         <!-- card --!>
         <div class="col-12 col-md-6">
+				  <a href="#" class="redvp">
           <div class="card_course">
           	<div class="layer2" style="background-image: url(<%= session.course.cover_url %>)"></div>
           	<div class="layer5 layer5--blue"></div>
@@ -58,6 +59,7 @@
           	</div>
           </div>
 			    <h4 class="oswald text-center"> Inscribir </h4>
+					</a>
         </div>
         <!-- card --!>
 				<% end %>
