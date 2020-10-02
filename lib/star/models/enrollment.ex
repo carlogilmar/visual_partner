@@ -25,7 +25,7 @@ defmodule Star.Enrollment do
   @doc false
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:status])
+    |> cast(attrs, [:status, :location, :expectations, :occupation, :detonator, :finished, :rate, :favourites, :worst, :instructor_feedback, :comments])
     |> validate_required([])
   end
 end
