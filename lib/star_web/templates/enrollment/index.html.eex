@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/email_controller.css") %>"/>
+<br><br>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <img src="<%= @course_session.course.cover_url %>" width="100%"/>
+    </div>
+    <div class="col-md-4 text-center align-items-center justify-content-center">
+      <h1 class="oswald vp_color text-center"> <%= @course_session.course.title %> </h1>
+      <span class="oswald"> 📆 Fecha: <b> <%= get_date(@course_session.session_date)%> </b></span>
+      <br><span class="oswald"> ⏰ Duración: <b> <%= @course_session.course.duration%> horas. </b></span>
+      <br><span class="oswald"> 💭 Idioma: <b> <%= @course_session.course.language %>  </b></span>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <br>
+
+  <%= if @course_session.status == "OPEN" do %>
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <!-- section --!>
+      <div class="card output ql-snow">
+        <div class="ql-editor">
+          <%= raw(@course_session.description) %>
+        </div>
+      </div>
+      <!-- section --!>
+		  <br>
+
+      <!-- section --!>
+      <h2 class="oswald vp_color"> 🚀 Descripción </h2><hr>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+          <%= raw(@course_session.course.description) %>
+        </div>
+      </div>
+      <!-- section --!>
+
+      <!-- section --!>
+      <h2 class="oswald vp_color"> 🏆 ¿Qué lograrás? </h2><hr>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+          <%= raw(@course_session.course.goals) %>
+        </div>
+      </div>
+      <!-- section --!>
+
+    </div><!-- end col md 12 --!>
+
+  </div><!-- row --!>
+
+  <div class="row">
+    <div class="col-md-6">
+      <!-- section --!>
+      <h2 class="oswald vp_color"> 💸 Sobre este curso: </h2><hr>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+          <%= raw(@course_session.course.payment) %>
+        </div>
+      </div>
+      <!-- section --!>
+    </div>
+    <div class="col-md-6">
+      <!-- section --!>
+      <h2 class="oswald vp_color"> 📌 Necesitarás: </h2><hr>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+          <%= raw(@course_session.course.requirements) %>
+        </div>
+      </div>
+      <!-- section --!>
+    </div>
+  </div>
+
+	<% else %>
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Visual Partnership</h1>
+      <p class="lead">Este curso esta inhabilitado para inscribirse.</p>
+      <hr class="my-4">
+    </div>
+	<% end %>
+
+</div><!-- container end --!>
+
