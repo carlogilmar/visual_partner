@@ -8,6 +8,18 @@
       <img src="<%= @course_session.course.cover_url %>" width="100%"/>
     </div>
     <div class="col-md-8">
+
+    <%= if @enrollment do %>
+
+      <br><br><br>
+      <h2 class="oswald vp_color text-center"> ✅ ¡Asistirás a este curso! </h2><hr>
+      <p class="lead text-center"> Muchas gracias por haberte registrado, puedes ver en tus próximos cursos los detalles a seguir.<br>
+      <a href="#" phx-click="redirect_url" phx-value-uri_val="/user" class="btn btn-sm btn-secondary"> Regresar 😁 </a>
+      </p>
+
+    <% else %>
+
+      <!-- Registro --!>
       <h2 class="oswald vp_color text-center"> 🚀 Registro de Asistencia </h2><hr>
       <p class="lead text-center"> Muchas gracias por inciar tu registro, necesitamos conocer algunas cosas sobre ti, esto nos ayuda a mejorar cada vez más la experiencia de aprendizaje, muchas gracias por tomarte el tiempo. </p>
 
@@ -32,6 +44,8 @@
         <button type="submit" class="btn btn-block btn-sm btn-success oswald"> Concluir Registro 🚀</button>
       </form>
       <!-- Form --!>
+      <!-- Registro --!>
+    <% end %>
 
     </div>
   </div>
