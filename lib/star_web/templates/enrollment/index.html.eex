@@ -22,6 +22,14 @@
   <%= if @course_session.status == "OPEN" do %>
   <div class="row">
 
+    <div class="col-md-12 text-center">
+    <%= if @enrollment do %>
+      <h2 class="oswald">¡Asistirás a este curso! ⭐️</h2>
+	  <% else %>
+      <a href="<%= Routes.static_path(@conn, "/user/registration")%>/<%= @user.identifier%>/<%= @course_session.id%>" class="btn  btn-primary mb-2 btn_taj oswald"> <b>¡Quiero asistir! ⭐️</b> </a>
+	  <% end %>
+    </div>
+
     <div class="col-md-12">
 
       <!-- section --!>
@@ -79,7 +87,11 @@
   </div>
 
   <nav class="navbar navbar-expand-sm fixed-bottom nav_color justify-content-center bg-dark">
-	  <a href="<%= Routes.static_path(@conn, "/user/registration")%>/<%= @user.identifier%>/<%= @course_session.id%>" class="btn  btn-primary mb-2 btn_taj oswald"> <b>¡Quiero asistir! ⭐️</b> </a>
+    <%= if @enrollment do %>
+      <h2 class="oswald text-white">¡Asistirás a este curso! ⭐️</h2>
+	  <% else %>
+      <a href="<%= Routes.static_path(@conn, "/user/registration")%>/<%= @user.identifier%>/<%= @course_session.id%>" class="btn  btn-primary mb-2 btn_taj oswald"> <b>¡Quiero asistir! ⭐️</b> </a>
+	  <% end %>
   </nav>
 
 	<% else %>
