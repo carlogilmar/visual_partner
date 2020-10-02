@@ -49,6 +49,19 @@ defmodule Star.Repo.Migrations.AddCourses do
 
     create table(:enrollments, primary_key: false) do
       add :id, :serial, primary_key: true
+      #Expectations
+      add :location, :string
+      add :expectations, :text
+      add :occupation, :string
+      add :detonator, :string
+      # Feedback
+      add :finished, :string
+      add :rate, :integer
+      add :favourites, :text
+      add :worst, :text
+      add :instructor_feedback, :text
+      add :comments, :text
+      # relationships
       add :course_session_id, references(:course_sessions, on_delete: :delete_all)
       add :user_id, references(:users, on_delete: :delete_all)
       add :status, :string
