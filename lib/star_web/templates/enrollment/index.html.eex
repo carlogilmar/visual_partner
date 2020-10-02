@@ -78,6 +78,10 @@
     </div>
   </div>
 
+  <nav class="navbar navbar-expand-sm fixed-bottom nav_color justify-content-center bg-dark">
+	  <a href="" class="btn  btn-primary mb-2 btn_taj oswald"> <b>¡Quiero asistir! ⭐️</b> </a>
+  </nav>
+
 	<% else %>
     <div class="jumbotron text-center">
       <h1 class="display-4">Visual Partnership</h1>
