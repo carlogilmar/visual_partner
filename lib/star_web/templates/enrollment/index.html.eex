@@ -79,7 +79,7 @@
   </div>
 
   <nav class="navbar navbar-expand-sm fixed-bottom nav_color justify-content-center bg-dark">
-	  <a href="" class="btn  btn-primary mb-2 btn_taj oswald"> <b>¡Quiero asistir! ⭐️</b> </a>
+	  <a href="<%= Routes.static_path(@conn, "/user/registration")%>/<%= @user.identifier%>/<%= @course_session.id%>" class="btn  btn-primary mb-2 btn_taj oswald"> <b>¡Quiero asistir! ⭐️</b> </a>
   </nav>
 
 	<% else %>

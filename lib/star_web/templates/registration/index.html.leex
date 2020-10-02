@@ -1,0 +1,39 @@
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h4 class="oswald vp_color text-center"> <%= @course_session.course.title %> </h4>
+      <br>
+      <img src="<%= @course_session.course.cover_url %>" width="100%"/>
+    </div>
+    <div class="col-md-8">
+      <h2 class="oswald vp_color text-center"> 🚀 Registro de Asistencia </h2><hr>
+      <p class="lead text-center"> Muchas gracias por inciar tu registro, necesitamos conocer algunas cosas sobre ti, esto nos ayuda a mejorar cada vez más la experiencia de aprendizaje, muchas gracias por tomarte el tiempo. </p>
+
+      <!-- Form --!>
+      <form phx-submit="save">
+        <div class="form-group">
+          <label class="oswald"> 📍 Cuéntanos ¿De dónde eres? País/Ciudad </label>
+          <input type="text" required class="form-control" name="enrollment[location]">
+        </div>
+        <div class="form-group">
+          <label class="oswald"> 💻 ¿A qué te dedicas actualmente? Platícanos qué estudias, de qué trabajas, que te gusta aprender, queremos saber más sobre ti </label>
+          <input type="text" required class="form-control" name="enrollment[occupation]">
+        </div>
+        <div class="form-group">
+          <label class="oswald"> 📱 ¿Cómo te enteraste de este curso? </label>
+          <input type="text" required class="form-control" name="enrollment[detonator]">
+        </div>
+        <div class="form-group">
+          <label class="oswald">🚀 ¿Por qué quieres tomar este taller y que esperas aprender?</label>
+          <textarea class="form-control" name="enrollment[expectations]" required rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-block btn-sm btn-success oswald"> Concluir Registro 🚀</button>
+      </form>
+      <!-- Form --!>
+
+    </div>
+  </div>
+</div>
+

@@ -106,5 +106,6 @@ defmodule StarWeb.Router do
     pipe_through [:browser, :browser_pipeline, :ensure_auth]
     get "/", UserController, :index
     get "/enrollment/:id", EnrollmentController, :index
+    live "/registration/:user_id/:course_id", RegistrationLive
   end
 end
