@@ -43,6 +43,7 @@
 				<h4 class="oswald bluevp"> 💖 Cursos Disponibles </h4><br>
 			<% else %>
         <div class="jumbotron text-center">
+					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081573/open_visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_46_kmdl4s.png" width="30%">
           <h1 class="display-4">Próximos cursos 🎨</h1>
           <p class="lead"> Aquí encontrarás los siguientes cursos.</p>
           <hr class="my-4">
@@ -102,7 +103,8 @@
 				<h3 class="oswald bluevp"> 🚀 Asistirás a estos próximos cursos: </h3><br>
 			<% else %>
         <div class="jumbotron text-center">
-          <h1 class="display-4"> Próximos Cursos 🎁</h1>
+					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601701998/open_visual_partner/5430770_wboizk.png" width="30%">
+          <h1 class="display-4"> Tus Cursos 🎁</h1>
           <p class="lead"> Aquí verás los cursos a los que asistirás.</p>
           <hr class="my-4">
         </div>
