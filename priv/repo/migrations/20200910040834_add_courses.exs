@@ -49,7 +49,7 @@ defmodule Star.Repo.Migrations.AddCourses do
 
     create table(:enrollments, primary_key: false) do
       add :id, :serial, primary_key: true
-      #Expectations
+      # Expectations
       add :location, :string
       add :expectations, :text
       add :occupation, :string

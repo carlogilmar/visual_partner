@@ -5,7 +5,16 @@ defmodule Star.EnrollmentOperator do
   alias Star.Enrollment
   alias Star.Repo
 
-  def create(%{"detonator" => detonator, "expectations" => expectations, "location" => location, "occupation" => occupation}, course_session_id, user_identifier) do
+  def create(
+        %{
+          "detonator" => detonator,
+          "expectations" => expectations,
+          "location" => location,
+          "occupation" => occupation
+        },
+        course_session_id,
+        user_identifier
+      ) do
     course_session = CourseSessionOperator.get_by_id(course_session_id)
     user = UserOperator.get_by_identifier(user_identifier)
 
@@ -30,8 +39,19 @@ defmodule Star.EnrollmentOperator do
 
   def get_by_course_session_and_user(course_session_id, user_identifier) do
     user = UserOperator.get_by_identifier(user_identifier)
-    query = from(e in Enrollment, where: e.user_id == ^user.id and e.course_session_id == ^course_session_id)
+
+    query =
+      from(e in Enrollment,
+        where: e.user_id == ^user.id and e.course_session_id == ^course_session_id
+      )
+
     query |> Repo.one()
+  end
+
+  def get_all_by_user_and_status(user_id, status) do
+    query = from(e in Enrollment, where: e.user_id == ^user_id)
+    enrollments = query |> Repo.all() |> Repo.preload(course_session: [:course])
+    Enum.filter(enrollments, fn enrollment -> enrollment.course_session.status == status end)
   end
 
   def delete(id) do

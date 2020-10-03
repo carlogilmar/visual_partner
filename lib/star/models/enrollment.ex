@@ -5,7 +5,7 @@ defmodule Star.Enrollment do
   @primary_key {:id, :id, autogenerate: true}
   schema "enrollments" do
     field :status, :string, default: "ENROLL"
-    #Expectations
+    # Expectations
     field :location, :string
     field :expectations, :string
     field :occupation, :string
@@ -25,7 +25,19 @@ defmodule Star.Enrollment do
   @doc false
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:status, :location, :expectations, :occupation, :detonator, :finished, :rate, :favourites, :worst, :instructor_feedback, :comments])
+    |> cast(attrs, [
+      :status,
+      :location,
+      :expectations,
+      :occupation,
+      :detonator,
+      :finished,
+      :rate,
+      :favourites,
+      :worst,
+      :instructor_feedback,
+      :comments
+    ])
     |> validate_required([])
   end
 end
