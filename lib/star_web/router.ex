@@ -102,7 +102,7 @@ defmodule StarWeb.Router do
   end
 
   ## Users
-  scope "/user", StarWeb do
+  scope "/dashboard", StarWeb do
     pipe_through [:browser, :browser_pipeline, :ensure_auth]
     get "/", UserController, :index
     get "/enrollment/:id", EnrollmentController, :index
