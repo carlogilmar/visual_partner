@@ -7,20 +7,18 @@
   <div class="row" v-cloak>
 
 	  <!-- First column  --!>
-    <div class="col-md-7">
+    <div class="col-md-4">
 
 		  <!-- Profile --!>
 			<div class="row">
-        <div class="col-12">
+        <div class="col-12 text-center">
+				  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0157_ggarsn.png" width="80%"/>
 			    <div class="card">
 			      <div class="card-body text-center">
 						<span class="lead oswald"> Bienvenido <%= @user.name %> 👋</span>
             <ul class="nav justify-content-center">
               <li class="nav-item">
-                <a class="nav-link redvp oswald" href="#">Mis Cursos 📚</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link redvp oswald" href="#">Editar Perfil 👤</a>
+                <a class="nav-link redvp oswald" href="#">Mi Aprendizaje 📚</a>
               </li>
               <li class="nav-item">
 								<a class="nav-link redvp oswald" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -38,6 +36,59 @@
 			  </div>
 			</div><br>
 		  <!-- Profile --!>
+
+      <!-- mis proximos cursos --!>
+			<%= if @open != [] do %>
+				<h3 class="oswald bluevp"> 🚀 Asistirás a estos próximos cursos: </h3><br>
+			<% else %>
+        <div class="jumbotron text-center">
+					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601701998/open_visual_partner/5430770_wboizk.png" width="30%">
+          <h1 class="display-4"> Tus Cursos 🎁</h1>
+          <p class="lead"> Aquí verás los cursos a los que asistirás.</p>
+          <hr class="my-4">
+        </div>
+			<% end %>
+
+      <div class="row">
+        <%= for enrollment <- @open do %>
+          <div class="col-md-12">
+            <div class="card bg-dark text-white mb-3">
+              <div class="card-body text-center">
+              <h2 class="card-title">
+              <%=enrollment.course_session.course.title %>
+              </h2>
+              <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
+              <span class="badge badge-light oswald"> Asistirás a este curso 🔥</span>
+              </div>
+            </div>
+          </div>
+        <%= end %>
+      </div>
+      <!-- mis proximos cursos --!>
+
+    </div>
+	  <!-- First column  --!>
+
+	  <!-- Second column  --!>
+    <div class="col-md-8">
+
+      <!-- mis proximos cursos --!>
+      <div class="row">
+        <%= for enrollment <- @in_course do %>
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header text-center oswald">
+                <%=enrollment.course_session.course.title %>
+              </div>
+              <img class="card-img" src="<%=enrollment.course_session.course.cover_url %>" alt="Card image">
+              <div class="card-footer text-center">
+            		<a href="#" class="btn btn-success"> Entrar 🔥 </a>
+              </div>
+            </div>
+          </div>
+        <%= end %>
+      </div><br>
+      <!-- mis proximos cursos --!>
 
 			<%= if @courses != [] do %>
 				<h4 class="oswald bluevp"> 💖 Cursos Disponibles </h4><br>
@@ -74,58 +125,6 @@
 				<% end %>
 			</div>
       <!-- cursos disponibles --!>
-    </div>
-	  <!-- First column  --!>
-
-	  <!-- Second column  --!>
-    <div class="col-md-5">
-
-      <!-- mis proximos cursos --!>
-      <div class="row">
-        <%= for enrollment <- @in_course do %>
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header text-center oswald">
-                <%=enrollment.course_session.course.title %>
-              </div>
-              <img class="card-img" src="<%=enrollment.course_session.course.cover_url %>" alt="Card image">
-              <div class="card-footer text-center">
-            		<a href="#" class="btn btn-success"> Entrar 🔥 </a>
-              </div>
-            </div>
-          </div>
-        <%= end %>
-      </div><br>
-      <!-- mis proximos cursos --!>
-
-      <!-- mis proximos cursos --!>
-			<%= if @open != [] do %>
-				<h3 class="oswald bluevp"> 🚀 Asistirás a estos próximos cursos: </h3><br>
-			<% else %>
-        <div class="jumbotron text-center">
-					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601701998/open_visual_partner/5430770_wboizk.png" width="30%">
-          <h1 class="display-4"> Tus Cursos 🎁</h1>
-          <p class="lead"> Aquí verás los cursos a los que asistirás.</p>
-          <hr class="my-4">
-        </div>
-			<% end %>
-
-      <div class="row">
-        <%= for enrollment <- @open do %>
-          <div class="col-md-12">
-            <div class="card bg-dark text-white mb-3">
-              <div class="card-body text-center">
-              <h2 class="card-title">
-              <%=enrollment.course_session.course.title %>
-              </h2>
-              <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
-              <span class="badge badge-light oswald"> Asistirás a este curso 🔥</span>
-              </div>
-            </div>
-          </div>
-        <%= end %>
-      </div>
-      <!-- mis proximos cursos --!>
 
 		</div>
 	  <!-- Second column  --!>
