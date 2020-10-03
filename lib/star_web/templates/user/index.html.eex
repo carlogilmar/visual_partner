@@ -1,54 +1,88 @@
 <br><br>
-<div class="container" id="app">
+<div class="container" id="app" style="max-width: 100%;">
   <!-- User iD --!>
 	<input type="hidden" id="user" value="<%= @user.identifier%>">
 
-  <!-- Nav Bar--!>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand oswald" href="#"> 👋 Bienvenido <%= @user.name %> </a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav mr-auto">
-			</ul>
-			<span class="navbar-text">
-				<a href="<%= Routes.static_path(@conn, "/logout")%>"> <i class="fas fa-sign-out-alt"></i> Salir</a>
-			</span>
-		</div>
-	</nav>
-  <!-- Nav Bar--!>
-	<br>
-
+  <!-- Main row --!>
   <div class="row" v-cloak>
 
-    <div class="col-md-4">
+	  <!-- First column  --!>
+    <div class="col-md-7">
 
-    <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0158_bpdbni.png" width="100%"/>
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            Mi Perfil
-          </li>
-          <li class="list-group-item">
-            Cursos Completados
-          </li>
-          <li class="list-group-item">
-            Mis Próximos Cursos
-          </li>
-        </ul>
-      </div>
+		  <!-- Profile --!>
+			<div class="row">
+        <div class="col-12">
+			    <div class="card">
+			      <div class="card-body text-center">
+						<span class="lead oswald"> Bienvenido <%= @user.name %> 👋</span>
+            <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link redvp oswald" href="#">Mis Cursos 📚</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link redvp oswald" href="#">Editar Perfil 👤</a>
+              </li>
+              <li class="nav-item">
+								<a class="nav-link redvp oswald" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+								Logout 👣
+								</a>
+						  </li>
+            </ul>
+
+						<div class="collapse text-center" id="collapseExample">
+							<br><a href="<%= Routes.static_path(@conn, "/logout")%>" class="btn btn-sm btn-warning oswald"> <i class="fas fa-sign-out-alt"></i> Cerrar Sesión en Visual Partnership</a>
+						</div>
+
+			      </div>
+			    </div>
+			  </div>
+			</div><br>
+		  <!-- Profile --!>
+
+			<%= if @courses != [] do %>
+				<h4 class="oswald bluevp"> 💖 Cursos Disponibles </h4><br>
+			<% else %>
+        <div class="jumbotron text-center">
+          <h1 class="display-4">Próximos cursos 🎨</h1>
+          <p class="lead"> Aquí encontrarás los siguientes cursos.</p>
+          <hr class="my-4">
+        </div>
+			<% end %>
+
+      <!-- cursos disponibles --!>
+			<div class="row">
+
+			  <%= for session <- @courses do %>
+        <!-- card --!>
+        <div class="col-12 col-md-6">
+          <a href="<%= Routes.static_path(@conn, "/user/enrollment/")%><%= session.course.id %>" class="redvp">
+            <div class="card_course">
+            	<div class="layer2" style="background-image: url(<%= session.course.cover_url %>)"></div>
+            	<div class="layer5 layer5--blue"></div>
+            	<div class="layer7 layer7--blue">
+            		<div class="text">
+            			<h2 class="oswald"> <%= session.course.title %> </h2>
+            			<p> <%= get_date(session.session_date) %> </p>
+            		</div>
+            	</div>
+            </div>
+			      <h4 class="oswald text-center"> Inscribir </h4>
+					</a>
+        </div>
+        <!-- card --!>
+				<% end %>
+			</div>
+      <!-- cursos disponibles --!>
     </div>
+	  <!-- First column  --!>
 
-    <div class="col-md-8">
+	  <!-- Second column  --!>
+    <div class="col-md-5">
 
       <!-- mis proximos cursos --!>
-      <br><br>
       <div class="row">
-
         <%= for enrollment <- @in_course do %>
-          <div class="col-md-1"></div>
-          <div class="col-md-10">
+          <div class="col-md-12">
             <div class="card">
               <div class="card-header text-center oswald">
                 <%=enrollment.course_session.course.title %>
@@ -63,32 +97,17 @@
       </div><br>
       <!-- mis proximos cursos --!>
 
-			<div class="row">
-
-			  <%= for session <- @courses do %>
-        <!-- card --!>
-        <div class="col-12 col-md-6">
-        <a href="<%= Routes.static_path(@conn, "/user/enrollment/")%><%= session.course.id %>" class="redvp">
-          <div class="card_course">
-          	<div class="layer2" style="background-image: url(<%= session.course.cover_url %>)"></div>
-          	<div class="layer5 layer5--blue"></div>
-          	<div class="layer7 layer7--blue">
-          		<div class="text">
-          			<h2 class="oswald"> <%= session.course.title %> </h2>
-          			<p> <%= get_date(session.session_date) %> </p>
-          		</div>
-          	</div>
-          </div>
-			    <h4 class="oswald text-center"> Inscribir </h4>
-					</a>
-        </div>
-        <!-- card --!>
-				<% end %>
-
-			</div>
-
       <!-- mis proximos cursos --!>
-      <br><h3 class="oswald bluevp"> 🚀 Asistirás a estos próximos cursos: </h3><br>
+			<%= if @open != [] do %>
+				<h3 class="oswald bluevp"> 🚀 Asistirás a estos próximos cursos: </h3><br>
+			<% else %>
+        <div class="jumbotron text-center">
+          <h1 class="display-4"> Próximos Cursos 🎁</h1>
+          <p class="lead"> Aquí verás los cursos a los que asistirás.</p>
+          <hr class="my-4">
+        </div>
+			<% end %>
+
       <div class="row">
         <%= for enrollment <- @open do %>
           <div class="col-md-12">
@@ -107,10 +126,11 @@
       <!-- mis proximos cursos --!>
 
 		</div>
-  </div>
+	  <!-- Second column  --!>
 
+  </div>
+  <!-- Main row --!>
 
 </div>
 
 <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/user_controller.js") %>"></script>
-
