@@ -41,47 +41,27 @@
     </div>
 
     <div class="col-md-8">
+
       <!-- mis proximos cursos --!>
       <br><br>
       <div class="row">
 
         <%= for enrollment <- @in_course do %>
-          <div class="col-md-12">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
             <div class="card">
-
-            <div class="row">
-              <div class="col-md-4">
-                <img src="<%=enrollment.course_session.course.cover_url %>" width="100%"/>
+              <div class="card-header text-center oswald">
+                <%=enrollment.course_session.course.title %>
               </div>
-              <div class="col-md-8 text-center d-flex align-items-center justify-content-center">
-                <div class="card-body text-center">
-                  <h5 class="card-title"> <%=enrollment.course_session.course.title %> </h5>
-                  <a href="#" class="btn btn-success oswald"> <h4> Entrar a la sesión 🔥 </h4> </a>
-                </div>
-              </div>
-            </div>
-
-            </div>
-          </div>
-        <%= end %>
-
-        <%= for enrollment <- @open do %>
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-body text-center">
-                <h5 class="card-title"> <%=enrollment.course_session.course.title %> </h5>
-                <p class="card-text"> <%= get_date(enrollment.course_session.session_date) %> </p>
-                <%= if enrollment.course_session.status=="IN_COURSE" do %>
-                  <a href="#" class="btn btn-success"> Entrar 🔥 </a>
-                <%= else %>
-				  			  <span class="badge badge-secondary"> Asistirás a este curso 🔥</span>
-                <%= end %>
+              <img class="card-img" src="<%=enrollment.course_session.course.cover_url %>" alt="Card image">
+              <div class="card-footer text-center">
+            		<a href="#" class="btn btn-success"> Entrar 🔥 </a>
               </div>
             </div>
           </div>
         <%= end %>
-
-      </div>
+      </div><br>
+      <!-- mis proximos cursos --!>
 
 			<div class="row">
 
@@ -106,6 +86,26 @@
 				<% end %>
 
 			</div>
+
+      <!-- mis proximos cursos --!>
+      <br><h3 class="oswald bluevp"> 🚀 Asistirás a estos próximos cursos: </h3><br>
+      <div class="row">
+        <%= for enrollment <- @open do %>
+          <div class="col-md-12">
+            <div class="card bg-dark text-white mb-3">
+              <div class="card-body text-center">
+              <h2 class="card-title">
+              <%=enrollment.course_session.course.title %>
+              </h2>
+              <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
+              <span class="badge badge-light oswald"> Asistirás a este curso 🔥</span>
+              </div>
+            </div>
+          </div>
+        <%= end %>
+      </div>
+      <!-- mis proximos cursos --!>
+
 		</div>
   </div>
 
