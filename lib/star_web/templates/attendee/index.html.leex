@@ -15,10 +15,9 @@
       <br><br>
       <h2 class="oswald redvp text-center"> 🚫 Por favor ingresa desde el menú de usuario. </h2>
       <a href="#" phx-click="redirect_url" phx-value-uri_val="/dashboard" class="btn btn-block btn-info oswald"> Regresar </a>
-      <%= end %>
+      <% end %>
 
       <%= if @enrollment.status == "ENROLL" and @enrollment.course_session.status == "IN_COURSE" do %>
-      <!-- Registro --!>
       <h2 class="oswald vp_color text-center"> 🚀 Asistencia </h2><hr>
       <p class="lead text-center"> Gracias por asistir a este curso organizado por <b>Visual Partnership</b>, recuerda que tiene una duración de <%= @enrollment.course_session.course.duration  %> horas y deberás concluirlo para poder recibir un reconocimiento y acceder al material de apoyo. </p>
 
@@ -32,8 +31,7 @@
       <!-- section --!>
 
       <a href="#" phx-click="attendee_course" class="btn btn-block btn-success oswald"> Continuar 😁 </a>
-      <!-- Registro --!>
-      <%= end %>
+      <% end %>
 
       <!-- Descripción de la sesión cuando este en curso --!>
       <%= if @enrollment.status == "READY" and @enrollment.course_session.status == "IN_COURSE" do %>
@@ -44,17 +42,63 @@
         </div>
       </div>
       <!-- section --!>
+      <% end %>
+      <!-- Descripción de la sesión cuando este en curso --!>
 
-      <!-- section --!>
-      <br><h2 class="oswald redvp"> Referencias del curso </h2>
-      <div class="output ql-snow">
-        <div class="ql-editor">
-        <%= raw(@enrollment.course_session.course.references) %>
+      <!-- Descripción de la sesión pueda finalizarse --!>
+      <%= if @enrollment.status == "READY" and @enrollment.course_session.status == "READY" do %>
+      <h2 class="oswald vp_color text-center"> ¡Gracias por concluir este taller! </h2><hr>
+      <p class="lead text-center"> Esta información es de caracter confidencial y anónima, nos ayudará para poder ajustar la estrategia de enseñanza en nuestros cursos.</p>
+      <!-- Form --!>
+      <form phx-submit="save">
+        <div class="form-group">
+          <label class="oswald"> 🙌 ¿Terminaste todo el curso y sus actividades? Si no pudiste hacerlo nos gustaría conocer por qué 🙂 </label>
+          <input type="text" required class="form-control" name="enrollment[finished]">
         </div>
-      </div>
-      <!-- section --!>
-      <%= end %>
-      <!-- Registro --!>
+
+        <div class="form-group">
+          <label class="oswald"> ⭐️ ¿Como calificarías este curso? Preparamos mucho para darles una experiencia valiosa: convocatoria, material original, actividades significativas...</label>
+          <select class="custom-select" required name="enrollment[rate]">
+            <option value=1> ⭐️ Tiene mucho por mejorar </option>
+            <option value=2> ⭐️⭐️ Esta ok.</option>
+            <option value=3> ⭐️⭐️⭐️ Buen curso.</option>
+            <option value=4> ⭐️⭐️⭐️⭐️ ¡Esta buenísimo! </option>
+            <option value=5> ⭐️⭐️⭐️⭐️⭐️ Excelente servicio, esta buenísimo, quiero entrar al siguiente. </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="oswald"> 😁 ¿Cuál fue tu actividad(es) favoritas? Puedes comentarnos lo que más te gustó.</label>
+          <textarea class="form-control" name="enrollment[favourites]" required rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="oswald"> 🧐 ¿Qué actividades te parecieron más complicadas de realizar? Puedes comentarnos lo que menos te gustó.</label>
+          <textarea class="form-control" name="enrollment[worst]" required rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="oswald"> 🚀 ¿Qué te pareció la preparación y ejecución del instructor? </label>
+          <textarea class="form-control" name="enrollment[instructor_feedback]" required rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="oswald"> 🚀 Aquí puedes dejar los comentarios que quieras hacernos saber del curso.</label>
+          <textarea class="form-control" name="enrollment[comments]" required rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-block btn-sm btn-success oswald"> Concluir Registro 🚀</button>
+      </form>
+      <!-- Form --!>
+      <% end %>
+      <!-- Descripción de la sesión cuando este en curso --!>
+
+      <!-- Descripción de la sesión pueda finalizarse --!>
+      <%= if @enrollment.status == "FINISHED" and @enrollment.course_session.status == "READY" do %>
+      <h2 class="oswald vp_color text-center"> Curso Finalizado ¡Gracias! 😁 </h2><hr>
+      <p class="lead text-center"> Hemos concluido este curso, esperamos verte en los próximos. Ahora podrás revisar el material de apoyo y referencias en la sección de <b>Tu Aprendizaje</b>, ahí mismo podrás encontrar el reconocimiento de tu participación en este taller. </p>
+      <a href="#" phx-click="redirect_url" phx-value-uri_val="/dashboard" class="btn btn-block btn-info oswald"> Regresar </a>
+      <% end %>
 
     </div>
   </div>

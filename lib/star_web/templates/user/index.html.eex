@@ -87,6 +87,20 @@
             </div>
           </div>
         <%= end %>
+
+        <%= for enrollment <- @ready do %>
+          <div class="col-md-12">
+            <div class="card bg-success text-white">
+              <div class="card-header text-center oswald">
+                <%=enrollment.course_session.course.title %>
+              </div>
+              <img class="card-img" src="<%=enrollment.course_session.course.cover_url %>" alt="Card image">
+              <div class="card-footer text-center">
+              <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-sm btn-secondary oswald"> Concluir 🔥 </a>
+              </div>
+            </div>
+          </div>
+        <%= end %>
       </div><br>
       <!-- mis proximos cursos --!>
 

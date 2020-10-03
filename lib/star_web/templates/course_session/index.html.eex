@@ -78,6 +78,7 @@
                   <option value="DRAFT">Draft</option>
                   <option value="OPEN">Open</option>
                   <option value="IN_COURSE">En Curso</option>
+                  <option value="READY">Por Concluir</option>
                   <option value="CLOSE">Close</option>
                 </select>
               </div>

@@ -49,4 +49,14 @@ defmodule StarWeb.AttendeeLive do
     {:noreply, socket}
   end
 
+  def handle_event("save", %{"enrollment" => enrollment}, socket) do
+		updated = Map.put(enrollment, "status", "FINISHED")
+    {:ok, enrollment} = EnrollmentOperator.update(socket.assigns.enrollment.id, updated)
+    socket =
+      socket
+      |> assign(:enrollment, enrollment)
+
+    {:noreply, socket}
+  end
+
 end
