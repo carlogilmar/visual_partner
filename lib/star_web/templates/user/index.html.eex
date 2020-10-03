@@ -121,7 +121,7 @@
 			  <%= for session <- @courses do %>
         <!-- card --!>
         <div class="col-12 col-md-6">
-          <a href="<%= Routes.static_path(@conn, "/dashboard/enrollment/")%><%= session.course.id %>" class="redvp">
+          <a href="<%= Routes.static_path(@conn, "/dashboard/enrollment/")%><%= session.id %>" class="redvp">
             <div class="card_course">
             	<div class="layer2" style="background-image: url(<%= session.course.cover_url %>)"></div>
             	<div class="layer5 layer5--blue"></div>
