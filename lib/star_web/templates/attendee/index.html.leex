@@ -20,7 +20,7 @@
       <%= if @enrollment.status == "ENROLL" and @enrollment.course_session.status == "IN_COURSE" do %>
       <!-- Registro --!>
       <h2 class="oswald vp_color text-center"> 🚀 Asistencia </h2><hr>
-      <p class="lead text-center"> Gracias por asistir a este curso organizado por <b>Visual Partnership</b>, recuerda que tiene una duración de 3 horas y deberás concluirlo para poder recibir un reconocimiento y acceder al material de apoyo. </p>
+      <p class="lead text-center"> Gracias por asistir a este curso organizado por <b>Visual Partnership</b>, recuerda que tiene una duración de <%= @enrollment.course_session.course.duration  %> horas y deberás concluirlo para poder recibir un reconocimiento y acceder al material de apoyo. </p>
 
       <!-- section --!>
       <h2 class="oswald redvp"> Requerimientos </h2>
@@ -34,6 +34,27 @@
       <a href="#" phx-click="attendee_course" class="btn btn-block btn-success oswald"> Continuar 😁 </a>
       <!-- Registro --!>
       <%= end %>
+
+      <!-- Descripción de la sesión cuando este en curso --!>
+      <%= if @enrollment.status == "READY" and @enrollment.course_session.status == "IN_COURSE" do %>
+      <!-- section --!>
+      <div class="card output ql-snow">
+        <div class="ql-editor">
+        <%= raw(@enrollment.course_session.description) %>
+        </div>
+      </div>
+      <!-- section --!>
+
+      <!-- section --!>
+      <br><h2 class="oswald redvp"> Referencias del curso </h2>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+        <%= raw(@enrollment.course_session.course.references) %>
+        </div>
+      </div>
+      <!-- section --!>
+      <%= end %>
+      <!-- Registro --!>
 
     </div>
   </div>
