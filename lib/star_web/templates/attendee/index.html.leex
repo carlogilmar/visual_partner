@@ -1,0 +1,42 @@
+<br><br>
+<link rel="stylesheet" href="<%= @base_url %>/css/email_controller.css" />
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h4 class="oswald vp_color text-center"> <%=@enrollment.course_session.course.title%> </h4>
+      <br>
+      <img src="<%=@enrollment.course_session.course.cover_url%>" width="100%"/>
+    </div>
+    <div class="col-md-8">
+
+      <%= if @enrollment.status == "ERROR" do %>
+      <br><br>
+      <br><br>
+      <h2 class="oswald redvp text-center"> 🚫 Por favor ingresa desde el menú de usuario. </h2>
+      <a href="#" phx-click="redirect_url" phx-value-uri_val="/dashboard" class="btn btn-block btn-info oswald"> Regresar </a>
+      <%= end %>
+
+      <%= if @enrollment.status == "ENROLL" and @enrollment.course_session.status == "IN_COURSE" do %>
+      <!-- Registro --!>
+      <h2 class="oswald vp_color text-center"> 🚀 Asistencia </h2><hr>
+      <p class="lead text-center"> Gracias por asistir a este curso organizado por <b>Visual Partnership</b>, recuerda que tiene una duración de 3 horas y deberás concluirlo para poder recibir un reconocimiento y acceder al material de apoyo. </p>
+
+      <!-- section --!>
+      <h2 class="oswald redvp"> Requerimientos </h2>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+        <%= raw(@enrollment.course_session.course.requirements) %>
+        </div>
+      </div>
+      <!-- section --!>
+
+      <a href="#" phx-click="attendee_course" class="btn btn-block btn-success oswald"> Continuar 😁 </a>
+      <!-- Registro --!>
+      <%= end %>
+
+    </div>
+  </div>
+</div>
+
+

@@ -82,7 +82,7 @@
               </div>
               <img class="card-img" src="<%=enrollment.course_session.course.cover_url %>" alt="Card image">
               <div class="card-footer text-center">
-            		<a href="#" class="btn btn-success"> Entrar 🔥 </a>
+              <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-success oswald"> <h2>E N T R A R 🔥 </h2></a>
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@ defmodule Star.EnrollmentOperator do
   end
 
   def get_by_id(id) do
-    Repo.get(Enrollment, id)
+    Repo.get(Enrollment, id) |> Repo.preload([:user, course_session: [:course]])
   end
 
   def get_all do
