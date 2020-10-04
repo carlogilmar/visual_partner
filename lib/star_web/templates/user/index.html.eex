@@ -18,7 +18,10 @@
 						<span class="lead oswald"> Bienvenido <%= @user.name %> 👋</span>
             <ul class="nav justify-content-center">
               <li class="nav-item">
-                <a class="nav-link redvp oswald" href="#">Mi Aprendizaje 📚</a>
+                <a class="nav-link redvp oswald" href="<%= Routes.static_path(@conn, "/dashboard/profile")%>/<%= @user.identifier %>"> Perfil 👤</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link redvp oswald" href="<%= Routes.static_path(@conn, "/dashboard/learning")%>">Mi Aprendizaje 📚</a>
               </li>
               <li class="nav-item">
 								<a class="nav-link redvp oswald" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">

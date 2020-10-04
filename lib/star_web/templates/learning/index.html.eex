@@ -33,7 +33,7 @@
             <a class="nav-link redvp" href="#">Mi Perfil 💖 </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link redvp" href="#"> Regresar </a>
+            <a class="nav-link redvp" href="<%= Routes.static_path(@conn, "/dashboard")%>"> Regresar </a>
           </li>
         </ul>
       </div>
