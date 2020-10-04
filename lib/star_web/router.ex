@@ -110,5 +110,6 @@ defmodule StarWeb.Router do
     live "/attendee/:user_id/:enrollment_id", AttendeeLive
     get "/learning", LearningController, :index
     live "/profile/:user_id", ProfileLive
+    delete "/:id", UserController, :delete
   end
 end

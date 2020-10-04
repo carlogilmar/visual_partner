@@ -62,6 +62,19 @@
               </h2>
               <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
               <span class="badge badge-light oswald"> Asistirás a este curso 🔥</span>
+
+              <br>
+							<a class="btn btn-warning btn-sm oswald" data-toggle="collapse" href="#collapseCancel" role="button" aria-expanded="false" aria-controls="collapseCancel">
+								Cancelar mi asistencia🚫
+							</a>
+							<div class="collapse" id="collapseCancel">
+							<br>
+              <%= link "Cancelar mi asistencia a este curso", to: Routes.static_path(@conn, "/dashboard/#{enrollment.id}"), method: :delete, class: "btn btn-danger btn-sm btn-block oswald" %>
+							</div>
+
+
+
+
               </div>
             </div>
           </div>

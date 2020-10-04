@@ -18,4 +18,12 @@ defmodule StarWeb.UserController do
       in_course: enrollments_in_course
     )
   end
+
+  def delete(conn, %{"id" => id}) do
+    id = String.to_integer(id)
+    EnrollmentOperator.delete(id)
+
+    conn
+    |> redirect(to: "/dashboard")
+  end
 end

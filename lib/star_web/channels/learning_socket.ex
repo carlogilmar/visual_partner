@@ -2,7 +2,7 @@ defmodule StarWeb.LearningChannel do
   use Phoenix.Channel
   alias Star.UserOperator
   alias Star.EnrollmentOperator
-	alias Star.CalendarUtil
+  alias Star.CalendarUtil
 
   def join("learning:join", %{"user_id" => user_identifier}, socket) do
     user = UserOperator.get_by_identifier(user_identifier)
@@ -12,6 +12,7 @@ defmodule StarWeb.LearningChannel do
 
   defp get_enrollments(user_id) do
     enrollments = EnrollmentOperator.get_all(user_id, "FINISHED")
+
     Enum.into(enrollments, [], fn enrollment ->
       %{
         id: enrollment.id,
