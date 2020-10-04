@@ -1,10 +1,9 @@
 <div id="app">
 	<input type="hidden" id="user" value="<%= @user.identifier%>">
-  <div class="container" v-cloak>
+  <div class="container" v-cloak><br><br>
 
     <!-- loader --!>
     <div v-if="loader">
-      <br><br>
       <div class="text-center">
         <h2 class="vp_color oswald"> Nada por mostrar de momento, ¡vuelva pronto! </h2>
         <h2 class="lead_latin"> There aren't graphic recordings yet... </h2>
@@ -14,9 +13,40 @@
     </div>
     <!-- loader -->
 
-    <div v-else class="row">
-       <h4 class="pacific"> Los actos de amor caminan </h4>
+    <!-- Learning Dashboard -->
+    <div v-else>
+
+      <!-- Menu -->
+      <div>
+        <h3 class="oswald text-center">Mi Aprendizaje 🌟</div>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#"> Carlo Gilmar </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link redvp" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Mis Cursos 📚 </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link redvp" href="#">Mis Próximos Cursos 📆 </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link redvp" href="#">Mi Perfil 💖 </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link redvp" href="#"> Regresar </a>
+          </li>
+        </ul>
+      </div>
+      <!-- Menu -->
+
+		  <div class="row">
+		    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+		  </div>
+
+      <!-- Modal Edit Profile -->
+
     </div>
+    <!-- Learning Dashboard -->
 
   </div>
 </div>
