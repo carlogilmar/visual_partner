@@ -17,7 +17,7 @@ defmodule StarWeb.ProfileLive do
         socket
       ) do
     user = UserOperator.get_by_identifier(user_identifier)
-    socket = socket |> assign(:user, user)
+    socket = socket |> assign(:user, user) |> assign(:msg, "")
     {:noreply, socket}
   end
 
@@ -27,7 +27,29 @@ defmodule StarWeb.ProfileLive do
     socket =
       socket
       |> assign(:user, user)
+      |> assign(:msg, "Email actualizado")
 
     {:noreply, socket}
+  end
+
+  def handle_event("save_email", %{"user" => params}, socket) do
+    case UserOperator.get_by_email(params["email"]) do
+      nil ->
+        {:ok, user} = UserOperator.update(socket.assigns.user.id, params)
+
+        socket =
+          socket
+          |> assign(:user, user)
+          |> assign(:msg, "Email actualizado")
+
+        {:noreply, socket}
+
+      _other ->
+        socket =
+          socket
+          |> assign(:msg, "No se puede actualizar email a #{params["email"]}")
+
+        {:noreply, socket}
+    end
   end
 end

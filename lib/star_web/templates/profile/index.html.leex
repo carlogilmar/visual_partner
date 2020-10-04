@@ -18,6 +18,7 @@
     <div class="col-md-8">
 
 		<h2 class="oswald text-center">Editar Perfil ⭐️</h2><hr>
+		<span class="oswald"><small> <%=@msg%> </small></span><br><br>
 
 
     <!-- Editar Nombre  --!>
@@ -31,6 +32,23 @@
 			<div class="input-group mb-3">
 			  <input type="text" value="<%=@user.name%>" required class="form-control" name="user[name]">
 			  <button type="submit" class="btn btn-success oswald"> Actualizar Nombre </button>
+			</div>
+      </form>
+      <!-- Form --!>
+    </div>
+    <!-- Editar Nombre  --!>
+
+    <!-- Editar Nombre  --!>
+    <br><br><a class="oswald redvp" data-toggle="collapse" href="#collapseEditEmail" role="button" aria-expanded="false" aria-controls="collapseEditEmail">
+       📧 Editar Email
+    </a>
+    <div class="collapse" id="collapseEditEmail">
+      <!-- Form --!>
+			<br>
+      <form phx-submit="save_email">
+			<div class="input-group mb-3">
+			  <input type="email" value="<%=@user.email%>" required class="form-control" name="user[email]">
+			  <button type="submit" class="btn btn-success oswald"> Actualizar Email</button>
 			</div>
       </form>
       <!-- Form --!>
