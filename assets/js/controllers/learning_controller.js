@@ -26,7 +26,7 @@ export const app = new Vue({
     this.channel.join()
       .receive("ok", resp => {
         console.log("Joined successfully");
-        console.log(resp);
+				this.user = resp.user;
         this.enrollments = resp.enrollments;
         this.loader = false;
       })
