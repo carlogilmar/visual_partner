@@ -88,7 +88,9 @@ defmodule Star.EmailerSenderOperator do
 
   def send_welcome_email(email) do
     {:ok, content} = get_template("emails/welcome.txt")
-    title = " The Apprentice's Journey :: Welcome"
+    url = Application.get_env(:star, :base_url)
+    content = EEx.eval_string(content, url: "#{url}/welcome")
+    title = "Cuenta Activada :: Ya eres parte de la comunidad de Visual Partnership"
     _ = EmailManager.send_email(%{title: title, content: content}, email)
   end
 
