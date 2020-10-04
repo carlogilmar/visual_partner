@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/email_controller.css") %>"/>
+
 <div id="app">
 	<input type="hidden" id="user" value="<%= @user.identifier%>">
   <div class="container" v-cloak><br><br>
@@ -115,6 +117,38 @@
       </vue-html2pdf>
       </div>
       <!-- PDF --!>
+
+      <!-- Resources --!>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Launch demo modal
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle"> {{enrollment_selected.title}} </h5>
+							{{enrollment_selected.course_date}}
+            </div>
+            <div class="modal-body">
+							<div class="text-center">
+								<img v-bind:src="enrollment_selected.cover_url" width="80%"/>
+							</div><br>
+							<a v-bind:href="enrollment_selected.slides_url" class=" text-center redvp"> <h2 class="oswald"> Link a Slides 📚 </h2> </a><hr>
+
+							<div class="output ql-snow">
+								<div class="ql-editor" v-html="enrollment_selected.references"></div>
+							</div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Resources --!>
 
     </div>
     <!-- Learning Dashboard -->

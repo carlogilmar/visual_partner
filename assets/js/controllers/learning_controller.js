@@ -13,7 +13,10 @@ export const app = new Vue({
 		user: {name: "Visual Partner"},
 		enrollment_selected: {
 			title: "Visual Thinking",
-			course_date: "12 de Octubre del 2010"
+			course_date: "12 de Octubre del 2010",
+			references: "Referencias",
+			slides_url: "http://google.com",
+			cover_url: "https://res.cloudinary.com/carlogilmar/image/upload/v1598256750/illustrations/Design%20Thinking%20workshop/IMG_6136_cy2jmk.png"
 		}
   },
   created: function() {
