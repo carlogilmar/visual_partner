@@ -35,8 +35,12 @@ export const app = new Vue({
       });
   },
   methods: {
-    generateReport () {
+    generateReport() {
       this.$refs.html2Pdf.generatePdf()
-    }
+    },
+		select_enrollment(enrollment){
+			this.enrollment_selected = enrollment;
+			$('#exampleModalCenter').modal("show");
+		}
   }
 });

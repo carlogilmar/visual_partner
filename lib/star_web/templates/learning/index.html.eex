@@ -37,7 +37,7 @@
 					<img v-bind:src="enrollment.cover_url" width="100%" style="border-radius: 10% !important;"/>
 					<h2>{{enrollment.title}}</h2>
 					<p>{{enrollment.course_date}}</p>
-					<p><a class="btn btn-secondary" href="#" role="button">
+					<p><a class="btn btn-secondary" v-on:click="select_enrollment(enrollment)" href="#" role="button">
 						Ir &raquo;
 					</a></p>
         </div>
@@ -47,9 +47,6 @@
 
       <!-- PDF --!>
       <div>
-
-      <button v-on:click="generateReport"> Descargar </button>
-
       <vue-html2pdf
               :show-layout="false"
               :float-layout="true"
@@ -119,10 +116,6 @@
       <!-- PDF --!>
 
       <!-- Resources --!>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Launch demo modal
-      </button>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -136,6 +129,9 @@
 							<div class="text-center">
 								<img v-bind:src="enrollment_selected.cover_url" width="80%"/>
 							</div><br>
+							<!-- pdf generation --!>
+							<button v-on:click="generateReport" class="btn btn-block btn-sm btn-success"> Descargar Constancia ⭐️</button><br>
+
 							<a v-bind:href="enrollment_selected.slides_url" class=" text-center redvp"> <h2 class="oswald"> Link a Slides 📚 </h2> </a><hr>
 
 							<div class="output ql-snow">
