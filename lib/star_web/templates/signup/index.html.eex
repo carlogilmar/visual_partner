@@ -53,9 +53,38 @@
               <small style="color: red;"> <%= @msg %> </small>
               <br>
               <button type="submit" class="btn btn-primary btn-block"> <small><strong> SIGN UP &nbsp;&nbsp;|&nbsp;&nbsp; REGISTRAR </strong> </small>  </button>
+
             </div> <!-- form-group// -->
           <% end %>
 							<!-- Registro --!>
+
+              <!-- recover password --!><br>
+              <a class="bluevp oswald" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Olvidé mi password ☝🏻
+              </a><hr>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+
+							    <!-- Registro --!>
+                  <%= form_for @conn, Routes.signup_path(@conn, :recover), [method: :post], fn _f -> %>
+                    <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"> <i class="fa fa-envelope"></i> &nbsp; Email </span>
+                        </div>
+                        <input required name="email" class="form-control" placeholder="" type="email">
+                      </div> <!-- input-group.// -->
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-warning btn-block"> <small><strong> Olvidé mi password 😞 </strong> </small>  </button>
+
+                    </div> <!-- form-group// -->
+                  <% end %>
+							    <!-- Registro --!>
+                </div>
+              </div>
+              <!-- recover password --!>
             </div>
           </div>
         </div>

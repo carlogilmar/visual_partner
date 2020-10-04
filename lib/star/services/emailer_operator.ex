@@ -99,4 +99,12 @@ defmodule Star.EmailerSenderOperator do
     title = " Visual Partnership :: Thanks for suscribe! "
     _ = EmailManager.send_email(%{title: title, content: content}, email)
   end
+
+  def send_recover_password(email, url) do
+    {:ok, content} = get_template("emails/recover.txt")
+    content = EEx.eval_string(content, url: url)
+    title = " Visual Partnership :: Recuperación de password"
+
+    _ = EmailManager.send_email(%{title: title, content: content}, email)
+  end
 end
