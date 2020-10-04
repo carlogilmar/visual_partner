@@ -18,7 +18,9 @@ defmodule StarWeb.LearningChannel do
         id: enrollment.id,
         title: enrollment.course_session.course.title,
         course_date: CalendarUtil.get_spanish_date(enrollment.course_session.session_date),
-        cover_url: enrollment.course_session.course.cover_url
+        cover_url: enrollment.course_session.course.cover_url,
+        slides_url: enrollment.course_session.course.slides_url,
+        references: enrollment.course_session.course.references
       }
     end)
   end

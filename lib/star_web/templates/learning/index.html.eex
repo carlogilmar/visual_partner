@@ -132,7 +132,7 @@
 							<!-- pdf generation --!>
 							<button v-on:click="generateReport" class="btn btn-block btn-sm btn-success"> Descargar Constancia ⭐️</button><br>
 
-							<a v-bind:href="enrollment_selected.slides_url" class=" text-center redvp"> <h2 class="oswald"> Link a Slides 📚 </h2> </a><hr>
+							<a target="_blank" v-bind:href="enrollment_selected.slides_url" class=" text-center redvp"> <h2 class="oswald"> Link a Slides 📚 </h2> </a><hr>
 
 							<div class="output ql-snow">
 								<div class="ql-editor" v-html="enrollment_selected.references"></div>
