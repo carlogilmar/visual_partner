@@ -40,84 +40,81 @@
 					</a></p>
         </div>
 
-  <div>
-					<h1> PDF: </h1>
-
-<button v-on:click="generateReport"> Descargar </button>
-
-     <vue-html2pdf
-        :show-layout="false"
-        :float-layout="true"
-        :enable-download="true"
-        :preview-modal="false"
-        :paginate-elements-by-height="1400"
-        filename="visual_partnership"
-        :pdf-quality="2"
-        :manual-pagination="false"
-        pdf-format="a4"
-        pdf-orientation="landscape"
-				pdf-content-width="100%"
-        ref="html2Pdf">
-
-<section slot="pdf-content">
-    <section class="pdf-item">
-
-				<br><br>
-			<!-- container --!>
-			<div class="container">
-
-				<!-- row --!>
-				<div class="row">
-				  <div class="col-12 text-center">
-				  	<h1 class="oswald redvp"> Visual Partnership </h1>
-				  	<h2 class="oswald"> T R A I N I N G </h2>
-						<p class="lead"> "Promoviendo el aprendizaje visual" </p>
-						<hr>
-				  </div>
-				</div>
-				<!-- row --!>
-
-				<br><br>
-
-				<!-- row --!>
-				<div class="row">
-
-				  <div class="col-1"></div>
-				  <div class="col-4 text-center">
-						<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081572/open_visual_partner/IMG_5364_xiz57c.gif" width="80%" />
-
-						<br><br>
-						<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081572/open_visual_partner/IMG_5364_xiz57c.gif" width="20%" />
-						<p class="lead"><b> Carlo Gilmar </b></p>
-						<p> Fundador de Visual Partnership </p>
-				  </div>
-
-				  <div class="col-6 text-center">
-						<p class="lead"> Extiende la presente </p>
-						<h1 class="redvp">C O N S T A N C I A</h1>
-						a <h3> Carlo Gilmar Padilla Santana</h3>
-						<p class="lead"> por haber concluido el curso </p>
-						<h2 class="redvp">Introducción al Visual Thinking</h2>
-						<p class="lead"> Impartido por </p>
-						<p class="lead oswald"> Carlo Gilmar Padilla Santana </p>
-						<p class="lead"> El día 12 de Octubre del 2020 </p>
-				  </div>
-
-				</div>
-				<!-- row --!>
-
 			</div>
-			<!-- container --!>
+			<!-- Main row --!>
 
-    </section>
-</section>
+      <!-- PDF --!>
+      <div>
 
-</vue-html2pdf>
+      <button v-on:click="generateReport"> Descargar </button>
 
-   </div>
+      <vue-html2pdf
+              :show-layout="false"
+              :float-layout="true"
+              :enable-download="true"
+              :preview-modal="false"
+              :paginate-elements-by-height="1400"
+              filename="visual_partnership"
+              :pdf-quality="2"
+              :manual-pagination="false"
+              pdf-format="a4"
+              pdf-orientation="landscape"
+      				pdf-content-width="100%"
+              ref="html2Pdf">
 
-		  </div>
-      <!-- Main  Row -->
+      <section slot="pdf-content">
+          <section class="pdf-item">
+
+      				<br><br>
+      			<!-- container --!>
+      			<div class="container">
+
+      				<!-- row --!>
+      				<div class="row">
+      				  <div class="col-12 text-center">
+      				  	<h1 class="oswald redvp"> Visual Partnership </h1>
+      				  	<h2 class="oswald"> T R A I N I N G </h2>
+      						<p class="lead"> "Promoviendo el aprendizaje visual" </p>
+      						<hr>
+      				  </div>
+      				</div>
+      				<!-- row --!>
+
+      				<br><br>
+
+      				<!-- row --!>
+      				<div class="row">
+
+      				  <div class="col-1"></div>
+      				  <div class="col-4 text-center">
+      						<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081572/open_visual_partner/IMG_5364_xiz57c.gif" width="80%" />
+
+      						<br><br>
+      						<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081572/open_visual_partner/IMG_5364_xiz57c.gif" width="20%" />
+      						<p class="lead"><b> Carlo Gilmar </b></p>
+      						<p> Fundador de Visual Partnership </p>
+      				  </div>
+
+      				  <div class="col-6 text-center">
+      						<p class="lead"> Extiende la presente </p>
+      						<h1 class="redvp">C O N S T A N C I A</h1>
+      						a <h3> {{user.name}} </h3>
+      						<p class="lead"> por haber concluido el curso </p>
+      						<h2 class="redvp"> {{enrollment_selected.title}} </h2>
+      						<p class="lead"> Impartido por </p>
+      						<p class="lead oswald"> Carlo Gilmar Padilla Santana </p>
+      						<p class="lead"> El día {{enrollment_selected.course_date}}  </p>
+      				  </div>
+
+      			</div>
+      			<!-- container --!>
+
+          </section>
+      </section>
+
+      </vue-html2pdf>
+      </div>
+      <!-- PDF --!>
 
     </div>
     <!-- Learning Dashboard -->

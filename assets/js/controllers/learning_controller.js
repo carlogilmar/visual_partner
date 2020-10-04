@@ -9,7 +9,12 @@ export const app = new Vue({
   },
   data: {
     loader: true,
-    enrollments:[]
+    enrollments:[],
+		user: {name: "Visual Partner"},
+		enrollment_selected: {
+			title: "Visual Thinking",
+			course_date: "12 de Octubre del 2010"
+		}
   },
   created: function() {
     console.log("Learning Controller Vue App here!");
