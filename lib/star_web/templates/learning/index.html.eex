@@ -21,16 +21,7 @@
         <h3 class="oswald text-center">Mi Aprendizaje 🌟</div>
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link disabled" href="#"> Carlo Gilmar </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link redvp" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Mis Cursos 📚 </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link redvp" href="#">Mis Próximos Cursos 📆 </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link redvp" href="#">Mi Perfil 💖 </a>
+            <a class="nav-link disabled" href="#"> <%=@user.name %>  </a>
           </li>
           <li class="nav-item">
             <a class="nav-link redvp" href="<%= Routes.static_path(@conn, "/dashboard")%>"> Regresar </a>
