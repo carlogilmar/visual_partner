@@ -77,6 +77,7 @@ defmodule StarWeb.ProfileLive do
     case Session.ensure_password(user, params["password"]) do
       {:ok, _user} ->
         {:ok, params, user}
+
       {:error, msg} ->
         {:error, msg, user}
     end
@@ -86,6 +87,7 @@ defmodule StarWeb.ProfileLive do
     case params["new"] == params["confirm"] do
       true ->
         {:ok, params, user}
+
       false ->
         {:error, "Password nueva y confirmaciòn no coincide", user}
     end
@@ -103,5 +105,4 @@ defmodule StarWeb.ProfileLive do
   defp update_password({:error, msg, user}) do
     {user, msg}
   end
-
 end
