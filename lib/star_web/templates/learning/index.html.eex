@@ -27,14 +27,23 @@
             <a class="nav-link redvp" href="<%= Routes.static_path(@conn, "/dashboard")%>"> Regresar </a>
           </li>
         </ul>
-      </div>
+      </div><br>
       <!-- Menu -->
 
+      <!-- Main  Row -->
 		  <div class="row">
-		    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-		  </div>
 
-      <!-- Modal Edit Profile -->
+				<div class="col-4 text-center" v-for="enrollment in enrollments">
+					<img v-bind:src="enrollment.cover_url" width="100%" style="border-radius: 10% !important;"/>
+					<h2>{{enrollment.title}}</h2>
+					<p>{{enrollment.course_date}}</p>
+					<p><a class="btn btn-secondary" href="#" role="button">
+						Ir &raquo;
+					</a></p>
+        </div>
+
+		  </div>
+      <!-- Main  Row -->
 
     </div>
     <!-- Learning Dashboard -->

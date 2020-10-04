@@ -4,7 +4,8 @@ import socket from "./../socket"
 export const app = new Vue({
   el:"#app",
   data: {
-    loader: true
+    loader: true,
+    enrollments:[]
   },
   created: function() {
     console.log("Learning Controller Vue App here!");
@@ -14,6 +15,7 @@ export const app = new Vue({
       .receive("ok", resp => {
         console.log("Joined successfully");
         console.log(resp);
+        this.enrollments = resp.enrollments;
         this.loader = false;
       })
       .receive("error", resp => {
