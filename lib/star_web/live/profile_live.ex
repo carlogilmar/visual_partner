@@ -12,14 +12,22 @@ defmodule StarWeb.ProfileLive do
   end
 
   def handle_params(
-    %{"user_id" => user_identifier},
-    url,
-    socket
-  ) do
+        %{"user_id" => user_identifier},
+        url,
+        socket
+      ) do
     user = UserOperator.get_by_identifier(user_identifier)
     socket = socket |> assign(:user, user)
     {:noreply, socket}
   end
 
+  def handle_event("save_name", %{"user" => name}, socket) do
+    {:ok, user} = UserOperator.update(socket.assigns.user.id, name)
 
+    socket =
+      socket
+      |> assign(:user, user)
+
+    {:noreply, socket}
+  end
 end

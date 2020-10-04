@@ -4,5 +4,4 @@ defmodule StarWeb.LearningChannel do
   def join("learning:join", %{"user_id" => user_identifier}, socket) do
     {:ok, %{}, socket}
   end
-
 end
