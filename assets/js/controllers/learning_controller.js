@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import socket from "./../socket"
+import VueHtml2pdf from 'vue-html2pdf'
 
 export const app = new Vue({
   el:"#app",
+  components: {
+    VueHtml2pdf
+  },
   data: {
     loader: true,
     enrollments:[]
@@ -23,5 +27,8 @@ export const app = new Vue({
       });
   },
   methods: {
+    generateReport () {
+      this.$refs.html2Pdf.generatePdf()
+    }
   }
 });
