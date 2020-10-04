@@ -7,6 +7,7 @@
     <!-- First column  --!>
     <div class="col-md-4 text-center">
       <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0157_ggarsn.png" width="80%"/>
+      <a href="#" phx-click="redirect_url" phx-value-uri_val="/dashboard" class="btn btn-block btn-info oswald"> Regresar </a><br>
       <ul class="list-group">
         <li class="list-group-item oswald"> <%= @user.name %> </li>
         <li class="list-group-item oswald"> <%= @user.email%> </li>
@@ -20,11 +21,11 @@
 		<h2 class="oswald text-center">Editar Perfil ⭐️</h2><hr>
 		<span class="oswald"><small> <%=@msg%> </small></span><br><br>
 
-
     <!-- Editar Nombre  --!>
     <a class="oswald redvp" data-toggle="collapse" href="#collapseEditName" role="button" aria-expanded="false" aria-controls="collapseEditName">
        🖍 Editar Nombre
     </a>
+    <hr>
     <div class="collapse" id="collapseEditName">
       <!-- Form --!>
 			<br>
@@ -38,10 +39,11 @@
     </div>
     <!-- Editar Nombre  --!>
 
-    <!-- Editar Nombre  --!>
-    <br><br><a class="oswald redvp" data-toggle="collapse" href="#collapseEditEmail" role="button" aria-expanded="false" aria-controls="collapseEditEmail">
+    <!-- Editar Email  --!>
+    <a class="oswald redvp" data-toggle="collapse" href="#collapseEditEmail" role="button" aria-expanded="false" aria-controls="collapseEditEmail">
        📧 Editar Email
     </a>
+    <hr>
     <div class="collapse" id="collapseEditEmail">
       <!-- Form --!>
 			<br>
@@ -53,7 +55,34 @@
       </form>
       <!-- Form --!>
     </div>
-    <!-- Editar Nombre  --!>
+    <!-- Editar Email  --!>
+
+    <!-- Editar Email  --!>
+    <a class="oswald redvp" data-toggle="collapse" href="#collapseEditPassword" role="button" aria-expanded="false" aria-controls="collapseEditPassword">
+       🔑 Editar Password
+    </a>
+    <hr>
+    <div class="collapse" id="collapseEditPassword">
+      <!-- Form --!>
+      <form phx-submit="save_password">
+        <div class="form-group">
+          <label class="oswald"> Password Actual </label>
+          <input type="password" required class="form-control" name="user[password]">
+        </div>
+        <div class="form-group">
+          <label class="oswald"> Nuevo Password </label>
+          <input type="password" required class="form-control" name="user[new]">
+        </div>
+        <div class="form-group">
+          <label class="oswald"> Confirmar Nuevo Password </label>
+          <input type="password" required class="form-control" name="user[confirm]">
+        </div>
+
+        <button type="submit" class="btn btn-block btn-sm btn-success oswald"> Concluir Registro 🚀</button>
+      </form>
+      <!-- Form --!>
+    </div>
+    <!-- Editar Email  --!>
 
     </div>
     <!-- Second column  --!>

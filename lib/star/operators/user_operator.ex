@@ -68,4 +68,13 @@ defmodule Star.UserOperator do
       %{status: "ACTIVE", name: name, password: hash}
     )
   end
+
+  def update_password(id, password) do
+    hash = hash_password(password)
+
+    update(
+      id,
+      %{password: hash}
+    )
+  end
 end
