@@ -73,7 +73,7 @@ defmodule Star.EmailerSenderOperator do
   def send_signup_email(email, url) do
     {:ok, content} = get_template("emails/singup.txt")
     content = EEx.eval_string(content, url: url)
-    title = " The Apprentice's Journey :: Complete your register"
+    title = " Visual Partnership :: Completa tu registro"
 
     _ = EmailManager.send_email(%{title: title, content: content}, email)
   end
