@@ -5,12 +5,17 @@ defmodule StarWeb.SignupController do
   @suscriptor_role "SUSCRIPTOR"
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    render(conn, "index.html", msg: "")
   end
 
   def create_user(conn, params) do
     user = Star.SignupManager.create_user(params)
-    render(conn, "success.html", user: user)
+    case user.status do
+      "INACTIVE" ->
+        render(conn, "success.html", user: user)
+      "ACTIVE" ->
+        render(conn, "index.html", msg: "El email ya esta registrado.")
+    end
   end
 
   def suscribe(conn, params) do
