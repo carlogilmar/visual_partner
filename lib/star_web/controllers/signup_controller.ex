@@ -19,6 +19,7 @@ defmodule StarWeb.SignupController do
   end
 
 	def recover(conn, params) do
+    Star.SignupManager.recover_password(params["email"])
     render(conn, "index.html", msg: "")
   end
 

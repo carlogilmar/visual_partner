@@ -12,7 +12,7 @@ defmodule StarWeb.RecoverLive do
   end
 
   def handle_params(%{"id" => user_uuid}, _url, socket) do
-    user = UserOperator.get_by_identifier(user_uuid)
+    user = UserOperator.get_by_recover_hash(user_uuid)
     socket = socket |> assign(:user, user) |> assign(:error, "")
     {:noreply, socket}
   end
@@ -34,12 +34,13 @@ defmodule StarWeb.RecoverLive do
       {true, params, socket} ->
         user = change_password(params, socket.assigns.user)
         socket = socket |> assign(:user, user)
-        {:noreply, socket}
+        {:noreply, live_redirect(socket, to: "/welcome")}
     end
   end
 
   def change_password(params, user) do
 		{:ok, user} = UserOperator.update_password(user.id, params["password"])
+    {:ok, user} = UserOperator.update(user.id, %{recover_hash: nil})
     user
   end
 

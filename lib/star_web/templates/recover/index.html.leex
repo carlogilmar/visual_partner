@@ -4,7 +4,7 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-6">
-			<%= if @user.status == "ACTIVE" do %>
+			<%= if @user != nil do %>
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Recuperación de cuenta <%=@user.email %> </h5>
@@ -24,7 +24,7 @@
 				<% else %>
           <div class="jumbotron text-center">
             <h1 class="display-4"> Visual Partnership</h1>
-            <p class="lead"> ¡Hey <%= @user.email %>! Continua disfrutando del contanido de esta plataforma.</p>
+            <p class="lead"> Continua disfrutando del contanido de esta plataforma.</p>
             <hr class="my-4">
             <a href="#" phx-click="redirect_url" phx-value-uri_val="/welcome" class="btn btn-block btn-info"> <i class="fas fa-sign-out-alt"></i> Iniciar Sesión </a>
           </div>
