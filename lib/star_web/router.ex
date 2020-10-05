@@ -23,6 +23,10 @@ defmodule StarWeb.Router do
     plug Guardian.Plug.EnsureAuthenticated
   end
 
+  pipeline :only_admin do
+    plug Star.Auth.AuthorizationPlug
+  end
+
   scope "/", StarWeb do
     pipe_through :browser
     get "/", PageController, :index
@@ -84,7 +88,7 @@ defmodule StarWeb.Router do
 
   ## Admin
   scope "/admin", StarWeb do
-    pipe_through [:browser, :browser_pipeline, :ensure_auth]
+    pipe_through [:browser, :browser_pipeline, :ensure_auth, :only_admin]
     get "/", TasksController, :index
     live "/users", UsersLive
     live "/suscriptors", SuscriptorsLive

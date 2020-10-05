@@ -3,6 +3,6 @@ defmodule Star.Guardian.ErrorHandler do
   import Plug.Conn
 
   def auth_error(conn, {_type, _reason}, _opts) do
-    send_resp(conn, 401, "Scalathon :: Usuario No Logueado ::")
+    send_resp(conn, 401, ":: Usuario No Logueado ::")
   end
 end
