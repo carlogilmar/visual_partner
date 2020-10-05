@@ -10,6 +10,7 @@ defmodule Star.User do
     field :name, :string
     field :password, :string
     field :identifier, :string
+    field :recover_hash, :string
     field :status, :string, default: "INACTIVE"
     timestamps()
     has_many :enrollment, Star.Enrollment, on_delete: :delete_all
