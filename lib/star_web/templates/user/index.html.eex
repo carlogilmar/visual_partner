@@ -92,13 +92,15 @@
       <div class="row">
         <%= for enrollment <- @in_course do %>
           <div class="col-md-12">
-            <div class="card">
+            <div class="card bg-dark text-white mb-3">
               <div class="card-header text-center oswald">
-                <%=enrollment.course_session.course.title %>
+              <h2><%=enrollment.course_session.course.title %></h2>
               </div>
-              <img class="card-img" src="<%=enrollment.course_session.course.cover_url %>" alt="Card image">
-              <div class="card-footer text-center">
-              <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-success oswald"> <h2>E N T R A R 🔥 </h2></a>
+              <div class="card-body text-center">
+              <p class="lead">¡Ya puedes entrar a tomar este curso!</p>
+              <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
+              <br><br>
+              <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-success oswald"> Entrar al curso 🔥 </a>
               </div>
             </div>
           </div>
@@ -106,13 +108,16 @@
 
         <%= for enrollment <- @ready do %>
           <div class="col-md-12">
-            <div class="card bg-success text-white">
+            <div class="card text-white" style="background-color: #EB605E;">
               <div class="card-header text-center oswald">
-                <%=enrollment.course_session.course.title %>
+              <h4><%=enrollment.course_session.course.title %></h4>
               </div>
-              <img class="card-img" src="<%=enrollment.course_session.course.cover_url %>" alt="Card image">
-              <div class="card-footer text-center">
-              <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-sm btn-secondary oswald"> Concluir 🔥 </a>
+              <div class="card-body text-center">
+              <span class="lead">
+                Ya puedes concluir tu asistencia, recuerda que una vez que termines este paso tendrás acceso al material de <b>referencia</b> y también a una <b> constancia de particiapación.</b> ⭐️
+              </span>
+              <br><br>
+              <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-light oswald btn-block"> Finalizar mi asistencia 🔥 </a>
               </div>
             </div>
           </div>
