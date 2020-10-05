@@ -1,0 +1,148 @@
+<br><br>
+<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/email_controller.css") %>" />
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+      <img src="<%=@course.cover_url%>" width="100%"/>
+    </div>
+    <div class="col-md-6">
+
+      <h1 class="oswald redvp text-center"> <%=@course.title%> </h1>
+
+      <!-- section --!>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+        <%= raw(@course.description) %>
+        </div>
+      </div>
+      <!-- section --!>
+
+      <h2 class="oswald vp_color"> 💶 Costo </h2>
+      <!-- section --!>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+        <%= raw(@course.payment) %>
+        </div>
+      </div>
+      <!-- section --!>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <h2 class="oswald vp_color"> 🏆 Objetivos </h2>
+      <!-- section --!>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+        <%= raw(@course.goals) %>
+        </div>
+      </div>
+      <!-- section --!>
+
+    </div>
+    <div class="col-md-6">
+
+      <h2 class="oswald vp_color"> 📌 Requerimientos </h2>
+      <!-- section --!>
+      <div class="output ql-snow">
+        <div class="ql-editor">
+        <%= raw(@course.requirements) %>
+        </div>
+      </div>
+      <!-- section --!>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="oswald redvp"> 🎁 Próximas Sesiones </h2>
+<br>
+			<%= for session <- @course.course_session do %>
+				<%= if session.status == "OPEN" do %>
+          <!-- section --!>
+          <div class="card output ql-snow">
+            <div class="ql-editor">
+            <%= raw(session.description) %>
+            </div>
+          </div>
+          <!-- section --!>
+				<% end %>
+			<% end %>
+
+    </div>
+    <div class="col-md-4 text-center">
+
+			<h3 class="oswald"> 📆 </h3>
+			<br>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+					<%= for session <- @course.course_session do %>
+						<%= if session.status == "OPEN" do %>
+							<li class="list-group-item"> 📌 <%= get_date(session.session_date) %></li>
+						<% else %>
+							<li class="list-group-item"> Nada por mostrar </li>
+						<% end %>
+				  <% end %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+	<br>
+
+  <div class="row">
+    <div class=" text-center col-md-12">
+		<h2 class="oswald redvp"> 🚀 Registro al curso  </h2>
+		<hr>
+		<span class="lead">
+			Para registrarte necesitas ser parte de esta comunidad 🚀, <b>¡hacer tu cuenta es gratis!</b>, además de atender los próximos cursos, podrás tener acceso al material de apoyo <b>siempre</b> 😁. Crea tu cuenta, y después de activarla, podrás inscribirte a este curso ✅ cuando inicies sesión.
+
+			<br> Si ya tienes una cuenta, inicia sesión y ahí podrás registrarte a los próximos cursos disponibles.
+
+			<br><br> Si tienes algún problema puedes contactarnos a <b>visualpartnership@gmail.com</b>
+		</span>
+
+    </div>
+  </div>
+
+	<br>
+
+  <div class="row">
+    <div class="text-center col-md-6">
+		  <h2 class="oswald redvp"> Ya soy parte de esta comunidad 😁  </h2>
+			<br>
+			<a href="<%=Routes.static_path(@conn, "/welcome")%>" class="btn btn-success"> Iniciar sesión ⭐️ </a>
+    </div>
+    <div class="text-center col-md-6">
+		  <h2 class="oswald redvp"> Crear Cuenta Nueva 💖 </h2>
+			<br>
+			<!-- Registro --!>
+      <%= form_for @conn, Routes.signup_path(@conn, :create_user), [method: :post], fn _f -> %>
+        <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-envelope"></i> &nbsp; Email </span>
+            </div>
+            <input required name="email" class="form-control" placeholder="" type="email">
+          </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+        <div class="form-group">
+          <button type="submit" class="btn btn-secondary btn-block"> <small><strong> Crear Cuenta Nueva </strong> </small>  </button>
+
+        </div> <!-- form-group// -->
+      <% end %>
+			<!-- Registro --!>
+    </div>
+  </div>
+
+</div>
+
+
+

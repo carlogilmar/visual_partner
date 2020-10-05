@@ -1,7 +1,7 @@
 defmodule Star.CalendarUtil do
   def get_spanish_date(date) do
     month = get_month(date.month)
-    "#{date.day} de #{month}/#{date.year}"
+    "#{date.day} de #{month} del #{date.year}"
   end
 
   defp get_month(month) do
