@@ -20,7 +20,7 @@ config :star, StarWeb.Endpoint,
       cd: Path.expand("../assets", __DIR__)
     ]
   ],
-  base_url: "http://localhost:4000"
+  base_url: "http://localhost:4000/"
 
 # ## SSL Support
 #

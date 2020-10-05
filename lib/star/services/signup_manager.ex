@@ -80,7 +80,7 @@ defmodule Star.SignupManager do
   defp send_recovery_email({:ok, user}) do
     recover_hash = Ecto.UUID.generate()
     base_path = Application.get_env(:star, StarWeb.Endpoint)[:base_url]
-    url = "#{base_path}/recover/#{recover_hash}"
+    url = "#{base_path}recover/#{recover_hash}"
     _ = EmailerSenderOperator.send_recover_password(user.email, url)
     {:ok, user} = UserOperator.update(user.id, %{recover_hash: recover_hash})
     {:ok, user}
