@@ -19,7 +19,6 @@ defmodule StarWeb.SignupController do
   end
 
 	def recover(conn, params) do
-		IO.inspect params
     render(conn, "index.html", msg: "")
   end
 
