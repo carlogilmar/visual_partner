@@ -43,6 +43,7 @@ defmodule Star.SignupManager do
         url = "#{base_path}/register/#{user.identifier}"
         _ = EmailerSenderOperator.send_signup_email(user.email, url)
         user
+
       "ACTIVE" ->
         user
     end
@@ -55,37 +56,37 @@ defmodule Star.SignupManager do
     user
   end
 
-	def recover_password(email) do
-		email
-		|> UserOperator.get_by_email()
-		|> validate_recovery_user()
-		|> send_recovery_email()
-	end
+  def recover_password(email) do
+    email
+    |> UserOperator.get_by_email()
+    |> validate_recovery_user()
+    |> send_recovery_email()
+  end
 
-	defp validate_recovery_user(nil) do
+  defp validate_recovery_user(nil) do
     {:error, nil}
-	end
+  end
 
-	defp validate_recovery_user(user) do
-		case {user.role, user.status} do
-			{"USER", "ACTIVE"} ->
-				{:ok, user}
-			{"USER", "INACTIVE"} ->
-				{:error, user}
-		end
-	end
+  defp validate_recovery_user(user) do
+    case {user.role, user.status} do
+      {"USER", "ACTIVE"} ->
+        {:ok, user}
 
-	defp send_recovery_email({:ok, user}) do
+      {"USER", "INACTIVE"} ->
+        {:error, user}
+    end
+  end
+
+  defp send_recovery_email({:ok, user}) do
     recover_hash = Ecto.UUID.generate()
-		base_path = Application.get_env(:star, StarWeb.Endpoint)[:base_url]
-		url = "#{base_path}/recover/#{recover_hash}"
-		_ = EmailerSenderOperator.send_recover_password(user.email, url)
+    base_path = Application.get_env(:star, StarWeb.Endpoint)[:base_url]
+    url = "#{base_path}/recover/#{recover_hash}"
+    _ = EmailerSenderOperator.send_recover_password(user.email, url)
     {:ok, user} = UserOperator.update(user.id, %{recover_hash: recover_hash})
     {:ok, user}
-	end
+  end
 
-	defp send_recovery_email({:error, user}) do
+  defp send_recovery_email({:error, user}) do
     {:error, user}
-	end
-
+  end
 end

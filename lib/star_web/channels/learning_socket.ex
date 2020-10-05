@@ -10,13 +10,13 @@ defmodule StarWeb.LearningChannel do
     {:ok, %{enrollments: enrollments, user: get_user(user)}, socket}
   end
 
-	defp get_user(user) do
-		%{
-			id: user.id,
-			name: user.name,
-			email: user.email
-		}
-	end
+  defp get_user(user) do
+    %{
+      id: user.id,
+      name: user.name,
+      email: user.email
+    }
+  end
 
   defp get_enrollments(user_id) do
     enrollments = EnrollmentOperator.get_all(user_id, "FINISHED")

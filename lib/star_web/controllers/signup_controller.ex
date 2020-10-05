@@ -10,15 +10,17 @@ defmodule StarWeb.SignupController do
 
   def create_user(conn, params) do
     user = Star.SignupManager.create_user(params)
+
     case user.status do
       "INACTIVE" ->
         render(conn, "success.html", user: user)
+
       "ACTIVE" ->
         render(conn, "index.html", msg: "El email ya esta registrado.")
     end
   end
 
-	def recover(conn, params) do
+  def recover(conn, params) do
     Star.SignupManager.recover_password(params["email"])
     render(conn, "index.html", msg: "")
   end

@@ -39,9 +39,8 @@ defmodule StarWeb.RecoverLive do
   end
 
   def change_password(params, user) do
-		{:ok, user} = UserOperator.update_password(user.id, params["password"])
+    {:ok, user} = UserOperator.update_password(user.id, params["password"])
     {:ok, user} = UserOperator.update(user.id, %{recover_hash: nil})
     user
   end
-
 end
