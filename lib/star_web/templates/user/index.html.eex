@@ -107,6 +107,7 @@
         <%= end %>
 
         <%= for enrollment <- @ready do %>
+          <%= if enrollment.status == "READY" do %>
           <div class="col-md-12">
             <div class="card text-white" style="background-color: #EB605E;">
               <div class="card-header text-center oswald">
@@ -121,6 +122,7 @@
               </div>
             </div>
           </div>
+          <%= end %>
         <%= end %>
       </div><br>
       <!-- mis proximos cursos --!>
