@@ -82,8 +82,6 @@ defmodule StarWeb.Router do
     live "/deliverable/:id", DeliverableLive
     get "/deliverables/:id", DeliverablesController, :index
 
-    ## Course
-    get "/session/:id", SessionController, :index
   end
 
   ## Admin
@@ -120,5 +118,13 @@ defmodule StarWeb.Router do
     get "/learning", LearningController, :index
     live "/profile/:user_id", ProfileLive
     delete "/:id", UserController, :delete
+    ## Course
+    get "/course/:id", SessionController, :index
+  end
+
+  ## Enrollments
+  scope "/enroll", StarWeb do
+    pipe_through [:browser, :browser_pipeline]
+    get "/:id", SessionController, :index
   end
 end
