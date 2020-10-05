@@ -51,7 +51,7 @@ defmodule Star.SignupManager do
 
   def send_email_for_invite(user) do
     base_path = Application.get_env(:star, StarWeb.Endpoint)[:base_url]
-    url = "#{base_path}/register/#{user.identifier}"
+    url = "#{base_path}register/#{user.identifier}"
     _ = EmailerSenderOperator.send_invite_email(user.email, url)
     user
   end
