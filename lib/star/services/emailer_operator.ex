@@ -110,7 +110,14 @@ defmodule Star.EmailerSenderOperator do
 
   def send_register_email(email, register_url, enrollment_url, course_title) do
     {:ok, content} = get_template("emails/register.txt")
-    content = EEx.eval_string(content, register_url: register_url, enrollment_url: enrollment_url, course_title: course_title)
+
+    content =
+      EEx.eval_string(content,
+        register_url: register_url,
+        enrollment_url: enrollment_url,
+        course_title: course_title
+      )
+
     title = " Visual Partnership :: Concluye tu cuenta para poder inscribirte al curso"
 
     _ = EmailManager.send_email(%{title: title, content: content}, email)

@@ -37,12 +37,24 @@ defmodule Star.EnrollmentManager do
     case user.status do
       "INACTIVE" ->
         register_url = "#{base_path}register/#{user.identifier}"
-        EmailerSenderOperator.send_register_email(user.email, register_url, enrollment_url, course_session.course.title)
+
+        EmailerSenderOperator.send_register_email(
+          user.email,
+          register_url,
+          enrollment_url,
+          course_session.course.title
+        )
+
         user
+
       "ACTIVE" ->
-        EmailerSenderOperator.send_enrollment_email(user.email, enrollment_url, course_session.course.title)
+        EmailerSenderOperator.send_enrollment_email(
+          user.email,
+          enrollment_url,
+          course_session.course.title
+        )
+
         user
     end
   end
-
 end

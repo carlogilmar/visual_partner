@@ -6,5 +6,4 @@ defmodule Star.Guardian.ErrorHandler do
   def auth_error(conn, {_type, _reason}, _opts) do
     redirect(conn, to: "/welcome")
   end
-
 end
