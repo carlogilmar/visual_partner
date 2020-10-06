@@ -13,7 +13,6 @@ defmodule StarWeb.EnrollmentsLive do
   end
 
   def handle_params(%{"id" => id}, _url, socket) do
-
     course_session_id = String.to_integer(id)
 
     socket =
@@ -30,10 +29,14 @@ defmodule StarWeb.EnrollmentsLive do
     course_session = CourseSessionOperator.get_by_id(socket.assigns.course_session_id)
 
     counters =
-    Enum.reduce(course_session.enrollment, %{"ENROLL" => 0, "READY" => 0, "FINISHED" => 0}, fn e, acc ->
-      counter = acc[e.status]
-      Map.put(acc, e.status, counter+1)
-    end)
+      Enum.reduce(
+        course_session.enrollment,
+        %{"ENROLL" => 0, "READY" => 0, "FINISHED" => 0},
+        fn e, acc ->
+          counter = acc[e.status]
+          Map.put(acc, e.status, counter + 1)
+        end
+      )
 
     socket
     |> assign(:course_session, course_session)
@@ -47,10 +50,9 @@ defmodule StarWeb.EnrollmentsLive do
   end
 
   def handle_event("delete", %{"id" => id}, socket) do
-		enrollment_id = String.to_integer(id)
-		EnrollmentOperator.delete(enrollment_id)
+    enrollment_id = String.to_integer(id)
+    EnrollmentOperator.delete(enrollment_id)
     socket = update_socket(socket)
     {:noreply, socket}
   end
-
 end

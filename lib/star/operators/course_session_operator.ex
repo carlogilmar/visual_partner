@@ -14,7 +14,8 @@ defmodule Star.CourseSessionOperator do
   end
 
   def get_by_id(id) do
-    Repo.get(CourseSession, id) |> Repo.preload([:course, :agenda_item, :promo_illustration, enrollment: [:user]])
+    Repo.get(CourseSession, id)
+    |> Repo.preload([:course, :agenda_item, :promo_illustration, enrollment: [:user]])
   end
 
   def get_all do
