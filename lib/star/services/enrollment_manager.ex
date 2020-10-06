@@ -1,94 +1,48 @@
 defmodule Star.EnrollmentManager do
   alias Star.EmailerSenderOperator
   alias Star.UserOperator
+  alias Star.CourseSessionOperator
+  @user_role "USER"
 
-  def enroll_user(email, course_session_id) do
+  def send_enroll_email(email, course_session_id) do
+    email
+    |> find_user_by_email()
+    |> register_user()
+    |> send_email(course_session_id)
   end
 
-  def create_user(params) do
-    params
-    |> find_as_suscriptor()
-    |> create_or_update_to_user()
-    |> send_email_for_active()
-  end
-
-  def invite_user(email) do
-    %{"email" => email}
-    |> find_as_suscriptor()
-    |> create_or_update_to_user()
-    |> send_email_for_invite()
-  end
-
-  def find_as_suscriptor(params) do
-    user = UserOperator.get_by_email(params["email"])
+  defp find_user_by_email(email) do
+    user = UserOperator.get_by_email(email)
 
     case user do
-      nil -> {params, :to_create}
-      _user -> {user, :to_update}
+      nil -> {email, :to_create}
+      _user -> user
     end
   end
 
-  def create_or_update_to_user({params, :to_create}) do
-    {:ok, user} = UserOperator.create_user(params["email"], "", "", @user_role)
+  defp register_user({email, :to_create}) do
+    {:ok, user} = UserOperator.create_user(email, "", "", @user_role)
     user
   end
 
-  def create_or_update_to_user({user, :to_update}) do
-    {:ok, user} = UserOperator.update(user.id, %{role: "USER"})
+  defp register_user(user) do
     user
   end
 
-  def send_email_for_active(user) do
+  defp send_email(user, course_session_id) do
+    base_path = Application.get_env(:star, StarWeb.Endpoint)[:base_url]
+    enrollment_url = "#{base_path}dashboard/enrollment/#{course_session_id}"
+    course_session = CourseSessionOperator.get_by_id(course_session_id)
+
     case user.status do
       "INACTIVE" ->
-        base_path = Application.get_env(:star, StarWeb.Endpoint)[:base_url]
-        url = "#{base_path}/register/#{user.identifier}"
-        _ = EmailerSenderOperator.send_signup_email(user.email, url)
+        register_url = "#{base_path}register/#{user.identifier}"
+        EmailerSenderOperator.send_register_email(user.email, register_url, enrollment_url, course_session.course.title)
         user
-
       "ACTIVE" ->
+        EmailerSenderOperator.send_enrollment_email(user.email, enrollment_url, course_session.course.title)
         user
     end
   end
 
-  def send_email_for_invite(user) do
-    base_path = Application.get_env(:star, StarWeb.Endpoint)[:base_url]
-    url = "#{base_path}register/#{user.identifier}"
-    _ = EmailerSenderOperator.send_invite_email(user.email, url)
-    user
-  end
-
-  def recover_password(email) do
-    email
-    |> UserOperator.get_by_email()
-    |> validate_recovery_user()
-    |> send_recovery_email()
-  end
-
-  defp validate_recovery_user(nil) do
-    {:error, nil}
-  end
-
-  defp validate_recovery_user(user) do
-    case {user.role, user.status} do
-      {"USER", "ACTIVE"} ->
-        {:ok, user}
-
-      {"USER", "INACTIVE"} ->
-        {:error, user}
-    end
-  end
-
-  defp send_recovery_email({:ok, user}) do
-    recover_hash = Ecto.UUID.generate()
-    base_path = Application.get_env(:star, StarWeb.Endpoint)[:base_url]
-    url = "#{base_path}recover/#{recover_hash}"
-    _ = EmailerSenderOperator.send_recover_password(user.email, url)
-    {:ok, user} = UserOperator.update(user.id, %{recover_hash: recover_hash})
-    {:ok, user}
-  end
-
-  defp send_recovery_email({:error, user}) do
-    {:error, user}
-  end
 end
