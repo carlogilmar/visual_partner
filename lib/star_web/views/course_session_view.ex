@@ -1,3 +1,3 @@
-defmodule StarWeb.Course_sessionView do
+defmodule StarWeb.CourseSessionView do
   use StarWeb, :view
 end

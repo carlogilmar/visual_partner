@@ -1,4 +1,4 @@
-defmodule StarWeb.Course_sessionController do
+defmodule StarWeb.CourseSessionController do
   use StarWeb, :controller
 
   def index(conn, params) do
