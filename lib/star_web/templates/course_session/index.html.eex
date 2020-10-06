@@ -179,8 +179,9 @@
 
       <br><hr>
       <p>
+				<a v-bind:href="'/admin/enrollments/'+session_selected.id"> 👥 Lista de Asistencia </a>
         <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-      		Delete Course Session
+      		🗑 Delete Course Session
         </a>
       </p>
       <div class="collapse" id="collapseExample">

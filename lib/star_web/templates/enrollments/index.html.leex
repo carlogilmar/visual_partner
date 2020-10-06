@@ -26,9 +26,9 @@
     </div>
     <div class="col-md-6 text-center">
       <ul class="list-group">
-        <li class="list-group-item"> <b>Inscritos:</b> <%= @counters["ENROLL"] %> </li>
-        <li class="list-group-item"> <b>Check-In:</b> <%= @counters["READY"] %> </li>
-        <li class="list-group-item"> <b>Finalizados:</b> <%= @counters["FINISHED"] %> </li>
+        <li class="list-group-item"> <b> ⭐️ Inscritos:</b> <%= @counters["ENROLL"] %> </li>
+        <li class="list-group-item"> <b> ✅ Check-In:</b> <%= @counters["READY"] %> </li>
+        <li class="list-group-item"> <b> 🏆 Finalizados:</b> <%= @counters["FINISHED"] %> </li>
       </ul>
     </div>
   </div>
@@ -48,7 +48,17 @@
       <%= for model <- @enrollments do %>
       <tr>
         <td><%= model.user.email %></td>
-        <td><%= model.status%></td>
+        <td>
+				<%= if model.status == "ENROLL" do %>
+					<span class="badge badge-secondary"> ⭐️ Registrado</span>
+				<% end %>
+				<%= if model.status == "READY" do %>
+					<span class="badge badge-info"> ✅ Check-in</span>
+				<% end %>
+				<%= if model.status == "FINISHED" do %>
+					<span class="badge badge-success"> 🏆 Finalizado </span>
+				<% end %>
+				</td>
         <td>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">
