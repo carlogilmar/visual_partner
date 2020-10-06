@@ -1,5 +1,6 @@
 defmodule Star.Auth.AuthorizationPlug do
   import Plug.Conn
+  import Phoenix.Controller, only: [redirect: 2]
 
   def init(_params) do
   end
@@ -12,7 +13,7 @@ defmodule Star.Auth.AuthorizationPlug do
         conn
 
       "USER" ->
-        send_resp(conn, 401, "Ops! No hay nada para ti aquí...")
+        redirect(conn, to: "/dashboard")
     end
   end
 end
