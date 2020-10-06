@@ -1,0 +1,117 @@
+<br><br>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand oswald" href="#"> 🚀 Expectativas </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <span class="navbar-text">
+       <a href="/admin/enrollments/<%=@course_session_id%>"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+      </span>
+    </div>
+  </nav>
+
+	<br><br>
+
+  <div class="row">
+		<div class="col-md-12">
+
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link redvp oswald" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								📌 Ubicación de asistentes
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <table class="table table-sm text-center table-striped">
+                <tbody>
+									<%= for answer <- @answers.locations do %>
+                  <tr>
+                    <td><span class="oswald"> <%=answer %> </span></td>
+                  </tr>
+									<% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed redvp oswald" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                📚 Ocupación
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              <table class="table table-sm text-center table-striped">
+                <tbody>
+									<%= for answer <- @answers.occupations do %>
+                  <tr>
+                    <td><span class="oswald"> <%=answer %> </span></td>
+                  </tr>
+									<% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed redvp oswald" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								💣 Detonador del registro
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              <table class="table table-sm text-center table-striped">
+                <tbody>
+									<%= for answer <- @answers.detonators do %>
+                  <tr>
+                    <td><span class="oswald"> <%=answer %> </span></td>
+                  </tr>
+									<% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed redvp oswald" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                🌟 Expectativas
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+              <table class="table table-sm text-center table-striped">
+                <tbody>
+									<%= for answer <- @answers.expectations do %>
+                  <tr>
+                    <td><span class="oswald"> <%=answer %> </span></td>
+                  </tr>
+									<% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+		</div>
+  </div>
+
+</div>

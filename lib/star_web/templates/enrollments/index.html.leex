@@ -8,9 +8,19 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link oswald" href="/admin/expectations/<%=@course_session_id%>" id="contentDropdown" >
+          Expectativas
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link oswald" href="/admin/expectations/<%=@course_session_id%>" id="contentDropdown" >
+          Feedback
+        </a>
+      </li>
     </ul>
     <span class="navbar-text">
-   <a href="#" phx-click="redirect_url"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
+     <a href="#" phx-click="redirect_url"> <i class="fas fa-sign-out-alt"></i> Regresar </a>
     </span>
   </div>
 </nav>

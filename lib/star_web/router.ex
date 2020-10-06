@@ -107,6 +107,7 @@ defmodule StarWeb.Router do
     get "/course_creation/:id", CourseCreationController, :index
     get "/course_session/:id", CourseSessionController, :index
     live "/enrollments/:id", EnrollmentsLive
+		live "/expectations/:id", ExpectationsLive
   end
 
   ## Users
