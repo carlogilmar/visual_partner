@@ -7,4 +7,9 @@ defmodule StarWeb.SessionController do
     course = CourseOperator.get_by_id(id)
     render(conn, "index.html", course: course)
   end
+
+  def enroll(conn, params) do
+    IO.inspect(params["email"])
+    render(conn, "register.html")
+  end
 end

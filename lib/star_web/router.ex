@@ -128,5 +128,6 @@ defmodule StarWeb.Router do
   scope "/enroll", StarWeb do
     pipe_through [:browser, :browser_pipeline]
     get "/:id", SessionController, :index
+    post "/suscribe", SessionController, :enroll
   end
 end
