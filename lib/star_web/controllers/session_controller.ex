@@ -9,7 +9,8 @@ defmodule StarWeb.SessionController do
   end
 
   def enroll(conn, params) do
-    IO.inspect(params["email"])
+    course_session_id = String.to_integer(params["course_session_id"])
+    email = params["email"]
     render(conn, "register.html")
   end
 end

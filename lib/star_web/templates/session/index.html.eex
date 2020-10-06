@@ -118,23 +118,28 @@
     <div class="text-center col-md-6">
 		  <h2 class="oswald redvp"> Pre-Registro 💖 </h2>
       <br>
-			<!-- Registro --!>
-      <%= form_for @conn, Routes.session_path(@conn, :enroll), [method: :post], fn _f -> %>
-        <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-envelope"></i> &nbsp; Email </span>
-            </div>
-            <input required name="email" class="form-control" placeholder="" type="email">
-          </div> <!-- input-group.// -->
-        </div> <!-- form-group// -->
-        <div class="form-group">
-          <button type="submit" class="btn btn-success btn-block"> <small><strong> Pre Registrar  </strong> </small>  </button>
+      <%= for session <- @course.course_session do %>
+        <%= if session.status == "OPEN" do %>
+			    <!-- Registro --!>
+          <%= form_for @conn, Routes.session_path(@conn, :enroll), [method: :post], fn _f -> %>
+            <input type="hidden" name="course_session_id" id="user" value="<%= session.id %>">
+            <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-envelope"></i> &nbsp; Email </span>
+                </div>
+                <input required name="email" class="form-control" placeholder="" type="email">
+              </div> <!-- input-group.// -->
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-success btn-block"> <small><strong> Pre Registrar  </strong> </small>  </button>
 
-        </div> <!-- form-group// -->
+            </div> <!-- form-group// -->
+          <% end %>
+			    <!-- Registro --!>
+        <% end %>
       <% end %>
-			<!-- Registro --!>
     </div>
   </div>
 
