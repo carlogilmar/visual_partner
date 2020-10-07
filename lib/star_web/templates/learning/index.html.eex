@@ -6,7 +6,7 @@
    <!-- Return navbar --!>
    <br>
    <nav class="navbar navbar-dark bg-dark">
-     <a class="navbar-brand oswald" href="#"> 🎨 <%= @user.name %> </a>
+     <a class="navbar-brand oswald" href="#"> 💡 &nbsp; &nbsp; Mi Aprendizaje &nbsp; &nbsp; | &nbsp; &nbsp;<%= @user.name %> </a>
      <span class="oswald text-white">
      <a href="<%= Routes.static_path(@conn, "/dashboard")%>" class="btn btn-sm btn-light oswald"> ⭐️ Regresar al Dashboard </a><br>
      </span>
@@ -28,31 +28,32 @@
     <!-- Learning Dashboard -->
     <div v-else>
 
-      <!-- Menu -->
-      <div>
-        <h3 class="oswald text-center">Mi Aprendizaje 🌟</div>
-        <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#"> <%=@user.name %>  </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link redvp" href="<%= Routes.static_path(@conn, "/dashboard")%>"> Regresar </a>
-          </li>
-        </ul>
-      </div><br>
-      <!-- Menu -->
-
       <!-- Main  Row -->
 		  <div class="row">
 
-				<div class="col-4 text-center" v-for="enrollment in enrollments">
-					<img v-bind:src="enrollment.cover_url" width="100%" style="border-radius: 10% !important;"/>
-					<h2>{{enrollment.title}}</h2>
-					<p>{{enrollment.course_date}}</p>
-					<p><a class="btn btn-secondary" v-on:click="select_enrollment(enrollment)" href="#" role="button">
-						Ir &raquo;
-					</a></p>
+        <div class="col-12 col-md-4" v-for="enrollment in enrollments">
+          <div class="card">
+            <img v-bind:src="enrollment.cover_url" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <p class="card-text">
+        				<h2>{{enrollment.title}}</h2>
+        				<p>{{enrollment.course_date}}</p>
+        				<p><a class="btn btn-secondary btn-sm btn-block" v-on:click="select_enrollment(enrollment)" href="#" role="button">
+        					Ver Curso 📚
+        				</a></p>
+        			</p>
+            </div>
+          </div>
         </div>
+
+				<div class="col-md-12" v-if="enrollments.length == []">
+          <div class="jumbotron text-center">
+				  	<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081573/open_visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_46_kmdl4s.png" width="30%">
+            <h1 class="display-4">Tus cursos 🎨</h1>
+            <p class="lead"> Aquí encontrarás tus cursos finalizados.</p>
+            <hr class="my-4">
+          </div>
+				</div>
 
 			</div>
 			<!-- Main row --!>
