@@ -2,7 +2,19 @@
 
 <div id="app">
 	<input type="hidden" id="user" value="<%= @user.identifier%>">
-  <div class="container" v-cloak><br><br>
+
+   <!-- Return navbar --!>
+   <br>
+   <nav class="navbar navbar-dark bg-dark">
+     <a class="navbar-brand oswald" href="#"> 🎨 <%= @user.name %> </a>
+     <span class="oswald text-white">
+     <a href="<%= Routes.static_path(@conn, "/dashboard")%>" class="btn btn-sm btn-light oswald"> ⭐️ Regresar al Dashboard </a><br>
+     </span>
+   </nav>
+   <br>
+   <!-- Return navbar --!>
+
+  <div class="container" v-cloak>
 
     <!-- loader --!>
     <div v-if="loader">

@@ -1,4 +1,11 @@
-<br><br>
+<br>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand oswald" href="#"> 🎨 <%= @user.name %> </a>
+  <span class="oswald text-white">
+    Dashboard
+  </span>
+</nav>
+
 <div class="container" id="app" style="max-width: 100%;">
   <!-- User iD --!>
 	<input type="hidden" id="user" value="<%= @user.identifier%>">
@@ -15,7 +22,7 @@
 				  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0157_ggarsn.png" width="80%"/>
 			    <div class="card">
 			      <div class="card-body text-center">
-						<span class="lead oswald"> Bienvenido <%= @user.name %> 👋</span>
+						<span class="lead oswald"> Bienvenido 👋</span>
             <ul class="nav justify-content-center">
               <li class="nav-item">
                 <a class="nav-link redvp oswald" href="<%= Routes.static_path(@conn, "/dashboard/profile")%>/<%= @user.identifier %>"> Perfil 👤</a>
@@ -92,12 +99,13 @@
       <div class="row">
         <%= for enrollment <- @in_course do %>
           <div class="col-md-12">
+            <br>
             <div class="card bg-dark text-white mb-3">
               <div class="card-header text-center oswald">
               <h2><%=enrollment.course_session.course.title %></h2>
               </div>
               <div class="card-body text-center">
-              <p class="lead">¡Ya puedes entrar a tomar este curso!</p>
+              <p class="lead"> perrito ¡Ya puedes entrar a tomar este curso!</p>
               <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
               <br><br>
               <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-success oswald"> Entrar al curso 🔥 </a>
@@ -109,6 +117,7 @@
         <%= for enrollment <- @ready do %>
           <%= if enrollment.status == "READY" do %>
           <div class="col-md-12">
+            <br>
             <div class="card text-white" style="background-color: #EB605E;">
               <div class="card-header text-center oswald">
               <h4><%=enrollment.course_session.course.title %></h4>
@@ -128,7 +137,7 @@
       <!-- mis proximos cursos --!>
 
 			<%= if @courses != [] do %>
-				<h4 class="oswald bluevp"> 💖 Cursos Disponibles </h4><br>
+				<h4 class="oswald bluevp"> 💖 Próximos Cursos </h4><br>
 			<% else %>
         <div class="jumbotron text-center">
 					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081573/open_visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_46_kmdl4s.png" width="30%">

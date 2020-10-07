@@ -1,5 +1,12 @@
-<br><br>
 <link rel="stylesheet" href="<%= @base_url %>/css/email_controller.css" />
+<br>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand oswald" href="#"> 📚 <%= @enrollment.course_session.course.title %> </a>
+  <span class="oswald text-white">
+  <a href="#" phx-click="redirect_url" phx-value-uri_val="/dashboard" class="btn btn-sm btn-light oswald"> ⭐️ Regresar al Dashboard </a><br>
+  </span>
+</nav>
+<br>
 
 <div class="container">
   <div class="row">
@@ -18,8 +25,8 @@
       <% end %>
 
       <%= if @enrollment.status == "ENROLL" and @enrollment.course_session.status == "IN_COURSE" do %>
-      <h2 class="oswald vp_color text-center"> 🚀 Asistencia </h2><hr>
-      <p class="lead text-center"> Gracias por asistir a este curso organizado por <b>Visual Partnership</b>, recuerda que tiene una duración de <%= @enrollment.course_session.course.duration  %> horas y deberás concluirlo para poder recibir un reconocimiento y acceder al material de apoyo. </p>
+      <h2 class="oswald vp_color text-center"> 🚀 Check-In</h2><hr>
+      <p class="lead text-center"> Gracias por asistir a este curso organizado por <b>Visual Partnership</b>, recuerda que tiene una duración de <%= @enrollment.course_session.course.duration  %> horas y deberás concluirlo para poder recibir un reconocimiento. Te pedimos que hagas <b>check-in</b> para registrar tu asistencia. </p>
 
       <!-- section --!>
       <h2 class="oswald redvp"> Requerimientos </h2>
@@ -30,7 +37,7 @@
       </div>
       <!-- section --!>
 
-      <a href="#" phx-click="attendee_course" class="btn btn-block btn-success oswald"> Continuar 😁 </a>
+      <a href="#" phx-click="attendee_course" class="btn btn-block btn-success oswald"> Check-In 🚀 </a>
       <% end %>
 
       <!-- Descripción de la sesión cuando este en curso --!>
@@ -97,7 +104,7 @@
       <%= if @enrollment.status == "FINISHED" and @enrollment.course_session.status == "READY" do %>
       <h2 class="oswald vp_color text-center"> Curso Finalizado ¡Gracias! 😁 </h2><hr>
       <p class="lead text-center"> Hemos concluido este curso, esperamos verte en los próximos. Ahora podrás revisar el material de apoyo y referencias en la sección de <b>Tu Aprendizaje</b>, ahí mismo podrás encontrar el reconocimiento de tu participación en este taller. </p>
-      <a href="#" phx-click="redirect_url" phx-value-uri_val="/dashboard" class="btn btn-block btn-info oswald"> Regresar </a>
+      <a href="#" phx-click="redirect_url" phx-value-uri_val="/dashboard/learning" class="btn btn-block btn-info oswald"> Ver mis cursos completados</a>
       <% end %>
 
     </div>

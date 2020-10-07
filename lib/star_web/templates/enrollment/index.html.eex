@@ -1,5 +1,15 @@
 <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/email_controller.css") %>"/>
-<br><br>
+
+<!-- Return navbar --!>
+<br>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand oswald" href="#"> 🎨 <%= @user.name %> </a>
+  <span class="oswald text-white">
+  <a href="<%= Routes.static_path(@conn, "/dashboard")%>" class="btn btn-sm btn-light oswald"> ⭐️ Regresar al Dashboard </a><br>
+  </span>
+</nav>
+<br>
+<!-- Return navbar --!>
 
 <div class="container">
 
@@ -29,8 +39,6 @@
       <a href="<%= Routes.static_path(@conn, "/dashboard/registration")%>/<%= @user.identifier%>/<%= @course_session.id%>" class="btn  btn-primary mb-2 btn_taj oswald"> <b>¡Quiero asistir! ⭐️</b> </a>
 	  <% end %>
 
-      <br>
-      <a href="<%= Routes.static_path(@conn, "/dashboard")%>" class="oswald redvp"> <b> Regresar al Menú Principal </b> </a>
     </div>
 
     <div class="col-md-12">

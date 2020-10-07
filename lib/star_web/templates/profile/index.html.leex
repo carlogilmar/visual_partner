@@ -1,4 +1,12 @@
-<br><br>
+<br>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand oswald" href="#"> 🎨 <%= @user.name %> </a>
+  <span class="oswald text-white">
+  <a href="#" phx-click="redirect_url" phx-value-uri_val="/dashboard" class="btn btn-sm btn-light oswald"> ⭐️ Regresar al Dashboard </a><br>
+  </span>
+</nav>
+<br>
+
 <div class="container">
 
   <!-- Main row --!>
@@ -7,7 +15,6 @@
     <!-- First column  --!>
     <div class="col-md-4 text-center">
       <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0157_ggarsn.png" width="80%"/>
-      <a href="#" phx-click="redirect_url" phx-value-uri_val="/dashboard" class="btn btn-block btn-info oswald"> Regresar </a><br>
       <ul class="list-group">
         <li class="list-group-item oswald"> <%= @user.name %> </li>
         <li class="list-group-item oswald"> <%= @user.email%> </li>
