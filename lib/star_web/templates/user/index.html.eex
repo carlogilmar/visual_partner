@@ -1,4 +1,13 @@
 <br>
+
+<nav class="navbar navbar-light justify-content-center text-white" style="background-color: #eb6c6c;">
+  <small class="oswald">
+    <a class="text-white" href="<%= Routes.static_path(@conn, "/releases")%>">
+    Esta plataforma es desarrollada por Visual Partnership 👨🏻‍💻
+    </a>
+  </small>
+</nav>
+
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand oswald" href="#"> 🎨 <%= @user.name %> </a>
   <span class="oswald text-white">
