@@ -7,11 +7,11 @@
 			<%= if @user.status == "INACTIVE" do %>
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Complete Register for <%=@user.email %> </h5>
+          <h5 class="card-title">Completa tu registro <%=@user.email %> </h5>
   				<span style="color: red"><h5> <%=@error %> </h5></span>
           <form phx-submit="save">
             <div class="form-group">
-              <label for="exampleInputEmail1">Your Name / Tu Nombre</label>
+              <label for="exampleInputEmail1"> Tu Nombre Completo</label>
               <input type="text" class="form-control" required name="user[name]" placeholder="Enter name">
             </div>
             <div class="form-group">
@@ -19,10 +19,10 @@
               <input type="password" class="form-control" placeholder="Password" required name="user[password]">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Repeat Password</label>
+              <label for="exampleInputPassword1">Repite tu Password</label>
               <input type="password" class="form-control" placeholder="Password" required name="user[password_confirm]">
             </div>
-            <button type="submit" class="btn btn-success btn-block"> Activate Account</b> </button>
+            <button type="submit" class="btn btn-success btn-block"> Completar tu registro </b> </button>
           </form>
         </div>
 				<% else  %>
