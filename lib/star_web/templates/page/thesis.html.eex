@@ -23,3 +23,29 @@
   </div>
 </div>
 
+<hr class="featurette-divider">
+
+<div class="row featurette">
+
+<div class="card-columns">
+  <div class="card">
+    <img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602292465/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_9_uedqdc.png" alt="Card image cap">
+  </div>
+  <div class="card p-3">
+		<img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602293724/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_4_rllfmr.png" />
+  </div>
+  <div class="card p-3">
+		<img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602293724/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_5_pegm9y.png" />
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602292466/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_7_fhvvmr.png" alt="Card image cap">
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602292465/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_8_hbpff1.png" alt="Card image cap">
+  </div>
+  <div class="card p-3">
+		<img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602294901/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_6_p1tji9.png" />
+  </div>
+</div>
+
+</div>
