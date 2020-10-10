@@ -82,7 +82,7 @@ defmodule StarWeb.Router do
     live "/deliverable/:id", DeliverableLive
     get "/deliverables/:id", DeliverablesController, :index
 
-    ##Courses
+    ## Courses
     get "/open", OpenController, :index
   end
 

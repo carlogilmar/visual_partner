@@ -6,19 +6,19 @@ defmodule Star.RegisterOperator do
   alias Star.UserOperator
 
   def create(email, course_session_id) do
-
     user_status =
-    case UserOperator.get_by_email(email) do
-      nil -> "NOT_USER"
-      _ -> "USER"
-    end
+      case UserOperator.get_by_email(email) do
+        nil -> "NOT_USER"
+        _ -> "USER"
+      end
 
     course_session = CourseSessionOperator.get_by_id(course_session_id)
-     %Register{
-       email: email,
-       user_status: user_status,
-       course_session: course_session
-      }
+
+    %Register{
+      email: email,
+      user_status: user_status,
+      course_session: course_session
+    }
     |> Repo.insert()
   end
 
@@ -31,7 +31,12 @@ defmodule Star.RegisterOperator do
   end
 
   def get_all_by_course_session(course_session_id) do
-    query = from(n in Register, where: n.course_session_id == ^course_session_id, order_by: [desc: n.inserted_at])
+    query =
+      from(n in Register,
+        where: n.course_session_id == ^course_session_id,
+        order_by: [desc: n.inserted_at]
+      )
+
     Repo.all(query)
   end
 
@@ -42,9 +47,9 @@ defmodule Star.RegisterOperator do
 
   def update(id, attrs) do
     register = get_by_id(id)
+
     register
     |> Register.changeset(attrs)
     |> Repo.update()
   end
-
 end

@@ -24,6 +24,7 @@ defmodule StarWeb.RegisterLive do
       socket
       |> assign(:course_session_id, course_session_id)
       |> assign(:registers, registers)
+
     {:noreply, socket}
   end
 
@@ -49,8 +50,8 @@ defmodule StarWeb.RegisterLive do
   defp update_socket(socket) do
     course_session_id = socket.assigns.course_session_id
     registers = RegisterOperator.get_all_by_course_session(course_session_id)
+
     socket
     |> assign(:registers, registers)
   end
-
 end
