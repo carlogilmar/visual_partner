@@ -14,6 +14,7 @@ defmodule Star.User do
     field :status, :string, default: "INACTIVE"
     timestamps()
     has_many :enrollment, Star.Enrollment, on_delete: :delete_all
+    has_many :definition, Star.Definition, on_delete: :delete_all
   end
 
   @doc false
