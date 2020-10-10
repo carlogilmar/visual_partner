@@ -6,6 +6,7 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
+    "@johmun/vue-tags-input": "^2.1.0",
     "apexcharts": "^3.20.0",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
