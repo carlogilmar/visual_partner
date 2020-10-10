@@ -404,13 +404,14 @@ a:hover{
 
 .my-float{
 	margin-top:17px;
+  color: white;
 }
 
 /* Cover image */
 .masthead {
   height: 100vh;
   min-height: 500px;
-  background-image: url('https://res.cloudinary.com/carlogilmar/image/upload/v1602295717/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_11_lueryf.png');
+  background-image: url('https://res.cloudinary.com/carlogilmar/image/upload/v1602296234/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_12_vfpng3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -419,6 +420,7 @@ a:hover{
 .responsive {
   max-width: 40%;
   height: auto;
+  padding-top: 25px;
 }
 
 @media screen and (max-width: 600px) {
@@ -510,3 +512,20 @@ a:hover{
   margin-top: 70px;
 }
 
+/* Hover image*/
+
+.hover_img {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+}
+
+
+.hover_img:hover {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+}
