@@ -11,10 +11,10 @@ export const app = new Vue({
   },
   data() {
     return {
+      msg: '',
       tag: '',
       tags: [
-				{text: "Ejemplo Corto", tiClasses: ["ti-valid"]},
-				{text: "Esto es demasiado largo", tiClasses: ["ti-invalid"]}
+				{text: "Visual Thinking", tiClasses: ["ti-valid"]}
 			],
       validation: [{
         classes: 'min-length',
@@ -58,7 +58,10 @@ export const app = new Vue({
 		validate: function(obj){
 			if(obj.tag.text.length < 16){
 				obj.addTag();
-			}
+        this.msg = "";
+			} else {
+        this.msg = obj.tag.text + " es demasiado largo.";
+      }
 		},
 		save_definitions: function(){
       let user = document.getElementById("user").value;

@@ -231,9 +231,10 @@
           </div>
           <div class="modal-body text-center">
 						<p class="lead signika"> Por ejemplo para usarlo y experimentar en: universidad, dibujar, música, diseño, UI, UX, dar clases, compartir, comunicar, programar, comunicación, emprendimientos... </p>
-						<p class="lead"><small> * Sé breve, agrega los que mejor describan tus intereses. </small></p>
+            <p class="oswald"><small> * Sé breve, agrega todo lo que mejor describa tus intereses. Escríbe uno a uno, seguido de un <span class="badge badge-secondary">Enter</span>. </small></p>
+            <small class="redvp"> {{msg}} </small>
 						<vue-tags-input
-							placeholder="Anota aquí tus ideas..."
+							placeholder="Anota aquí tus ideas"
 							v-model="tag"
 							:tags="tags"
 							:validation="validation"
