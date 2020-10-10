@@ -19,23 +19,14 @@
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-sm fixed-top nav_color justify-content-center">
-      <span style="font-size: 1.80rem;">
+      <span style="font-size: 2.2rem;">
         <span class="oswald bluevp">Visual</span>
         <span class="pacifico redvp">Partner</span>
         <span class="signika bluevp"><b>-SHIP</b></span>
       </span>
-		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav mr-auto">
-			</ul>
-			<span class="navbar-text">
-				<a class="navbar-brand text-center signika redvp" href="/">
-					<i class="fas fa-home"></i> INICIAR SESIÓN
-				</a>
-			</span>
-		</div>
 	</nav>
+  <br><br>
 
-		<br><br>
 		<main>
 
 			<%= render @view_module, @view_template, assigns %>
