@@ -20,7 +20,7 @@ defmodule StarWeb.UserHomeChannel do
 
   defp get_definitions(user_id) do
     identifiers = DefinitionOperator.get_all_by_user_id(user_id)
-    Enum.into(identifiers, [], fn identifier -> identifier.description end)
+    Enum.into(identifiers, [], fn identifier -> %{label: identifier.description} end)
   end
 
   defp save_definitions(tags, user) do

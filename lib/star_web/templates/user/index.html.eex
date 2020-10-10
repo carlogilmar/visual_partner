@@ -1,6 +1,15 @@
 <br>
 
 <style lang="css">
+/*Network*/
+.wrapper{
+	height: 300px;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+}
+
   /* style the background and the text color of the input ... */
   .vue-tags-input {
     background: #ffb912;
@@ -157,6 +166,14 @@
 			  </div>
 			</div><br>
 		  <!-- Profile --!>
+
+	  <!-- Network --!>
+		<network class="wrapper" ref="network"
+														 :nodes="nodes"
+														 :edges="edges"
+														 :options="options">
+		</network>
+	  <!-- Network --!>
 
       <!-- mis proximos cursos --!>
 			<%= if @open != [] do %>
