@@ -41,8 +41,8 @@ defmodule StarWeb.Router do
     post "/sign_up", SignupController, :create_user
     post "/suscribe", SignupController, :suscribe
     post "/recover", SignupController, :recover
-    live "/register/:id", RegisterLive
     live "/recover/:id", RecoverLive
+    live "/invite/:id", InviteLive
 
     ### Gallery
     live "/visual/:type", GalleryLive
