@@ -12,19 +12,15 @@ export const app = new Vue({
   data() {
     return {
       tag: '',
-      tags: [],
-      nodes: [
-      	//{label: "Pop"},
-      	//{label: "Aprender a comunicarme mejor"},
-      	//{label: "Rock"},
-      	//{label: "Jazz"},
-      	//{label: "Hits"},
-      	//{label: "Dance"},
-      	//{label: "Metal"},
-      	//{label: "Experimental"},
-      	//{label: "Rap"},
-      	//{label: "Electronic"},
-      ],
+      tags: [
+				{text: "Ejemplo Corto", tiClasses: ["ti-valid"]},
+				{text: "Esto es demasiado largo", tiClasses: ["ti-invalid"]}
+			],
+      validation: [{
+        classes: 'min-length',
+        rule: tag => tag.text.length > 15,
+      }],
+      nodes: [],
       edges: [],
 			options: {
 				nodes: {
@@ -59,12 +55,19 @@ export const app = new Vue({
       });
   },
   methods: {
-    save_definitions: function(){
+		validate: function(obj){
+			if(obj.tag.text.length < 16){
+				obj.addTag();
+			}
+		},
+		save_definitions: function(){
       let user = document.getElementById("user").value;
       this.channel.push("user_home:definitions", {tags: this.tags, user: user})
         .receive('ok', (res) => {
           console.log("DONE");
+					console.log(res)
           this.tags = []
+					this.nodes = res.definitions;
           $('#exampleModal').modal('hide');
         })
         .receive("error", resp => {

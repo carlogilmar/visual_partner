@@ -17,7 +17,7 @@
 
   .vue-tags-input .ti-new-tag-input {
     background: transparent;
-    color: #b7c4c9;
+    color: #000000;
   }
 
   .vue-tags-input .ti-input {
@@ -226,15 +226,18 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-center oswald">¡Hola! Queremos conocer más de ti, cuéntanos, ¿en qué actividades 📚 🌟 🏆 te gustaría aplicar el Visual Thinking 🖍? </h5>
+            <h5 class="modal-title text-center oswald">¡Hola! Queremos conocer más de ti, cuéntanos, ¿en qué actividades de tu vida cotidiana 📚 🌟 🏆 te gustaría aplicar el Visual Thinking 🖍? </h5>
             </button>
           </div>
-          <div class="modal-body">
-						<p class="lead signika"> <small> * Por ejemplo para usarlo en tus clases, aprender a dibujar, música, diseño, UI, UX, dar clases, compartir, para diseño de software, comunicación, emprendimientos...</small> </p>
+          <div class="modal-body text-center">
+						<p class="lead signika"> Por ejemplo para usarlo y experimentar en: universidad, dibujar, música, diseño, UI, UX, dar clases, compartir, comunicar, programar, comunicación, emprendimientos... </p>
+						<p class="lead"><small> * Sé breve, agrega los que mejor describan tus intereses. </small></p>
 						<vue-tags-input
 							placeholder="Anota aquí tus ideas..."
 							v-model="tag"
 							:tags="tags"
+							:validation="validation"
+							@before-adding-tag="obj => validate(obj)"
 							@tags-changed="newTags => tags = newTags"
 							/>
           </div>
