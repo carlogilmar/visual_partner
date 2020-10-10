@@ -111,6 +111,7 @@ defmodule StarWeb.Router do
     live "/enrollments/:id", EnrollmentsLive
     live "/expectations/:id", ExpectationsLive
     live "/feedback/:id", FeedbackLive
+    live "/register/:id", RegisterLive
   end
 
   ## Users

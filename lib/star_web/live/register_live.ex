@@ -1,8 +1,7 @@
 defmodule StarWeb.RegisterLive do
   use Phoenix.LiveView
+  alias Star.RegisterOperator
   alias StarWeb.RegisterView
-  alias Star.UserOperator
-  alias Star.EmailerSenderOperator
 
   def render(assigns) do
     RegisterView.render("index.html", assigns)
@@ -12,37 +11,37 @@ defmodule StarWeb.RegisterLive do
     {:ok, socket}
   end
 
-  def handle_params(%{"id" => user_uuid}, _url, socket) do
-    user = UserOperator.get_by_identifier(user_uuid)
-    socket = socket |> assign(:user, user) |> assign(:error, "")
-    {:noreply, socket}
-  end
+  def handle_params(
+        %{"id" => course_session_id},
+        _url,
+        socket
+      ) do
+    course_session_id = String.to_integer(course_session_id)
+    registers = RegisterOperator.get_all_by_course_session(course_session_id)
 
-  def handle_event("save", %{"user" => params}, socket) do
-    activate.({params["password"] == params["password_confirm"], params, socket})
+    socket =
+      socket
+      |> assign(:course_session_id, course_session_id)
+      |> assign(:registers, registers)
+    {:noreply, socket}
   end
 
   def handle_event("redirect_url", %{"uri_val" => uri_val}, socket) do
     {:noreply, live_redirect(socket, to: uri_val)}
   end
 
-  defp activate() do
-    fn
-      {false, _params, socket} ->
-        socket = socket |> assign(:error, "Passwords no coinciden")
-        {:noreply, socket}
-
-      {true, params, socket} ->
-        user = activate_user(params, socket.assigns.user)
-        socket = socket |> assign(:user, user)
-        {:noreply, socket}
-    end
+  def handle_event("delete", %{"id" => model_id}, socket) do
+    model_id = String.to_integer(model_id)
+    {:ok, _model_deleted} = RegisterOperator.delete(model_id)
+    socket = update_socket(socket)
+    {:noreply, socket}
   end
 
-  def activate_user(params, user) do
-    {:ok, user} = UserOperator.complete_register(user.id, params["name"], params["password"])
-
-    _ = EmailerSenderOperator.send_welcome_email(user.email)
-    user
+  defp update_socket(socket) do
+    course_session_id = socket.assigns.course_session_id
+    registers = RegisterOperator.get_all_by_course_session(course_session_id)
+    socket
+    |> assign(:registers, registers)
   end
+
 end
