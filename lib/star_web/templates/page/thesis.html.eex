@@ -4,24 +4,46 @@
 <div class="row featurette">
 
 <div class="card-columns">
-  <div class="card">
+	<!-- Cursos --!>
+  <a class="text-white signika" href="<%= Routes.static_path(@conn, "/talks")%>">
+  <div class="card menu_card">
     <img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602292465/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_9_uedqdc.png" alt="Card image cap">
   </div>
-  <div class="card p-3">
+	</a>
+
+	<!-- Cursos --!>
+  <a class="text-white signika" href="<%= Routes.static_path(@conn, "/talks")%>">
+  <div class="card menu_card p-3">
 		<img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602293724/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_4_rllfmr.png" />
   </div>
-  <div class="card p-3">
+	</a>
+
+	<!-- Sponsors --!>
+  <a class="text-white signika" href="<%= Routes.static_path(@conn, "/sponsorship")%>">
+  <div class="card menu_card p-3">
 		<img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602293724/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_5_pegm9y.png" />
   </div>
-  <div class="card">
+
+	<!-- Cursos --!>
+  <a class="text-white signika" href="<%= Routes.static_path(@conn, "/open")%>">
+  <div class="card menu_card">
     <img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602292466/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_7_fhvvmr.png" alt="Card image cap">
   </div>
-  <div class="card">
+  </a>
+
+	<!-- blog --!>
+  <a class="text-white signika" href="<%= Routes.static_path(@conn, "/blog")%>">
+  <div class="card menu_card">
     <img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602292465/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_8_hbpff1.png" alt="Card image cap">
   </div>
-  <div class="card p-3">
+  </a>
+
+	<!-- plataforma --!>
+  <a class="text-white signika" href="<%= Routes.static_path(@conn, "/releases")%>">
+  <div class="card menu_card p-3">
 		<img class="card-img-top" src="https://res.cloudinary.com/carlogilmar/image/upload/v1602294901/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_6_p1tji9.png" />
   </div>
+  </a>
 </div>
 
 </div>
