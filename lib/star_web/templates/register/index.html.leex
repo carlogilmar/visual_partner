@@ -2,7 +2,7 @@
 <div class="container">
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand oswald" href="#"> 🚀 Pre Registro</a>
+    <a class="navbar-brand oswald" href="#"> 🚀 Pre Registro <span class="badge badge-info"><%= length(@registers)%></span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,11 +53,16 @@
         <% end %>
         <%= if model.status == "SENT" do %>
         <span class="badge badge-success">
-          Invitación Enviada
+          📧 Invitación Enviada
         </span>
         <% end %>
       </td>
       <td>
+
+        <%= if model.status == "REGISTER" do %>
+          <button class="btn btn-success btn-sm" phx-click="invite" phx-value-id="<%= model.id %>" phx-value-email="<%= model.email %>" data-dismiss="modal"> Invitar 🌟</button>
+        <% end %>
+
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">
           <i class="fas fa-ban"></i>

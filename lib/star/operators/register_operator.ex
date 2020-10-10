@@ -40,4 +40,11 @@ defmodule Star.RegisterOperator do
     Repo.delete(model)
   end
 
+  def update(id, attrs) do
+    register = get_by_id(id)
+    register
+    |> Register.changeset(attrs)
+    |> Repo.update()
+  end
+
 end

@@ -1,5 +1,6 @@
 defmodule StarWeb.RegisterLive do
   use Phoenix.LiveView
+  alias Star.EnrollmentManager
   alias Star.RegisterOperator
   alias StarWeb.RegisterView
 
@@ -33,6 +34,14 @@ defmodule StarWeb.RegisterLive do
   def handle_event("delete", %{"id" => model_id}, socket) do
     model_id = String.to_integer(model_id)
     {:ok, _model_deleted} = RegisterOperator.delete(model_id)
+    socket = update_socket(socket)
+    {:noreply, socket}
+  end
+
+  def handle_event("invite", %{"id" => register_id, "email" => email}, socket) do
+    register_id = String.to_integer(register_id)
+    EnrollmentManager.send_enroll_email(email, socket.assigns.course_session_id)
+    RegisterOperator.update(register_id, %{status: "SENT"})
     socket = update_socket(socket)
     {:noreply, socket}
   end
