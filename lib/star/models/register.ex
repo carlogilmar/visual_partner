@@ -5,7 +5,7 @@ defmodule Star.Register do
   @primary_key {:id, :id, autogenerate: true}
   schema "registers" do
     field :email, :string
-    field :status, :string
+    field :status, :string, default: "REGISTER"
     field :user_status, :string
     belongs_to :course_session, Star.CourseSession
     timestamps()

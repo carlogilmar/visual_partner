@@ -33,8 +33,30 @@
     <%= for model <- @registers do %>
     <tr>
       <td><%= model.email %></td>
-      <td> Usuario No registrado </td>
-      <td> Pre Registro </td>
+      <td>
+        <%= if model.user_status == "USER" do %>
+        <span class="badge badge-success">
+          Usuario Registrado
+        </span>
+        <% end %>
+        <%= if model.user_status == "NOT_USER" do %>
+        <span class="badge badge-secondary">
+          Sin Usuario
+        </span>
+        <% end %>
+      </td>
+      <td>
+        <%= if model.status == "REGISTER" do %>
+        <span class="badge badge-info">
+          Pre Registro
+        </span>
+        <% end %>
+        <%= if model.status == "SENT" do %>
+        <span class="badge badge-success">
+          Invitación Enviada
+        </span>
+        <% end %>
+      </td>
       <td>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">

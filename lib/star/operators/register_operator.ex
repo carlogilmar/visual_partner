@@ -3,11 +3,20 @@ defmodule Star.RegisterOperator do
   alias Star.Register
   alias Star.Repo
   alias Star.CourseSessionOperator
+  alias Star.UserOperator
 
   def create(email, course_session_id) do
+
+    user_status =
+    case UserOperator.get_by_email(email) do
+      nil -> "NOT_USER"
+      _ -> "USER"
+    end
+
     course_session = CourseSessionOperator.get_by_id(course_session_id)
      %Register{
        email: email,
+       user_status: user_status,
        course_session: course_session
       }
     |> Repo.insert()
