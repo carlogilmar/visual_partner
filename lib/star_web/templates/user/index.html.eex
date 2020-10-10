@@ -114,7 +114,7 @@
               <h2><%=enrollment.course_session.course.title %></h2>
               </div>
               <div class="card-body text-center">
-              <p class="lead"> perrito ¡Ya puedes entrar a tomar este curso!</p>
+              <p class="lead"> !Ya puedes entrar a tomar este curso!</p>
               <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
               <br><br>
               <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-success oswald"> Entrar al curso 🔥 </a>

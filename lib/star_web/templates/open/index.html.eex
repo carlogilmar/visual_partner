@@ -1,0 +1,46 @@
+<br><br>
+<div class="container">
+
+	<%= if @courses != [] do %>
+		<h4 class="text-center oswald bluevp"> 💖 Próximos Cursos </h4><br>
+	<% else %>
+    <div class="jumbotron text-center">
+			<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081573/open_visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_46_kmdl4s.png" width="30%">
+      <h1 class="display-4">Próximos cursos 🎨</h1>
+      <p class="lead"> Aquí encontrarás los siguientes cursos.</p>
+      <hr class="my-4">
+    </div>
+	<% end %>
+
+    <!-- cursos disponibles --!>
+		<div class="row">
+
+		  <%= for session <- @courses do %>
+      <!-- card --!>
+      <div class="col-12 col-md-6">
+        <a href="<%= Routes.static_path(@conn, "/enroll/")%><%= session.course.id %>" class="redvp">
+          <div class="card_course">
+          	<div class="layer2" style="background-image: url(<%= session.course.cover_url %>)"></div>
+          	<div class="layer5 layer5--blue"></div>
+          	<div class="layer7 layer7--blue">
+          		<div class="text">
+          			<h2 class="oswald"> <%= session.course.title %> </h2>
+          			<p> <%= get_date(session.session_date) %> </p>
+          		</div>
+          	</div>
+          </div>
+          <h4 class="oswald text-center"> Pre-Registro
+          <%= if session.type == "PUBLIC" do %>
+            <span class="badge badge-secondary signika">CURSO GRATUITO 💖</span>
+          <%end%>
+          </h4>
+				</a>
+      </div>
+      <!-- card --!>
+			<% end %>
+		</div>
+    <!-- cursos disponibles --!>
+
+
+</div>
+

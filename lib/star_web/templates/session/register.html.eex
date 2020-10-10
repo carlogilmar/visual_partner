@@ -3,7 +3,7 @@
   <h1 class="oswald"> ¡Pre-registro Exitoso! 🚀</h1>
   <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1565636790/remotejobs/remote2_h8fvlb.png" width="45%"/>
   <br>
-  <span> Te hemos enviado un correo para continuar con el proceso. </span><br>
+  <span> Te enviaremos un correo para continuar con el registro. </span><br>
   <br>
   <a href="<%= Routes.static_path(@conn, "/")%>" class="btn btn-sm btn-success">
     <i class="fas fa-sign-out-alt" aria-hidden="true"></i></span> Regresar
