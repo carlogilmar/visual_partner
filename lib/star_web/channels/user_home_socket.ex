@@ -14,7 +14,6 @@ defmodule StarWeb.UserHomeChannel do
         %{"tags" => tags, "user" => user},
         socket
       ) do
-
     user = UserOperator.get_by_identifier(user)
     save_definitions(tags, user)
     identifiers = get_definitions(user.id)
@@ -29,7 +28,7 @@ defmodule StarWeb.UserHomeChannel do
 
   defp save_definitions(tags, user) do
     Enum.each(tags, fn %{"text" => desc, "tiClasses" => _class} ->
-     DefinitionOperator.create(desc, user.id)
+      DefinitionOperator.create(desc, user.id)
     end)
   end
 end

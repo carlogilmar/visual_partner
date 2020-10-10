@@ -7,10 +7,10 @@ defmodule Star.DefinitionOperator do
   def create(description, user_id) do
     user = UserOperator.get_by_id(user_id)
 
-     %Definition{
-       description: description,
-       user: user
-      }
+    %Definition{
+      description: description,
+      user: user
+    }
     |> Repo.insert()
   end
 
@@ -40,5 +40,4 @@ defmodule Star.DefinitionOperator do
     |> Definition.changeset(attrs)
     |> Repo.update()
   end
-
 end
