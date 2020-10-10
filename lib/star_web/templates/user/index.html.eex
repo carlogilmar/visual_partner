@@ -213,7 +213,7 @@
             </button>
           </div>
           <div class="modal-body">
-						<p class="lead signika"> <small> * Para usarlo en tus clases, para diseño de software, para música, aprender a dibujar, mejorar tus habilidades de comunicación, para conocerte mejor...</small> </p>
+						<p class="lead signika"> <small> * Por ejemplo para usarlo en tus clases, aprender a dibujar, música, diseño, UI, UX, dar clases, compartir, para diseño de software, comunicación, emprendimientos...</small> </p>
 						<vue-tags-input
 							placeholder="Anota aquí tus ideas..."
 							v-model="tag"
