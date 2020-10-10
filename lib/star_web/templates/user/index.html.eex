@@ -204,18 +204,12 @@
 	  <!-- Second column  --!>
     <div class="col-md-8">
 
-	  <!-- modal --!>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" data-backdrop='static' data-keyboard='false' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-center oswald">Cuéntanos, ¿en qué actividades 📚 🌟 🏆 te gustaría aplicar el Visual Thinking 🖍? </h5>
+            <h5 class="modal-title text-center oswald">¡Hola! Queremos conocer más de ti, cuéntanos, ¿en qué actividades 📚 🌟 🏆 te gustaría aplicar el Visual Thinking 🖍? </h5>
             </button>
           </div>
           <div class="modal-body">
@@ -228,7 +222,7 @@
 							/>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary"> Listo 😁</button>
+            <button type="button" class="btn btn-primary" v-on:click="save_definitions" > Listo 😁</button>
           </div>
         </div>
       </div>

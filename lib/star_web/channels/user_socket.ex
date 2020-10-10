@@ -15,6 +15,7 @@ defmodule StarWeb.UserSocket do
   channel "course:*", StarWeb.CourseChannel
   channel "session:*", StarWeb.SessionChannel
   channel "learning:*", StarWeb.LearningChannel
+  channel "user_home:*", StarWeb.UserHomeChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After

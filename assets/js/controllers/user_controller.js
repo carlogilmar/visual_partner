@@ -14,10 +14,31 @@ export const app = new Vue({
     };
   },
   created: function() {
-    console.log("User Here!");
     let user = document.getElementById("user").value;
-    console.log(user);
+    this.channel = socket.channel("user_home:join", {user: user});
+    this.channel.join()
+      .receive("ok", resp => {
+        console.log("Joined successfully");
+        if(resp.definitions.length === 0){
+          $('#exampleModal').modal('show');
+        }
+      })
+      .receive("error", resp => {
+        console.log("Unable to join", resp);
+      });
   },
   methods: {
+    save_definitions: function(){
+      let user = document.getElementById("user").value;
+      this.channel.push("user_home:definitions", {tags: this.tags, user: user})
+        .receive('ok', (res) => {
+          console.log("DONE");
+          this.tags = []
+          $('#exampleModal').modal('hide');
+        })
+        .receive("error", resp => {
+          console.log("ERROR");
+        });
+    }
   }
 });
