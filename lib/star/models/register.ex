@@ -5,6 +5,8 @@ defmodule Star.Register do
   @primary_key {:id, :id, autogenerate: true}
   schema "registers" do
     field :email, :string
+    field :status, :string
+    field :user_status, :string
     belongs_to :course_session, Star.CourseSession
     timestamps()
   end
@@ -12,7 +14,7 @@ defmodule Star.Register do
   @doc false
   def changeset(job, attrs) do
     job
-    |> cast(attrs, [])
+    |> cast(attrs, [:email, :status, :user_status])
     |> validate_required([])
   end
 end

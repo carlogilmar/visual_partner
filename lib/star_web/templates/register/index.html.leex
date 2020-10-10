@@ -22,9 +22,10 @@
 <table class="table table-sm text-center">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">Email</th>
+      <th scope="col">User</th>
+      <th scope="col">Status</th>
       <th scope="col">
-        <a href="#" phx-click="new" class="btn btn-sm btn-success"> <i class="fas fa-star"></i> &nbsp; New </a>
       </th>
     </tr>
   </thead>
@@ -32,6 +33,8 @@
     <%= for model <- @registers do %>
     <tr>
       <td><%= model.email %></td>
+      <td> Usuario No registrado </td>
+      <td> Pre Registro </td>
       <td>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal<%= model.id  %>">
