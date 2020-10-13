@@ -40,7 +40,7 @@ defmodule Star.SignupManager do
     case user.status do
       "INACTIVE" ->
         base_path = Application.get_env(:star, StarWeb.Endpoint)[:base_url]
-        url = "#{base_path}register/#{user.identifier}"
+        url = "#{base_path}invite/#{user.identifier}"
         _ = EmailerSenderOperator.send_signup_email(user.email, url)
         user
 
