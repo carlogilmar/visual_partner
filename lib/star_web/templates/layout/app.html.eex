@@ -19,11 +19,13 @@
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-sm fixed-top nav_color justify-content-center">
+      <a style="text-decoration: none;" href="<%= Routes.static_path(@conn, "/")%>">
       <span style="font-size: 2.2rem;">
         <span class="oswald bluevp">Visual</span>
         <span class="pacifico redvp">Partner</span>
         <span class="signika bluevp"><b>-SHIP</b></span>
       </span>
+      </a>
 	</nav>
   <br><br>
 

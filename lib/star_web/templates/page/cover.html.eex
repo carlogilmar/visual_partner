@@ -1,7 +1,7 @@
 <br>
 <nav class="navbar navbar-light justify-content-center text-white" style="background-color: rgb(38 47 60)">
-    <a class="text-white signika" href="<%= Routes.static_path(@conn, "/releases")%>">
-    ESTA PLATAFORMA ES DESARROLLADA POR VISUAL PARTNERSHIP 👨🏻‍💻
+    <a target="_blank" class="text-white signika" href="<%= Routes.static_path(@conn, "/releases")%>">
+    ESTA PLATAFORMA ES DESARROLLADA POR VISUAL PARTNERSHIP
     </a>
 </nav>
 
