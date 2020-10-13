@@ -133,6 +133,9 @@
       <li class="nav-item active">
         <a class="nav-link oswald" href="<%= Routes.static_path(@conn, "/dashboard/learning")%>"> Mi Aprendizaje 📚 </a>
       </li>
+      <li class="nav-item active">
+        <a class="btn btn-primary btn_taj oswald" href="<%= Routes.static_path(@conn, "/dashboard/next")%>"> Próximos Cursos 🌟 </a>
+      </li>
     </ul>
 		<a class="nav-link text-white oswald" href="<%= Routes.static_path(@conn, "/logout")%>"> Cerrar Sesión </a>
   </div>
