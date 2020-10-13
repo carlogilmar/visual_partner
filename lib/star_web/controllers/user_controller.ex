@@ -4,7 +4,6 @@ defmodule StarWeb.UserController do
   alias Star.EnrollmentOperator
 
   def index(conn, _params) do
-    courses = CourseSessionOperator.get_all_by_status("OPEN")
     user = conn.private[:guardian_default_resource]
     enrollments_open = EnrollmentOperator.get_all_by_user_and_status(user.id, "OPEN")
     enrollments_in_course = EnrollmentOperator.get_all_by_user_and_status(user.id, "IN_COURSE")
@@ -12,7 +11,6 @@ defmodule StarWeb.UserController do
 
     render(conn, "index.html",
       user: user,
-      courses: courses,
       open: enrollments_open,
       ready: enrollments_ready,
       in_course: enrollments_in_course

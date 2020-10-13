@@ -175,45 +175,6 @@
 		</network>
 	  <!-- Network --!>
 
-      <!-- mis proximos cursos --!>
-			<%= if @open != [] do %>
-				<h3 class="oswald bluevp"> 🚀 Asistirás a estos próximos cursos: </h3><br>
-			<% else %>
-        <div class="jumbotron text-center">
-					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601701998/open_visual_partner/5430770_wboizk.png" width="30%">
-          <h1 class="display-4"> Tus Cursos 🎁</h1>
-          <p class="lead"> Aquí verás los cursos a los que asistirás.</p>
-          <hr class="my-4">
-        </div>
-			<% end %>
-
-      <div class="row">
-        <%= for enrollment <- @open do %>
-          <div class="col-md-12">
-            <div class="card bg-dark text-white mb-3">
-              <div class="card-body text-center">
-              <h2 class="card-title">
-              <%=enrollment.course_session.course.title %>
-              </h2>
-              <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
-              <span class="badge badge-light oswald"> Asistirás a este curso 🔥</span>
-
-              <br>
-							<a class="btn btn-warning btn-sm oswald" data-toggle="collapse" href="#collapseCancel" role="button" aria-expanded="false" aria-controls="collapseCancel">
-								Cancelar mi asistencia🚫
-							</a>
-							<div class="collapse" id="collapseCancel">
-							<br>
-              <%= link "Cancelar mi asistencia a este curso", to: Routes.static_path(@conn, "/dashboard/#{enrollment.id}"), method: :delete, class: "btn btn-danger btn-sm btn-block oswald" %>
-							</div>
-
-              </div>
-            </div>
-          </div>
-        <%= end %>
-      </div>
-      <!-- mis proximos cursos --!>
-
     </div>
 	  <!-- First column  --!>
 
@@ -291,41 +252,44 @@
       </div><br>
       <!-- mis proximos cursos --!>
 
-			<%= if @courses != [] do %>
-				<h4 class="oswald bluevp"> 💖 Próximos Cursos </h4><br>
+      <!-- mis proximos cursos --!>
+			<%= if @open != [] do %>
+				<h3 class="oswald bluevp"> 🚀 Asistirás a estos próximos cursos: </h3><br>
 			<% else %>
         <div class="jumbotron text-center">
-					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081573/open_visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_46_kmdl4s.png" width="30%">
-          <h1 class="display-4">Próximos cursos 🎨</h1>
-          <p class="lead"> Aquí encontrarás los siguientes cursos.</p>
+					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601701998/open_visual_partner/5430770_wboizk.png" width="30%">
+          <h1 class="display-4"> Tus Cursos 🎁</h1>
+          <p class="lead"> Aquí verás los cursos a los que asistirás.</p>
           <hr class="my-4">
         </div>
 			<% end %>
 
-      <!-- cursos disponibles --!>
-			<div class="row">
+      <div class="row">
+        <%= for enrollment <- @open do %>
+          <div class="col-md-12">
+            <div class="card bg-dark text-white mb-3">
+              <div class="card-body text-center">
+              <h2 class="card-title">
+              <%=enrollment.course_session.course.title %>
+              </h2>
+              <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
+              <span class="badge badge-light oswald"> Asistirás a este curso 🔥</span>
 
-			  <%= for session <- @courses do %>
-        <!-- card --!>
-        <div class="col-12 col-md-6">
-          <a href="<%= Routes.static_path(@conn, "/dashboard/enrollment/")%><%= session.id %>" class="redvp">
-            <div class="card_course">
-            	<div class="layer2" style="background-image: url(<%= session.course.cover_url %>)"></div>
-            	<div class="layer5 layer5--blue"></div>
-            	<div class="layer7 layer7--blue">
-            		<div class="text">
-            			<h2 class="oswald"> <%= session.course.title %> </h2>
-            			<p> <%= get_date(session.session_date) %> </p>
-            		</div>
-            	</div>
+              <br>
+							<a class="btn btn-warning btn-sm oswald" data-toggle="collapse" href="#collapseCancel" role="button" aria-expanded="false" aria-controls="collapseCancel">
+								Cancelar mi asistencia🚫
+							</a>
+							<div class="collapse" id="collapseCancel">
+							<br>
+              <%= link "Cancelar mi asistencia a este curso", to: Routes.static_path(@conn, "/dashboard/#{enrollment.id}"), method: :delete, class: "btn btn-danger btn-sm btn-block oswald" %>
+							</div>
+
+              </div>
             </div>
-			      <h4 class="oswald text-center"> Inscribir </h4>
-					</a>
-        </div>
-        <!-- card --!>
-				<% end %>
-			</div>
-      <!-- cursos disponibles --!>
+          </div>
+        <%= end %>
+      </div>
+      <!-- mis proximos cursos --!>
 
 		</div>
 	  <!-- Second column  --!>
