@@ -2,7 +2,7 @@
 <div class="container">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand oswald" href="#"> <i class="fas fa-cog"></i> &nbsp; Users  &nbsp;<span class="badge badge-info"><%= @total %></span> </a>
+  <a class="navbar-brand oswald" href="#"> <i class="fas fa-cog"></i> &nbsp; Users  &nbsp;<span class="badge badge-info"><%= length(@users) %></span> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,6 +22,12 @@
     <input type="email" name="user[email]" required class="form-control" placeholder="Email">
   </div>
   <button type="submit" class="btn btn-info mb-2">Enviar Invitación</button>
+  &nbsp; &nbsp;
+  <a href="#" phx-click="show_all_users"> Todos </a>
+  &nbsp; &nbsp;
+  <a href="#" phx-click="show_active_users"> Usuarios Activos </a>
+  &nbsp; &nbsp;
+  <a href="#" phx-click="show_inactive_users"> Usuarios Inactivos </a>
 </form>
 
 <br>
