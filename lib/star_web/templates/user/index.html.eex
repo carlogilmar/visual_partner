@@ -119,11 +119,23 @@
   </small>
 </nav>
 
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand oswald" href="#"> 🎨 <%= @user.name %> </a>
-  <span class="oswald text-white">
-    Dashboard
-  </span>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand oswald" href="#"> 🎨 Hi <%= @user.name %>! </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link oswald" href="<%= Routes.static_path(@conn, "/dashboard/profile")%>/<%= @user.identifier %>"> Perfil 👤</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link oswald" href="<%= Routes.static_path(@conn, "/dashboard/learning")%>"> Mi Aprendizaje 📚 </a>
+      </li>
+    </ul>
+		<a class="nav-link text-white oswald" href="<%= Routes.static_path(@conn, "/logout")%>"> Cerrar Sesión </a>
+  </div>
 </nav>
 
 <div class="container" id="app" style="max-width: 100%;">

@@ -2,29 +2,6 @@
 <div class="row">
   <div class="col-12 text-center">
 	  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0157_ggarsn.png" width="80%"/>
-    <div class="card">
-      <div class="card-body text-center">
-			<span class="lead oswald"> Bienvenido 👋</span>
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link redvp oswald" href="<%= Routes.static_path(@conn, "/dashboard/profile")%>/<%= @user.identifier %>"> Perfil 👤</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link redvp oswald" href="<%= Routes.static_path(@conn, "/dashboard/learning")%>">Mi Aprendizaje 📚</a>
-        </li>
-        <li class="nav-item">
-					<a class="nav-link redvp oswald" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-					Logout 👣
-					</a>
-			  </li>
-      </ul>
-
-			<div class="collapse text-center" id="collapseExample">
-				<br><a href="<%= Routes.static_path(@conn, "/logout")%>" class="btn btn-sm btn-warning oswald"> <i class="fas fa-sign-out-alt"></i> Cerrar Sesión en Visual Partnership</a>
-			</div>
-
-      </div>
-    </div>
   </div>
 </div><br>
 <!-- Profile --!>
