@@ -71,6 +71,7 @@
                 ¿Quieres eliminar a este usuario y su progreso?
                 <br><br>
                 <h1 class="oswald"> <%= user.email %> </h1>
+                <small> <%= NaiveDateTime.to_string(user.inserted_at) %> </small>
 
               </div>
               <div class="modal-footer">
