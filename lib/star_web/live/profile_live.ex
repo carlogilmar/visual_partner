@@ -20,11 +20,13 @@ defmodule StarWeb.ProfileLive do
       ) do
     user = UserOperator.get_by_identifier(user_identifier)
     identifiers = DefinitionOperator.get_all_by_user_id(user.id)
+
     socket =
       socket
       |> assign(:user, user)
       |> assign(:msg, "")
       |> assign(:identifiers, identifiers)
+
     {:noreply, socket}
   end
 
@@ -80,22 +82,21 @@ defmodule StarWeb.ProfileLive do
   end
 
   def handle_event("delete_identifier", %{"id" => identifier}, socket) do
-		id = String.to_integer(identifier)
-		DefinitionOperator.delete(id)
-		user = socket.assigns.user
+    id = String.to_integer(identifier)
+    DefinitionOperator.delete(id)
+    user = socket.assigns.user
     identifiers = DefinitionOperator.get_all_by_user_id(user.id)
     socket = assign(socket, :identifiers, identifiers)
     {:noreply, socket}
   end
 
   def handle_event("save_identifier", %{"identifier" => %{"description" => description}}, socket) do
-		user = socket.assigns.user
+    user = socket.assigns.user
     DefinitionOperator.create(description, user.id)
     identifiers = DefinitionOperator.get_all_by_user_id(user.id)
     socket = assign(socket, :identifiers, identifiers)
     {:noreply, socket}
   end
-
 
   defp confirm_old_password(params, user) do
     case Session.ensure_password(user, params["password"]) do
