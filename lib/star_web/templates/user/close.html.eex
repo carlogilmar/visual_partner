@@ -1,0 +1,21 @@
+<!-- cursos por finalizar --!>
+<%= for enrollment <- @ready do %>
+  <%= if enrollment.status == "READY" do %>
+  <div class="col-md-12">
+    <br>
+    <div class="card text-white" style="background-color: #EB605E;">
+      <div class="card-header text-center oswald">
+      <h4><%=enrollment.course_session.course.title %></h4>
+      </div>
+      <div class="card-body text-center">
+      <span class="lead">
+        Ya puedes concluir tu asistencia, recuerda que una vez que termines este paso tendrás acceso al material de <b>referencia</b> y también a una <b> constancia de particiapación.</b> ⭐️
+      </span>
+      <br><br>
+      <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-light oswald btn-block"> Finalizar mi asistencia 🔥 </a>
+      </div>
+    </div>
+  </div>
+  <%= end %>
+<%= end %>
+<!-- cursos por finalizar --!>

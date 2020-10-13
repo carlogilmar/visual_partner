@@ -1,0 +1,18 @@
+<!-- cursos abiertos --!>
+<%= for enrollment <- @in_course do %>
+  <div class="col-md-12">
+    <br>
+    <div class="card bg-dark text-white mb-3">
+      <div class="card-header text-center oswald">
+      <h2><%=enrollment.course_session.course.title %></h2>
+      </div>
+      <div class="card-body text-center">
+      <p class="lead"> ¡Ya puedes hacer <b>Check in</b> de este curso!</p>
+      <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
+      <br><br>
+      <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-success oswald"> Check-In 🔥 </a>
+      </div>
+    </div>
+  </div>
+<%= end %>
+<!-- cursos abiertos --!>

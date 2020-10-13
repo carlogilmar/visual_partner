@@ -134,161 +134,37 @@
   <div class="row" v-cloak>
 
 	  <!-- First column  --!>
-    <div class="col-md-4">
+    <div class="col-md-5">
 
-		  <!-- Profile --!>
-			<div class="row">
-        <div class="col-12 text-center">
-				  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0157_ggarsn.png" width="80%"/>
-			    <div class="card">
-			      <div class="card-body text-center">
-						<span class="lead oswald"> Bienvenido 👋</span>
-            <ul class="nav justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link redvp oswald" href="<%= Routes.static_path(@conn, "/dashboard/profile")%>/<%= @user.identifier %>"> Perfil 👤</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link redvp oswald" href="<%= Routes.static_path(@conn, "/dashboard/learning")%>">Mi Aprendizaje 📚</a>
-              </li>
-              <li class="nav-item">
-								<a class="nav-link redvp oswald" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-								Logout 👣
-								</a>
-						  </li>
-            </ul>
+      <%= render "profile.html", conn: @conn, user: @user %>
 
-						<div class="collapse text-center" id="collapseExample">
-							<br><a href="<%= Routes.static_path(@conn, "/logout")%>" class="btn btn-sm btn-warning oswald"> <i class="fas fa-sign-out-alt"></i> Cerrar Sesión en Visual Partnership</a>
-						</div>
-
-			      </div>
-			    </div>
-			  </div>
-			</div><br>
-		  <!-- Profile --!>
-
-	  <!-- Network --!>
-		<network class="wrapper" ref="network"
-														 :nodes="nodes"
-														 :edges="edges"
-														 :options="options">
-		</network>
-	  <!-- Network --!>
+	    <!-- Network --!>
+		  <network class="wrapper" ref="network"
+		  												 :nodes="nodes"
+		  												 :edges="edges"
+		  												 :options="options">
+		  </network>
+	    <!-- Network --!>
 
     </div>
 	  <!-- First column  --!>
 
-
 	  <!-- Second column  --!>
-    <div class="col-md-8">
+    <div class="col-md-7">
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" data-backdrop='static' data-keyboard='false' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title text-center oswald">¡Hola! Queremos conocer más de ti, cuéntanos, ¿en qué actividades de tu vida cotidiana 📚 🌟 🏆 te gustaría aplicar el Visual Thinking 🖍? </h5>
-            </button>
-          </div>
-          <div class="modal-body text-center">
-						<p class="lead signika"> Por ejemplo para usarlo y experimentar en: universidad, dibujar, música, diseño, UI, UX, dar clases, compartir, comunicar, programar, comunicación, emprendimientos... </p>
-            <p class="oswald"><small> * Sé breve, agrega todo lo que mejor describa tus intereses. Escríbe uno a uno, seguido de un <span class="badge badge-secondary">Enter</span>. </small></p>
-            <small class="redvp"> {{msg}} </small>
-						<vue-tags-input
-							placeholder="Anota aquí tus ideas"
-							v-model="tag"
-							:tags="tags"
-							:validation="validation"
-							@before-adding-tag="obj => validate(obj)"
-							@tags-changed="newTags => tags = newTags"
-							/>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" v-on:click="save_definitions" > Listo 😁</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render "definitions.html", conn: @conn %>
 	  <!-- modal --!>
 
-      <!-- mis proximos cursos --!>
+      <!-- mis cursos en curso--!>
       <div class="row">
-        <%= for enrollment <- @in_course do %>
-          <div class="col-md-12">
-            <br>
-            <div class="card bg-dark text-white mb-3">
-              <div class="card-header text-center oswald">
-              <h2><%=enrollment.course_session.course.title %></h2>
-              </div>
-              <div class="card-body text-center">
-              <p class="lead"> !Ya puedes entrar a tomar este curso!</p>
-              <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
-              <br><br>
-              <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-success oswald"> Entrar al curso 🔥 </a>
-              </div>
-            </div>
-          </div>
-        <%= end %>
-
-        <%= for enrollment <- @ready do %>
-          <%= if enrollment.status == "READY" do %>
-          <div class="col-md-12">
-            <br>
-            <div class="card text-white" style="background-color: #EB605E;">
-              <div class="card-header text-center oswald">
-              <h4><%=enrollment.course_session.course.title %></h4>
-              </div>
-              <div class="card-body text-center">
-              <span class="lead">
-                Ya puedes concluir tu asistencia, recuerda que una vez que termines este paso tendrás acceso al material de <b>referencia</b> y también a una <b> constancia de particiapación.</b> ⭐️
-              </span>
-              <br><br>
-              <a href="<%= Routes.static_path(@conn, "/dashboard/attendee")%>/<%= @user.identifier %>/<%= enrollment.id%>" class="btn btn-light oswald btn-block"> Finalizar mi asistencia 🔥 </a>
-              </div>
-            </div>
-          </div>
-          <%= end %>
-        <%= end %>
+        <%= render "checkin.html", conn: @conn, in_course: @in_course, user: @user %>
+        <%= render "close.html", conn: @conn, ready: @ready, user: @user %>
       </div><br>
-      <!-- mis proximos cursos --!>
+      <!-- mis cursos en curso--!>
 
       <!-- mis proximos cursos --!>
-			<%= if @open != [] do %>
-				<h3 class="oswald bluevp"> 🚀 Asistirás a estos próximos cursos: </h3><br>
-			<% else %>
-        <div class="jumbotron text-center">
-					<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601701998/open_visual_partner/5430770_wboizk.png" width="30%">
-          <h1 class="display-4"> Tus Cursos 🎁</h1>
-          <p class="lead"> Aquí verás los cursos a los que asistirás.</p>
-          <hr class="my-4">
-        </div>
-			<% end %>
-
-      <div class="row">
-        <%= for enrollment <- @open do %>
-          <div class="col-md-12">
-            <div class="card bg-dark text-white mb-3">
-              <div class="card-body text-center">
-              <h2 class="card-title">
-              <%=enrollment.course_session.course.title %>
-              </h2>
-              <span class="badge badge-info">📆 <%= get_date(enrollment.course_session.session_date) %></span>
-              <span class="badge badge-light oswald"> Asistirás a este curso 🔥</span>
-
-              <br>
-							<a class="btn btn-warning btn-sm oswald" data-toggle="collapse" href="#collapseCancel" role="button" aria-expanded="false" aria-controls="collapseCancel">
-								Cancelar mi asistencia🚫
-							</a>
-							<div class="collapse" id="collapseCancel">
-							<br>
-              <%= link "Cancelar mi asistencia a este curso", to: Routes.static_path(@conn, "/dashboard/#{enrollment.id}"), method: :delete, class: "btn btn-danger btn-sm btn-block oswald" %>
-							</div>
-
-              </div>
-            </div>
-          </div>
-        <%= end %>
-      </div>
+      <%= render "enrollments.html", conn: @conn, open: @open, user: @user %>
       <!-- mis proximos cursos --!>
 
 		</div>
