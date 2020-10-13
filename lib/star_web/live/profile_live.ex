@@ -1,6 +1,7 @@
 defmodule StarWeb.ProfileLive do
   use Phoenix.LiveView
   alias StarWeb.ProfileView
+  alias Star.DefinitionOperator
   alias Star.UserOperator
   alias Star.Session
 
@@ -18,7 +19,12 @@ defmodule StarWeb.ProfileLive do
         socket
       ) do
     user = UserOperator.get_by_identifier(user_identifier)
-    socket = socket |> assign(:user, user) |> assign(:msg, "")
+    identifiers = DefinitionOperator.get_all_by_user_id(user.id)
+    socket =
+      socket
+      |> assign(:user, user)
+      |> assign(:msg, "")
+      |> assign(:identifiers, identifiers)
     {:noreply, socket}
   end
 
@@ -72,6 +78,24 @@ defmodule StarWeb.ProfileLive do
   def handle_event("redirect_url", %{"uri_val" => uri_val}, socket) do
     {:noreply, live_redirect(socket, to: uri_val)}
   end
+
+  def handle_event("delete_identifier", %{"id" => identifier}, socket) do
+		id = String.to_integer(identifier)
+		DefinitionOperator.delete(id)
+		user = socket.assigns.user
+    identifiers = DefinitionOperator.get_all_by_user_id(user.id)
+    socket = assign(socket, :identifiers, identifiers)
+    {:noreply, socket}
+  end
+
+  def handle_event("save_identifier", %{"identifier" => %{"description" => description}}, socket) do
+		user = socket.assigns.user
+    DefinitionOperator.create(description, user.id)
+    identifiers = DefinitionOperator.get_all_by_user_id(user.id)
+    socket = assign(socket, :identifiers, identifiers)
+    {:noreply, socket}
+  end
+
 
   defp confirm_old_password(params, user) do
     case Session.ensure_password(user, params["password"]) do

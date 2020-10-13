@@ -19,6 +19,32 @@
         <li class="list-group-item oswald"> <%= @user.name %> </li>
         <li class="list-group-item oswald"> <%= @user.email%> </li>
       </ul>
+
+			<br>
+
+			<span class="oswald"> Tus intereses en Visual Thinking</span>
+      <!-- Form --!>
+      <form phx-submit="save_identifier">
+			<div class="input-group mb-3">
+			  <input type="text" required class="form-control" name="identifier[description]">
+			  <button type="submit" class="btn btn-success oswald"> Agregar </button>
+			</div>
+      </form>
+      <!-- Form --!>
+
+      <table class="table table-sm text-center">
+        <tbody>
+					<%= for identifier <- @identifiers do %>
+          <tr>
+            <td class="signika"> <%= identifier.description %>  </td>
+            <td>
+							<button class="btn btn-sm btn-warning" phx-click="delete_identifier" phx-value-id="<%= identifier.id %>"> 🚫 </button>
+						</td>
+          </tr>
+					<% end %>
+        </tbody>
+      </table>
+
     </div>
     <!-- First column  --!>
 
