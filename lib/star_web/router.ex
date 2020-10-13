@@ -126,6 +126,7 @@ defmodule StarWeb.Router do
     delete "/:id", UserController, :delete
     ## Course
     get "/course/:id", SessionController, :index
+    get "/next", NextController, :index
   end
 
   ## Enrollments

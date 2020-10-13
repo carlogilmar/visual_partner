@@ -1,0 +1,60 @@
+<br><nav class="navbar navbar-light justify-content-center text-white" style="background-color: #eb6c6c;">
+  <small class="oswald">
+    <a class="text-white" href="<%= Routes.static_path(@conn, "/releases")%>">
+    Esta plataforma es desarrollada por Visual Partnership 👨🏻‍💻
+    </a>
+  </small>
+</nav>
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand oswald" href="#"> 🎨 <%= @user.name %> </a>
+  <span class="oswald text-white">
+    <a class="text-white" href="<%= Routes.static_path(@conn, "/dashboard")%>">
+    Regresar al Dashboard
+    </a>
+  </span>
+</nav>
+
+<div class="container" id="app">
+  <!-- User iD --!>
+	<input type="hidden" id="user" value="<%= @user.identifier%>">
+
+	<%= if @courses != [] do %>
+    <br><h1 class="text-center oswald bluevp"> 💖 Próximos Cursos </h1><br>
+	<% else %>
+    <div class="jumbotron text-center">
+			<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591081573/open_visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_46_kmdl4s.png" width="30%">
+      <h1 class="display-4">Próximos cursos 🎨</h1>
+      <p class="lead"> Aquí encontrarás los siguientes cursos.</p>
+      <hr class="my-4">
+    </div>
+	<% end %>
+
+  <!-- cursos disponibles --!>
+	<div class="row">
+
+
+	  <%= for session <- @courses do %>
+    <!-- card --!>
+    <div class="col-12 col-md-6">
+      <a href="<%= Routes.static_path(@conn, "/dashboard/enrollment/")%><%= session.id %>" class="redvp">
+        <div class="card_course">
+        	<div class="layer2" style="background-image: url(<%= session.course.cover_url %>)"></div>
+        	<div class="layer5 layer5--blue"></div>
+        	<div class="layer7 layer7--blue">
+        		<div class="text">
+        			<h2 class="oswald"> <%= session.course.title %> </h2>
+        			<p> <%= get_date(session.session_date) %> </p>
+        		</div>
+        	</div>
+        </div>
+	      <h4 class="oswald text-center"> Inscribir </h4>
+			</a>
+    </div>
+    <!-- card --!>
+		<% end %>
+	</div>
+  <!-- cursos disponibles --!>
+
+</div>
+
