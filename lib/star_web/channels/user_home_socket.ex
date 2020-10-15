@@ -11,13 +11,13 @@ defmodule StarWeb.UserHomeChannel do
 
   def handle_in(
         "user_home:definitions",
-        %{"tags" => tags, "user" => user},
+        %{"tags" => tags, "user" => user, "city" => city, "country" => country, "description" => description},
         socket
       ) do
     user = UserOperator.get_by_identifier(user)
     save_definitions(tags, user)
+    UserOperator.update(user.id, %{"country" => country, "city" => city, "description" => description })
     identifiers = get_definitions(user.id)
-
     {:reply, {:ok, %{definitions: identifiers}}, socket}
   end
 

@@ -11,6 +11,9 @@ export const app = new Vue({
   },
   data() {
     return {
+      country: null,
+      city: null,
+      description: null,
       msg: '',
       tag: '',
       tags: [
@@ -65,13 +68,14 @@ export const app = new Vue({
 		},
 		save_definitions: function(){
       let user = document.getElementById("user").value;
-      this.channel.push("user_home:definitions", {tags: this.tags, user: user})
+      this.channel.push("user_home:definitions", {tags: this.tags, user: user, city: this.city, country: this.country, description: this.description })
         .receive('ok', (res) => {
           console.log("DONE");
 					console.log(res)
           this.tags = []
 					this.nodes = res.definitions;
           $('#exampleModal').modal('hide');
+          location.reload();
         })
         .receive("error", resp => {
           console.log("ERROR");

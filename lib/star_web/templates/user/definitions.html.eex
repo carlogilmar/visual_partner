@@ -2,11 +2,31 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-center oswald">¡Hola! Queremos conocer más de ti, cuéntanos, ¿en qué actividades de tu vida cotidiana 📚 🌟 🏆 te gustaría aplicar el Visual Thinking 🖍? </h5>
-        </button>
+        <h3 class="modal-title"> ¡Queremos conocer más de ti! 😁🌟</h3>
       </div>
       <div class="modal-body text-center">
-				<p class="lead signika"> Por ejemplo para usarlo y experimentar en: universidad, dibujar, música, diseño, UI, UX, dar clases, compartir, comunicar, programar, comunicación, emprendimientos... </p>
+
+        <div class="form-group">
+          <h5 class="oswald">
+            Brevemente, ¿Cómo te describes? 😁
+          </h5>
+          <textarea v-model="description" class="form-control" rows="2"></textarea>
+        </div>
+
+			  <div class="input-group mb-3">
+          <div class="input-group-text oswald"> 🌎 País</div>
+			    <input v-model="country" type="text" required class="form-control" name="identifier[description]">
+			  </div>
+
+			  <div class="input-group mb-3">
+          <div class="input-group-text oswald"> 🏡 Ciudad</div>
+			    <input v-model="city" type="text" required class="form-control" name="identifier[description]">
+			  </div>
+
+        <h5 class="oswald">
+          ¿En qué actividades de tu vida cotidiana te gustaría aplicar el Visual Thinking 🖍?
+        </h5>
+				<p class="signika"> Por ejemplo para usarlo y experimentar en: dibujar, música, diseño, dar clases, compartir, comunicar, programar, comunicación, emprendimientos... </p>
         <p class="oswald"><small> * Sé breve, agrega todo lo que mejor describa tus intereses. Escríbe uno a uno, seguido de un <span class="badge badge-secondary">Enter</span>. </small></p>
         <small class="redvp"> {{msg}} </small>
 				<vue-tags-input
@@ -19,7 +39,7 @@
 					/>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" v-on:click="save_definitions" > Listo 😁</button>
+        <button type="button" class="btn btn-primary btn_taj" v-on:click="save_definitions" > Listo 😁</button>
       </div>
     </div>
   </div>

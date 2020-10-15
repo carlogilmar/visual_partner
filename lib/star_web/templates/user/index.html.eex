@@ -149,23 +149,24 @@
   <div class="row" v-cloak>
 
 	  <!-- First column  --!>
-    <div class="col-md-5">
+    <div class="col-md-4">
 
       <%= render "profile.html", conn: @conn, user: @user %>
 
 	    <!-- Network --!>
-		  <network class="wrapper" ref="network"
+		  <network class="wrapper card" ref="network"
 		  												 :nodes="nodes"
 		  												 :edges="edges"
 		  												 :options="options">
 		  </network>
 	    <!-- Network --!>
 
+
     </div>
 	  <!-- First column  --!>
 
 	  <!-- Second column  --!>
-    <div class="col-md-7">
+    <div class="col-md-8">
 
     <!-- Modal -->
     <%= render "definitions.html", conn: @conn %>

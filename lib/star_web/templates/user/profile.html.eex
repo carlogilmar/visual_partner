@@ -1,7 +1,24 @@
 <!-- Profile --!>
 <div class="row">
-  <div class="col-12 text-center">
-	  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0157_ggarsn.png" width="80%"/>
+  <div class="col-12 ">
+		<div class="text-center">
+	  	<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601588437/visual_partner/IMG_0157_ggarsn.png" width="60%"/>
+		</div>
+
+    <a class="bluevp oswald" href="<%= Routes.static_path(@conn, "/dashboard/profile")%>/<%= @user.identifier %>"> 🖍 Editar </a>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title oswald text-center"> <%= @user.name %> </h5>
+        <p class="card-text signika">
+					<%= @user.description %>
+				</p>
+				<span class="oswald" style="color: #e07c7a;">
+					<i class="fas fa-calendar-week"></i> <%= get_date_since(@user.inserted_at) %>
+				  &nbsp; | &nbsp; <i class="fas fa-compass"></i> <%= @user.city %> , <%= @user.country %>
+				</span>
+      </div>
+    </div>
+
   </div>
 </div><br>
 <!-- Profile --!>

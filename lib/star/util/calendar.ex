@@ -4,7 +4,7 @@ defmodule Star.CalendarUtil do
     "#{date.day} de #{month} del #{date.year}"
   end
 
-  defp get_month(month) do
+  def get_month(month) do
     months = %{
       1 => "Enero",
       2 => "Febrero",
