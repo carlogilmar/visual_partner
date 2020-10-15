@@ -12,6 +12,9 @@ defmodule Star.User do
     field :identifier, :string
     field :recover_hash, :string
     field :status, :string, default: "INACTIVE"
+    field :description, :string
+    field :city, :string
+    field :country, :string
     timestamps()
     has_many :enrollment, Star.Enrollment, on_delete: :delete_all
     has_many :definition, Star.Definition, on_delete: :delete_all
@@ -20,7 +23,7 @@ defmodule Star.User do
   @doc false
   def changeset(model, attrs) do
     model
-    |> cast(attrs, [:identifier, :name, :role, :email, :password, :status, :recover_hash])
+    |> cast(attrs, [:identifier, :name, :role, :email, :password, :status, :recover_hash, :description, :city, :country])
     |> validate_required([])
   end
 end
