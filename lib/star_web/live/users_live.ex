@@ -1,5 +1,6 @@
 defmodule StarWeb.UsersLive do
   use Phoenix.LiveView
+  alias Star.DefinitionOperator
   alias Star.UserOperator
   alias Star.SignupManager
   alias StarWeb.UsersView
@@ -38,6 +39,13 @@ defmodule StarWeb.UsersLive do
   def handle_event("delete", %{"user_id" => user_id}, socket) do
     user_id = String.to_integer(user_id)
     {:ok, _user_deleted} = UserOperator.delete_user(user_id)
+    socket = update_users(socket)
+    {:noreply, socket}
+  end
+
+  def handle_event("delete_tag", %{"tag_id" => id}, socket) do
+    tag_id = String.to_integer(id)
+    {:ok, _user_deleted} = DefinitionOperator.delete(tag_id)
     socket = update_users(socket)
     {:noreply, socket}
   end

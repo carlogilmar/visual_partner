@@ -30,7 +30,7 @@ defmodule Star.UserOperator do
 
   def get_all_by_role(role) do
     query = from(user in User, where: user.role == ^role, order_by: [desc: user.inserted_at])
-    query |> Repo.all()
+    query |> Repo.all() |> Repo.preload([:definition])
   end
 
   def get_by_email(email) do
