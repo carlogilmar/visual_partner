@@ -41,6 +41,39 @@ defmodule StarWeb.ProfileLive do
     {:noreply, socket}
   end
 
+  def handle_event("save_country", %{"user" => country}, socket) do
+    {:ok, user} = UserOperator.update(socket.assigns.user.id, country)
+
+    socket =
+      socket
+      |> assign(:user, user)
+      |> assign(:msg, "País actualizado")
+
+    {:noreply, socket}
+  end
+
+  def handle_event("save_city", %{"user" => city}, socket) do
+    {:ok, user} = UserOperator.update(socket.assigns.user.id, city)
+
+    socket =
+      socket
+      |> assign(:user, user)
+      |> assign(:msg, "Ciudad actualizada")
+
+    {:noreply, socket}
+  end
+
+  def handle_event("save_description", %{"user" => desc}, socket) do
+    {:ok, user} = UserOperator.update(socket.assigns.user.id, desc)
+
+    socket =
+      socket
+      |> assign(:user, user)
+      |> assign(:msg, "Descripción actualizada")
+
+    {:noreply, socket}
+  end
+
   def handle_event("save_email", %{"user" => params}, socket) do
     case UserOperator.get_by_email(params["email"]) do
       nil ->

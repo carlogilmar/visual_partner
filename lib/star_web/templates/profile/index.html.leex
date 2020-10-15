@@ -117,6 +117,57 @@
     </div>
     <!-- Editar Email  --!>
 
+    <!-- Editar País  --!>
+    <a class="oswald redvp" data-toggle="collapse" href="#collapseEditCountry" role="button" aria-expanded="false" aria-controls="collapseEditCountry">
+       🌎 Editar País
+    </a>
+    <hr>
+    <div class="collapse" id="collapseEditCountry">
+      <!-- Form --!>
+      <form phx-submit="save_country">
+			<div class="input-group mb-3">
+			  <input type="text" value="<%=@user.country%>" required class="form-control" name="user[country]">
+			  <button type="submit" class="btn btn-success oswald"> Actualizar País </button>
+			</div>
+      </form>
+      <!-- Form --!>
+    </div>
+    <!-- Editar País  --!>
+
+    <!-- Editar Ciudad  --!>
+    <a class="oswald redvp" data-toggle="collapse" href="#collapseEditCity" role="button" aria-expanded="false" aria-controls="collapseEditCity">
+       🏡 Editar Ciudad
+    </a>
+    <hr>
+    <div class="collapse" id="collapseEditCity">
+      <!-- Form --!>
+      <form phx-submit="save_city">
+			<div class="input-group mb-3">
+			  <input type="text" value="<%=@user.city%>" required class="form-control" name="user[city]">
+			  <button type="submit" class="btn btn-success oswald"> Actualizar Ciudad </button>
+			</div>
+      </form>
+      <!-- Form --!>
+    </div>
+    <!-- Editar Ciudad  --!>
+
+    <!-- Editar Descripción  --!>
+    <a class="oswald redvp" data-toggle="collapse" href="#collapseEditDescr" role="button" aria-expanded="false" aria-controls="collapseEditDescr">
+       🏆 Editar Descripción
+    </a>
+    <hr>
+    <div class="collapse" id="collapseEditDescr">
+      <!-- Form --!>
+      <form phx-submit="save_description">
+        <div class="form-group">
+          <textarea required class="form-control" name="user[description]" rows="2"> <%=@user.description %> </textarea>
+			    <br><button type="submit" class="btn btn-success oswald"> Actualizar Descripción </button>
+        </div>
+      </form>
+      <!-- Form --!>
+    </div>
+    <!-- Editar Descripción  --!>
+
     </div>
     <!-- Second column  --!>
 
