@@ -58,9 +58,11 @@ defmodule StarWeb.UsersLive do
 
   defp get_users(status) do
     users = UserOperator.get_all_by_role("USER")
+
     case status do
       "ALL" ->
         users
+
       status ->
         Enum.filter(users, fn user -> user.status == status end)
     end
