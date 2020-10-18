@@ -6,7 +6,7 @@
 		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1601701998/open_visual_partner/5430770_wboizk.png" width="30%">
     <h1 class="display-4"> Tus Cursos 🎁</h1>
     <p class="lead"> Aquí verás los cursos a los que asistirás. ¡Mira los próximos!</p>
-    <a class="oswald redvp" href="<%= Routes.static_path(@conn, "/dashboard/next")%>"><h2> Próximos Cursos 👋</h2></a>
+    <a class="btn btn-primary btn_taj oswald" href="<%= Routes.static_path(@conn, "/dashboard/next")%>"><h2> Próximos Cursos 👋</h2></a>
     <hr class="my-4">
   </div>
 <% end %>

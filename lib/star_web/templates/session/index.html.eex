@@ -116,32 +116,33 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="text-center col-md-6">
-		  <h2 class="oswald redvp"> Pre-Registro 💖 </h2>
-      <br>
       <%= for session <- @course.course_session do %>
         <%= if session.status == "OPEN" do %>
 			    <!-- Registro --!>
-          <%= form_for @conn, Routes.session_path(@conn, :enroll), [method: :post], fn _f -> %>
+          <!-- Registro --!>
+          <nav class="navbar navbar-expand-sm fixed-bottom nav_color justify-content-center bg-dark">
+          <%= form_for @conn, Routes.session_path(@conn, :enroll), [method: :post, class: "form-inline"], fn _f -> %>
             <input type="hidden" name="course_session_id" id="user" value="<%= session.id %>">
             <input type="hidden" name="_csrf_token" id="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token() %>" />
             <div class="form-group">
               <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-envelope"></i> &nbsp; Email </span>
-                </div>
-                <input required name="email" class="form-control" placeholder="" type="email">
+                <input placeholder="Your email here 📧" required name="email" class="form-control" placeholder="" type="email">
               </div> <!-- input-group.// -->
             </div> <!-- form-group// -->
+            &nbsp;&nbsp;
             <div class="form-group">
-              <button type="submit" class="btn btn-success btn-block"> <small><strong> Pre Registrar  </strong> </small>  </button>
+              <button type="submit" class="btn btn-success btn-block oswald"> <small><strong> Pre Registrar 🌟 </strong> </small>  </button>
 
             </div> <!-- form-group// -->
           <% end %>
-			    <!-- Registro --!>
+
+          </nav>
+          <!-- Registro --!>
         <% end %>
       <% end %>
     </div>
   </div>
+
 
 </div>
 
