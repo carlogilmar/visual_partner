@@ -1,0 +1,36 @@
+<br>
+<nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: rgb(38 47 60)">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+				<a class="btn btn-primary btn_taj oswald" href="<%= Routes.static_path(@conn, "/welcome")%>">
+					L O G I N 🚀
+				</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-white oswald" href="#"> ¡Contáctanos! ☎️<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-white oswald" href="#"> Próximos Cursos 📚<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <a target="_blank" class="text-white oswald" href="<%= Routes.static_path(@conn, "/releases")%>">
+    Esta plataforma es desarrollada por Visual Partnership
+    </a>
+  </div>
+</nav>
+
+<header class="masthead">
+
+	 <div class="container">
+	   <div class="row h-100 align-items-center text-center d-flex align-items-center justify-content-center">
+	   <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1602568635/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_uungs6.png" class="responsive"/>
+	   </div>
+     <br>
+	   <div class="row h-100 align-items-center text-center d-flex align-items-center justify-content-center">
+       <a href="/welcome" class="btn btn-primary btn_taj oswald"> Entrar 🙌 &nbsp; | &nbsp; Registrar ⭐️ </a>
+	   </div>
+	 </div>
+
+</header>
+
