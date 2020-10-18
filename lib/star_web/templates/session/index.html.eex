@@ -1,5 +1,14 @@
-<br><br>
 <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/email_controller.css") %>" />
+
+<br>
+<nav class="navbar navbar-expand-lg navbar-light text-white" style="background-color: rgb(38 47 60)">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <a class="text-white oswald" href="<%= Routes.static_path(@conn, "/")%>">
+      🏠 Regresar
+    </a>
+  </div>
+</nav>
+<br>
 
 <div class="container">
 
