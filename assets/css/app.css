@@ -290,6 +290,12 @@ a:hover{
   background-position: center;
 }
 
+.bg-image-cover {
+  background-image: url('https://res.cloudinary.com/carlogilmar/image/upload/v1603077027/website/IMG_0379_qf0rha.png');
+  background-size: cover;
+  background-position: center;
+}
+
 .login-heading {
   font-weight: 300;
 }

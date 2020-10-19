@@ -1,4 +1,14 @@
-<hr class="featurette-divider">
+<div class="row text-center">
+	<div class="col-md-1"></div>
+	<div class="col-md-4">
+		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603076982/website/IMG_0381_odynhb.png" width="100%"/>
+	</div>
+	<div class="col-md-2"></div>
+	<div class="col-md-4">
+		<img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603076982/website/IMG_0382_zsijas.png" width="100%"/>
+	</div>
+	<div class="col-md-1"></div>
+</div>
 
 <div class="row text-center">
 	<div class="col-md-6">
