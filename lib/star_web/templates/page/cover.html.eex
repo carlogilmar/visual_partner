@@ -12,9 +12,6 @@
 					Próximos Cursos 📚
 				</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link text-white oswald" href="#"> ¡Contáctanos! ☎️<span class="sr-only">(current)</span></a>
-      </li>
     </ul>
     <a target="_blank" class="text-white oswald" href="<%= Routes.static_path(@conn, "/releases")%>">
     Esta plataforma es desarrollada por Visual Partnership

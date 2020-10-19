@@ -2,21 +2,21 @@
 
 <div class="row text-center">
 	<div class="col-md-4">
-		<a href="">
+		<a href="<%= Routes.static_path(@conn, "/blog")%>">
 		  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603072251/website/IMG_0375_qnw8no.png" width="80%"/>
 		  <h3 class="oswald redvp">  Blog </h3>
 		  <h5 class="oswald bluevp"> Últimas Entradas </h5>
 		</a>
 	</div>
 	<div class="col-md-4">
-		<a href="">
+		<a href="<%= Routes.static_path(@conn, "/talks")%>">
 		  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603072247/website/IMG_0376_frseui.png" width="80%"/>
 		  <h3 class="oswald redvp"> Talks </h3>
 		  <h5 class="oswald bluevp"> Charlas </h5>
 		</a>
 	</div>
 	<div class="col-md-4">
-		<a href="">
+		<a href="<%= Routes.static_path(@conn, "/releases")%>">
 		  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603072653/website/Ilustracio%CC%81n_sin_ti%CC%81tulo_23_b29uah.png" width="100%"/>
 		  <h3 class="oswald redvp"> Platform </h3>
 		</a>
