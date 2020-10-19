@@ -16,9 +16,6 @@
 			<!-- comments about my work -->
 			<%= render "work.html", conn: @conn %>
 
-			<!-- suscriptor -->
-			<%= render "suscriptor.html", conn: @conn %>
-
 			<!-- comments about my work -->
 			<%= render "author.html", conn: @conn %>
 

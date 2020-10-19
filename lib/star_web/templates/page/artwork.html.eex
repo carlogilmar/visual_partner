@@ -1,51 +1,42 @@
-<!-- artwork -->
-<hr class="featurette-divider"><br>
+<hr class="featurette-divider">
 
-<div class="text-center" id="artwork" name="artwork">
-  <h1 class="redvp pacifico text-center"> <span> Artwork </span> </h1>
-  <span class="lead"> Would you like to know more about my style? <b>Click an image!</b> </span><br>
-  <span class="lead_latin"> ¿Quieres ver mi estilo? <b>¡Da click en alguna imagen!</b> </span>
+<div class="row text-center">
+	<div class="col-md-4">
+		<a href="">
+		  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603072251/website/IMG_0375_qnw8no.png" width="80%"/>
+		  <h3 class="oswald redvp">  Blog </h3>
+		  <h5 class="oswald bluevp"> Últimas Entradas </h5>
+		</a>
+	</div>
+	<div class="col-md-4">
+		<a href="">
+		  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603072247/website/IMG_0376_frseui.png" width="80%"/>
+		  <h3 class="oswald redvp"> Talks </h3>
+		  <h5 class="oswald bluevp"> Charlas </h5>
+		</a>
+	</div>
+	<div class="col-md-4">
+		<a href="">
+		  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603072653/website/Ilustracio%CC%81n_sin_ti%CC%81tulo_23_b29uah.png" width="100%"/>
+		  <h3 class="oswald redvp"> Platform </h3>
+		</a>
+	</div>
 </div>
 
-<div class="row">
+<hr class="featurette-divider">
 
-  <carousel-3d>
-    <slide :index="0">
-    <a href="<%= Application.get_env(:star, :base_url) %>/visual/partnership">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123774/visual_partner/Events/IMG_5433_bfizax.png" />
-    </a>
-    </slide>
-
-    <slide :index="1">
-    <a href="<%= Application.get_env(:star, :base_url) %>/visual/event">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123772/visual_partner/Events/IMG_5428_vsesi3.png" />
-    </a>
-    </slide>
-
-    <slide :index="2">
-    <a href="<%= Application.get_env(:star, :base_url) %>/visual/meetings">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123766/visual_partner/Events/IMG_5432_fedcah.png" />
-    </a>
-    </slide>
-
-    <slide :index="3">
-    <a href="<%= Application.get_env(:star, :base_url) %>/visual/resources">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123765/visual_partner/Events/IMG_5431_ts42ma.png" />
-    </a>
-    </slide>
-
-    <slide :index="4">
-    <a href="<%= Application.get_env(:star, :base_url) %>/visual/community">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123777/visual_partner/Events/IMG_5429_oi596h.png" />
-    </a>
-    </slide>
-
-    <slide :index="5">
-    <a href="<%= Application.get_env(:star, :base_url) %>/visual/funny">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585123773/visual_partner/Events/IMG_5430_cw4lrn.png" />
-    </a>
-    </slide>
-
-  </carousel-3d>
+<div class="row text-center">
+	<div class="col-md-6">
+		<iframe src="https://github.com/sponsors/carlogilmar/button" title="Sponsor carlogilmar" height="35" width="116" style="border: 0;"></iframe>
+		<h3 class="oswald redvp"> GitHub Sponsors</h3>
+		<p class="lead"> Este proyecto es posible gracias al apoyo de todos los <b>Sponsors</b> 💖 a través del programa de <b>GitHub Sponsors</b>. Tú también puedes ser mi sponsor 😁</p>
+		<p class="lead_latin"> Thanks to my <b>GitHub Sponsors</b> for their incredible support! You can be my sponsor too!</p>
+	</div>
+	<div class="col-md-6">
+		<a target="_blank" href="https://github.com/carlogilmar/visual_partnership">
+			<br>
+		  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603073669/website/Captura_de_Pantalla_2020-10-18_a_la_s_9.13.58_p.m._rdp9uq.png" width="60%"/>
+		  <h3 class="oswald redvp"> Open Gallery GitHub</h3>
+		</a>
+	</div>
 </div>
-<!-- artwork -->
