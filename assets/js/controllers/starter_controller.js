@@ -8,7 +8,8 @@ Vue.component('VueStar', VueStar)
 export const app = new Vue({
   el:"#app",
   data: {
-    socket: "💀"
+    socket: "💀",
+		client_msg: "Conoce nuestro estilo"
   },
   created: function() {
     console.log("Vue App here!");
@@ -30,5 +31,8 @@ export const app = new Vue({
         that.channel.push("home:session", response);
       });
     },
+    click: function(desc){
+			this.client_msg = desc;
+    }
   }
 });

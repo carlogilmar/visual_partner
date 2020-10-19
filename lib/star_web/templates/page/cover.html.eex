@@ -31,16 +31,26 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto text-center">
 							<!-- Login --!>
-				      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1602568635/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_uungs6.png" width="100%" />
-							<br><br>
 							<span class="oswald bluevp"><h5>
 								🎨Visual Thinking &nbsp;&nbsp; 📚 Training  &nbsp;&nbsp;🖍 Illustrations
 							</h5></span>
-							<br>
+				      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1602568635/visual_partner/Ilustracio%CC%81n_sin_ti%CC%81tulo_uungs6.png" width="100%" />
+								<a target="_blank" href="https://www.instagram.com/visual_partner/" class="bluevp">
+								<span style="font-size: 30px;"><i class="fab fa-instagram"></i></span>
+								</a> &nbsp; &nbsp;
+								<a target="_blank" href="https://www.facebook.com/Visual-Partnership-103869617939153" class="bluevp">
+								<span style="font-size: 30px;"><i class="fab fa-facebook-f"></i></span>
+								</a> &nbsp; &nbsp;
+								<a target="_blank" href="https://twitter.com/visual_partner" class="bluevp">
+								<span style="font-size: 30px;"><i class="fab fa-twitter"></i></span>
+								</a> &nbsp; &nbsp;
+								<a target="_blank" href="https://www.linkedin.com/company/visual-partnership/" class="bluevp">
+								<span style="font-size: 30px;"><i class="fab fa-linkedin-in"></i></span>
+								</a> &nbsp; &nbsp;
+							<br><br>
 							<a href="/welcome" class="btn btn-primary btn_taj oswald">
 								<h4>  Entrar & Registrarse </h4>
 							</a>
-							<br><span class="lead">Es rápido y sencillo.</span>
 							<br><br>
 							<br><br>
 							<!-- Login --!>

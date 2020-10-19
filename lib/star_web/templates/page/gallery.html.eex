@@ -2,38 +2,40 @@
 <hr class="featurette-divider"><br>
 
 <div class="text-center">
-  <h1 class="redvp pacifico text-center"> <span> Style </span> </h1>
+  <h1 class="redvp pacifico"> <span> Nuestros Clientes </span> </h1>
+  <h3 class="bluevp oswald"> <span> Our clients</span> </h1>
+  <span class="bluevp lead"> {{client_msg}} </span>
 </div>
 
 <div class="row">
 
   <carousel-3d>
     <slide :index="0">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124847/visual_partner/Events/Participations/IMG_5434_mawabn.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603070780/website/Ilustracio%CC%81n_sin_ti%CC%81tulo_22_vg7r9y.png" @click="click('Catarsis 22, Canal 22 de México')" />
     </slide>
     <slide :index="1">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124852/visual_partner/Events/Participations/IMG_5441_bnnkjk.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603070489/website/IMG_0198_vviiqw.png" @click="click('Podcast Espacios Abiertos')" />
     </slide>
     <slide :index="2">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124847/visual_partner/Events/Participations/IMG_5442_f211dk.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603070531/website/keynote_day1_nn53ot.png" @click="click('Erlang Solutions, Elixir Conf Virtual 2020')" />
     </slide>
     <slide :index="3">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124844/visual_partner/Events/Participations/IMG_5438_pqxpau.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603070610/website/cover_iztuvo.png" @click="click('Código Facilito')" />
     </slide>
     <slide :index="4">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124844/visual_partner/Events/Participations/IMG_5436_cd8wa8.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603070628/website/cover_crlpbc.png" @click="click('GitHub Education, Hackcon')" />
     </slide>
     <slide :index="5">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124836/visual_partner/Events/Participations/IMG_5437_berbfg.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603071316/website/IMG_0109_izcbvu.png" @click="click('GitHub Octogatos')" />
     </slide>
     <slide :index="6">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124831/visual_partner/Events/Participations/IMG_5440_pba6jc.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603070648/website/IMG_6047_ej4z4j.png" @click="click('Aprendiendo En Señas')" />
     </slide>
     <slide :index="7">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124828/visual_partner/Events/Participations/IMG_5439_yx4wwc.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603071538/website/Captura_de_Pantalla_2020-10-18_a_la_s_8.38.47_p.m._pl3ikd.png" @click="click('IFVP')" />
     </slide>
     <slide :index="8">
-      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1585124825/visual_partner/Events/Participations/IMG_5435_hdaois.png" />
+      <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1603070570/website/IMG_0022_n2loxd.png" @click="click('México Burlesque Festival')" />
     </slide>
   </carousel-3d>
 </div>

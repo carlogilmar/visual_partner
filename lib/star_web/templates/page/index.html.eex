@@ -7,14 +7,14 @@
 			<!-- thesis -->
 			<%= render "thesis.html", conn: @conn %>
 
+			<!-- style -->
+			<%= render "gallery.html", conn: @conn %>
+
 			<!-- artwork -->
 			<%= render "artwork.html", conn: @conn %>
 
 			<!-- comments about my work -->
 			<%= render "work.html", conn: @conn %>
-
-			<!-- style -->
-			<%= render "gallery.html", conn: @conn %>
 
 			<!-- suscriptor -->
 			<%= render "suscriptor.html", conn: @conn %>
