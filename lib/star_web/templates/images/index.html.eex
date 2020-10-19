@@ -1,47 +1,29 @@
-<div id="app" class="container">
+<br><br>
 
-  <input type="hidden" id="gallery" value="<%= @gallery %>">
-  <br><br>
-  <h1 class="taj_color oswald text-center"> <i class="fas fa-images" aria-hidden="true"></i> <span> {{gallery.title}} </span> </h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 text-center">
+      <h1 class="oswald" style="font-size: 3.5rem;"> 🎁 Colaboraciones  </h1>
+    </div>
+  </div>
   <br>
 
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+	<div class="row">
+		<div class="col">
 
-      <carousel :per-page="1" :autoplay="true">
+    <div class="card-columns">
 
-      <slide v-for="image in images">
-      <div class="text-center">
-        <p class="lead"> {{image.eng_desc}} </p>
-        <p class="lead_latin">{{image.esp_desc}} </p>
+			<%= for image <- @images do %>
+      <div class="card text-center">
+			  <img class="card-img-top" src="<%= image.url %>" alt="Card image cap">
+        <div class="card-body text-center">
+          <h5 class="card-title"> <%= image.esp_desc%> </h5>
+        </div>
       </div>
-      <img v-bind:src="image.url" width="100%" />
-      </slide>
-
-      </carousel>
+			<% end  %>
 
     </div>
+
+		</div>
   </div>
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette text-center">
-    <div class="col-md-2"></div>
-    <div class="col-md-3">
-      <a href="http://carlogilmar.xyz/">
-        <img class="featurette-image img-fluid mx-auto" v-bind:src="gallery.cover" width="100%" alt="Author">
-      </a>
-    </div>
-    <div class="col-md-5">
-      <p class="lead footer-font">
-      <br> {{gallery.eng_desc}}
-      <br><br> <i> <small> {{gallery.esp_desc}} </small></i>
-      </p>
-    </div>
-    <div class="col-md-2"></div>
-  </div>
-
 </div>
-
-<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/images_controller.js") %>"></script>

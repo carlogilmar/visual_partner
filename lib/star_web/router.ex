@@ -45,8 +45,7 @@ defmodule StarWeb.Router do
     live "/invite/:id", InviteLive
 
     ### Gallery
-    live "/visual/:type", GalleryLive
-    get "/gallery/:id", ImagesController, :index
+    get "/gallery", ImagesController, :index
 
     ### Sponsors
     live "/sponsorship", SponsorsLive

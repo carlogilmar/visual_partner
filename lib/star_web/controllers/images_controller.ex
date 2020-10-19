@@ -1,7 +1,9 @@
 defmodule StarWeb.ImagesController do
   use StarWeb, :controller
+  alias Star.ImageOperator
 
-  def index(conn, params) do
-    conn |> render("index.html", gallery: params["id"])
+  def index(conn, _params) do
+    images = ImageOperator.get_all()
+    conn |> render("index.html", images: images)
   end
 end

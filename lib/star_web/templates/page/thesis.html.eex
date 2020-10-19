@@ -19,7 +19,7 @@
 		</a>
 	</div>
 	<div class="col-md-6">
-		<a href="<%= Routes.static_path(@conn, "/open")%>">
+		<a href="<%= Routes.static_path(@conn, "/gallery")%>">
 		  <h3 class="oswald redvp"> Colaboraciones </h3>
 		  <h4 class="oswald bluevp"> Colaborations </h4>
 		  <img src="https://res.cloudinary.com/carlogilmar/image/upload/v1591082858/open_visual_partner/Telemetry/IMG_5696_kxyhp4.png" width="65%"/>
