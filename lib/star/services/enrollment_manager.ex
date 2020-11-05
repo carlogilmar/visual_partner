@@ -36,7 +36,7 @@ defmodule Star.EnrollmentManager do
 
     case user.status do
       "INACTIVE" ->
-        register_url = "#{base_path}register/#{user.identifier}"
+        register_url = "#{base_path}invite/#{user.identifier}"
 
         EmailerSenderOperator.send_register_email(
           user.email,
