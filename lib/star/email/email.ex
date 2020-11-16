@@ -8,7 +8,7 @@ defmodule Star.Email do
     new_email()
     |> to(email)
     |> put_header("Reply-To", "visualpartnership@gmail.com")
-    |> from("visualpartnership@gmail.com")
+    |> from("carlogilmar12@gmail.com")
     |> subject(subject)
     |> html_body(body)
   end
