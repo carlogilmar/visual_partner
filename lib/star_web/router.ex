@@ -83,6 +83,7 @@ defmodule StarWeb.Router do
 
     ## Courses
     get "/open", OpenController, :index
+
   end
 
   ## Admin
@@ -111,6 +112,7 @@ defmodule StarWeb.Router do
     live "/expectations/:id", ExpectationsLive
     live "/feedback/:id", FeedbackLive
     live "/register/:id", RegisterLive
+    get "/csv/preregisters/:id", CsvController, :export_preregisters #csv
   end
 
   ## Users

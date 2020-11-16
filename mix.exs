@@ -50,7 +50,8 @@ defmodule Star.MixProject do
       {:bamboo, "~> 1.3"},
       {:poison, "~> 3.1"},
       {:httpoison, "~> 1.2.0"},
-      {:scaffolding, git: "git://github.com/carlogilmar/scaffolding.git", only: [:dev]}
+      {:scaffolding, git: "git://github.com/carlogilmar/scaffolding.git", only: [:dev]},
+      {:csv, "~> 2.4"}
     ]
   end
 
