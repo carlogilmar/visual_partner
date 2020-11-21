@@ -8,7 +8,17 @@ defmodule StarWeb.CsvController do
 
     conn
     |> put_resp_content_type("text/csv")
-    |> put_resp_header("content-disposition", "attachment; filename=\"visual_partner.csv\"")
+    |> put_resp_header("content-disposition", "attachment; filename=\"preregisters.csv\"")
+    |> send_resp(200, csv_content)
+  end
+
+  def export_registers(conn, %{"id" => cs_id}) do
+    cs_id = String.to_integer(cs_id)
+    csv_content = Csv.export_registers_from_cs(cs_id)
+
+    conn
+    |> put_resp_content_type("text/csv")
+    |> put_resp_header("content-disposition", "attachment; filename=\"registers.csv\"")
     |> send_resp(200, csv_content)
   end
 end

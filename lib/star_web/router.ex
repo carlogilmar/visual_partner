@@ -113,6 +113,7 @@ defmodule StarWeb.Router do
     live "/register/:id", RegisterLive
     # csv
     get "/csv/preregisters/:id", CsvController, :export_preregisters
+    get "/csv/registers/:id", CsvController, :export_registers
   end
 
   ## Users
